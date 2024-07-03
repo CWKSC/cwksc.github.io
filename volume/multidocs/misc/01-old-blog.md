@@ -6,7 +6,7 @@
 
 我懶得把所有內容複製過來
 
-詳情可參閱這個博客的第一篇 blog post: [又一次重啟博客](https://cwksc.github.io/blog/2024/07/02/first-post)
+詳情可參閱這個博客的第一篇 blog post: [又一次重開博客](https://cwksc.github.io/blog/2024/07/02/first-post)
 
 [CWKSC's blog | 博客 (已棄用)](https://cwksc.github.io/CWKSC.github.io_backup/)
 
