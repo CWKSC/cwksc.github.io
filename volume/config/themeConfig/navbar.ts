@@ -9,5 +9,6 @@ export const navbar = {
     items: [
         { label: 'Blog 博客', to: '/blog/', position: 'left' },
         { label: 'Note 筆記', to: "/note/", position: 'left' },
+        { label: 'Misc 雜項', to: "/misc/", position: 'left' },
     ],
 };
