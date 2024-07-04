@@ -11,6 +11,7 @@ export const navbar = {
         { label: 'Note 筆記', to: "/note/", position: 'left' },
         { label: 'Programming 編程', to: "/programming/", position: 'left' },
         { label: 'Node.js', to: "/node-js/", position: 'left' },
+        { label: 'Algorithm 算法', to: "/algorithm/", position: 'left' },
         { label: 'Misc 雜項', to: "/misc/", position: 'left' },
     ],
 };
