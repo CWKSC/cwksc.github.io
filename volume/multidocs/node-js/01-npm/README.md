@@ -1,9 +1,4 @@
----
-sidebar_position: 0
----
-
 # npm
-
 
 ## `--save-dev`
 
