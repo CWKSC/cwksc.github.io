@@ -11,6 +11,20 @@ npx shadcn-ui@latest init
 ```
 
 
+## Customize installation directory of ui components
+
+https://ui.shadcn.com/docs/components-json
+
+For example:
+
+```json
+{
+  "aliases": {
+     "ui": "@/components/shadcn-ui"
+  }
+}
+```
+
 ## Troubleshooting
 
 ### Can't resolve '@/components/icons'
