@@ -10,7 +10,6 @@ cd <project-name>
 npx shadcn-ui@latest init
 ```
 
-
 ## Customize installation directory of ui components
 
 https://ui.shadcn.com/docs/components-json

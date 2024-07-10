@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # Node.js
 
-Node.js 是一個大 topic，可以：
+Node.js 生態非常龐大，可以：
 
 - Frontend (React)
 
@@ -17,5 +17,7 @@ Node.js 是一個大 topic，可以：
 - Database ORM (Prisma)
 
 - 獨立運行 
+
+- VSCode extension
 
 所以分類出來
