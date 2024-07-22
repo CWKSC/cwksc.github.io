@@ -15,6 +15,7 @@ export default function Home(): JSX.Element {
                     justifyContent: 'center',
                     alignItems: 'center',
                     padding: '32px',
+                    paddingTop: '64px',
                     gap: '16px',
                 }}>
 
@@ -28,8 +29,6 @@ export default function Home(): JSX.Element {
                 <h1> About me 關於我 </h1>
 
                 <p> 一個什麼都學，但什麼都不精通的人 </p>
-
-                <p> 畢業於 City University of Hong Kong, Computer Science </p>
 
             </div>
 
