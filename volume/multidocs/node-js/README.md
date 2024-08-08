@@ -12,7 +12,9 @@ Node.js 生態非常龐大，可以：
 
 - Full stack (Next.js)
 
-- Cross platform app: Android, iOS, Web (React Native)
+- Cross-platform app: Android, iOS, Web (React Native)
+
+- Cross-platform desktop application (Electron)
 
 - Database ORM (Prisma)
 
