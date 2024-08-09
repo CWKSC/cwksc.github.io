@@ -19,6 +19,8 @@ tags: []
 
 第二次是直接在 GitHub 開一個 [repository](https://github.com/CWKSC/simple_blog) ，just markdown ，2023 年的時候
 
+<!-- truncate -->
+
 > I am tired of building, maintaining a blog, finding pictures, and other things. Most of my time is spent on these tasks rather than writing articles. So I started a simple blog that only stores the content of my articles.
 
 事實上的確是很方便，GitHub 原本就會 render code block highlighting 和 math equations，但有些簡陋和不正式
