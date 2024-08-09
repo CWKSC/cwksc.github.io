@@ -15,4 +15,5 @@ docker container run ^
     --volume "%cd%/../../../../volume/run.sh:/workspace/docusaurus_for_baby/run.sh" ^
     --volume "%cd%/../../../../volume/src/:/workspace/docusaurus_for_baby/src/" ^
     --volume "%cd%/../../../../volume/static/:/workspace/docusaurus_for_baby/static/" ^
+    --volume "%cd%/../../../../volume/.vscode/:/workspace/docusaurus_for_baby/.vscode/" ^
     docusaurus_for_baby_develop_image
