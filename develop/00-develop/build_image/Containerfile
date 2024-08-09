@@ -1,7 +1,7 @@
 FROM public.ecr.aws/docker/library/node:20.15
 
 # Config
-ENV docusaurus_version=3.4.0
+ENV docusaurus_version=3.5.0
 
 EXPOSE 3000
 
@@ -23,8 +23,8 @@ RUN npm install -g npm@latest && \
 WORKDIR /workspace/docusaurus_for_baby
 
 RUN npm install \
-    @docusaurus/plugin-content-docs \
-    @docusaurus/plugin-content-blog \
+    @docusaurus/plugin-content-docs@${docusaurus_version} \
+    @docusaurus/plugin-content-blog@${docusaurus_version} \
     remark-math@6 rehype-katex@7 \
     @easyops-cn/docusaurus-search-local
 
