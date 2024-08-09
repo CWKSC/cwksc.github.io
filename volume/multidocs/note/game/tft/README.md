@@ -25,7 +25,7 @@ https://teamfighttactics.leagueoflegends.com/zh-tw/news/game-updates/teamfight-t
 
 [【聯盟戰棋】S12新手必知攻略，看完快速學會新賽季！9大遊戲技巧，營運、裝備、扣血機制、護符、過渡、陣容、增幅、攻略網一次看│云頂之弈 TFT - YouTube](https://www.youtube.com/watch?v=VHd3OU88Ryg)
 
-4:16 有齊勒斯護符 table
+[4:17](https://www.youtube.com/watch?v=VHd3OU88Ryg&t=258s) 有齊勒斯護符 table
 
 [MetaTFT Charms](https://www.metatft.com/new-set#Charms) 這裏也有列表，不過英文
 
