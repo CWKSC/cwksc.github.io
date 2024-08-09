@@ -2,11 +2,9 @@
 
 說音樂吧，主要都是鋼琴
 
-我鋼琴是自學的，就看 Youtube 那些一條一條下來的瀑布譜學
+我鋼琴是自學的，就看 Youtube 那些一條一條下來的瀑布譜學（瀑布譜這個名字是我自己作的）
 
-> 瀑布譜這個名字是我自己作的
-
-正統學習最好看五線譜，
+正統學習最好還是看五線譜，不然會有很多瓶頸，雖然我到現在都是不會看五線譜
 
 ## 常用/經典循環
 
@@ -22,7 +20,7 @@
 
 [4536251歌曲串烧，好听到哭！ - YouTube](https://www.youtube.com/watch?v=aqmvF-GmYng)
 
-## Channel 推薦頻道
+## Channel 推薦教學頻道
 
 [NiceChord+ (好和弦+) - YouTube](https://www.youtube.com/channel/UCVXstWyJeO6No3jYELxYrjg)
 
