@@ -23,8 +23,8 @@ RUN npm install -g npm@latest && \
 WORKDIR /workspace/docusaurus_for_baby
 
 RUN npm install \
-    @docusaurus/plugin-content-docs@${docusaurus_version} \
-    @docusaurus/plugin-content-blog@${docusaurus_version} \
+    @docusaurus/plugin-content-docs \
+    @docusaurus/plugin-content-blog \
     remark-math@6 rehype-katex@7 \
-    @easyops-cn/docusaurus-search-local@0.43.0
+    @easyops-cn/docusaurus-search-loca
 
