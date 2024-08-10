@@ -12,11 +12,10 @@ User can use POP or IMAP to receive email from email server
 
 > 關於IMAP(Internet Message Access Protocol)、POP3(Post Office Protocol)的區別。IMAP簡言之就是會同步Email伺服器的各種動作，在多個裝置同步登入讀取訊息，郵件也是儲存在伺服器上面。而POP3則會將郵件下載到本機的空間，並且從伺服器上面刪除，導致只有第一次取信的客戶端可以拿到信件，其餘都無法取信，因為已經被刪掉了，由於是存在本機，所以是不占用太多伺服器空間，除非一直不去取信。舉例：手機登入POP3伺服器讀取訊息，電腦版再登入電腦版的郵件軟體，是看不到那則訊息的，但假如是用IMAP，則兩台裝置都可以看到信件，並且其中一台已讀，另一台也會跟著已讀。
 
-IMAP is saving email in email server, can read email many times
-
-POP3 will download and delete from email server, can read email only once
-
 ## IMAP vs POP3
 
 [The Top 4 Differences Between IMAP and POP3 | Spiceworks - Spiceworks](https://www.spiceworks.com/tech/tech-general/articles/imap-vs-pop3/)
 
+IMAP is saving email in email server, can read email many times
+
+POP3 will download and delete from email server, can read email only once
