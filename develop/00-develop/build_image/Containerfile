@@ -26,5 +26,5 @@ RUN npm install \
     @docusaurus/plugin-content-docs@${docusaurus_version} \
     @docusaurus/plugin-content-blog@${docusaurus_version} \
     remark-math@6 rehype-katex@7 \
-    @easyops-cn/docusaurus-search-local
+    @easyops-cn/docusaurus-search-local@0.44.3
 
