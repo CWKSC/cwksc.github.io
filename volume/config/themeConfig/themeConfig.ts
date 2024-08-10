@@ -4,7 +4,7 @@ import { prism } from "./prism";
 import { colorMode } from "./colorMode"
 
 export const themeConfig = {
-    image: undefined, // 'img/docusaurus-social-card.jpg',
+    image: 'img/docusaurus-social-card.jpg',
 
     navbar: navbar,
     footer: footer,
