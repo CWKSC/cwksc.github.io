@@ -16,6 +16,10 @@
 
 [Nye - YouTube](https://www.youtube.com/@Nye/videos)
 
+[Player K1m - YouTube](https://www.youtube.com/@PlayerK1m/videos)
+
+廣東話
+
 [Gear花輪 - YouTube](https://www.youtube.com/@Gearlolz/videos)
 
 [红毛怪游戏解说 - YouTube](https://www.youtube.com/@user-xq7md5fv5w/videos)
