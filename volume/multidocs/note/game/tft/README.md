@@ -20,6 +20,10 @@
 
 廣東話
 
+[香菇滑雞 Mushroom Chicken TFT 【官方頻道】 - YouTube](https://www.youtube.com/@mushroomchickentft/videos)
+
+這個會有各種奇怪玩法
+
 [Gear花輪 - YouTube](https://www.youtube.com/@Gearlolz/videos)
 
 [红毛怪游戏解说 - YouTube](https://www.youtube.com/@user-xq7md5fv5w/videos)
