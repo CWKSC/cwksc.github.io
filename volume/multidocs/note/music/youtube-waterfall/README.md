@@ -56,7 +56,7 @@
 
 [「ピアノ」六兆年と一夜物語 - YouTube](https://www.youtube.com/watch?v=-ewpdZmih4I)
 
-```
+
 ## Other
 
 [【FULL】[Violet Evergarden OP] "Sincerely" - TRUE (Synthesia Piano Tutorial) - YouTube](https://www.youtube.com/watch?v=U2UaCpm0tVM)
@@ -110,4 +110,3 @@
 [Rikei ga Koi ni Ochita no de Shomei Shite Mita OP-Paradox piano(sheet+midi) - YouTube](https://www.youtube.com/watch?v=XDaV85W7s4A)
 
 [『PARADOX』 - Rikekoi OP (理系が恋に落ちたので証明してみた.) (Short ver.) {Piano} - YouTube](https://www.youtube.com/watch?v=AuMsLrxtFJw)
-```
