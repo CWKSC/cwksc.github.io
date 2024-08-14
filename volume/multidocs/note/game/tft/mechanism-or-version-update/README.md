@@ -1,10 +1,18 @@
-# Mechanism 機制 
+# Mechanism 機制 / Version update 版本更新
+
+一些更新後跟機制相關的紀錄
 
 ## 攻略網
 
 [TFT.OP.GG](https://tft.op.gg/game-guide/season)
 
-## 14.15 版本
+## 14.16
+
+[《聯盟戰棋》14.16版本更新公告](https://teamfighttactics.leagueoflegends.com/zh-tw/news/game-updates/teamfight-tactics-patch-14-16-notes/)
+
+現在若在單位遭魔力鎖定時觸發保護者效果，則會在魔力鎖定結束後獲得魔力
+
+## 14.15
 
 [《聯盟戰棋》14.15版本更新公告](https://teamfighttactics.leagueoflegends.com/zh-tw/news/game-updates/teamfight-tactics-patch-14-15-notes/)
 
