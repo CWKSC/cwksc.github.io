@@ -26,7 +26,7 @@
 
 [Hikaru Nara - Shigatsu wa Kimi no Uso (Opening 1) [Piano Tutorial] (Synthesia) // KimPianime - YouTube](https://www.youtube.com/watch?v=_jZPtK4B3WM)
 
-```
+
 ### Orange
 
 [【四月は君の嘘ED2】「Orange - 7!!」を採譜しました (四月是你的謊言/Your Lie in April )(Synthesia) - YouTube](https://www.youtube.com/watch?v=Jon9Ws65dbU)
@@ -51,10 +51,12 @@
 
 [【原曲キー】Lemon／米津玄師（ピアノソロ中上級） - YouTube](https://www.youtube.com/watch?v=NPlK9QCzqwY)
 
+
 ## 六兆年と一夜物語
 
 [「ピアノ」六兆年と一夜物語 - YouTube](https://www.youtube.com/watch?v=-ewpdZmih4I)
 
+```
 ## Other
 
 [【FULL】[Violet Evergarden OP] "Sincerely" - TRUE (Synthesia Piano Tutorial) - YouTube](https://www.youtube.com/watch?v=U2UaCpm0tVM)
