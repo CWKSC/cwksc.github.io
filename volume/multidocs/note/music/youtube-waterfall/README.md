@@ -91,7 +91,6 @@
 
 [【まらしぃ】「初音ミクの消失　弾きなおし」を採譜してみた【ピアノ】 - YouTube](https://www.youtube.com/watch?v=TMBnl7-y67g)
 
-```
 [Kagamine Rin - Meltdown 『炉心融解』 | MIDI piano. - YouTube](https://www.youtube.com/watch?v=oz9vJbKkUvo)
 
 [Synthesia Piano 陳柏宇 你瞞我瞞 鋼琴版 - YouTube](https://www.youtube.com/watch?v=48xS8yPJyFo)
@@ -110,6 +109,4 @@
 
 [Rikei ga Koi ni Ochita no de Shomei Shite Mita OP-Paradox piano(sheet+midi) - YouTube](https://www.youtube.com/watch?v=XDaV85W7s4A)
 
-[『PARADOX』 - Rikekoi OP (理系が恋に落ちたので証明してみた.) (Short ver.) {Piano} - YouTube](https://www.youtube.com/watch?v=AuMsLrxtFJw)
-
-```
+[『PARADOX』 - Rikekoi OP (理系が恋に落ちたので証明してみた.) (Short ver.) - YouTube](https://www.youtube.com/watch?v=AuMsLrxtFJw)
