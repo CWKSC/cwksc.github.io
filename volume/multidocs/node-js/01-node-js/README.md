@@ -1,23 +1,5 @@
 # Node.js 
 
-## Index
-
-[Get command line arguments](#Get-command-line-arguments)
-
-[fs, File System](#fs-File-System) 
-
-[child_process, Chid Process](#child_process-Chid-Process)
-
-[net, Net](#net-Net)
-
-[dns, DNS](#dns-DNS)
-
-[os, OS](#os-OS)
-
-[Timers](#Timers)
-
-___
-
 ## Get command line arguments 
 
 https://nodejs.org/docs/latest/api/process.html#process_process_argv 
@@ -41,19 +23,13 @@ node test.js one two
 
 [1] is location of exec file
 
-___
-
 ## fs, File System
 
 https://nodejs.org/api/fs.html#fs_file_system
 
-___
-
 ## child_process, Chid Process
 
 https://nodejs.org/api/child_process.html#child_process_child_process
-
-___
 
 ## net, Net
 
@@ -101,8 +77,6 @@ Creates a new TCP or IPC server.
 
 https://nodejs.org/api/net.html#net_net_createserver_options_connectionlistener
 
-___
-
 ## dns, DNS
 
 https://nodejs.org/api/dns.html
@@ -118,8 +92,6 @@ dns.lookup(hostname[, options], callback)
 
 https://nodejs.org/api/dns.html#dns_dns_lookup_hostname_options_callback
 
-___
-
 ## os, OS
 
 https://nodejs.org/api/os.html
@@ -131,8 +103,6 @@ os.hostname() // return <string>
 ```
 
 https://nodejs.org/api/os.html#os_os_hostname
-
-___
 
 ## Timers
 
@@ -146,6 +116,4 @@ setInterval(callback, delay[, ...args]) // return <Timeout>
 // callback
 () => { /* ... */ }
 ```
-
-___
 
