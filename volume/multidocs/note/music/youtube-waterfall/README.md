@@ -20,7 +20,7 @@
 
 ## 四月は君の嘘 / Your Lie in April
 
-[[四月は君の嘘 / Your Lie in April OP\] "Hikaru Nara / 光るなら" - Goose house / グースハウス (Piano - ピアノ) - YouTube](https://www.youtube.com/watch?v=Pse7g703tlk)
+[四月は君の嘘 / Your Lie in April OP\] "Hikaru Nara / 光るなら" - Goose house / グースハウス (Piano - ピアノ) - YouTube](https://www.youtube.com/watch?v=Pse7g703tlk)
 
 [Hikaru Nara - Shigatsu wa Kimi no Uso (Opening 1) [Piano Tutorial] (Synthesia) // KimPianime - YouTube](https://www.youtube.com/watch?v=_jZPtK4B3WM)
 
