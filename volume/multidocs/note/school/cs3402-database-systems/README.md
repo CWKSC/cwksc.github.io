@@ -253,7 +253,7 @@ t1[α] = t2[α] => t1[β]  = t2[β]
 - Test goodness of database schema design (nomalization)
 
 ## Define key constraints by Functional Dependency
-Set of attribute {A1, A2, ..., An} 
+Set of attribute \{A1, A2, ..., An\} 
 
 Superkey definition: attributes functionally determine all other attributes of relation
 
