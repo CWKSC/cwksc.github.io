@@ -11,3 +11,5 @@ https://zh.wikipedia.org/zh-hk/RAID
 > 有效大小是 N-1 個磁碟的大小
 >
 > 奇偶校驗資訊也在 N 個驅動器之間均勻分佈
+
+
