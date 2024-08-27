@@ -39,7 +39,7 @@ tags: []
 
 但睇吓入面啲 code 就知冇乜用，佢動態加載咗啲嘢
 
-留意 folder 名會發現呢個係 `React Native` project
+留意 folder 名見到係 `React Native` project
 
 有 `expo`
 
@@ -101,7 +101,7 @@ Search `sekai` 即刻發現啲好有趣嘅嘢
 
 - `"users/" + e.user.uid + '/flag'`
 
-查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現有趣嘅地方：
+查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現：
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-validate-password.jpg)
 
