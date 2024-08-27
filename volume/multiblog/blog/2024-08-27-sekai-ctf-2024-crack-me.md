@@ -150,7 +150,9 @@ var _ = {
 
 密碼係 `s3cr3t_SEKAI_P@ss`
 
-終於到最後部分，用 email `admin@sekai.team` 同 password `s3cr3t_SEKAI_P@ss` 連接 firebase
+終於到最後部分
+
+用 email `admin@sekai.team` 同 password `s3cr3t_SEKAI_P@ss` 連接 firebase
 
 學 firebase 點用，我用 `node.js`
 
@@ -207,11 +209,11 @@ signInWithEmailAndPassword(auth, email, password)
 node .\main.js
 ```
 
-攞到 flag，完
-
 ```
 SEKAI{15_React_N@71v3_R3v3rs3_H@RD???}
 ```
+
+攞到 flag，完
 
 全程大約用咗一個半鐘
 
