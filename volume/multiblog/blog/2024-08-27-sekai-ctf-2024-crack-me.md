@@ -1,6 +1,6 @@
 ---
 title: SekaiCTF 2024 Reverse - Crack Me
-description: 好簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷 ...
+description: 幾簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷 ...
 authors: cwksc
 tags: []
 ---
