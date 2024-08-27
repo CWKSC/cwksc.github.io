@@ -11,17 +11,15 @@ tags: []
 
 個 apk 我 backup 咗喺 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
 
-見到 android apk 題目，直接改副檔名去 `.zip` 然後再 unzip 佢
-
-<!-- truncate -->
-
-解壓縮嘅時候會見到重複覆蓋，唔使擔心，確認或者跳過
+見到 android apk 題目，直接改副檔名去 `.zip` 然後再 unzip 佢，解壓縮嘅時候會見到重複覆蓋，唔使擔心，確認或者跳過
 
 unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 code
 
+<!-- truncate -->
+
 ![](./2024-08-27-sekai-ctf-2024-crack-me/init-vscode-structure.jpg)
 
-要睇多啲嘢就要用其他方法，例如：
+要睇多啲嘢要用其他方法，例如：
 
 - https://www.decompiler.com/ （下載落嚟話無效）
 
@@ -29,11 +27,11 @@ unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 code
 
 - https://github.com/skylot/jadx （最尾搵咗呢個）
 
-去 [releases](https://github.com/skylot/jadx/releases) 到下載，用 `jadx-gui`，你部機本身有 `jre` 就 down `jadx-gui-x.x.x-no-jre-win.exe`，冇就直接 `jadx-gui-x.x.x-with-jre-win.zip`
+去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，你部機本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，冇就直接 `jadx-gui-x.x.x-with-jre-win.zip`
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/jadx-gui-init.jpg)
 
-開 `Source code` 入面值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
+`Source code` 入面值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/jadx-gui-source-code.jpg)
 
@@ -79,6 +77,14 @@ C:\...\npm\node_modules\js-deobfuscator\node_modules\shift-parser\src\parser.js:
 
 JsError: [1:34]: Invalid left-hand side in assignment
 ```
+
+直接單純 beautify 睇下 [github.com/beautifier/js-beautify](https://github.com/beautifier/js-beautify)
+
+```powershell
+npm -g install js-beautify
+js-beautify .\index.android.bundle > main.js
+```
+
 
 
 
