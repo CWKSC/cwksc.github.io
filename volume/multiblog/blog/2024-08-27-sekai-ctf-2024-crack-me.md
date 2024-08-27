@@ -7,7 +7,7 @@ tags: []
 
 # SekaiCTF 2024 Reverse - Crack Me
 
-好簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷
+幾簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷
 
 個 apk 我 backup 咗喺 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
 
