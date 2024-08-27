@@ -105,4 +105,114 @@ Search `sekai` 即刻發現啲好有趣嘅嘢
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-firebase-api.jpg)
 
+有 config，有 firebase api key
+
+睇上去係用電郵同密碼登入 firebase 攞 flag
+
+先睇 `validatePassword` 
+
+```js
+e.validatePassword = function(e) {
+    if (17 !== e.length) return !1;
+    var t = R.default.enc.Utf8.parse(b.default.KEY),
+        n = R.default.enc.Utf8.parse(b.default.IV);
+    return "03afaa672ff078c63d5bdb0ea08be12b09ea53ea822cd2acef36da5b279b9524" === R.default.AES.encrypt(e, t, {
+        iv: n
+    }).ciphertext.toString(R.default.enc.Hex)
+```
+
+長度唔係 17 返回 false
+
+將 input 用 AES 加密，用 `KEY`, `IV` 
+
+再同 `03afaa672ff078c63d5bdb0ea08be12b09ea53ea822cd2acef36da5b279b9524` 比較
+
+睇 config 部分
+
+```js
+var _ = {
+    LOGIN: "LOGIN",
+    EMAIL_PLACEHOLDER: "user@sekai.team",
+    PASSWORD_PLACEHOLDER: "password",
+    BEGIN: "CRACKME",
+    SIGNUP: "SIGN UP",
+    LOGOUT: "LOGOUT",
+    KEY: "react_native_expo_version_47.0.0",
+    IV: "__sekaictf2023__"
+};
+```
+
+有 `KEY`, `IV`，可以 decrypt
+
+打開 [gchq.github.io/CyberChef](https://gchq.github.io/CyberChef/) 煮下佢（[此連結重現結果](https://gchq.github.io/CyberChef/#recipe=AES_Decrypt(%7B'option':'UTF8','string':'react_native_expo_version_47.0.0'%7D,%7B'option':'UTF8','string':'__sekaictf2023__'%7D,'CBC','Hex','Raw',%7B'option':'Hex','string':''%7D,%7B'option':'Hex','string':''%7D)&input=MDNhZmFhNjcyZmYwNzhjNjNkNWJkYjBlYTA4YmUxMmIwOWVhNTNlYTgyMmNkMmFjZWYzNmRhNWIyNzliOTUyNA)）
+
+![](./2024-08-27-sekai-ctf-2024-crack-me/chef-aes-get-password.jpg)
+
+密碼係 `s3cr3t_SEKAI_P@ss`
+
+終於到最後部分，用 email `admin@sekai.team` 同 password `s3cr3t_SEKAI_P@ss` 連接 firebase
+
+學 firebase 點用，我用 `node.js`
+
+[將 Firebase 新增至您的 JavaScript 專案](https://firebase.google.com/docs/web/setup?hl=zh-tw)
+
+[開始在網站上使用 Firebase 驗證  |  Firebase Authentication](https://firebase.google.com/docs/auth/web/start?hl=zh-tw#sign_in_existing_users)
+
+```powershell
+npm install firebase
+```
+
+寫 code, `main.js`: 
+
+```js
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, child, get } from "firebase/database";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCR2Al5_9U5j6UOhqu0HCDS0jhpYfa2Wgk",
+    authDomain: "crackme-1b52a.firebaseapp.com",
+    projectId: "crackme-1b52a",
+    storageBucket: "crackme-1b52a.appspot.com",
+    messagingSenderId: "544041293350",
+    appId: "1:544041293350:web:2abc55a6bb408e4ff838e7",
+    measurementId: "G-RDD86JV32R",
+    databaseURL: "https://crackme-1b52a-default-rtdb.firebaseio.com"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const email = "admin@sekai.team";
+const password = "s3cr3t_SEKAI_P@ss";
+const auth = getAuth(app);
+
+signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        console.log("Signed in")
+        const user = userCredential.user;
+        console.log(user)
+
+        const dbRef = ref(getDatabase());
+        get(child(dbRef, `users/${user.uid}/flag`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                console.log(snapshot.val());
+            } else {
+                console.log("No data available");
+            }
+        })
+    })
+```
+
+```powershell
+node .\main.js
+```
+
+攞到 flag，完
+
+```
+SEKAI{15_React_N@71v3_R3v3rs3_H@RD???}
+```
+
+全程大約用咗一個半鐘
+
 
