@@ -12,6 +12,14 @@
 
 [【maimaiでらっくす外部出力】ウミユリ海底譚 MAS AP - YouTube](https://youtu.be/9ngvnYT4ydc?t=69)
 
+除咗海底譚難嘅部分
+
+https://youtu.be/9ngvnYT4ydc?t=54 右手滑咗去左邊之後要記得落返嚟右下
+
+https://youtu.be/9ngvnYT4ydc?t=85 之前一開始唔知點換手 
+
+https://youtu.be/9ngvnYT4ydc?t=102 冇留心唔記得打上面啲 tap
+
 ## 四月の雨
 
 [【maimai外部出力】四月の雨 MAS AP - YouTube](https://www.youtube.com/watch?v=C4BYTh1WzdY)

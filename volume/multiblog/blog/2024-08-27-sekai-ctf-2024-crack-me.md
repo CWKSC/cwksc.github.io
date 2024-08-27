@@ -99,3 +99,10 @@ Search `sekai` 即刻發現啲好有趣嘅嘢
 
 透過查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現其他有趣嘅地方
 
+![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-validate-password.jpg)
+
+![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-config.jpg)
+
+![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-firebase-api.jpg)
+
+
