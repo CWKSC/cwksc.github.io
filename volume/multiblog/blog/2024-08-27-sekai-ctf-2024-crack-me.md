@@ -39,9 +39,11 @@ unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 source 
 
 但睇吓入面啲 code 就知冇乜用，佢動態加載咗啲嘢
 
-留意 file / folder 名會發現呢個係 `React Native` project
+留意 folder 名會發現呢個係 `React Native` project
 
-Google search 發現以下文章
+有 `expo`
+
+Google search 點 reverse `React Native` 發現以下文章
 
 [Android Attack: Reversing React Native Applications – Security Queens](https://securityqueens.co.uk/android-attack-reversing-react-native-applications/)
 
