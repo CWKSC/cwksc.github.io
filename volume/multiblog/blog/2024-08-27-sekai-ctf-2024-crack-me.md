@@ -13,7 +13,7 @@ tags: []
 
 見到 android apk 題目，直接改副檔名去 `.zip` 然後再 unzip 佢，解壓縮嘅時候會見到重複覆蓋，唔使擔心，確認或者跳過
 
-unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 source code
+`apk` 本質係 `zip`，unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 source code
 
 <!-- truncate -->
 
