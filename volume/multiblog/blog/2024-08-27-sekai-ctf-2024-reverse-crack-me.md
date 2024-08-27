@@ -17,7 +17,7 @@ tags: []
 
 <!-- truncate -->
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/init-vscode-structure.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/init-vscode-structure.jpg)
 
 睇多啲嘢要用其他方法，例如：
 
@@ -29,11 +29,11 @@ tags: []
 
 去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，你部機本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，冇就直接 `jadx-gui-x.x.x-with-jre-win.zip`
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/jadx-gui-init.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/jadx-gui-init.jpg)
 
 打開 `Source code`
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/jadx-gui-source-code.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/jadx-gui-source-code.jpg)
 
 值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
 
@@ -51,7 +51,7 @@ Google search 點 reverse `React Native`：
 
 用一開始改副檔名 unzip 嘅方式，可以喺 `assets` 攞到 `index.android.bundle` file
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-index-android-bundle.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-index-android-bundle.jpg)
 
 先試下用 [github.com/ben-sb/javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) 反混淆
 
@@ -91,7 +91,7 @@ js-beautify .\index.android.bundle > main.js
 
 Search `sekai` 即刻發現啲好有趣嘅嘢
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-sekai-first.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-search-sekai-first.jpg)
 
 - `"admin@sekai.team"`
 
@@ -101,11 +101,11 @@ Search `sekai` 即刻發現啲好有趣嘅嘢
 
 查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現：
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-validate-password.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-search-validate-password.jpg)
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-config.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-search-config.jpg)
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-firebase-api.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-search-firebase-api.jpg)
 
 有驗證 function，有 config，有 firebase api key
 
@@ -148,7 +148,7 @@ var _ = {
 
 打開 [CyberChef](https://gchq.github.io/CyberChef/) 煮下佢（[此連結重現結果](https://gchq.github.io/CyberChef/#recipe=AES_Decrypt(%7B'option':'UTF8','string':'react_native_expo_version_47.0.0'%7D,%7B'option':'UTF8','string':'__sekaictf2023__'%7D,'CBC','Hex','Raw',%7B'option':'Hex','string':''%7D,%7B'option':'Hex','string':''%7D)&input=MDNhZmFhNjcyZmYwNzhjNjNkNWJkYjBlYTA4YmUxMmIwOWVhNTNlYTgyMmNkMmFjZWYzNmRhNWIyNzliOTUyNA)）
 
-![](./2024-08-27-sekai-ctf-2024-crack-me/chef-aes-get-password.jpg)
+![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/chef-aes-get-password.jpg)
 
 獲得密碼 `s3cr3t_SEKAI_P@ss`
 
