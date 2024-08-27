@@ -162,7 +162,7 @@ var _ = {
 npm install firebase
 ```
 
-寫 code, `main.js`: 
+寫 code，基本上都係跟官方 copy，`main.js`: 
 
 ```js
 import { initializeApp } from 'firebase/app';
