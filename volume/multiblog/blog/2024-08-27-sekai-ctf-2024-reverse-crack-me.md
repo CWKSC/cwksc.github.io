@@ -1,13 +1,13 @@
 ---
-title: SekaiCTF 2024 Reverse - Crack Me
+title: SekaiCTF 2024 - Reverse - Crack Me
 description: 幾簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷 ...
 authors: cwksc
 tags: []
 ---
 
-# SekaiCTF 2024 Reverse - Crack Me
+# SekaiCTF 2024 - Reverse - Crack Me
 
-幾簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷
+幾簡單嘅題目，無聊得滯試下寫篇文章記低佢，包括試錯經歷
 
 個 apk 我 backup 咗喺 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
 
@@ -37,11 +37,9 @@ tags: []
 
 值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
 
-但睇吓入面啲 code 就知冇乜用，佢動態加載咗啲嘢
+但睇吓入面啲 code 就知冇乜用，佢動態加載
 
-留意 folder 名見到係 `React Native` project
-
-有 `expo`
+folder 名有 `expo`，係 `React Native` project
 
 Google search 點 reverse `React Native`：
 
@@ -51,7 +49,7 @@ Google search 點 reverse `React Native`：
 
 真正嘅代碼係 `index.android.bundle` 入面
 
-用一開始改副檔名 unzip 嘅形式，可以喺 `assets` 攞到 `index.android.bundle` file
+用一開始改副檔名 unzip 嘅方式，可以喺 `assets` 攞到 `index.android.bundle` file
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-index-android-bundle.jpg)
 
