@@ -19,9 +19,9 @@ unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 source 
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/init-vscode-structure.jpg)
 
-要睇多啲嘢要用其他方法，例如：
+睇多啲嘢要用其他方法，例如：
 
-- [www.decompiler.com](https://www.decompiler.com/) （下載落嚟話無效）
+- [www.decompiler.com](https://www.decompiler.com/) （下載完個 zip 落嚟話無效）
 
 - [apktool](https://apktool.org/) （我太蠢唔識裝）
 
@@ -35,9 +35,9 @@ unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 source 
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/jadx-gui-source-code.jpg)
 
-`Source code` 入面值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
+值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
 
-但睇吓入面啲 code 就知冇乜用的，佢動態加載咗啲嘢
+但睇吓入面啲 code 就知冇乜用，佢動態加載咗啲嘢
 
 留意 file / folder 名會發現呢個係 `React Native` project
 
@@ -49,7 +49,7 @@ Google search 發現以下文章
 
 真正嘅代碼係 `index.android.bundle` 入面
 
-用一開始改副檔名 unzip 嘅形式，可以喺 `assets` 攞到 `index.android.bundle` 
+用一開始改副檔名 unzip 嘅形式，可以喺 `assets` 攞到 `index.android.bundle` file
 
 先試下用 [github.com/ben-sb/javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) 反混淆
 
@@ -97,7 +97,7 @@ Search `sekai` 即刻發現啲好有趣嘅嘢
 
 - `"users/" + e.user.uid + '/flag'`
 
-透過查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現其他有趣嘅地方
+查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現有趣嘅地方：
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-validate-password.jpg)
 
@@ -105,9 +105,9 @@ Search `sekai` 即刻發現啲好有趣嘅嘢
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-firebase-api.jpg)
 
-有 config，有 firebase api key
+有驗證 function，有 config，有 firebase api key
 
-睇上去係用電郵同密碼登入 firebase 攞 flag
+睇上去係用 admin 電郵同密碼登入 firebase 攞 flag
 
 先睇 `validatePassword` 
 
@@ -148,7 +148,7 @@ var _ = {
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/chef-aes-get-password.jpg)
 
-密碼係 `s3cr3t_SEKAI_P@ss`
+獲得密碼 `s3cr3t_SEKAI_P@ss`
 
 終於到最後部分
 
@@ -215,6 +215,6 @@ SEKAI{15_React_N@71v3_R3v3rs3_H@RD???}
 
 攞到 flag，完
 
-全程大約用咗一個半鐘
+全程大約一個半鐘
 
 
