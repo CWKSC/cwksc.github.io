@@ -1,13 +1,13 @@
 ---
 title: SekaiCTF 2024 Reverse Crack Me
-description: 好簡單嘅題目，但無聊得滯試下寫篇文章記低佢 ...
+description: 好簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷 ...
 authors: cwksc
 tags: []
 ---
 
 # SekaiCTF 2024 Reverse Crack Me
 
-好簡單嘅題目，但無聊得滯試下寫篇文章記低佢
+好簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷
 
 個 apk 我 backup 咗喺 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
 
@@ -50,5 +50,35 @@ Google search 發現以下文章
 真正嘅代碼係 `index.android.bundle` 入面
 
 用一開始改副檔名 unzip 嘅形式，我哋可以喺 `assets` 攞到 `index.android.bundle` 
+
+先試下用 [github.com/ben-sb/javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) 反混淆
+
+```powershell
+npm install -g js-deobfuscator
+```
+
+```powershell
+js-deobfuscator -h
+Usage: cli [options]
+
+Deobfuscate a javascript file
+
+Options:
+  -i, --input [input_file]    The input file to deobfuscate (default: "input/source.js")
+  -o, --output [output_file]  The deobfuscated output file (default: "output/output.js")
+  -h, --help                  display help for command
+```
+
+事情冇咁順利，出 error 解唔到
+
+```powershell
+js-deobfuscator cli -i .\index.android.bundle -o output.js
+C:\...\npm\node_modules\js-deobfuscator\node_modules\shift-parser\src\parser.js:1186
+        throw this.createError(ErrorMessages.INVALID_LHS_IN_ASSIGNMENT);
+        ^
+
+JsError: [1:34]: Invalid left-hand side in assignment
+```
+
 
 
