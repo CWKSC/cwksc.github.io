@@ -21,7 +21,7 @@ tags: []
 
 睇多啲嘢要用其他方法，例如：
 
-- [www.decompiler.com](https://www.decompiler.com/) （下載完個 zip 落嚟話無效）
+- [decompiler.com](https://www.decompiler.com/) （下載完個 zip 落嚟話無效）
 
 - [apktool](https://apktool.org/) （我太蠢唔識裝）
 
@@ -43,7 +43,7 @@ tags: []
 
 有 `expo`
 
-Google search 點 reverse `React Native` 發現以下文章
+Google search 點 reverse `React Native`：
 
 [Android Attack: Reversing React Native Applications – Security Queens](https://securityqueens.co.uk/android-attack-reversing-react-native-applications/)
 
