@@ -53,6 +53,8 @@ Google search 點 reverse `React Native` 發現以下文章
 
 用一開始改副檔名 unzip 嘅形式，可以喺 `assets` 攞到 `index.android.bundle` file
 
+![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-index-android-bundle.jpg)
+
 先試下用 [github.com/ben-sb/javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) 反混淆
 
 ```powershell
