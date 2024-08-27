@@ -2,9 +2,11 @@
 
 列表: https://www.metatft.com/items/artifact
 
+下面排列會根據 單件神器、組合多件神器、要取得特殊增幅裝置 順序
+
 ## 詛咒吸血鬼權杖
 
-> 普攻會額外造成相當於 50% 物攻AD的物理傷害，並使裝備者回復相當於該傷害量的生命。
+> 普攻會額外造成相當於 50% 物攻 AD 的物理傷害，並使裝備者回復相當於該傷害量的生命
 
 [【香菇滑雞】雲頂之弈S12：吸血鬼節杖最完美的使用者！只有被動完美適配！ S12最強一費賭狗！ ！ ！TFT Game【聯盟戰棋】 - YouTube](https://www.youtube.com/watch?v=CYqAVYqN_0k)
 
@@ -53,4 +55,12 @@
 [云顶：百分百飞升！3只金丹期狗头，尔等可敢一战？ - YouTube](https://www.youtube.com/watch?v=tEnW5qT9wBM)
 
 適合納瑟斯
+
+## 任何英雄專屬增幅裝置 + 可疑風衣
+
+[云顶：你以为我是1费卡，其实我是4费卡！ - YouTube](https://www.youtube.com/watch?v=p5sgIqKtXCY)
+
+高馬力 莉莉亞 + 可疑風衣 + 保衛者之誓 + 寶石手套
+
+同樣思路可以用在其他角色 + 英雄專屬增幅裝置
 
