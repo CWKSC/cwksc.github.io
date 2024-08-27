@@ -13,7 +13,7 @@ tags: []
 
 見到 android apk 題目，直接改副檔名去 `.zip` 然後再 unzip 佢，解壓縮嘅時候會見到重複覆蓋，唔使擔心，確認或者跳過
 
-unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 code
+unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 source code
 
 <!-- truncate -->
 
@@ -21,19 +21,21 @@ unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 code
 
 要睇多啲嘢要用其他方法，例如：
 
-- https://www.decompiler.com/ （下載落嚟話無效）
+- [www.decompiler.com](https://www.decompiler.com/) （下載落嚟話無效）
 
-- https://apktool.org/ （我太蠢唔識裝）
+- [apktool](https://apktool.org/) （我太蠢唔識裝）
 
-- https://github.com/skylot/jadx （最尾搵咗呢個）
+- [github.com/skylot/jadx](https://github.com/skylot/jadx) （最尾搵咗呢個）
 
 去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，你部機本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，冇就直接 `jadx-gui-x.x.x-with-jre-win.zip`
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/jadx-gui-init.jpg)
 
-`Source code` 入面值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
+打開 `Source code`
 
 ![](./2024-08-27-sekai-ctf-2024-crack-me/jadx-gui-source-code.jpg)
+
+`Source code` 入面值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
 
 但睇吓入面啲 code 就知冇乜用的，佢動態加載咗啲嘢
 
@@ -47,7 +49,7 @@ Google search 發現以下文章
 
 真正嘅代碼係 `index.android.bundle` 入面
 
-用一開始改副檔名 unzip 嘅形式，我哋可以喺 `assets` 攞到 `index.android.bundle` 
+用一開始改副檔名 unzip 嘅形式，可以喺 `assets` 攞到 `index.android.bundle` 
 
 先試下用 [github.com/ben-sb/javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) 反混淆
 
@@ -78,13 +80,22 @@ C:\...\npm\node_modules\js-deobfuscator\node_modules\shift-parser\src\parser.js:
 JsError: [1:34]: Invalid left-hand side in assignment
 ```
 
-直接單純 beautify 睇下 [github.com/beautifier/js-beautify](https://github.com/beautifier/js-beautify)
+直接單純 beautify 睇下，用 [github.com/beautifier/js-beautify](https://github.com/beautifier/js-beautify)
 
 ```powershell
 npm -g install js-beautify
 js-beautify .\index.android.bundle > main.js
 ```
 
+Search `sekai` 即刻發現啲好有趣嘅嘢
 
+![](./2024-08-27-sekai-ctf-2024-crack-me/vscode-search-sekai-first.jpg)
 
+- `"admin@sekai.team"`
+
+- `validatePassword`
+
+- `"users/" + e.user.uid + '/flag'`
+
+透過查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現其他有趣嘅地方
 
