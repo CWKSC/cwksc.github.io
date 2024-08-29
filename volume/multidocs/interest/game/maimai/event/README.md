@@ -1,4 +1,4 @@
-# Event
+# Event 活動
 
 ## project_raputa
 

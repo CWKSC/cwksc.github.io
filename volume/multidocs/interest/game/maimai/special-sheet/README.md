@@ -1,4 +1,4 @@
-# 特殊譜面
+# Sheet 特殊譜面
 
 ## Future lv12+ POPS＆ANIME
 
