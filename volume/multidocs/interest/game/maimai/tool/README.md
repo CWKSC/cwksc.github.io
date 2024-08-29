@@ -1,5 +1,9 @@
 # Tool 工具
 
+## Maimai net
+
+https://maimaidx-eng.com/maimai-mobile/home/
+
 ## 睇 top 50 chart 
 
 https://maichart-en.nuko.cat/
@@ -23,4 +27,16 @@ https://myjian.github.io/mai-tools/#bookmarklets
 ## 查詢譜面 rating
 
 https://arcade-songs.zetaraku.dev/maimai/
+
+## Maimai SSS+ 難度表
+
+https://maimai-ham.notion.site/SSS-Lv-12-8983b3ac91984b5ca72ab6b52fb8295d
+
+# Maimai 中文 Wiki
+
+[Maimai中文 维基 | Fandom](https://maimai.fandom.com/zh/wiki/Maimai中文_维基?variant=zh-tw)
+
+[maimai - 維基百科，自由的百科全書](https://zh.wikipedia.org/zh-hk/Maimai)
+
+日文攻略 wiki: [maimai　攻略wiki | Gamerch](https://gamerch.com/maimai/)
 
