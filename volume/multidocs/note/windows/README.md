@@ -8,7 +8,7 @@
 docker system prune -a
 ```
 
-發現 `User\...\AppData\Local\Docker\wsl\data\ext4.vhdx` 勁大，我佔咗 100HN
+發現 `User\...\AppData\Local\Docker\wsl\data\ext4.vhdx` 勁大，我佔咗 100GB
 
 用上面個指令都 clean 唔到
 
