@@ -32,7 +32,13 @@ https://arcade-songs.zetaraku.dev/maimai/
 
 https://maimai-ham.notion.site/SSS-Lv-12-8983b3ac91984b5ca72ab6b52fb8295d
 
-# Maimai 中文 Wiki
+## AstroDX
+
+手機 / ipad 模擬器
+
+https://rentry.org/adx_ios
+
+## Maimai 中文 Wiki
 
 [Maimai中文 维基 | Fandom](https://maimai.fandom.com/zh/wiki/Maimai中文_维基?variant=zh-tw)
 
