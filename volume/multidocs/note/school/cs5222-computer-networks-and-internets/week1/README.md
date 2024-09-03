@@ -96,7 +96,7 @@ Packet switching:
 
 如果有 35 users, probability > 10 active at same time approximately 0.0004
 
-probability <= 10 is 0.9996
+probability \<= 10 is 0.9996
 
 二項分佈
 
