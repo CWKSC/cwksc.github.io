@@ -14,3 +14,6 @@ https://docusaurus.io/
 
 標題有 `{Piano}` ，然後 error `Piano not found`
 
+# More
+
+[Troubleshooting MDX | MDX](https://mdxjs.com/docs/troubleshooting-mdx/)
