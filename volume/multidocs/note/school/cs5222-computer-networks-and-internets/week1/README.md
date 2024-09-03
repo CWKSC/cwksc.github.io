@@ -1,6 +1,6 @@
 # Week 1
 
-## Physical medium
+## Physical medium 物理介質
 
 - Twisted-pair copper wire
 
@@ -38,9 +38,9 @@ Packet switch has output buffer / output queue
 
 If link is busy, packet need wait in output buffer
 
-- store-and-forward delays
+- Store-and-forward delays
 
-- queuing delays (wait to be transmitted on link)
+- Queuing delays (wait to be transmitted on link)
 
 If output buffer completely full -> packet loss (dropped)
 
@@ -106,7 +106,7 @@ $$
 
 $$
 \begin{align*}
-P(X = k) &= C(35, k) 0.1^k 0.9^(35 - k) \\
+P(X = k) &= C(35, k) 0.1^k 0.9^{35 - k} \\
 P(X <= 10) &= P(X = 0) + P(X = 1) + ... + P(X = 10)  \\
 &= 0.999575702 \\
 P(X > 10) &= 1 - P(X <= 10) \\
