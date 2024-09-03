@@ -115,7 +115,7 @@ $$
 
 ## Four sources of packet delay
 
-1. Nodal processing
+1. Processing delay
   - Check bit errors
   - Determine output link
   - Typically < microsecs
@@ -130,14 +130,17 @@ $$
   - La/R ~ 0: avg. queueing delay small
   - La/R -> 1: avg. queueing delay large
   - La/R > 1: more “work” arriving  is more than can be serviced, average delay infinite
-  
 
 3. Transmission delay
   - L: packet length (bits) 
   - R: link bandwidth (bps)
   - d_trans = L/R
 
-4. propagation delay
+4. Propagation delay
   - d: length of physical link
-  - s: propagation speed in medium (~2x10^8 m/sec)
+  - s: propagation speed in medium (~ 3x10^8 m/s)
   - d_prop = d/s
+
+$$
+d_nodal = d_proc + d_quene + d_trans + d_prop
+$$
