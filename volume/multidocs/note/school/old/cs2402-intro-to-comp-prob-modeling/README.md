@@ -1,2 +1,2 @@
-# CS2402 Intro to Comp Prob Modeling
+# CS2402 - Introduction to Computational Probability Modeling
 
