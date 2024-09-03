@@ -86,9 +86,9 @@ Each user:
 
 - 100 Mb/s when active
 
-- active 10% of time
+- Active 10% of time
 
-Q: how many users can use this network under circuit-switching and packet switching?
+### Q: how many users can use this network under circuit-switching and packet switching?
 
 Circuit-switching: 10 users
 
@@ -101,7 +101,7 @@ probability \<= 10 is 0.9996
 二項分佈
 
 $$
-X ~ B(35, 0.1)
+X \sim B(35, 0.1)
 $$
 
 $$
