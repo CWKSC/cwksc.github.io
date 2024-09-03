@@ -1,25 +1,25 @@
 ---
 title: SekaiCTF 2024 - Reverse - Crack Me
-description: 幾簡單嘅題目，但無聊得滯試下寫篇文章記低佢，包括試錯經歷 ...
+description: 幾簡單嘅題目，無聊得滯寫篇文章記低佢，包括試錯經歷 ...
 authors: cwksc
 tags: []
 ---
 
 # SekaiCTF 2024 - Reverse - Crack Me
 
-幾簡單嘅題目，無聊得滯試下寫篇文章記低佢，包括試錯經歷
+幾簡單嘅題目，無聊得滯寫篇文章記低佢，包括試錯經歷
 
 個 apk 我 backup 咗喺 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
 
 見到 android apk 題目，直接改副檔名去 `.zip` 然後再 unzip 佢，解壓縮嘅時候會見到重複覆蓋，唔使擔心，確認或者跳過
 
-`apk` 本質係 `zip`，unzip 可以睇到大約框架，但反編譯唔到字節碼，睇唔到 source code
+`apk` 本質係 `zip`，unzip 可以睇到大約，但冇反編譯字節碼，睇唔到 source code
 
 <!-- truncate -->
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/init-vscode-structure.jpg)
 
-睇多啲嘢要用其他方法，例如：
+要用其他方法，例如：
 
 - [decompiler.com](https://www.decompiler.com/) （下載完個 zip 落嚟話無效）
 
@@ -27,7 +27,7 @@ tags: []
 
 - [github.com/skylot/jadx](https://github.com/skylot/jadx) （最尾搵咗呢個）
 
-去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，你部機本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，冇就直接 `jadx-gui-x.x.x-with-jre-win.zip`
+去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，部機本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，冇就 `jadx-gui-x.x.x-with-jre-win.zip`
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/jadx-gui-init.jpg)
 
@@ -37,7 +37,7 @@ tags: []
 
 值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
 
-但睇吓入面啲 code 就知冇乜用，佢動態加載
+但睇吓入面啲 code 就知冇用，佢動態加載
 
 folder 名有 `expo`，係 `React Native` project
 
@@ -47,7 +47,7 @@ Google search 點 reverse `React Native`：
 
 [基于React Native开发的非法App破解记录[原创]-软件逆向-看雪-安全社区|安全招聘|kanxue.com](https://bbs.kanxue.com/thread-275942.htm)
 
-真正嘅代碼係 `index.android.bundle` 入面
+真正代碼係 `index.android.bundle` 入面
 
 用一開始改副檔名 unzip 嘅方式，可以喺 `assets` 攞到 `index.android.bundle` file
 
@@ -89,7 +89,7 @@ npm -g install js-beautify
 js-beautify .\index.android.bundle > main.js
 ```
 
-Search `sekai` 即刻發現啲好有趣嘅嘢
+Search `sekai` 發現啲好有趣嘅嘢
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-search-sekai-first.jpg)
 
@@ -151,8 +151,6 @@ var _ = {
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/chef-aes-get-password.jpg)
 
 獲得密碼 `s3cr3t_SEKAI_P@ss`
-
-終於到最後部分
 
 用 email `admin@sekai.team` 同 password `s3cr3t_SEKAI_P@ss` 連接 firebase
 
@@ -218,5 +216,4 @@ SEKAI{15_React_N@71v3_R3v3rs3_H@RD???}
 攞到 flag，完
 
 全程大約一個半鐘
-
 
