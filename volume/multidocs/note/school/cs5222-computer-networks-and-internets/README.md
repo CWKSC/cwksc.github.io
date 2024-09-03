@@ -6,13 +6,11 @@
 
 Computer Networking: A Top-Down Approach, 7th Edition
 
-學校話用緊 7th Edition ，但目前（09/2024）最新係 8th Edition
+學校話用緊 7th Edition ，但目前（09/2024）最新係 8th Edition，7th 2017 出，8th 2020 出
 
 [What's new in the 8th edition?](https://gaia.cs.umass.edu/kurose_ross/eighth.php)
 
-7th 2017 出，8th 2020 出
-
-幾貴下，不鼓勵推薦但你可以網上搵到 PDF
+幾貴下，不鼓勵推薦 但你可以網上搵到 PDF
 
 ## Tool
 
