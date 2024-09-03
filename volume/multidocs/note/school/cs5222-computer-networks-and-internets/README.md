@@ -10,7 +10,7 @@ Computer Networking: A Top-Down Approach, 7th Edition
 
 [What's new in the 8th edition?](https://gaia.cs.umass.edu/kurose_ross/eighth.php)
 
-幾貴下，不鼓勵推薦 但你可以網上搵到 PDF
+幾貴下，不鼓勵推薦 - 但你可以網上搵到 PDF
 
 ## Powerpoint Slides
 
