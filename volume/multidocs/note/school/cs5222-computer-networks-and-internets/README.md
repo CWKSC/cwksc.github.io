@@ -12,11 +12,15 @@ Computer Networking: A Top-Down Approach, 7th Edition
 
 幾貴下，不鼓勵推薦 但你可以網上搵到 PDF
 
-## Tool
+## Powerpoint Slides
+
+[Powerpoint Slides](https://gaia.cs.umass.edu/kurose_ross/ppt.php)
+
+學校用緊嘅 Powerpoint Slides 係作者個網站都搵到
+
+## Knowledge Checks
 
 [Knowledge Checks](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/)
 
 作者整嘅 Online knowledge check ，驗證自己熟唔熟
-
-
 
