@@ -1,11 +1,8 @@
----
-sidebar_position: 0
----
-
 # Google Colab
 
-
 ## How to Install Libraries permanently in Google Colab?
+
+安裝虛擬環境在 Google Drive, then mount
 
 https://netraneupane.medium.com/how-to-install-libraries-permanently-in-google-colab-fb15a585d8a5
 
@@ -37,6 +34,8 @@ https://datascience.stackexchange.com/questions/75948/how-to-setup-and-run-conda
 > Unfortunately in condacolab only base environment can be used. Avoid creating new environments
 
 ## Change python version
+
+改 python version 勁麻煩，大機率失敗，唔建議搞
 
 https://stackoverflow.com/questions/63168301/how-to-change-the-python-version-from-default-3-5-to-3-8-of-google-colab
 
@@ -106,3 +105,10 @@ Python 3.9.19
 3.9.19 (main, Apr  6 2024, 17:57:55) 
 [GCC 11.4.0]
 ```
+
+## %%capture
+
+抑制輸出
+
+[Mastering Google Colab: Techniques for Managing Code Cell Outputs | by Future Tech Feed | Medium](https://medium.com/@futuretechfeed/mastering-google-colab-techniques-for-managing-code-cell-outputs-dd9a89847d08)
+
