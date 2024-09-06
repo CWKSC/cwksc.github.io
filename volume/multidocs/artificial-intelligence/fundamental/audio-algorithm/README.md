@@ -1,4 +1,4 @@
-# Audio
+# Audio algorithm
 
 
 ## CTC (Connectionist Temporal Classification) algorithm
