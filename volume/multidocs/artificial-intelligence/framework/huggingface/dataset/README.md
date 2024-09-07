@@ -25,6 +25,8 @@ load_dataset + save_to_disk + load_from_disk 可以解決問題
 ```python
 from datasets import load_dataset, load_from_disk
 
+DATASET_FOLDER = "/workspace/predownload/dataset"
+
 common_voice_train = load_dataset(
     path="mozilla-foundation/common_voice_16_0", 
     name="mn", 
@@ -32,17 +34,37 @@ common_voice_train = load_dataset(
     trust_remote_code=True
 )
 print(common_voice_train)
+common_voice_train.save_to_disk(f"{DATASET_FOLDER}/common-voice-mn/train")
 
-common_voice_train.save_to_disk("/workspace/predownload/common-voice-mn-train")
-
-dataset_load_from_disk = load_from_disk('/workspace/predownload/common-voice-mn-train')
-print(dataset_load_from_disk)
+common_voice_train_load_from_disk = load_from_disk(f"{DATASET_FOLDER}/common-voice-mn/train")
+print(common_voice_train_load_from_disk)
 ```
 
 ```python
 Dataset({
     features: ['client_id', 'path', 'audio', 'sentence', 'up_votes', 'down_votes', 'age', 'gender', 'accent', 'locale', 'segment', 'variant'],
     num_rows: 81
+})
+```
+
+```python
+common_voice_test = load_dataset(
+    path="mozilla-foundation/common_voice_16_0", 
+    name="mn", 
+    split="test[:2%]", 
+    trust_remote_code=True
+)
+print(common_voice_test)
+common_voice_test.save_to_disk(f"{DATASET_FOLDER}/common-voice-mn/test")
+
+common_voice_test_load_from_disk = load_from_disk(f"{DATASET_FOLDER}/common-voice-mn/test")
+print(common_voice_test_load_from_disk)
+```
+
+```python
+Dataset({
+    features: ['client_id', 'path', 'audio', 'sentence', 'up_votes', 'down_votes', 'age', 'gender', 'accent', 'locale', 'segment', 'variant'],
+    num_rows: 38
 })
 ```
 
