@@ -8,19 +8,41 @@ https://huggingface.co/docs/datasets/v2.21.0/en/package_reference/loading_method
 
 有 `train[:1%]` 這種寫法去減少數據量，快速跑一次流程
 
-
-
 ## save_to_disk / load_from_disk 
 
 [Save and load datasets - 🤗Datasets - Hugging Face Forums](https://discuss.huggingface.co/t/save-and-load-datasets/9260)
 
 [How do I save a Huggingface dataset? - Stack Overflow](https://stackoverflow.com/questions/72021814/how-do-i-save-a-huggingface-dataset)
 
+hf_hub_download 和 snapshot_download 都不能細緻選擇，像是 `train[:10%]`
+
+有儲存到本地的需求時，全部下載會太大
+
+load_dataset + save_to_disk + load_from_disk 可以解決問題
+
+例如 `mozilla-foundation/common_voice_16_0`, `mn`, `train[:2%]+validation[:2%]`:
 
 ```python
-from datasets import load_dataset
-  
-test_dataset = load_dataset("json", data_files="test.json", split="train")
+from datasets import load_dataset, load_from_disk
 
-test_dataset.save_to_disk("test.hf")
+common_voice_train = load_dataset(
+    path="mozilla-foundation/common_voice_16_0", 
+    name="mn", 
+    split="train[:2%]+validation[:2%]", 
+    trust_remote_code=True
+)
+print(common_voice_train)
+
+common_voice_train.save_to_disk("/workspace/predownload/common-voice-mn-train")
+
+dataset_load_from_disk = load_from_disk('/workspace/predownload/common-voice-mn-train')
+print(dataset_load_from_disk)
 ```
+
+```python
+Dataset({
+    features: ['client_id', 'path', 'audio', 'sentence', 'up_votes', 'down_votes', 'age', 'gender', 'accent', 'locale', 'segment', 'variant'],
+    num_rows: 81
+})
+```
+
