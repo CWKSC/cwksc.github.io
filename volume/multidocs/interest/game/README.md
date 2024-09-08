@@ -22,6 +22,10 @@
 
 - [tetr.io](https://ch.tetr.io/u/cwksc)
 
+- 瘟疫公司：進化 (Plague Inc: Evolved)
+
+- 反叛公司 Rebel Inc: Escalation
+
 大部分遊戲都是在白金水平
 
 
