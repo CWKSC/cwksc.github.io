@@ -16,6 +16,5 @@ export const navbar = {
         { label: 'Practical 實際', to: "/practical/", position: 'left' },
         // { label: 'Project 項目', to: "/project/", position: 'left' },
         { label: 'Interest 興趣', to: "/interest/", position: 'left' },
-        { label: 'Misc 雜項', to: "/misc/", position: 'left' },
     ],
 };

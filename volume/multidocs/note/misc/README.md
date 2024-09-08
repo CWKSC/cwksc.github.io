@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Misc 雜項
 
 不是技術筆記
