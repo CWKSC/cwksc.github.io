@@ -98,7 +98,9 @@ Packet switching:
 
 probability \<= 10 is 0.9996
 
-二項分佈
+二項分佈 [wiki](https://en.wikipedia.org/wiki/Binomial_distribution) B(N, k) 
+
+拋硬幣，N 次試驗中有 k 次成功的概率 P(X = k)
 
 $$
 X \sim B(35, 0.1)
@@ -106,9 +108,9 @@ $$
 
 $$
 \begin{align*}
-P(X = k) &= C(35, k) 0.1^k 0.9^{35 - k} \\
+P(X = k) &= C(35, k) 0.1^k 0.9^{35 - k} \\\\
 P(X <= 10) &= P(X = 0) + P(X = 1) + ... + P(X = 10)  \\
-&= 0.999575702 \\
+&= 0.999575702 \\\\
 P(X > 10) &= 1 - P(X <= 10) \\
 &= 0.000424297
 \end{align*}
@@ -146,5 +148,5 @@ $$
   - d_prop = d/s
 
 $$
-d_nodal = d_proc + d_quene + d_trans + d_prop
+d_{nodal} = d_{proc} + d_{quene} + d_{trans} + d_{prop}
 $$
