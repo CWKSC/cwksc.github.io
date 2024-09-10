@@ -170,7 +170,7 @@ $$
 
 7. Physical Layer
 
-##　Network security
+## Network security
 
 ### Denial of Service (DoS)
 
