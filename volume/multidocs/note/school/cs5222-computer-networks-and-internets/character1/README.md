@@ -20,7 +20,9 @@
 
 ## Packet Switching
 
-Send message from source end system to destination end system, long messages breaks into smaller chunks of data called packets
+Send message from source end system to destination end system
+
+Long messages breaks into smaller chunks of data called packets
 
 ### Packet Switches
 
@@ -30,7 +32,7 @@ Send message from source end system to destination end system, long messages bre
 
 Sending `L` bits with transmission rate `R` bits/s
 
-time to transmit the packet is `L/R` seconds.
+Time to transmit the packet is `L/R` seconds.
 
 ### Queuing Delays and Packet Loss
 
@@ -150,3 +152,38 @@ $$
 $$
 d_{nodal} = d_{proc} + d_{quene} + d_{trans} + d_{prop}
 $$
+
+
+## ISO/OSI reference model
+
+1. Application
+
+2. Presentation
+
+3. Session
+
+4. Transport
+
+5. Network Layer
+
+6. Data Link Layer
+
+7. Physical Layer
+
+##　Network security
+
+### Denial of Service (DoS)
+
+Attackers make resources (server, bandwidth) unavailable to legitimate traffic by overwhelming resource with bogus traffic
+
+### Packet sniffing
+
+Records all packets
+
+Wireshark is a (free) packet-sniffer
+
+### IP spoofing
+
+Send packet with false source IP address
+
+
