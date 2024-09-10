@@ -1,4 +1,4 @@
-# Character 1
+# Character 1 - Introduction
 
 ## Physical medium 物理介質
 
