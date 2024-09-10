@@ -1,5 +1,7 @@
 # MongoDB
 
+很久之前寫的東西
+
 https://docs.mongodb.com/manual/mongo/ 
 
 https://www.runoob.com/mongodb/mongodb-tutorial.html

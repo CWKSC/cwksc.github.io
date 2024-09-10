@@ -1,5 +1,7 @@
 # Django
 
+很久之前寫的東西
+
 ## rest_framework
 
 ### serializers.py

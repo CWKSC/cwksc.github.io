@@ -1,5 +1,7 @@
 # jQuery
 
+很久之前寫的東西
+
 https://jquery.com/
 
 https://www.w3schools.com/jquery/jquery_syntax.asp 
