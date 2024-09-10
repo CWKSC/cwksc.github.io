@@ -100,9 +100,9 @@ Packet switching:
 
 probability \<= 10 is 0.9996
 
-二項分佈 [wiki](https://en.wikipedia.org/wiki/Binomial_distribution) B(N, k) 
+二項分佈 ([wiki](https://en.wikipedia.org/wiki/Binomial_distribution)), B(N, k) 
 
-拋硬幣，N 次試驗中有 k 次成功的概率 P(X = k)
+拋硬幣，N 次試驗中有 k 次成功的概率, P(X = k)
 
 $$
 X \sim B(35, 0.1)
