@@ -22,5 +22,5 @@ Computer Networking: A Top-Down Approach, 7th Edition
 
 [Knowledge Checks](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/)
 
-作者整嘅 Online knowledge check ，驗證自己熟唔熟
+作者整嘅 Online knowledge check test，驗證自己熟唔熟
 
