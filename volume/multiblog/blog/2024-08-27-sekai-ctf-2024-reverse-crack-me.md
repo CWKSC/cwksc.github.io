@@ -1,19 +1,31 @@
 ---
 title: SekaiCTF 2024 - Reverse - Crack Me
-description: 幾簡單嘅題目，無聊得滯寫篇文章記低佢，包括試錯經歷 ...
+description: SekaiCTF 2024 一題 reverse，寫篇文章記錄一下，包括試錯經歷 
 authors: cwksc
 tags: []
 ---
 
 # SekaiCTF 2024 - Reverse - Crack Me
 
-幾簡單嘅題目，無聊得滯寫篇文章記低佢，包括試錯經歷
+> 原本是用廣東話口語寫的
+>
+> 但看著看著感覺很不信眼
+> 
+> 很難閱讀（e.g. 係/嘅/咗/唔），就把他改回書面語了
+> 
+> (21/9/2024)
 
-個 apk 我 backup 咗喺 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
+SekaiCTF 2024 一題 reverse
 
-見到 android apk 題目，直接改副檔名去 `.zip` 然後再 unzip 佢，解壓縮嘅時候會見到重複覆蓋，唔使擔心，確認或者跳過
+寫篇文章記錄一下，包括試錯經歷 
 
-`apk` 本質係 `zip`，unzip 可以睇到大約，但冇反編譯字節碼，睇唔到 source code
+題目的 `.apk` 備份了在 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
+
+看到 android apk 題目，可以改副檔名去 `.zip` 然後 unzip 它
+
+`.apk` 本質係 `zip`，但沒有反編譯字節碼是看不到 source code
+
+解壓縮的時候會見到重複覆蓋，確認或者跳過
 
 <!-- truncate -->
 
@@ -27,7 +39,7 @@ tags: []
 
 - [github.com/skylot/jadx](https://github.com/skylot/jadx) （最尾搵咗呢個）
 
-去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，部機本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，冇就 `jadx-gui-x.x.x-with-jre-win.zip`
+去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，沒有就 `jadx-gui-x.x.x-with-jre-win.zip`
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/jadx-gui-init.jpg)
 
@@ -35,25 +47,23 @@ tags: []
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/jadx-gui-source-code.jpg)
 
-值得留意嘅部分明顯係 `SekaiCTF.CrackMe`
+看 `SekaiCTF.CrackMe` 裏面的 code，它是動態加載
 
-但睇吓入面啲 code 就知冇用，佢動態加載
+folder 名有 `expo`，是 `React Native` project
 
-folder 名有 `expo`，係 `React Native` project
-
-Google search 點 reverse `React Native`：
+Google search how to reverse `React Native`：
 
 [Android Attack: Reversing React Native Applications – Security Queens](https://securityqueens.co.uk/android-attack-reversing-react-native-applications/)
 
 [基于React Native开发的非法App破解记录[原创]-软件逆向-看雪-安全社区|安全招聘|kanxue.com](https://bbs.kanxue.com/thread-275942.htm)
 
-真正代碼係 `index.android.bundle` 入面
+真正代碼在 `index.android.bundle` 裏面
 
-用一開始改副檔名 unzip 嘅方式，可以喺 `assets` 攞到 `index.android.bundle` file
+用一開始改副檔名 unzip 的方式，在 `assets` 找到 `index.android.bundle`
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-index-android-bundle.jpg)
 
-先試下用 [github.com/ben-sb/javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) 反混淆
+先試一下用 [github.com/ben-sb/javascript-deobfuscator](https://github.com/ben-sb/javascript-deobfuscator) 反混淆
 
 ```powershell
 npm install -g js-deobfuscator
@@ -71,7 +81,7 @@ Options:
   -h, --help                  display help for command
 ```
 
-事情冇咁順利，出 error 解唔到
+不太順利，有 error
 
 ```powershell
 js-deobfuscator cli -i .\index.android.bundle -o output.js
@@ -82,14 +92,14 @@ C:\...\npm\node_modules\js-deobfuscator\node_modules\shift-parser\src\parser.js:
 JsError: [1:34]: Invalid left-hand side in assignment
 ```
 
-直接單純 beautify 睇下，用 [github.com/beautifier/js-beautify](https://github.com/beautifier/js-beautify)
+單純 beautify，用 [github.com/beautifier/js-beautify](https://github.com/beautifier/js-beautify)
 
 ```powershell
 npm -g install js-beautify
 js-beautify .\index.android.bundle > main.js
 ```
 
-Search `sekai` 發現啲好有趣嘅嘢
+Search `sekai` 發現有趣的東西
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-search-sekai-first.jpg)
 
@@ -99,7 +109,7 @@ Search `sekai` 發現啲好有趣嘅嘢
 
 - `"users/" + e.user.uid + '/flag'`
 
-查其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現：
+Search 其他字眼 (e.g `ctf`, `flag`, `crackme`, `validatePassword`) 發現：
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-search-validate-password.jpg)
 
@@ -109,9 +119,9 @@ Search `sekai` 發現啲好有趣嘅嘢
 
 有驗證 function，有 config，有 firebase api key
 
-睇上去係用 admin 電郵同密碼登入 firebase 攞 flag
+用 admin 電郵同密碼登入 firebase 拿 flag
 
-先睇 `validatePassword` 
+先看 `validatePassword` 
 
 ```js
 e.validatePassword = function(e) {
@@ -123,13 +133,13 @@ e.validatePassword = function(e) {
     }).ciphertext.toString(R.default.enc.Hex)
 ```
 
-長度唔係 17 返回 false
+長度不是 `17` 返回 `false`
 
-將 input 用 AES 加密，用 `KEY`, `IV` 
+將 input AES 加密，用 `KEY`, `IV` 
 
-再同 `03afaa672ff078c63d5bdb0ea08be12b09ea53ea822cd2acef36da5b279b9524` 比較
+再跟 `03afaa672ff078c63d5bdb0ea08be12b09ea53ea822cd2acef36da5b279b9524` 比較
 
-睇 config 部分
+看 config 部分
 
 ```js
 var _ = {
@@ -146,7 +156,7 @@ var _ = {
 
 有 `KEY`, `IV`，可以 decrypt
 
-打開 [CyberChef](https://gchq.github.io/CyberChef/) 煮下佢（[此連結重現結果](https://gchq.github.io/CyberChef/#recipe=AES_Decrypt(%7B'option':'UTF8','string':'react_native_expo_version_47.0.0'%7D,%7B'option':'UTF8','string':'__sekaictf2023__'%7D,'CBC','Hex','Raw',%7B'option':'Hex','string':''%7D,%7B'option':'Hex','string':''%7D)&input=MDNhZmFhNjcyZmYwNzhjNjNkNWJkYjBlYTA4YmUxMmIwOWVhNTNlYTgyMmNkMmFjZWYzNmRhNWIyNzliOTUyNA)）
+打開 [CyberChef](https://gchq.github.io/CyberChef/) 煮它（[此連結重現結果](https://gchq.github.io/CyberChef/#recipe=AES_Decrypt(%7B'option':'UTF8','string':'react_native_expo_version_47.0.0'%7D,%7B'option':'UTF8','string':'__sekaictf2023__'%7D,'CBC','Hex','Raw',%7B'option':'Hex','string':''%7D,%7B'option':'Hex','string':''%7D)&input=MDNhZmFhNjcyZmYwNzhjNjNkNWJkYjBlYTA4YmUxMmIwOWVhNTNlYTgyMmNkMmFjZWYzNmRhNWIyNzliOTUyNA)）
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/chef-aes-get-password.jpg)
 
@@ -154,7 +164,7 @@ var _ = {
 
 用 email `admin@sekai.team` 同 password `s3cr3t_SEKAI_P@ss` 連接 firebase
 
-學 firebase 點用，我用 `node.js`
+學 firebase 怎麽用，我用 `node.js`
 
 [將 Firebase 新增至您的 JavaScript 專案](https://firebase.google.com/docs/web/setup?hl=zh-tw)
 
@@ -164,7 +174,7 @@ var _ = {
 npm install firebase
 ```
 
-寫 code，基本上都係跟官方 copy，`main.js`: 
+寫 code，基本上都是跟官方 copy，`main.js`: 
 
 ```js
 import { initializeApp } from 'firebase/app';
@@ -213,7 +223,7 @@ node .\main.js
 SEKAI{15_React_N@71v3_R3v3rs3_H@RD???}
 ```
 
-攞到 flag，完
+拿到 flag，完
 
 全程大約一個半鐘
 
