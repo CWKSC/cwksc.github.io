@@ -100,7 +100,7 @@
 
 所以我盡可能減低所有阻力，按一下就可以直接開始寫
 
-Build 的部分放了在 GitHub Action，我只需要 focus 內容
+Build 的部分放了在 GitHub Action，我只需要專注在內容
 
 讓行動輕而易舉，更容易形成習慣
 
