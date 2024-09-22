@@ -1,4 +1,4 @@
-# Week 2 - Code Review
+# Week 2 - Modern Code Review
 
 ## Code Review Best Practices
 
