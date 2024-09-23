@@ -1,6 +1,6 @@
 ---
 title: SekaiCTF 2024 - Reverse - Crack Me
-description: SekaiCTF 2024 一題 reverse，寫篇文章記錄一下，包括試錯經歷 
+description: SekaiCTF 2024 一題 reverse，記錄一下，包括試錯經歷  
 authors: cwksc
 tags: []
 ---
@@ -9,37 +9,37 @@ tags: []
 
 > 原本是用廣東話口語寫的
 >
-> 但看著看著感覺很不信眼
+> 但看著看著感覺很不順眼
 > 
 > 很難閱讀（e.g. 係/嘅/咗/唔），就把他改回書面語了
 > 
 > (21/9/2024)
 
-SekaiCTF 2024 一題 reverse
+SekaiCTF 2024 一題 reverse，記錄一下，包括試錯經歷 
 
-寫篇文章記錄一下，包括試錯經歷 
+題目 `.apk` 備份了在 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
 
-題目的 `.apk` 備份了在 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
+`.apk` 本質是 `zip`，可以改副檔名去 `.zip` 然後 unzip 它
 
-看到 android apk 題目，可以改副檔名去 `.zip` 然後 unzip 它
+但沒有反編譯字節碼是看不到 source code
 
-`.apk` 本質係 `zip`，但沒有反編譯字節碼是看不到 source code
-
-解壓縮的時候會見到重複覆蓋，確認或者跳過
+解壓縮時會看到重複覆蓋，確認或者跳過
 
 <!-- truncate -->
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/init-vscode-structure.jpg)
 
-要用其他方法，例如：
+看 source code 要用其他方法，例如：
 
-- [decompiler.com](https://www.decompiler.com/) （下載完個 zip 落嚟話無效）
+- [decompiler.com](https://www.decompiler.com/) （下載完 zip 無效）
 
-- [apktool](https://apktool.org/) （我太蠢唔識裝）
+- [apktool](https://apktool.org/) （我太笨不會裝）
 
-- [github.com/skylot/jadx](https://github.com/skylot/jadx) （最尾搵咗呢個）
+- [github.com/skylot/jadx](https://github.com/skylot/jadx) （最後找了這個）
 
-去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`，本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，沒有就 `jadx-gui-x.x.x-with-jre-win.zip`
+去 [releases](https://github.com/skylot/jadx/releases) 下載，用 `jadx-gui`
+
+本身有 `jre` 就 `jadx-gui-x.x.x-no-jre-win.exe`，沒有就 `jadx-gui-x.x.x-with-jre-win.zip`
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/jadx-gui-init.jpg)
 
@@ -49,7 +49,7 @@ SekaiCTF 2024 一題 reverse
 
 看 `SekaiCTF.CrackMe` 裏面的 code，它是動態加載
 
-folder 名有 `expo`，是 `React Native` project
+folder 名有 `expo`，這個是 `React Native` project
 
 Google search how to reverse `React Native`：
 
@@ -59,7 +59,7 @@ Google search how to reverse `React Native`：
 
 真正代碼在 `index.android.bundle` 裏面
 
-用一開始改副檔名 unzip 的方式，在 `assets` 找到 `index.android.bundle`
+用一開始改副檔名 `unzip` 的方式，在 `assets` 找到 `index.android.bundle`
 
 ![](./2024-08-27-sekai-ctf-2024-reverse-crack-me/vscode-index-android-bundle.jpg)
 

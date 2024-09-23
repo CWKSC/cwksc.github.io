@@ -4,11 +4,9 @@
 > 
 > From ISO/IEC/IEEE 42010 Systems and software engineering — Architecture description (2011)
 
-
 Architecture is conceptual
 
 Architecture is about fundamental (important) things
-
 
 ## Quality Attributes
 
