@@ -19,7 +19,7 @@ SekaiCTF 2024 一題 reverse，記錄一下，包括試錯經歷
 
 題目 `.apk` 備份了在 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
 
-`.apk` 本質是 `zip`，可以改副檔名去 `.zip` 然後 unzip 它
+`.apk` 本質是 `zip`，可以改副檔名去 `.zip` 然後 `unzip` 它
 
 但沒有反編譯字節碼是看不到 source code
 
@@ -162,7 +162,7 @@ var _ = {
 
 獲得密碼 `s3cr3t_SEKAI_P@ss`
 
-用 email `admin@sekai.team` 同 password `s3cr3t_SEKAI_P@ss` 連接 firebase
+用 email `admin@sekai.team` 和 password `s3cr3t_SEKAI_P@ss` 連接 firebase
 
 學 firebase 怎麽用，我用 `node.js`
 
