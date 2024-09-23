@@ -1,8 +1,28 @@
 # Week 3 - Requirement Engineering
 
-## Four major steps in an RE process
+A process to find out and structure the functional and non-functional requirements
 
-1. Elicitation: understanding problem
+RE (Requirement Engineering)
+
+## Common Mistakes in RE
+
+- Noise: does not add relevant information
+
+- Silence: feature in the problem not mentioned in the specification
+
+- Over-specification: talk about the solution rather than the problem
+
+- Contradictions: inconsistent description 
+
+- Ambiguity: unclear
+
+- Forward references: especially cumbersome in long documents
+
+- Wishful thinking: features that cannot realistically be realized
+
+## Four major steps in RE process
+
+1. Elicitation 啟發: understanding problem
 
 2. Specification: describing problem
 
@@ -10,17 +30,19 @@
 
 4. Negotiation: boundaries of problem
 
-## Four positions in Requirement Engineering
+## Four positions of analyst in RE
 
-- Functional
+- Functional (Objective, order)
 
-- Social-relativism 
+- Social-relativism (subjective, order)
 
-- Radical-structuralism
+- Radical-structuralism (objective, conflict)
 
-- Neohumanism
+- Neohumanism (subjective, conflict)
 
-## Requirements Elicitation
+> Will it quiz? I don't know
+
+## Five types of requirements Elicitation activities 
 
 1. Understanding the application domain
 
@@ -45,6 +67,8 @@
 - Form analysis
 
 - Focus Group and Facilitated Workshop
+
+- Mind mapping, group story telling, user stories
 
 ### Interview
 
@@ -80,4 +104,24 @@ Figure out items that are certain or have variety, and the time
 #### Focus group
 
 Small and diverse group of people
+
+## Structuring requirements
+
+Hierarchical
+
+Link requirements to stakeholders
+
+## Prioritizing Requirements
+
+### MoSCoW Method
+
+Must haves: mandatory requirements
+
+Should haves: important but not mandatory
+
+Could haves: if time allows
+
+Won’t haves: not today (may be tomorrow)
+
+
 
