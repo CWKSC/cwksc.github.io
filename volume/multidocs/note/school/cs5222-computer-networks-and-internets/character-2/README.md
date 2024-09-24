@@ -230,13 +230,13 @@ Services:
 
 - Maintenance
 
-### Top-level domain (TLD) servers
+## Top-level domain (TLD) servers
 
 Responsible for top-level country domains, e.g.: uk, fr, ca, jp
 
 Further delegates query to authoritative DNS servers
 
-### Authoritative DNS servers
+## Authoritative DNS servers
 
 Organization’s own DNS server
 
@@ -244,7 +244,7 @@ Providing authoritative hostname to IP mappings for organization’ s named host
 
 Can further sub-divide into smaller DNS zones
 
-### DNS caching
+## DNS caching
 
 Once (any) name server learns mapping, it caches it
 
@@ -254,5 +254,113 @@ Cached entries may be out-of-date
 
 cache entries removed after time to live (TTL)
 
-### DNS records
+## DNS records
+
+[What are DNS records? | Cloudflare](https://www.cloudflare.com/learning/dns/dns-records/)
+
+DNS records (aka zone files)
+
+Resource records (RR) format: (name, value, type, ttl)
+
+There are many type of DNS record, more than 20 kind
+
+## Common type of DNS record
+
+### A / AAAA
+
+[What is a DNS A record? | Cloudflare](https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/)
+
+Hostname to IP address
+
+`A` for IPv4, `AAAA` for IPv6
+
+### NS
+
+[DNS NS record | Cloudflare](https://www.cloudflare.com/learning/dns/dns-records/dns-ns-record/)
+
+Stands for "nameserver"
+
+Indicates which DNS server is authoritative for that domain
+
+### CNAME
+
+[What is a DNS CNAME record? | Cloudflare](https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/)
+
+Align name to A record
+
+CNAME record can point to another CNAME record, but it slower
+
+MX and NS records cannot point to a CNAME record
+
+### MX
+
+[What is a DNS MX record? | Cloudflare](https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/)
+
+"mail exchange" (MX)
+
+MX records cannot point to a CNAME, MX must directly point to A or AAAA record
+
+## DNS protocol
+
+[DNS Message Format - GeeksforGeeks](https://www.geeksforgeeks.org/dns-message-format/)
+
+Query and reply messages, both with same message format
+
+> Don't need quiz, I think
+
+## Attacking DNS
+
+- DDoS attacks
+- Redirect attacks
+  - Man-in-middle
+  - DNS poisoning
+- Exploit DNS for DDoS
+
+## P2P applications
+
+Examples:
+- file distribution (BitTorrent)
+- Streaming (KanKan)
+- VoIP (Skype) 
+
+## File distribution - Client-server 
+
+Server send `N` copies with `F` file size 
+
+$u_s$: server upload capacity
+
+Time to send one copy: $\frac{F}{u_s}$
+
+Time to send N copies: $\frac{NF}{u_s}$
+
+$d_{min}$: min client download rate
+
+Min client download time: $\frac{F}{d_{min}}$
+
+Time to distribute F to N clients using client-server approach:
+
+$$
+D_{c-s} ≥ max\{\frac{NF}{u_s}, \frac{F}{d_{min}}\}
+
+$$
+
+## File distribution - P2P 
+
+Client can download and upload to other client at the same time
+
+
+## Streaming multimedia: DASH
+
+[What is MPEG-DASH? | HLS vs. DASH | Cloudflare](https://www.cloudflare.com/learning/video/what-is-mpeg-dash/)
+
+[Wiki](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)
+
+DASH: Dynamic, Adaptive Streaming over HTTP
+
+
+## Content distribution networks (CDN)
+
+[What is a content delivery network (CDN)? | How do CDNs work? | Cloudflare](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/)
+
+Close to users
 
