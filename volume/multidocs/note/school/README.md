@@ -8,8 +8,6 @@
 
 [城大新生懶人包2022/23](https://www.cityu.edu.hk/studentlife/img/CityU_freshmen_guide_202223.pdf)
 
-## Reg course 
-
 [CityU 給迷途fm的Reg科指南. 因爲我曾經也是一個迷惘的小羔羊X | by Wynn | Medium](https://medium.com/@pandorahearts2017/cityu-%E7%B5%A6%E8%BF%B7%E9%80%94fm%E7%9A%84reg%E7%A7%91%E6%8C%87%E5%8D%97-2410d73ade32)
 
 ## Tool / Web
