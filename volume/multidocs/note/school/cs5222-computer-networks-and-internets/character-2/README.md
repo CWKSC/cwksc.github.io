@@ -179,10 +179,80 @@ HTTP: pull protocol (pull the information from the server)
 
 SMTP: push protocol (sending mail server pushes the file to the receiving mail server)
 
-
 ### Eail access protocol
 
 POP: Post Office Protocol
 
 IMAP: Internet Mail Access Protocol
+
+or use HTTP
+
+## POP3 
+
+Simple
+
+TCP connection to the mail server on port 110
+
+Three phases:
+
+1. Authorization
+  - Declare username, password
+  - `+OK`, `-ERR`
+2. Transaction
+  - `list`, `retr`, `dele`, `quit`
+3. Update
+  - Two modes of operations: 
+    1. download and delete
+    2. download and keep
+
+POP3 is stateless across sessions 跨會話是無狀態的
+
+## IMAP
+
+Keeps user state across sessions
+
+## Domain Name System (DNS)
+
+Application-layer protocol, distributed database
+
+Services:
+- Hostname to IP address
+- Host aliasing
+- Mail server aliasing
+- Load distribution
+  - Many IP addresses correspond to one name
+
+### Why not centralize DNS? 
+
+- Single point of failure
+
+- Traffic
+
+- Maintenance
+
+### Top-level domain (TLD) servers
+
+Responsible for top-level country domains, e.g.: uk, fr, ca, jp
+
+Further delegates query to authoritative DNS servers
+
+### Authoritative DNS servers
+
+Organization’s own DNS server
+
+Providing authoritative hostname to IP mappings for organization’ s named hosts (e.g., *.cityu.edu.hk), known as a DNS zone
+
+Can further sub-divide into smaller DNS zones
+
+### DNS caching
+
+Once (any) name server learns mapping, it caches it
+
+Improve delay performance and to reduce the number of DNS messages ricocheting around
+
+Cached entries may be out-of-date 
+
+cache entries removed after time to live (TTL)
+
+### DNS records
 
