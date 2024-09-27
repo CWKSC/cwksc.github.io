@@ -1,9 +1,49 @@
-# Song 歌曲
+# Songlist 歌單
 
-## Grand Escape - Weathering with You (Tenki no Ko) / RADWIMPS
+## Japanese 日語 日本语
 
-[Grand Escape - Weathering with You (Tenki no Ko) OST [Piano] / RADWIMPS - YouTube](https://www.youtube.com/watch?v=d4IGg5dqeO8)
+- DixieFlatline - Just Be Friends
+- アスノヨゾラ哨戒班 | Orangestar
+- カンザキイオリ - 不器用な男
+- カンザキイオリ - 命に嫌われる | まふまふ
+- ギターと孤独と蒼い惑星
+- ハレハレヤ | flower
+- まじ娘 - 君に最後の口づけを
+- ヨルシカ - たから僕は音楽を辞めた
+- ヨルシカ - 花に亡霊
+- 中島美嘉 - 僕が死のうと思ったのは
+- 優里 - Merry-Go-Round
+- 夕日坂
+- 天ノ弱 | Akie秋绘
+- 心做し
+- 悲しくて lulululu | 花守ゆみり
+- 愛言葉 - 少年T
+- 星街すいせい - GHOST
+- 星街すいせい - Pieces
+- 桜ノ雨
+- 生きていたんだよな | 獅子神レオナ
+- 美波 - アメヲマツ、/ 等待雨、
+- 美波 - カワキヲアメク / 聲嘶力竭'
+- 美波 - ホロネス / 空虛
+- 花譜 - 不可解
+- 鳥の詩
 
-呢個右手真係痴線
+## Cantonese 廣東話
 
+- MC 張天賦 - 老派約會之必要
+- MC 張天賦 - 記憶棉
+- 林奕匡 - 高山低谷
+- 符家浚 - 自動棄權
+- Dear Jane - 不許你注定一人
+- Dear Jane - 哪裡只得我共你
+- Dear Jane - 到此為止
+- 陳奕迅 - 陀飛輪
+- 吳若希 - 越難越愛
+- C AllStar - 天梯
+
+## Putonghua 普通話 / Mandarin 國語
+
+- 吉星出租 - 暮色回响
+- 那英 - 夢一場
+- 葉里, 苑舍 - 葬仙 
 
