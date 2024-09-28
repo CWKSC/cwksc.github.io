@@ -2,7 +2,15 @@
 
 ## Japanese 日語 日本语
 
-- DixieFlatline - Just Be Friends
+- DAOKO × 米津玄師 - 打上花火
+- DixieFlatline - Just Be Friends | 少年T 
+- Letter song | Akie秋绘
+- YOASOBI - アイドル Idol
+- YOASOBI - ハルジオン
+- YOASOBI - 勇者
+- YOASOBI - 夜に駆ける
+- YOASOBI - 怪物
+- YOASOBI - 群青
 - アスノヨゾラ哨戒班 | Orangestar
 - カンザキイオリ - 不器用な男
 - カンザキイオリ - 命に嫌われる | まふまふ
@@ -17,11 +25,14 @@
 - 天ノ弱 | Akie秋绘
 - 心做し | 雙笙
 - 悲しくて lulululu | 花守ゆみり
-- 愛言葉 - 少年T
+- 愛言葉 | 少年T
+- 星の唄 | らむだーじゃん, 少年T
 - 星街すいせい - GHOST
 - 星街すいせい - Pieces
 - 桜ノ雨
 - 生きていたんだよな | 獅子神レオナ
+- 米津玄師 - Lemon
+- 米津玄師 - 灰色と青
 - 美波 - アメヲマツ、/ 等待雨、
 - 美波 - カワキヲアメク / 聲嘶力竭'
 - 美波 - ホロネス / 空虛
