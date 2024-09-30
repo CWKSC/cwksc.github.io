@@ -14,7 +14,7 @@ Technical debts have been classified by dimension:
   - Architectural
   - ...
 
-- Intentionality (intentionally or unintentionally)
+- Intentionality (intentionally or unintentionally) 有意或無意
 
 - Time horizon (short or long term)
 
@@ -24,9 +24,9 @@ Technical debts have been classified by dimension:
 
 ## Patterns to Increase Technical Debts
 
-- Schedule Pressure
-- Duplication of Code
-- Get it “right” the first time
+- Schedule Pressure 進度壓力
+- Duplication of Code 重複程式碼
+- Get it "right" the first time
 
 ## Manage Technical Debts
 
@@ -36,8 +36,29 @@ Visualize the technical debts on Kanban board
 - Static analyzers
 - Linter
 
-Backlogs are the most used tool among the participants
+Backlogs are the most used tool
 
-Most used backlog tools are Jira, Hansoft, and Excel
+Commonly used backlog tools are Jira, Hansoft, and Excel
 
+- Do nothing, "if it ain't broke, don’t fix it"
+- Use a risk management approach to evaluating and prioritizing technical debt's cost and value. E.g., allocate 5 to 10 percent of each release cycle to addressing technical debt
+- Manage the expectations of customers and nontechnical stakeholders by making them equal partners and facilitating open dialogue about the debt’s implications
+
+
+### Ineffective
+
+Comments
+- Not considered tracking
+
+Documentation
+- Increases TD awareness
+- But highest overhead
+
+Bug system
+- Higher overhead
+
+Test coverage
+- Not seem to contribute too much to the awareness and tracking level
+- Not involve much overhead
+- Related to only a small part of TD
 
