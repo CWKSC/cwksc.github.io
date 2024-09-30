@@ -51,14 +51,14 @@ Comments
 - Not considered tracking
 
 Documentation
-- Increases TD awareness
-- But highest overhead
+- Increases TD awareness 提高技術債意識
+- But highest overhead 高開銷
 
 Bug system
 - Higher overhead
 
 Test coverage
-- Not seem to contribute too much to the awareness and tracking level
+- Not seem to contribute too much to the awareness and tracking level 
 - Not involve much overhead
 - Related to only a small part of TD
 
