@@ -20,6 +20,14 @@ https://setuptools.pypa.io/en/latest/userguide/entry_point.html#console-scripts
 cli-name = "pkg.subpkg:func"
 ```
 
+## `.pypirc`
+
+https://packaging.python.org/en/latest/specifications/pypirc/
+
+## PyPI 不允許發布者覆蓋舊文件
+
+https://github.com/pypa/packaging-problems/issues/75
+
 ## setuptools
 
 This is old, but still many project using it
