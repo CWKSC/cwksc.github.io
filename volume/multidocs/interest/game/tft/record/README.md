@@ -15,3 +15,13 @@
 ![](./image/s12-ten-win-to-platinum-4.png)
 
 
+## Character 角色紀錄
+
+### S5.5 棋組回歸
+
+![](./image/s5.5-sion-1574-damage.png)
+
+![](./image/s5.5-sion-1211-ad.png)
+
+![](./image/s5.5-kha-zix-13612-damage.png)
+
