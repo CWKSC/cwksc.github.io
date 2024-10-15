@@ -29,6 +29,17 @@
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+.h-100 img {
+    width: auto;
+    height: 100px;
+}
+
 .h-250 img {
+    width: auto;
     height: 250px;
+}
+
+.h-350 img {
+    width: auto;
+    height: 350px;
 }
