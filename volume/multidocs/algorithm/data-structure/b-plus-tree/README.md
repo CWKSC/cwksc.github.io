@@ -164,6 +164,8 @@ Check parent layer one by one until ok
 
 Delete `9, 7, 8` in following B+ Tree
 
+[Online sketcher](https://projects.calebevans.me/b-sketcher/)
+
 ```
 9
 3,5,7/11
