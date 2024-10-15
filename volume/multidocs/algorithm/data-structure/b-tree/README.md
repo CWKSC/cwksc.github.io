@@ -16,7 +16,7 @@ Use 平衡搜索樹（Balanced Search Tree）
 
 For B Tree
 
-- 每個 node 最多有 m 個子樹 (最多m-1個元素) (m is `order`)
+- 每個 node 最多有 `m` 個子樹 (最多 `m - 1` 個元素) (`m` is `order`)
 - 所有 leaf 在同一層上
 - internal 內部節點 
 
