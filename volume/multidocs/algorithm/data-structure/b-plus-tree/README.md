@@ -111,7 +111,16 @@ Insert 7
 
 It is [1, 3, 5, 7], medium between 3 and 5, by default it is right biasing, use 5 as index
 
-<img src="./image/b-plus-tree/insertion/step-2-7.png" height="250"/>
+<!-- <img src="./image/b-plus-tree/insertion/step-2-7.png" height="250"/> -->
+<p class="h-250">
+![](./image/b-plus-tree/insertion/step-2-7.png)
+</p>
+
+<style>
+.h-250 > img {
+  height: 250px;
+}
+</style>
 
 Insert 9, 2
 
