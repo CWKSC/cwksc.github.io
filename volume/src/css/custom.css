@@ -29,6 +29,6 @@
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-.h-250 > img {
+.h-250 img {
     height: 250px;
 }
