@@ -79,7 +79,13 @@ All key in leaf node
 
 插入並且分裂時左邊 key 比較多還是右邊 key 比較多 (ceil vs floor in left right)
 
-Wiki use left biasing, but most of the example in internet use right biasing
+In compare element
+
+Left biasing use \<= and >
+
+Right biasing use \< and \>=
+
+Wiki use left biasing, but most of the example in internet use right biasing (also in school teaching)
 
 ## Insertion 插入 (right biasing)
 
@@ -89,6 +95,7 @@ Wiki use left biasing, but most of the example in internet use right biasing
 
 - Left have `floor((m + 1) / 2)`, right have `ceil((m + 1) / 2)`
 - 取出右邊最小 element 作為 index 插入到 parent
+- if 滿 is in non-leaf node, index as parent, use successor replace
 
 ### Example
 
@@ -148,6 +155,8 @@ Be care in non-leaf node, the index will move upper, and the replace with succes
 
 (3) 刪除 node 是 index
 - use successor (replace by next node)
+
+### Example
 
 
 
