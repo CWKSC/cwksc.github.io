@@ -177,14 +177,18 @@ Be care in non-leaf node, the index will move upper, and the replace with succes
 
 [Deletion from a B+ Tree](https://www.programiz.com/dsa/deletion-from-a-b-plus-tree)
 
-(1) 刪除 node 後仍然多於 `ceil(m / 2) - 1` keys -> it is ok
+Half full mean `ceil(m / 2) - 1`
+
+(1) 刪除 node 後仍然多於 `ceil(m / 2) - 1` keys -> it is ok, just delete
 
 (2) 刪除 node 後 less then `ceil(m / 2) - 1` keys
-- 從 sibling node 兄弟節點 borrowing 借用, use successor as index
-- if can't (after 借用 sibling node will less than half full), merge (will delete index)
+- Try and check 從 sibling node 兄弟節點 borrowing 借用, use successor as index
+- If can't (after 借用 sibling node will less than half full), merge (delete index, use smallest as index)
 
 (3) 刪除 node 是 index
-- use successor (replace by next node)
+- Use successor (replace by next node)
+
+Check parent layer one by one until ok
 
 ### Example
 

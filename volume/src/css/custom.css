@@ -31,15 +31,18 @@
 
 .h-100 img {
     width: auto;
-    height: 100px;
+    height: auto;
+    max-height: 100px;
 }
 
 .h-250 img {
     width: auto;
-    height: 250px;
+    height: auto;
+    max-height: 250px;
 }
 
 .h-350 img {
     width: auto;
-    height: 350px;
+    height: auto;
+    max-height: 350px;
 }
