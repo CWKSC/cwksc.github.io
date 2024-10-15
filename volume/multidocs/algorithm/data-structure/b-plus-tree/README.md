@@ -182,11 +182,11 @@ Delete `9`
 
 `[10]` is less than half full, need borrow or merge
 
-Sibling will less than half full also if borrowing
+Sibling node `[11, 12]` will less than half full if borrowing
 
-Merge sibling tree, delete index `11`, then remaining is `[10, 11, 12]`
+Merge sibling tree, delete index `11`, then remaining is `[10, 11, 12]`, index is `10`
 
-In `[3, 5, 7]` and `[]`, left side can borrow
+In `[3, 5, 7]` and `[10]`, left side can borrow
 
 `7` go to parent, right side use `10` as index
 
@@ -198,9 +198,9 @@ In `[3, 5, 7]` and `[]`, left side can borrow
 
 Delete `7`
 
-`[8]` is less thab half full
+`[8]` is less than half full
 
-Sibling `[10, 11, 12]` can borrowing
+Sibling node is `[10, 11, 12]`, can borrowing
 
 Move `10` to left side, it is `[8, 10]`
 
@@ -216,11 +216,11 @@ Check parent, replace `7` with successor `8`
 
 Delete `8`
 
-It is `[10]`, right cannot borrowing, need merge
+It is `[10]`, right side cannot borrowing, need merge
 
-Merge, `[10, 11, 12]`, delete index `11`
+Merge, `[10, 11, 12]`, delete index `11`, use `10` as index
 
-In `[3, 5]` and `[]`, left side cannot borrowing, need merge
+In `[3, 5]` and `[10]`, left side cannot borrowing, need merge
 
 Merge, `[3, 5, 10]`, delete index `8`
 
