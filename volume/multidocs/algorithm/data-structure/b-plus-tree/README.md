@@ -105,33 +105,33 @@ For m = 4 B+ tree
 
 Insert 1, 3, 5, 7, 9, 2, 4, 6, 8, 10
 
-![](./image/b-plus-tree/insertion/step-1-1-3-5.png)
+<img src="./image/b-plus-tree/insertion/step-1-1-3-5.png" height="100"/>
 
 Insert 7
 
 It is [1, 3, 5, 7], medium between 3 and 5, by default it is right biasing, use 5 as index
 
-![](./image/b-plus-tree/insertion/step-2-7.png)
+<img src="./image/b-plus-tree/insertion/step-2-7.png" height="250"/>
 
 Insert 9, 2
 
-![](./image/b-plus-tree/insertion/step-3-9-2.png)
+<img src="./image/b-plus-tree/insertion/step-3-9-2.png" height="250"/>
 
 Insert 4
 
 It is [1, 2, 3, 4], medium between 2 and 3, use 3 as index
 
-![](./image/b-plus-tree/insertion/step-4-4.png)
+<img src="./image/b-plus-tree/insertion/step-4-4.png" height="250"/>
 
 Insert 6
 
 It is [5, 6, 7, 9], medium between 6 and 7, use 7 as index
 
-![](./image/b-plus-tree/insertion/step-5-6.png)
+<img src="./image/b-plus-tree/insertion/step-5-6.png" height="250"/>
 
 Insert 8
 
-![](./image/b-plus-tree/insertion/step-6-8.png)
+<img src="./image/b-plus-tree/insertion/step-6-8.png" height="250"/>
 
 Insert 10
 
@@ -141,7 +141,7 @@ In parent, It is [3, 5, 7, 9], medium between 5 and 7, use 7 as index (move as p
 
 Be care in non-leaf node, the index will move upper, and the replace with successor
 
-![](./image/b-plus-tree/insertion/step-7-10.png)
+<img src="./image/b-plus-tree/insertion/step-7-10.png" height="350"/>
 
 ## Deletion 刪除
 
@@ -168,7 +168,7 @@ Delete 9, 7, 8 in following B+ Tree
 1,2/3,4/5,6/7,8/9,10/11,12
 ```
 
-![](./image/b-plus-tree/deletion/step-1-init.png)
+<img src="./image/b-plus-tree/deletion/step-1-init.png" height="350"/>
 
 Delete 9
 
@@ -182,7 +182,7 @@ In [3, 5, 7] and [], left side can borrow
 
 7 go to parent, right side use 10 as index
 
-![](./image/b-plus-tree/deletion/step-2-delete-9.png)
+<img src="./image/b-plus-tree/deletion/step-2-delete-9.png" height="350"/>
 
 Delete 7
 
@@ -196,7 +196,7 @@ Use successor (11) as index
 
 Check parent, replace 7 with successor 8
 
-![](./image/b-plus-tree/deletion/step-3-delete-7.png)
+<img src="./image/b-plus-tree/deletion/step-3-delete-7.png" height="350"/>
 
 Delete 8
 
@@ -208,5 +208,5 @@ In [3, 5] and [], left side cannot borrowing, need merge
 
 Merge, [3, 5, 10], delete index 8
 
-![](./image/b-plus-tree/deletion/step-4-delete-8.png)
+<img src="./image/b-plus-tree/deletion/step-4-delete-8.png" height="250"/>
 
