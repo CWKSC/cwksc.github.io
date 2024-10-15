@@ -41,13 +41,13 @@ All key in leaf node
 
 插入並且分裂時左邊 key 比較多還是右邊 key 比較多 (ceil vs floor in left right)
 
-In compare element
+Compare element:
 
 - Left biasing use \<= and >
 
 - Right biasing use \< and \>=
 
-In index
+Index when split
 
 - Left biasing use left side max as index
 
