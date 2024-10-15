@@ -2,11 +2,11 @@
 
 https://docs.python.org/3/reference/import.html
 
-> all packages are modules, but not all modules are packages
+> All packages are modules, but not all modules are packages
 
-> packages are just a special kind of module
+> Packages are just a special kind of module
 
-> any module that contains a __path__ attribute is considered a package
+> Any module that contains a `__path__` attribute is considered a package
 
-
+> A regular package is typically implemented as a directory containing an `__init__.py` file. 
 

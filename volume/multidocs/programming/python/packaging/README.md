@@ -6,7 +6,6 @@ Use `pyproject.toml`
 
 [Packaging Python Projects - Python Packaging User Guide](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
 
-
 ## Compare build tools
 
 [Python Packaging Tools — Python Packaging Guide](https://www.pyopensci.org/python-package-guide/package-structure-code/python-package-build-tools.html)

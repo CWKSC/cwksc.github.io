@@ -1,7 +1,6 @@
 # Docker
 
-
-## troubleshooting
+## Troubleshooting
 
 ### `archive/tar: unknown file mode ?rwxr-xr-x`
 
