@@ -20,7 +20,7 @@ Use 平衡搜索樹（Balanced Search Tree）
 
 - AVL Tree
 - Red Black Tree 紅黑樹
-- B Tree
+- B Tree (Family)
 
 For B Tree
 
@@ -105,7 +105,7 @@ For m = 4 B+ tree
 
 Insert 1, 3, 5, 7, 9, 2, 4, 6, 8, 10
 
-<img src="./image/b-plus-tree/insertion/step-1-1-3-5.png" height="100"/>
+![](./image/b-plus-tree/insertion/step-1-1-3-5.png)
 
 Insert 7
 
