@@ -6,17 +6,30 @@
 > 
 > 因此，B+ 樹不需要像其他自平衡二叉搜尋樹那樣經常的重新平衡
 
-For children / subtree
+`m` is order, `m` child, `m - 1` keys for each node
 
-> Node can have a maximum of `m` children (subtree)
+Three kind of node: root node, internal node, leaf node
+
+For children / subtree / pointer
+
+> Node maximum `m` children
 > 
-> Node should have a minimum of `ceil(m / 2)` children (subtree)
+> Node minimum `ceil(m / 2)` children
 
 For keys / elements
 
-> Node (except root node) should contain a minimum of `ceil(m / 2) - 1` keys (element)
->
-> Node can contain a maximum of `m - 1` keys (element)
+> Node maximum `m - 1` keys
+> 
+> Node minimum of `ceil(m / 2) - 1` keys (except root node)
+
+For example, `m` is `4`:
+
+`3` key and `4` children pointer
+
+```
+|    | k0 |    | k1 |    | k2 |    |
+| p0 |    | p1 |    | p2 |    | p3 |
+```
 
 > 所有 leaf node 鏈結成一個單鏈表
 
@@ -58,7 +71,7 @@ Result of left / right biasing with same insert order can be different (even can
 
 For `m` = 4  B+ tree
 
-Insert 1, 3, 5, 7, 9, 2, 4, 6, 8, 10
+Insert `1, 3, 5, 7, 9, 2, 4, 6, 8, 10`
 
 <p class="h-100">
 
@@ -147,7 +160,7 @@ Check parent layer one by one until ok
 
 ### Example
 
-Delete 9, 7, 8 in following B+ Tree
+Delete `9, 7, 8` in following B+ Tree
 
 ```
 9
