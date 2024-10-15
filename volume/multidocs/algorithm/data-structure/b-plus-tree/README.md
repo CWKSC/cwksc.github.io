@@ -116,12 +116,6 @@ It is [1, 3, 5, 7], medium between 3 and 5, by default it is right biasing, use 
 ![](./image/b-plus-tree/insertion/step-2-7.png)
 </p>
 
-<style>
-.h-250 > img {
-  height: 250px;
-}
-</style>
-
 Insert 9, 2
 
 <img src="./image/b-plus-tree/insertion/step-3-9-2.png" height="250"/>
