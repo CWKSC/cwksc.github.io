@@ -87,6 +87,8 @@ Right biasing use \< and \>=
 
 Wiki use left biasing, but most of the example in internet use right biasing (also in school teaching)
 
+Result of left / right biasing with same insert order can be different (even can be different in depth of tree)
+
 ## Insertion 插入 (right biasing)
 
 [5.29 B+ Tree Insertion | B+ Tree Creation example | Data Structure Tutorials - YouTube](https://www.youtube.com/watch?v=DqcZLulVJ0M)
@@ -150,13 +152,61 @@ Be care in non-leaf node, the index will move upper, and the replace with succes
 (1) 刪除 node 後仍然多於 `ceil(m / 2) - 1` keys -> it is ok
 
 (2) 刪除 node 後 less then `ceil(m / 2) - 1` keys
-- 從 sibling node 兄弟節點借用
-- if can't, merge
+- 從 sibling node 兄弟節點 borrowing 借用, use successor as index
+- if can't (after 借用 sibling node will less than half full), merge (will delete index)
 
 (3) 刪除 node 是 index
 - use successor (replace by next node)
 
 ### Example
 
+Delete 9, 7, 8 in following B+ Tree
 
+```
+9
+3,5,7/11
+1,2/3,4/5,6/7,8/9,10/11,12
+```
+
+![](./image/b-plus-tree/deletion/step-1-init.png)
+
+Delete 9
+
+[10] is less than half full, need borrow or merge
+
+Sibling will less than half full also if borrowing
+
+Merge sibling tree, delete index (11), then remaining is [10, 11, 12]
+
+In [3, 5, 7] and [], left side can borrow
+
+7 go to parent, right side use 10 as index
+
+![](./image/b-plus-tree/deletion/step-2-delete-9.png)
+
+Delete 7
+
+[8] is less thab half full
+
+Sibling [10, 11, 12] can borrowing
+
+Move 10 to left side, it is [8, 10]
+
+Use successor (11) as index
+
+Check parent, replace 7 with successor 8
+
+![](./image/b-plus-tree/deletion/step-3-delete-7.png)
+
+Delete 8
+
+It is [10], right cannot borrowing, need merge
+
+Merge, [10, 11, 12], delete index 11
+
+In [3, 5] and [], left side cannot borrowing, need merge
+
+Merge, [3, 5, 10], delete index 8
+
+![](./image/b-plus-tree/deletion/step-4-delete-8.png)
 
