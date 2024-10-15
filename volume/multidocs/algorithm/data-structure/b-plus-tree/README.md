@@ -6,7 +6,9 @@
 > 
 > 因此，B+ 樹不需要像其他自平衡二叉搜尋樹那樣經常的重新平衡
 
-`m` is order, `m` child, `m - 1` keys for each node
+`m` is order
+
+For each node, `m` childs, `m - 1` keys
 
 Three kind of node: root node, internal node, leaf node
 
