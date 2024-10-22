@@ -63,11 +63,14 @@ Result of left / right biasing with same insert order can be different (even can
 
 [5.29 B+ Tree Insertion | B+ Tree Creation example | Data Structure Tutorials - YouTube](https://www.youtube.com/watch?v=DqcZLulVJ0M)
 
-節點已滿
+當節點已滿
 
-- Left have `floor((m + 1) / 2)`, right have `ceil((m + 1) / 2)`
-- 取出右邊最小 element 作為 index 插入到 parent
-- if 滿 is in non-leaf node, index as parent, use successor replace
+- 用中位數切分
+  - Left have `floor((m + 1) / 2)`, right have `ceil((m + 1) / 2)`
+- 當分裂的是 leaf node
+  - 取出右邊最小 element (中位數) 作為 index 插入到 parent
+- 當分裂的是 non-leaf node (internal or root)
+  - 中位數作為 parent, use successor replace
 
 ### Example
 
@@ -127,9 +130,7 @@ Insert `8`
 
 </p>
 
-Insert `10`
-
-It is `[7, 8, 9, 10]`, medium between `8` and `9`, use `9` as index
+Insert `10`, It is `[7, 8, 9, 10]`, medium between `8` and `9`, use `9` as index
 
 In parent, It is `[3, 5, 7, 9]`, medium between `5` and `7`, use `7` as index (move as parent)
 
