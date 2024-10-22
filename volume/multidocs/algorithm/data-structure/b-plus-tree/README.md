@@ -10,7 +10,12 @@
 
 For each node, `m` childs, `m - 1` keys
 
-Three kind of node: root node, internal node, leaf node
+For example, `m` is `4`, there are `3` key and `4` children pointer
+
+```
+|    | k0 |    | k1 |    | k2 |    |
+| p0 |    | p1 |    | p2 |    | p3 |
+```
 
 For children / subtree / pointer
 
@@ -22,16 +27,7 @@ For keys / elements
 
 > Node maximum `m - 1` keys
 > 
-> Node minimum of `ceil(m / 2) - 1` keys (except root node)
-
-For example, `m` is `4`:
-
-`3` key and `4` children pointer
-
-```
-|    | k0 |    | k1 |    | k2 |    |
-| p0 |    | p1 |    | p2 |    | p3 |
-```
+> Node minimum of `ceil(m / 2) - 1` keys (except root node)\
 
 > 所有 leaf node 鏈結成一個單鏈表
 
@@ -102,9 +98,7 @@ Insert `9`, `2`
 
 </p>
 
-Insert `4`
-
-It is `[1, 2, 3, 4]`, medium between `2` and `3`, use `3` as index
+Insert `4`. It is `[1, 2, 3, 4]`, medium between `2` and `3`, use `3` as index
 
 <p class="h-250">
 
@@ -112,9 +106,7 @@ It is `[1, 2, 3, 4]`, medium between `2` and `3`, use `3` as index
 
 </p>
 
-Insert `6`
-
-It is `[5, 6, 7, 9]`, medium between `6` and `7`, use `7` as index
+Insert `6`. It is `[5, 6, 7, 9]`, medium between `6` and `7`, use `7` as index
 
 <p class="h-250">
 
@@ -134,7 +126,7 @@ Insert `10`, It is `[7, 8, 9, 10]`, medium between `8` and `9`, use `9` as index
 
 In parent, It is `[3, 5, 7, 9]`, medium between `5` and `7`, use `7` as index (move as parent)
 
-Be care in non-leaf node, the index will move upper, and the replace with successor
+Be care in non-leaf node, the index will move upper, and replace with successor
 
 <p class="h-350">
 
@@ -142,13 +134,13 @@ Be care in non-leaf node, the index will move upper, and the replace with succes
 
 </p>
 
-## Deletion 刪除
+## Deletion 刪除 (right biasing)
 
 [5.30 B+ Tree Deletion| with example |Data structure & Algorithm Tutorials - YouTube](https://www.youtube.com/watch?v=pGOdeCpuwpI)
 
 [Deletion from a B+ Tree](https://www.programiz.com/dsa/deletion-from-a-b-plus-tree)
 
-Half full mean `ceil(m / 2) - 1`
+Half full 半滿 mean `ceil(m / 2) - 1`
 
 (1) 刪除 node 後仍然多於 `ceil(m / 2) - 1` keys -> it is ok, just delete
 
@@ -159,7 +151,7 @@ Half full mean `ceil(m / 2) - 1`
 (3) 刪除 node 是 index
 - Use successor (replace by next node)
 
-Check parent layer one by one until ok
+Check parent layer one by one until all node status is legal
 
 ### Example
 
