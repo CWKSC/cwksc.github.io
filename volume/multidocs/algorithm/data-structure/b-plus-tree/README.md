@@ -81,7 +81,8 @@ Half full 半滿 mean `ceil(m / 2) - 1`
 
 (2) 刪除 node 後 less then `ceil(m / 2) - 1` keys
 - Try and check 從 sibling node 兄弟節點 borrowing 借用, use successor as index
-- If can't (after 借用 sibling node will less than half full), merge (delete index, use smallest as index)
+- If can't (after 借用 sibling node will less than half full)
+  - Merge: delete index, use smallest as index
 
 (3) 刪除 node 是 index
 - Use successor (replace by next node)
