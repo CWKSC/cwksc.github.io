@@ -29,11 +29,25 @@
 
 [Lookahead and lookbehind](https://javascript.info/regexp-lookahead-lookbehind)
 
+- `(?=)`
+
 
 ## \b \B
 
 [Java - Regular Expression - \b 與 \B 在regex中的分別 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/articles/10229585)
 
+
+
+## Note 
+
+```
+(.)(?!\1)(.)\2(?!\2)(.)\3{2}(?!\3)
+```
+
+```
+abbccc
+122333
+```
 
 
 
