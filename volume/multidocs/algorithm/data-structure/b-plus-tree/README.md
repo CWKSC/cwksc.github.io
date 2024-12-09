@@ -4,7 +4,7 @@
 
 `m` is order
 
-For each node, `m` childs, `m - 1` keys
+For node, `m` childs, `m - 1` keys
 
 For example, `m` is `4`, there are `3` key and `4` children pointer
 
@@ -15,19 +15,19 @@ For example, `m` is `4`, there are `3` key and `4` children pointer
 
 For children / subtree / pointer
 
-> Node maximum `m` children
-> 
-> Node minimum `ceil(m / 2)` children
+- Maximum `m` children
+- Minimum `ceil(m / 2)` children
 
 For keys / elements
 
-> Node maximum `m - 1` keys
-> 
-> Node minimum of `ceil(m / 2) - 1` keys (except root node)\
+- Maximum `m - 1` keys
+- Minimum `ceil(m / 2) - 1` keys (except root node)
 
-> 所有 leaf node 鏈結成一個單鏈表
+All leaf node linked to a single linked list
 
 All key in leaf node
+
+
 
 ## Left / right biasing
 
@@ -49,7 +49,7 @@ Index when split
 
 Wiki use left biasing, but most of the example in internet use right biasing (also in school teaching)
 
-Result of left / right biasing with same insert order can be different (even can be different in depth of tree)
+Result of left / right biasing with same insert order can be different (even different in depth)
 
 
 
@@ -64,7 +64,8 @@ Result of left / right biasing with same insert order can be different (even can
 - 當分裂的是 leaf node
   - 取出右邊最小 element (中位數) 作為 index 插入到 parent
 - 當分裂的是 non-leaf node (internal or root)
-  - 中位數作為 parent, use successor replace
+  - 中位數 move to parent
+
 
 
 

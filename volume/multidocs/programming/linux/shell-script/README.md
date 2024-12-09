@@ -1,4 +1,4 @@
-# Linux shell script
+# Shell script
 
 ## Lowercasing and Replacing Spaces with Hyphens
 
