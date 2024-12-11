@@ -57,6 +57,8 @@ Not defined in RFCs or elsewhere, e.g. Skype
 3. Timing: low delay
 4. Security
 
+
+
 ## Internet transport protocols services
 
 ### TCP
@@ -70,6 +72,8 @@ Not defined in RFCs or elsewhere, e.g. Skype
 
 - Higher throughput
 - e.g. Audio streaming
+
+
 
 ## Securing TCP
 
@@ -136,6 +140,8 @@ After initial HTTP connection which retrieves the HTML body, initiate multiple (
 | cr | lf | 
 | entity body |
 
+
+
 ## Cookies
 
 [使用 HTTP Cookie - HTTP | MDN](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Cookies)
@@ -157,11 +163,15 @@ Cookies can be used for:
 - Shopping carts
 - Recommendations
 
+
+
 ## Web caches (proxy server)
 
 Reduce response time for client request
 
 Reduce traffic 
+
+
 
 ## Electronic mail
 
@@ -187,6 +197,8 @@ IMAP: Internet Mail Access Protocol
 
 or use HTTP
 
+
+
 ## POP3 
 
 Simple
@@ -206,6 +218,8 @@ Three phases:
     2. download and keep
 
 POP3 is stateless across sessions 跨會話是無狀態的
+
+
 
 ## IMAP
 
@@ -230,6 +244,8 @@ Services:
 
 - Maintenance
 
+
+
 ## Top-level domain (TLD) servers
 
 Responsible for top-level country domains, e.g.: uk, fr, ca, jp
@@ -244,6 +260,8 @@ Providing authoritative hostname to IP mappings for organization’ s named host
 
 Can further sub-divide into smaller DNS zones
 
+
+
 ## DNS caching
 
 Once (any) name server learns mapping, it caches it
@@ -254,6 +272,8 @@ Cached entries may be out-of-date
 
 cache entries removed after time to live (TTL)
 
+
+
 ## DNS records
 
 [What are DNS records? | Cloudflare](https://www.cloudflare.com/learning/dns/dns-records/)
@@ -263,6 +283,8 @@ DNS records (aka zone files)
 Resource records (RR) format: (name, value, type, ttl)
 
 There are many type of DNS record, more than 20 kind
+
+
 
 ## Common type of DNS record
 
@@ -308,6 +330,8 @@ Query and reply messages, both with same message format
 
 > Don't need quiz, I think
 
+
+
 ## Attacking DNS
 
 - DDoS attacks
@@ -343,6 +367,8 @@ $$
 D_{c-s} ≥ max\{\frac{NF}{u_s}, \frac{F}{d_{min}}\}
 
 $$
+
+
 
 ## File distribution - P2P 
 

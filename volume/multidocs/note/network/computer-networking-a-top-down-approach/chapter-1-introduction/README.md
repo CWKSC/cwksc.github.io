@@ -1,5 +1,7 @@
 # Character 1 - Introduction
 
+
+
 ## Physical medium 物理介質
 
 - Twisted-pair copper wire
@@ -12,17 +14,23 @@
 
 - Satellite radio spectrum
 
+
+
 ## Physical media categories
 
 - Guided media 
 
 - Unguided media
 
+
+
 ## Packet Switching
 
 Send message from source end system to destination end system
 
 Long messages breaks into smaller chunks of data called packets
+
+
 
 ### Packet Switches
 
@@ -54,6 +62,8 @@ Routing table for router
 
 Forwarding table for switch or bridge
 
+
+
 ## Circuit switching
 
 > 電路交換要求必須首先在通訊雙方之間建立連接通道。在連接建立成功之後，雙方的通訊活動才能開始
@@ -61,6 +71,8 @@ Forwarding table for switch or bridge
 > 在連接建立成功之後，雙方的通訊活動才能開始
 > 
 > 通訊雙方需要傳遞的信息都是通過已經建立好的連接來進行傳遞的，而且這個連接也將一直被維持到雙方的通訊結束
+
+
 
 ### Multiplexing in Circuit-Switched Networks
 
@@ -79,6 +91,8 @@ Forwarding table for switch or bridge
 - Packet switching more efficient
 
 - Circuit switching waste the bandwidth if user inactivity
+
+
 
 ## Example
 
@@ -121,6 +135,8 @@ $$
 可以做 
 [Quantitative Comparison of Packet Switching and Circuit Switching](http://gaia.cs.umass.edu/kurose_ross/interactive/ps_versus_cs.php) ，題目參數會改
 
+
+
 ## Four sources of packet delay
 
 1. Processing delay
@@ -154,6 +170,7 @@ d_{nodal} = d_{proc} + d_{quene} + d_{trans} + d_{prop}
 $$
 
 
+
 ## ISO/OSI reference model
 
 1. Application
@@ -169,6 +186,8 @@ $$
 6. Data Link Layer
 
 7. Physical Layer
+
+
 
 ## Network security
 
