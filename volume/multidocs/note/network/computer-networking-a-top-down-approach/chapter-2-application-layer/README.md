@@ -126,6 +126,8 @@ Not part of the HTTP specification, but implemented by almost all web browsers
 
 After initial HTTP connection which retrieves the HTML body, initiate multiple (4~6) HTTP sessions (per domain) to retrieve multiple objects (e.g. images) in parallel
 
+
+
 ## HTTP request message general format
 
 [HTTP Messages - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
@@ -134,13 +136,14 @@ After initial HTTP connection which retrieves the HTML body, initiate multiple (
 - Header lines
 - Body
 
+```
 | method | sp | URL | sp | version | cr | lf |
 | header field name | | value | cr | lf | 
 | header field name | | value | cr | lf | 
 ...
 | cr | lf | 
 | entity body |
-
+```
 
 
 ## Cookies
@@ -184,7 +187,7 @@ RFC 2821, port 25
 
 SMTP uses persistent connections
 
-##### Comparison with HTTP:
+#### Comparison with HTTP:
 
 HTTP: pull protocol (pull the information from the server)
 
@@ -231,6 +234,7 @@ Keeps user state across sessions
 Application-layer protocol, distributed database
 
 Services:
+
 - Hostname to IP address
 - Host aliasing
 - Mail server aliasing
@@ -252,6 +256,9 @@ Services:
 Responsible for top-level country domains, e.g.: uk, fr, ca, jp
 
 Further delegates query to authoritative DNS servers
+
+
+
 
 ## Authoritative DNS servers
 

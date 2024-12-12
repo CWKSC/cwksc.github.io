@@ -66,11 +66,13 @@ Forwarding table for switch or bridge
 
 ## Circuit switching
 
-> 電路交換要求必須首先在通訊雙方之間建立連接通道。在連接建立成功之後，雙方的通訊活動才能開始
->
+> 電路交換要求必須首先在通訊雙方之間建立連接通道
+> 
 > 在連接建立成功之後，雙方的通訊活動才能開始
 > 
-> 通訊雙方需要傳遞的信息都是通過已經建立好的連接來進行傳遞的，而且這個連接也將一直被維持到雙方的通訊結束
+> 通訊雙方需要傳遞的信息都是通過已經建立好的連接來進行傳遞的
+> 
+> 而且這個連接也將一直被維持到雙方的通訊結束
 
 
 
@@ -86,11 +88,11 @@ Forwarding table for switch or bridge
 
 ### Packet Switching Versus Circuit Switching
 
-- Packet switching not suitable for real-time services 
+Packet switching not suitable for real-time services 
 
-- Packet switching more efficient
+Packet switching more efficient
 
-- Circuit switching waste the bandwidth if user inactivity
+Circuit switching waste the bandwidth if user inactivity
 
 
 
@@ -139,31 +141,49 @@ $$
 
 ## Four sources of packet delay
 
-1. Processing delay
-  - Check bit errors
-  - Determine output link
-  - Typically < microsecs
+### Processing delay
 
-2. Queueing delay
-  - Time waiting at output link for transmission
-  - Depends on congestion level of router
-  - L: packet length (bits)
-  - R: link bandwidth (bit transmission rate)
-  - a: average packet arrival rate
-  - Traffic intensity = L * a / R
-  - La/R ~ 0: avg. queueing delay small
-  - La/R -> 1: avg. queueing delay large
-  - La/R > 1: more “work” arriving  is more than can be serviced, average delay infinite
+Check bit errors
 
-3. Transmission delay
-  - L: packet length (bits) 
-  - R: link bandwidth (bps)
-  - d_trans = L/R
+Determine output link
 
-4. Propagation delay
-  - d: length of physical link
-  - s: propagation speed in medium (~ 3x10^8 m/s)
-  - d_prop = d/s
+Typically < microsecs
+
+### Queueing delay
+
+Time waiting at output link for transmission
+
+Depends on congestion level of router
+
+L: packet length (bits)
+
+R: link bandwidth (bit transmission rate)
+
+a: average packet arrival rate
+
+Traffic intensity = L * a / R
+
+La/R ~ 0: avg. queueing delay small
+
+La/R -> 1: avg. queueing delay large
+
+La/R > 1: more “work” arriving  is more than can be serviced, average delay infinite
+
+### Transmission delay
+
+L: packet length (bits) 
+
+R: link bandwidth (bps)
+
+d_trans = L/R
+
+### Propagation delay
+
+d: length of physical link
+
+s: propagation speed in medium (~ 3x10^8 m/s)
+
+d_prop = d/s
 
 $$
 d_{nodal} = d_{proc} + d_{quene} + d_{trans} + d_{prop}
