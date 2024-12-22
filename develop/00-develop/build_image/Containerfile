@@ -1,7 +1,7 @@
-FROM public.ecr.aws/docker/library/node:20.15
+FROM public.ecr.aws/docker/library/node:22.12.0
 
 # Config
-ENV docusaurus_version=3.5.1
+ENV docusaurus_version=3.6.0
 
 EXPOSE 3000
 
