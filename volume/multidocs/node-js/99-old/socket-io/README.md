@@ -2,11 +2,11 @@
 
 ## Index:
 
-[Server-side Example](#Server-side) 
+[Server-side Example](#server-side) 
 
-[In conjunction with Express](#In-conjunction-with-Express)
+[In conjunction with Express](#in-conjunction-with-express)
 
-[Client-side](#Client-side)
+[Client-side](#client-side)
 
 ___
 
