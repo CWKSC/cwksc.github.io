@@ -1,5 +1,9 @@
 # Audio model
 
+## Leaderboard
+
+[Open ASR Leaderboard - a Hugging Face Space by hf-audio](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard)
+
 ## Collection
 
 [EmulationAI/awesome-large-audio-models: Collection of resources on the applications of Large Language Models (LLMs) in Audio AI.](https://github.com/EmulationAI/awesome-large-audio-models)
