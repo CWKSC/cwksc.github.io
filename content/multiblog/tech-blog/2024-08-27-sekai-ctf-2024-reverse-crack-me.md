@@ -7,14 +7,6 @@ tags: []
 
 # SekaiCTF 2024 - Reverse - Crack Me
 
-> 原本是用廣東話口語寫的
->
-> 但看著看著感覺很不順眼
-> 
-> 很難閱讀（e.g. 係/嘅/咗/唔），就把他改回書面語了
-> 
-> (23/9/2024)
-
 SekaiCTF 2024 一題 reverse，記錄一下，包括試錯經歷 
 
 題目 `.apk` 備份了在 [github.com/CWKSC/ctf/sekai-ctf-2024/crack-me/CrackMe.apk](https://github.com/CWKSC/ctf/blob/main/sekai-ctf-2024/crack-me/CrackMe.apk)
@@ -226,4 +218,12 @@ SEKAI{15_React_N@71v3_R3v3rs3_H@RD???}
 拿到 flag，完
 
 全程大約一個半鐘
+
+> 原本是用廣東話口語寫的
+>
+> 但看著看著感覺很不順眼
+> 
+> 很難閱讀（e.g. 係/嘅/咗/唔），就把他改回書面語了
+> 
+> (23/9/2024)
 
