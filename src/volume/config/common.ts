@@ -1,4 +1,4 @@
 
-export const github_username = "cwksc-organization"
-export const repo_name: String = "docusaurus-plus"
+export const github_username = "CWKSC"
+export const repo_name: String = "cwksc.github.io"
 
