@@ -1,4 +1,4 @@
-# 25-reverse-nodes-in-k-group
+# 25. Reverse Nodes in k-Group
 
 k 個 node 一組，反轉順序
 
