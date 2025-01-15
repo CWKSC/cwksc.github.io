@@ -9,6 +9,10 @@ export const presets = [
             theme: {
                 customCss: './src/css/custom.css',
             },
+            gtag: {
+                trackingID: 'G-1MRSCPZ9JF',
+                anonymizeIP: true,
+            },
         } satisfies Preset.Options,
     ],
 ]
