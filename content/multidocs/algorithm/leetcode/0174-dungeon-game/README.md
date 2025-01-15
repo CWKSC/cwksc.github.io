@@ -8,7 +8,7 @@ https://www.threads.net/@cwksc/post/DEwuYvWB6pg
 
 經過格子扣除生命值
 
-生命值 <= 0 立即死亡
+生命值 \<= 0 立即死亡
 
 ---
 
@@ -48,7 +48,7 @@ min(left, right)
 
 ---
 
-max(min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j], 1)
+`max(min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j], 1)`
 
 --
 
