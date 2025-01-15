@@ -50,7 +50,7 @@ min(left, right)
 
 `max(min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j], 1)`
 
---
+---
 
 一開始做了錯的做法
 
@@ -74,7 +74,7 @@ top {hp: 4, minHp: 3}
 
 current 0
 
-會選擇 left (minHp 2 < 3)
+會選擇 left (minHp 2 \< 3)
 
 然後在碰到 -3 時 minHp -> 5
 
