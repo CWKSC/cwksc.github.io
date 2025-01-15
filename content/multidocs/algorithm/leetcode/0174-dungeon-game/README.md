@@ -56,7 +56,7 @@ min(left, right)
 
 開 2d array
 
-Node {hp, minHp}
+`Node {hp, minHp}`
 
 跟蹤生命值
 
@@ -68,11 +68,12 @@ by top and left
 
 沒有考慮到
 
-left {hp: 1, minHp: 2}
+`left {hp: 1, minHp: 2}`
 
-top {hp: 4, minHp: 3}
+`top {hp: 4, minHp: 3}`
 
 current 0
+
 
 會選擇 left (minHp 2 \< 3)
 
