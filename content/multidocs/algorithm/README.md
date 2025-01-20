@@ -10,3 +10,7 @@ sidebar_position: 0
 
 [OI Wiki](https://oi-wiki.org/)
 
+[WiwiHo 的競程筆記](https://cp.wiwiho.me/)
+
+[臺大程式解題社 NTUCPC](https://ntucpc.org/)
+
