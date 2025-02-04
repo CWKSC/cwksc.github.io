@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Kaggle
 
 https://www.kaggle.com/
