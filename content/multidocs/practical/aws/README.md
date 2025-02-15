@@ -4,7 +4,7 @@
 
 [AWS是什麼？ AWS 入門教學、費用、證照考試 - ALPHA Camp](https://tw.alphacamp.co/blog/aws)
 
-[Stephane Maarek - YouTube](https://www.youtube.com/@StephaneMaarek/videos)
+Nice YouTube Channel: [Stephane Maarek](https://www.youtube.com/@StephaneMaarek/videos)
 
 [無限手套 AWS 版：掌控一切的 5 + 1 雲端必學主題 :: 2021 iThome 鐵人賽](https://ithelp.ithome.com.tw/users/20100951/ironman/4671)
 
