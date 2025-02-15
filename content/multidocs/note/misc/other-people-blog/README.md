@@ -10,6 +10,7 @@
 
 [Blog - MyApollo](https://myapollo.com.tw/blog/)
 
+[文章列表 | 請網這邊走 ThisWeb](https://www.thisweb.dev/posts/page/0) (frontend)
 
 ## 未分類
 

@@ -1,6 +1,6 @@
 # RAID
 
-https://zh.wikipedia.org/zh-hk/RAID
+[RAID - 維基百科](https://zh.wikipedia.org/zh-hk/RAID)
 
 > 獨立磁碟冗餘陣列（RAID, Redundant Array of Independent Disks），舊稱廉價磁盤冗餘陣列（Redundant Array of Inexpensive Disks），簡稱磁碟陣列。利用虛擬化儲存技術把多個硬碟組合起來，成為一個或多個硬碟陣列組，目的為提升效能或資料冗餘，或是兩者同時提升。
 
