@@ -1,4 +1,4 @@
-# Concept
+# Backend 後端
 
 
 ## Vertical / Horizontal Scaling
