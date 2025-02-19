@@ -34,7 +34,7 @@ Just a 原子操作
 
 - Availability
 
-- Partition tolerance
+- Partition tolerance: network connection
 
 [henryr/cap-faq: The CAP FAQ](https://github.com/henryr/cap-faq)
 
@@ -42,7 +42,17 @@ Just a 原子操作
 
 保證最終會同步
 
+## Strong Consistency 強一致性
 
+N replica
+
+W is number of write / udpate replica
+
+R is number of read from replica
+
+if W + R > N, Strong Consistency
+
+it means atleast one of the W and R are overlap
 
 
 
