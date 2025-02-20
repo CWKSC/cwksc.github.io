@@ -12,6 +12,8 @@
 
 [文章列表 | 請網這邊走 ThisWeb](https://www.thisweb.dev/posts/page/0) (frontend)
 
+[YC Note](https://ycc.idv.tw/): AI / ML, CS
+
 ## 未分類
 
 [Weil Jimmer's Blog](https://weils.net/blog/)
