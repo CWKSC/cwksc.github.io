@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # StickerSmash
 
 跟官方教學做一次: https://docs.expo.dev/tutorial/introduction/

@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # UVa 10065 Useless Tile Packers
 
 https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=16&page=show_problem&problem=1006

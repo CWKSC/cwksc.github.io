@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Making Okonomiyaki (use BFS)
 
 有四個杯，各自有不同的容量

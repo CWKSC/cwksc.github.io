@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # UVa 11757 Winger Trial
 
 https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2857

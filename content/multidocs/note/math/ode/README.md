@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Ordinary Differential Equation (ODE) 常微分方程
 
 

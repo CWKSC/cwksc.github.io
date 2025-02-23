@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # UVa 11343 Isolated Segments
 
 https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=2318

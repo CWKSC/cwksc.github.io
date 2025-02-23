@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # POJ 2410 Simple Computers
 
 http://poj.org/problem?id=2410

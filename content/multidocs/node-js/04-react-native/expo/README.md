@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Expo
 
 https://docs.expo.dev/

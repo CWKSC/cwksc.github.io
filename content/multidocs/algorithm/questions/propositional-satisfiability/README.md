@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # Propositional Satisfiability 布爾可滿足性問題
 
 Given input:

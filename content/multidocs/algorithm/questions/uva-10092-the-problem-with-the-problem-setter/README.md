@@ -1,7 +1,3 @@
----
-sidebar_position: 0
----
-
 # UVa 10092 The Problem with the Problem Setter
 
 https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=38&page=show_problem&problem=1033
