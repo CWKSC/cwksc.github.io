@@ -19,17 +19,15 @@ N: Predict Negative
 
 TP: Predict Positive and correct
 
-FN: Predict Negative and wrong
+FN: Predict Negative but wrong
 
-FP: Predict Positive and wrong
+FP: Predict Positive but wrong
 
 TN: Predict Negative and correct
 
 [[統計筆記] Positive Predictive Value (PPV) & Negative Predictive Value (NPV) – Lazy Lazy programming](https://yypw.wordpress.com/2020/07/04/%E7%B5%B1%E8%A8%88%E7%AD%86%E8%A8%98-positive-predictive-value-ppv-negative-predictive-value-npv/)
 
 ## Precision 準確率 / Positive Predictive Value (PPV)
-
-預測正向的情形下，實際的「精準度」是多少
 
 判斷陽性時，真的陽性機率
 
