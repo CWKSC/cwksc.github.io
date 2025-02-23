@@ -1,7 +1,7 @@
 ---
 title: SekaiCTF 2024 - Reverse - Crack Me
 description: SekaiCTF 2024 一題 reverse，記錄一下，包括試錯經歷  
-authors: cwksc
+# authors: cwksc
 tags: []
 ---
 

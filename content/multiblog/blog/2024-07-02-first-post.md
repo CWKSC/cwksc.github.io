@@ -1,7 +1,7 @@
 ---
 title: 又一次重開博客
 description: 第一次是用 GitHub page + Jekyll，2020 年 ...
-authors: cwksc
+# authors: cwksc
 tags: []
 ---
 

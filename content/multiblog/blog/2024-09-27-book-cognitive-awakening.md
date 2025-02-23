@@ -1,3 +1,10 @@
+---
+title: 《認知覺醒》讀後感 / 筆記
+description: 我閱讀這本書的動機來自於 本子在隔壁 的推薦
+# authors: cwksc
+tags: []
+---
+
 # 《認知覺醒》讀後感 / 筆記
 
 我閱讀這本書的動機來自於 [本子在隔壁](https://www.youtube.com/@benzi2662) 的推薦
