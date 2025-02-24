@@ -9,6 +9,7 @@
 
 ## 看過 / 還不錯
 
+- BanG Dream! It's MyGO!!!!!
 - JOJO 的奇妙冒險
 - KILL la KILL
 - OVERLORD 不死者之王
