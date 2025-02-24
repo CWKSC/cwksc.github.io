@@ -1,10 +1,8 @@
----
-draft: true
----
-
 # Domain Name System (DNS)
 
+## DNS Record
 
+[DNS 記錄 | Cloudflare](https://www.cloudflare.com/zh-tw/learning/dns/dns-records/)
 
 ## `dig` (Domain Information Groper)
 
