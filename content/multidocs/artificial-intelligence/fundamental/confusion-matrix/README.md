@@ -55,6 +55,10 @@ $$
 Recall = \frac{TP}{TP + FN}
 $$
 
+計算方法的分母是由 判斷正確的陽性 和 判斷錯誤的陰性 組成
+
+如果想令 Recall 100%，可以判定所有樣本為陽性 
+
 ## Specificity 特異度 / True Negative Rate 真陰性率
 
 實際為陰性的樣本中，判斷為陰性的比例
