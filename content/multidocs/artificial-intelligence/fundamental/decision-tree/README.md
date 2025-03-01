@@ -4,7 +4,7 @@
 ## Misclassification
 
 <!-- ![missclass](Misclass.drawio.svg) -->
-<img src="Misclass.drawio.svg" />
+<!-- <img src="Misclass.drawio.svg" /> -->
 
 $$
 \begin{align}
@@ -26,7 +26,7 @@ $$
 
 6. **$ \max_k p_{k|j} $**: This is the maximum probability among all classes $ k $ for the subset $ D_j $. It indicates the probability of the most likely class for the data points in $ D_j $.
 
-7. **Misclass_A(D)**: This is the misclassification rate for the dataset $ D $. It measures the proportion of data points that are incorrectly classified.
+7. **$ Misclass_A(D) $**: This is the misclassification rate for the dataset $ D $. It measures the proportion of data points that are incorrectly classified.
 
 ## Classification
 
