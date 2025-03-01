@@ -3,7 +3,7 @@
 
 ## Misclassification
 
-<!-- ![missclass](Misclass.drawio.svg) -->
+![missclass](Misclass.drawio.svg)
 <!-- <img src="Misclass.drawio.svg" /> -->
 
 $$
