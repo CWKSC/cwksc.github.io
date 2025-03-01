@@ -1,6 +1,7 @@
 # Decision tree 決策樹
 
 ## Decision Stump
+
 - What? A decision tree with depth ≤1.
 - How? Choose a splitting attribute, then use majority voting to determine class(𝑡)
 - Problem? overfitting, noise sensitivity (if the feature chosen is noisy or irrelevant)
@@ -10,12 +11,6 @@
 
 Given the data 𝐷 to split, choose the splitting attribute that minimizes error rate of decision stump by A.
 
-## Decision Stump
-- What? A decision t (Error Rate)ree with depth ≤1.
-- How? Choose a splitting attribute, then use majority voting to determine class(𝑡)
-- Problem? overfitting, noise sensitivity (if the feature chosen is noisy or irrelevant)
-- Solution? Build a decision tree instread, by recursively split (divide and conquer).
-
 ## How to find good splitting attribute?
 
 Given the data 𝐷 to split, choose the splitting attribute that minimizes error rate of decision stump by A.
@@ -23,15 +18,12 @@ Given the data 𝐷 to split, choose the splitting attribute that minimizes erro
 
 ## Misclassification (Error Rate)
 
-
-
 $$
 \begin{align}
 \text{Misclass}_A(D) &= \sum_j \frac{|D_j|}{|D|} \left( 1 - \max_k p_{k|j} \right) \\
 &= 1 - \sum_j \frac{|D_j|}{|D|} \max_k p_{k|j}
 \end{align}
 $$
-
 
 - $ D $: In the context of decision trees, $ D $ is the set of data points at a particular node.
 
@@ -54,7 +46,6 @@ $$
 </p>
 
 For the above example, the misclassification rate for the dataset $ D $ is $ 1/4(1-1) + 3/4(1-2/3) = 1/4 $
-
 
 Problem? Choose the splitting attribute that minimizes the misclassification rate may noy be global optimal. (Issue of greedy algorithm, a.k.a locally optimal) It neglects the distribution of the class values of misclassified instances. It only considers the majority class.
 
@@ -86,20 +77,20 @@ $$
 
 Like Gini impurity, it quantifies the **uncertainty** or **disorder** in a dataset. 
 
-#### **Variables in the Formula**
+#### Variables in the Formula
 
-1. **$ p_i $**:
+- **$ p_i $**:
    - The **probability** of a data point in $ D $ belonging to class $ i $.
    - It is calculated as:
      $$
      p_i = \frac{\text{Number of data points of class } i \text{ in } D}{|D|}
      $$
 
-2. **$ \text{Entropy}(D) $ or $ \text{Info}(D) $**:
+- **$ \text{Entropy}(D) $ or $ \text{Info}(D) $**:
    - The **entropy** of the dataset $ D $.
    - It measures the **uncertainty** or **disorder** in the class distribution of $ D $.
 
-3. **$ \text{Info}_A(D) $**:
+- **$ \text{Info}_A(D) $**:
    - The **weighted entropy** after splitting the dataset $ D $ based on attribute $ A $.
    - It is the average entropy of the subsets $ D_j $, weighted by the size of each subset.
 
