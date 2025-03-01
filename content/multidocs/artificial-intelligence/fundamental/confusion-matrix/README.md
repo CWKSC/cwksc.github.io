@@ -89,6 +89,8 @@ If $\beta$ to 0, $F_{\beta }$ = PPV
 
 ### Receiver operation characteristics curve (ROC) 接收者操作特性曲線
 
+[圖解 ROC 曲線：精通 ROC 與 AUC 用法、輕鬆記熟定義 • 好豪筆記](https://haosquare.com/roc-curve/)
+
 [Receiver operating characteristic - Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
 
 > ROC 曲線（Receiver Operator Characteristic Curve，譯為接收者操作特性曲線）
