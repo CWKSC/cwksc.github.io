@@ -4,7 +4,6 @@
 ## Misclassification
 
 ![missclass](Misclass.drawio.svg)
-<!-- <img src="Misclass.drawio.svg" /> -->
 
 $$
 \begin{align}
