@@ -77,11 +77,15 @@ $$
 {\displaystyle F_{1}={\frac {2}{\mathrm {recall} ^{-1}+\mathrm {precision} ^{-1}}}=2{\frac {\mathrm {precision} \cdot \mathrm {recall} }{\mathrm {precision} +\mathrm {recall} }}}
 $$
 
+If $\beta$ to $\infty$, $F_{\beta }$ = TPR
+
+If $\beta$ to 0, $F_{\beta }$ = PPV
+
 ## Area under curve (AUC) 
 
 [分類器評估方法 — ROC曲線、AUC、Accuracy、PR曲線 | by 行銷資料科學 | Marketingdatascience | Medium](https://medium.com/marketingdatascience/%E5%88%86%E9%A1%9E%E5%99%A8%E8%A9%95%E4%BC%B0%E6%96%B9%E6%B3%95-roc%E6%9B%B2%E7%B7%9A-auc-accuracy-pr%E6%9B%B2%E7%B7%9A-d3a39977022c)
 
-### Receiver operation characteristics curve (ROC)
+### Receiver operation characteristics curve (ROC) 接收者操作特性曲線
 
 [Receiver operating characteristic - Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
 
@@ -89,7 +93,7 @@ $$
 >
 > FPR 為 X 軸
 > 
-> TPR 為 Y 軸
+> TPR 為 Y 軸 (Recall)
 
 ### PRC (Precision-Recall Curve) / PR 曲線
 
