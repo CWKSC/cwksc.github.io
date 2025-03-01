@@ -49,7 +49,9 @@ $$
 
 For the above example, the misclassification rate for the dataset $ D $ is $ 1/4(1-1) + 3/4(1-2/3) = 1/4 $
 
-Problem: Choose the splitting attribute that minimizes the misclassification rate may 
+Problem? Choose the splitting attribute that minimizes the misclassification rate may noy be global optimal. (Issue of greedy algorithm, a.k.a locally optimal) It neglects the distribution of the class values of misclassified instances. It only considers the majority class.
+
+Solution? Use other metrics like Gini index, entropy, or information gain to find the best splitting attribute.
 
 ## Classification
 
@@ -116,7 +118,26 @@ $$
 \text{Gini}_A(D) = \sum \frac{|D_j|}{|D|} \text{Gini}(D_j)
 $$
 
+#### **Variables in the Formula**
 
+5. **$ p_i $**:
+   - The **probability** of a data point in $ D $ belonging to class $ i $.
+   - It is calculated as:
+     $$
+     p_i = \frac{\text{Number of data points of class } i \text{ in } D}{|D|}
+     $$
+
+6. **$ \text{Gini}(D) $**:
+   - The **Gini impurity** of the dataset $ D $.
+   - It measures the likelihood of misclassifying a randomly chosen data point if it were randomly labeled according to the class distribution in $ D $.
+
+7. **$ \text{Gini}_A(D) $**:
+   - The **weighted Gini impurity** after splitting the dataset $ D $ based on attribute $ A $.
+   - It is the average Gini impurity of the subsets $ D_j $, weighted by the size of each subset.
+
+#### **Why It Works**
+
+Comparing the Gini impurity to $ \max_k p_{k|j} $, which only care about the majority class, the Gini impurity is more sensitive to changes in the class distribution. It **penalizes** the misclassification of the majority class more than the misclassification of the minority class.
 
 ## Regression 
 
