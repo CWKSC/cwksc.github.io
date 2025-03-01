@@ -34,7 +34,7 @@ TN: Predict Negative and correct
 > 當一個人被「診斷出得病」時，此人「真的得病」的機率
 
 $$
-Precision = \frac{TP}{TP + FP}
+\text{Precision} = \frac{TP}{TP + FP}
 $$
 
 ## Negative Predictive Value (NPV)
@@ -44,7 +44,7 @@ $$
 > 當一個人被「診斷沒得病」時，此人「真的沒得病」的機率是多少
 
 $$
-NPV = \frac{TN}{TN + FN}
+\text{NPV} = \frac{TN}{TN + FN}
 $$
 
 ## Recall 召回率 / Sensitivity 靈敏度 / True Positive Rate 真陽性率
@@ -52,7 +52,7 @@ $$
 實際為陽性的樣本中，判斷為陽性的比例 
 
 $$
-Recall = \frac{TP}{TP + FN}
+\text{Recall} = \frac{TP}{TP + FN}
 $$
 
 計算方法的分母是由 判斷正確的陽性 和 判斷錯誤的陰性 組成
@@ -64,7 +64,7 @@ $$
 實際為陰性的樣本中，判斷為陰性的比例
 
 $$
-Specificity = \frac{TN}{TN + FP}
+\text{Specificity} = \frac{TN}{TN + FP}
 $$
 
 如果想令 Specificity 100%，可以判定所有樣本為陰性
