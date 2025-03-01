@@ -81,6 +81,3 @@
 
 [It’s Time to End the Battle Between Waterfall and Agile](https://hbr.org/2023/10/its-time-to-end-the-battle-between-waterfall-and-agile)
 
-##　Extreme programming (XP) 極限編程
-
-> TODO
