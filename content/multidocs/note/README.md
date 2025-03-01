@@ -18,6 +18,8 @@ sidebar_position: 0
 
 [This.Web](https://www.thisweb.dev/posts/page/0): Frontend | [YC Note](https://ycc.idv.tw/): AI / ML, CS | [Weil Jimmer](https://weils.net/blog/)
 
+[好豪筆記](https://haosquare.com/): Data Science, Python
+
 ## Old blog 舊的博客
 
 以前開過但棄用的博客，未來連結可能失效

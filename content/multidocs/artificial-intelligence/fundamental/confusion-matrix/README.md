@@ -93,19 +93,15 @@ If $\beta$ to 0, $F_{\beta }$ = PPV
 
 [Receiver operating characteristic - Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic)
 
-> ROC 曲線（Receiver Operator Characteristic Curve，譯為接收者操作特性曲線）
->
 > FPR 為 X 軸
 > 
 > TPR 為 Y 軸 (Recall)
 
-### PRC (Precision-Recall Curve) / PR 曲線
+### PRC (Precision-Recall Curve) / PR 曲線 / 精確召回曲線
 
-> PR曲線（Precision-Recall Curve，譯為精確召回曲線
->
-> 召回率（Recall）為 X 軸
+> 召回率 Recall 為 X 軸
 > 
-> 精確率（Precision）為 Y 軸 
+> 精確率 Precision 為 Y 軸 
 
 
 
