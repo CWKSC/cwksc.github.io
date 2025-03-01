@@ -47,6 +47,10 @@ $$
 
 7. **$ Misclass_A(D) $**: This is the misclassification rate for the dataset $ D $. It measures the proportion of data points that are incorrectly classified.
 
+For the above example, the misclassification rate for the dataset $ D $ is $ 1/4(1-1) + 3/4(1-2/3) = 1/4 $
+
+
+
 ## Classification
 
 [Decision Tree Classification Clearly Explained! - YouTube](https://youtu.be/ZVR2Way4nwQ?si=FxysjNpS0B1HYXYU)
