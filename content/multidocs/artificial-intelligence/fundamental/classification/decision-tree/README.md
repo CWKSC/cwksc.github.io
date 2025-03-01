@@ -120,24 +120,24 @@ $$
 
 #### **Variables in the Formula**
 
-5. **$ p_i $**:
+1. **$ p_i $**:
    - The **probability** of a data point in $ D $ belonging to class $ i $.
    - It is calculated as:
      $$
      p_i = \frac{\text{Number of data points of class } i \text{ in } D}{|D|}
      $$
 
-6. **$ \text{Gini}(D) $**:
+2. **$ \text{Gini}(D) $**:
    - The **Gini impurity** of the dataset $ D $.
    - It measures the likelihood of misclassifying a randomly chosen data point if it were randomly labeled according to the class distribution in $ D $.
 
-7. **$ \text{Gini}_A(D) $**:
+3. **$ \text{Gini}_A(D) $**:
    - The **weighted Gini impurity** after splitting the dataset $ D $ based on attribute $ A $.
    - It is the average Gini impurity of the subsets $ D_j $, weighted by the size of each subset.
 
 #### **Why It Works**
 
-Comparing the Gini impurity to $ \max_k p_{k|j} $, which only care about the majority class, the Gini impurity is more sensitive to changes in the class distribution. It **penalizes** the misclassification of the majority class more than the misclassification of the minority class.
+Comparing the Gini impurity to $ \max_k p_{k|j} $, which only care about the majority class, the Gini impurity is more sensitive to changes in the class distribution. It penalizes the nodes with a higher number of classes.
 
 ## Regression 
 
