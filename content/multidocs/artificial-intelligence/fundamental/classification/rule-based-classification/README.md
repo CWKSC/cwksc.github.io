@@ -15,6 +15,10 @@ Direct Method
 Indirect Method
 - C4.5 (extract rules from an unpruned decision tree)
 
+## Class-based ordering 基於類別的排序
+
+> Decreasing order of prevalence or misclassification cost per classs
+
 ## Sequential covering 順序覆蓋
 
 1. Add Rule
@@ -37,9 +41,9 @@ Generate rule from decision tree
 
 Just Y = majority class
 
-## Class-based ordering 基於類別的排序
+## OneR
 
-> Decreasing order of prevalence or misclassification cost per classs
+[5.5.1 Learn Rules from a Single Feature (OneR)](https://christophm.github.io/interpretable-ml-book/rules.html#learn-rules-from-a-single-feature-oner)
 
 ## First-Order Inductive Learner (FOIL) Information Gain
 
