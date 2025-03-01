@@ -3,7 +3,7 @@
 
 ## Misclassification
 
-Error rate
+![missclass](Misclass.drawio.svg)
 
 $$
 \begin{align}
