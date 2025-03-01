@@ -3,7 +3,8 @@
 
 ## Misclassification
 
-![missclass](Misclass.drawio.svg)
+<!-- ![missclass](Misclass.drawio.svg) -->
+<img src="Misclass.drawio.svg" />
 
 $$
 \begin{align}
@@ -13,30 +14,30 @@ $$
 $$
 
 
-1. **\( D \)**: In the context of decision trees, \( D \) is the set of data points at a particular node.
+1. $ D $: In the context of decision trees, $ D $ is the set of data points at a particular node.
 
-2. **\( D_j \)**: In decision trees, this correspond to the data points that fall into a particular branch or leaf node j.
+2. **$ D_j $**: In decision trees, this correspond to the data points that fall into a particular branch or leaf node j.
 
-3. **\( |D| \)**: This denotes the total number of data points in the dataset \( D \).
+3. **$ |D| $**: This denotes the total number of data points in the dataset $ D $.
 
-4. **\( |D_j| \)**: This denotes the number of data points in the subset \( D_j \).
+4. **$ |D_j| $**: This denotes the number of data points in the subset $ D_j $.
 
-5. **\( p_{k|j} \)**: This represents the probability that a data point in subset \( D_j \) belongs to class \( k \). It is the conditional probability of class \( k \) given subset \( D_j \).
+5. **$ p_{k|j} $**: This represents the probability that a data point in subset $ D_j $ belongs to class $ k $. It is the conditional probability of class $ k $ given subset $ D_j $.
 
-6. **\( \max_k p_{k|j} \)**: This is the maximum probability among all classes \( k \) for the subset \( D_j \). It indicates the probability of the most likely class for the data points in \( D_j \).
+6. **$ \max_k p_{k|j} $**: This is the maximum probability among all classes $ k $ for the subset $ D_j $. It indicates the probability of the most likely class for the data points in $ D_j $.
 
-7. **Misclass_A(D)**: This is the misclassification rate for the dataset \( D \). It measures the proportion of data points that are incorrectly classified.
+7. **Misclass_A(D)**: This is the misclassification rate for the dataset $ D $. It measures the proportion of data points that are incorrectly classified.
 
-The formula calculates the misclassification rate by summing over all subsets \( D_j \), weighting each subset by its proportion of the total dataset, and considering the probability of the most likely class within each subset. The term \( 1 - \max_k p_{k|j} \) represents the error rate within each subset \( D_j \), and the overall misclassification rate is the weighted average of these error rates.
+The formula calculates the misclassification rate by summing over all subsets $ D_j $, weighting each subset by its proportion of the total dataset, and considering the probability of the most likely class within each subset. The term $ 1 - \max_k p_{k|j} $ represents the error rate within each subset $ D_j $, and the overall misclassification rate is the weighted average of these error rates.
 
 In summary:
-- \( D \): Entire dataset.
-- \( D_j \): Subset of dataset belonging to class \( j \).
-- \( |D| \): Total number of data points in \( D \).
-- \( |D_j| \): Number of data points in \( D_j \).
-- \( p_{k|j} \): Probability of class \( k \) given subset \( D_j \).
-- \( \max_k p_{k|j} \): Maximum probability of the most likely class in \( D_j \).
-- Misclass_A(D): Misclassification rate for dataset \( D \).
+- $ D $: Entire dataset.
+- $ D_j $: Subset of dataset belonging to class $ j $.
+- $ |D| $: Total number of data points in $ D $.
+- $ |D_j| $: Number of data points in $ D_j $.
+- $ p_{k|j} $: Probability of class $ k $ given subset $ D_j $.
+- $ \max_k p_{k|j} $: Maximum probability of the most likely class in $ D_j $.
+- Misclass_A(D): Misclassification rate for dataset $ D $.
 
 ## Classification
 
