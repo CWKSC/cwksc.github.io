@@ -47,11 +47,11 @@ $$
 
 - $ Misclass_A(D) $: The misclassification rate for the dataset $ D $. It measures the proportion of data points that are incorrectly classified.
 
-<div style="text-align:center;">
+<p align="center">
 
 ![missclass](misclass.drawio.svg)
 
-</div>
+</p>
 
 For the above example, the misclassification rate for the dataset $ D $ is $ 1/4(1-1) + 3/4(1-2/3) = 1/4 $
 
