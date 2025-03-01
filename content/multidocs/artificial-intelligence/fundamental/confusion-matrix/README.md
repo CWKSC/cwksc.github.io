@@ -67,6 +67,8 @@ $$
 Specificity = \frac{TN}{TN + FP}
 $$
 
+如果想令 Specificity 100%，可以判定所有樣本為陰性
+
 ## F-measure / F1-score
 
 $$

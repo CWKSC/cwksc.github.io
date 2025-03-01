@@ -37,10 +37,9 @@ Generate rule from decision tree
 
 Just Y = majority class
 
-## Class-based ordering
+## Class-based ordering 基於類別的排序
 
-
-
+> Decreasing order of prevalence or misclassification cost per classs
 
 ## First-Order Inductive Learner (FOIL) Information Gain
 
