@@ -1,9 +1,29 @@
 # Decision tree 決策樹
 
+## Decision Stump
+- What? A decision tree with depth ≤1.
+- How? Choose a splitting attribute, then use majority voting to determine class(𝑡)
+- Problem? overfitting, noise sensitivity (if the feature chosen is noisy or irrelevant)
+- Solution? Build a decision tree instread, by recursively split (divide and conquer).
 
-## Misclassification
+## How to find good splitting attribute?
 
-![missclass](Misclass.drawio.svg)
+Given the data 𝐷 to split, choose the splitting attribute that minimizes error rate of decision stump by A.
+
+## Decision Stump
+- What? A decision t (Error Rate)ree with depth ≤1.
+- How? Choose a splitting attribute, then use majority voting to determine class(𝑡)
+- Problem? overfitting, noise sensitivity (if the feature chosen is noisy or irrelevant)
+- Solution? Build a decision tree instread, by recursively split (divide and conquer).
+
+## How to find good splitting attribute?
+
+Given the data 𝐷 to split, choose the splitting attribute that minimizes error rate of decision stump by A.
+
+
+## Misclassification (Error Rate)
+
+![missclass](misclass.drawio.svg)
 
 $$
 \begin{align}
