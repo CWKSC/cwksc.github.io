@@ -28,17 +28,6 @@ $$
 
 7. **Misclass_A(D)**: This is the misclassification rate for the dataset $ D $. It measures the proportion of data points that are incorrectly classified.
 
-The formula calculates the misclassification rate by summing over all subsets $ D_j $, weighting each subset by its proportion of the total dataset, and considering the probability of the most likely class within each subset. The term $ 1 - \max_k p_{k|j} $ represents the error rate within each subset $ D_j $, and the overall misclassification rate is the weighted average of these error rates.
-
-In summary:
-- $ D $: Entire dataset.
-- $ D_j $: Subset of dataset belonging to class $ j $.
-- $ |D| $: Total number of data points in $ D $.
-- $ |D_j| $: Number of data points in $ D_j $.
-- $ p_{k|j} $: Probability of class $ k $ given subset $ D_j $.
-- $ \max_k p_{k|j} $: Maximum probability of the most likely class in $ D_j $.
-- Misclass_A(D): Misclassification rate for dataset $ D $.
-
 ## Classification
 
 [Decision Tree Classification Clearly Explained! - YouTube](https://youtu.be/ZVR2Way4nwQ?si=FxysjNpS0B1HYXYU)
