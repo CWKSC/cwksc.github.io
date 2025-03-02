@@ -1,20 +1,18 @@
 # Decision tree 決策樹
 
-## Decision Stump
+## Decision Stump 樹樁
 
-- What? A decision tree with depth ≤1.
-- How? Choose a splitting attribute, then use majority voting to determine class(𝑡)
-- Problem? overfitting, noise sensitivity (if the feature chosen is noisy or irrelevant)
-- Solution? Build a decision tree instread, by recursively split (divide and conquer).
+A decision tree with depth <= 1
+
+Choose a splitting attribute, then use majority voting to determine class(𝑡)
+
+Problem: Overfitting, noise sensitivity (if the feature chosen is noisy or irrelevant)
+
+Solution: Build a decision tree instread, by recursively split (divide and conquer)
 
 ## How to find good splitting attribute?
 
-Given the data 𝐷 to split, choose the splitting attribute that minimizes error rate of decision stump by A.
-
-## How to find good splitting attribute?
-
-Given the data 𝐷 to split, choose the splitting attribute that minimizes error rate of decision stump by A.
-
+Minimizes error rate of decision stump by A
 
 ## Misclassification (Error Rate)
 
@@ -25,11 +23,11 @@ $$
 \end{align}
 $$
 
-- $ D $: In the context of decision trees, $ D $ is the set of data points at a particular node.
+- $ D $: Set of data points at a particular node.
 
-- $ D_j $: In decision trees, this correspond to the data points that fall into a particular branch or leaf node j.
+- $ D_j $: Set of data points in particular branch or leaf node j
 
-- $ |D| $: Total number of data points in the dataset $ D $.
+- $ |D| $: Total number of data points in the dataset $ D $
 
 - $ |D_j| $: Number of data points in the subset $ D_j $.
 
@@ -47,9 +45,9 @@ $$
 
 For the above example, the misclassification rate for the dataset $ D $ is $ 1/4(1-1) + 3/4(1-2/3) = 1/4 $
 
-Problem? Choose the splitting attribute that minimizes the misclassification rate may noy be global optimal. (Issue of greedy algorithm, a.k.a locally optimal) It neglects the distribution of the class values of misclassified instances. It only considers the majority class.
+Problem: Choose the splitting attribute that minimizes the misclassification rate may noy be *Global Optimal*. (Issue of greedy algorithm, a.k.a locally optimal) It neglects the distribution of the class values of misclassified instances. It only considers the majority class.
 
-Solution? Use other metrics like Gini index, entropy, or information gain to find the best splitting attribute.
+Solution: Use other metrics like Gini index, entropy, or information gain to find the best splitting attribute
 
 ## Classification
 
@@ -75,7 +73,7 @@ $$
 \text{Info}_A(D) = \sum \frac{|D_j|}{|D|} \text{Info}(D_j)
 $$
 
-Like Gini impurity, it quantifies the **uncertainty** or **disorder** in a dataset. 
+Like Gini impurity, it quantifies the **uncertainty** or **disorder** in a dataset
 
 #### Variables in the Formula
 
