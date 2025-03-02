@@ -6,6 +6,10 @@ It is good: [Rule Based Classification | An Explorer of Things](https://chih-lin
 
 [从零开始-Machine Learning学习笔记(31)-规则学习_first-order inductive learner-CSDN博客](https://blog.csdn.net/kabuto_hui/article/details/84594421)
 
+- Conjunct 
+- Antecedent
+- Consequence
+
 ## Building Rules
 
 Direct Method
