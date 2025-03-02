@@ -2,7 +2,7 @@
 
 ## Decision Stump 樹樁
 
-A decision tree with depth <= 1
+A decision tree with depth \<= 1
 
 Choose a splitting attribute, then use majority voting to determine class(𝑡)
 
