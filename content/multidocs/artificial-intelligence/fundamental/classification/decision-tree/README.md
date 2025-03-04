@@ -2,9 +2,9 @@
 
 ## Decision Stump 樹樁
 
-A decision tree with depth \<= 1
+Decision tree, depth \<= 1
 
-Choose a splitting attribute, then use majority voting to determine class(𝑡)
+Choose splitting attribute, use majority voting to determine `class(𝑡)`
 
 Problem: Overfitting, noise sensitivity (if the feature chosen is noisy or irrelevant)
 
