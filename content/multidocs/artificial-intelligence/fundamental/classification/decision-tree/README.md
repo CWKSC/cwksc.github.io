@@ -75,22 +75,25 @@ $$
 
 Like Gini impurity, it quantifies the **uncertainty** or **disorder** in a dataset
 
-#### Variables in the Formula
+### Gini
 
-- **$ p_i $**:
-   - The **probability** of a data point in $ D $ belonging to class $ i $.
-   - It is calculated as:
-     $$
-     p_i = \frac{\text{Number of data points of class } i \text{ in } D}{|D|}
-     $$
+$$
+\begin{align}
+\text{Gini}(D) &= \sum p_i (1 - p_i) \\
+&= 1 - \sum p_i^2
+\end{align}
+$$
 
-- **$ \text{Entropy}(D) $ or $ \text{Info}(D) $**:
-   - The **entropy** of the dataset $ D $.
-   - It measures the **uncertainty** or **disorder** in the class distribution of $ D $.
+For split attribute A
 
-- **$ \text{Info}_A(D) $**:
-   - The **weighted entropy** after splitting the dataset $ D $ based on attribute $ A $.
-   - It is the average entropy of the subsets $ D_j $, weighted by the size of each subset.
+$$
+\text{Gini}_A(D) = \sum \frac{|D_j|}{|D|} \text{Gini}(D_j)
+$$
+
+#### Why It Works?
+
+Comparing the Gini impurity to $ \max_k p_{k|j} $, which only care about the majority class, the Gini impurity is more sensitive to changes in the class distribution. It penalizes the nodes with a higher number of classes.
+
 
 ### **Comparison: Entropy vs. Gini**
 
@@ -160,42 +163,6 @@ $$
 The **Information Gain Ratio** (IG / Split Info) ensures that decision trees are more balanced and less prone to overfitting.
 
 The Gain Ratio ensures that the decision tree algorithm does not favor attributes with many unique values or uneven splits, leading to more balanced and generalizable trees.
-
-### Gini
-
-$$
-\begin{align}
-\text{Gini}(D) &= \sum p_i (1 - p_i) \\
-&= 1 - \sum p_i^2
-\end{align}
-$$
-
-For split attribute A
-
-$$
-\text{Gini}_A(D) = \sum \frac{|D_j|}{|D|} \text{Gini}(D_j)
-$$
-
-#### Variables in the Formula
-
-1. **$ p_i $**:
-   - The **probability** of a data point in $ D $ belonging to class $ i $.
-   - It is calculated as:
-     $$
-     p_i = \frac{\text{Number of data points of class } i \text{ in } D}{|D|}
-     $$
-
-2. **$ \text{Gini}(D) $**:
-   - The **Gini impurity** of the dataset $ D $.
-   - It measures the likelihood of misclassifying a randomly chosen data point if it were randomly labeled according to the class distribution in $ D $.
-
-3. **$ \text{Gini}_A(D) $**:
-   - The **weighted Gini impurity** after splitting the dataset $ D $ based on attribute $ A $.
-   - It is the average Gini impurity of the subsets $ D_j $, weighted by the size of each subset.
-
-#### Why It Works?
-
-Comparing the Gini impurity to $ \max_k p_{k|j} $, which only care about the majority class, the Gini impurity is more sensitive to changes in the class distribution. It penalizes the nodes with a higher number of classes.
 
 ## Regression 
 
