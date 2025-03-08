@@ -1,5 +1,18 @@
 # VSCode
 
+## Cannot recognize `PATH` udpate
+
+[cmd - VS Code terminal doesn't recognize PATH variables - Stack Overflow](https://stackoverflow.com/questions/44868656/vs-code-terminal-doesnt-recognize-path-variables)
+
+Update 完環境變量，Restart VSCode，之後還是 cannot recognize
+
+可以嘗試打開 Command Palette (`Ctrl + Shift + P`)，輸入：
+
+```
+> Terminal: Kill the Active Terminal Instance
+> Terminal: Create New Terminal
+```
+
 ## 自動化 attach to container
 
 [visual studio code - How to attach a remote container using vscode command line? - Stack Overflow](https://stackoverflow.com/questions/60379221/how-to-attach-a-remote-container-using-vscode-command-line)
