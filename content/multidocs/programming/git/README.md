@@ -1,5 +1,13 @@
 # Git
 
+```bash
+git init 
+```
+
+```bash
+git status
+```
+
 ## Branch
 
 [Learn Git Branching](https://learngitbranching.js.org/)
