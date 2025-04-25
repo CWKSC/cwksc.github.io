@@ -6,6 +6,22 @@
 
 正統學習最好還是看五線譜，不然會有很多瓶頸，雖然我到現在都是不會看五線譜
 
+## Channel 推薦教學頻道
+
+[NiceChord+ (好和弦+) - YouTube](https://www.youtube.com/channel/UCVXstWyJeO6No3jYELxYrjg)
+
+很多實用的教學視頻，而且也不錯的視覺化
+
+[Learn Piano with Jazer Lee - YouTube](https://www.youtube.com/@jazerleepiano)
+
+[音乐人生Music Life - YouTube](https://www.youtube.com/@musiclife5278)
+
+被鋼琴耽誤的歌手，即興演奏 / 流行曲實力很強
+
+## Youtube
+
+[【漫士】音乐动听的背后，藏着怎样的数学密码？ - YouTube](https://www.youtube.com/watch?v=86y0gZnxuWE)
+
 ## 常用/經典循環
 
 ### 6415
@@ -19,16 +35,3 @@
 ### 4536251
 
 [4536251歌曲串烧，好听到哭！ - YouTube](https://www.youtube.com/watch?v=aqmvF-GmYng)
-
-## Channel 推薦教學頻道
-
-[NiceChord+ (好和弦+) - YouTube](https://www.youtube.com/channel/UCVXstWyJeO6No3jYELxYrjg)
-
-很多實用的教學視頻，而且也不錯的視覺化
-
-[Learn Piano with Jazer Lee - YouTube](https://www.youtube.com/@jazerleepiano)
-
-[音乐人生Music Life - YouTube](https://www.youtube.com/@musiclife5278)
-
-被鋼琴耽誤的歌手，即興演奏/流行曲實力很強
-
