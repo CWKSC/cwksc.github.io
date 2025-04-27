@@ -3,6 +3,14 @@
 [Course Syllabus](https://www.cityu.edu.hk/catalogue/pg/202324/course/CS5481.pdf)
 
 
+## Ensemble model
+
+[集合：投票和堆疊。在創建 ML 模型時，我們經常發現…|作者：Minh Duc Nguyen |中等的](https://medium.com/@minhducnguyen20/ensembling-voting-and-stacking-fd0d37ef9791)
+
+
+[随机森林详解-CSDN博客](https://blog.csdn.net/banbuduoyujian/article/details/60328474)
+
+
 
 ## Lecture 8 - Cluster Analysis: Hierarchical Methods
 
@@ -73,12 +81,17 @@
 ## Lecture 10 - Frequent Pattern Analysis: Apriori Algorithm
 
 
+### Apriori algorithm
 
+[Apriori Algorithm | GeeksforGeeks](https://www.geeksforgeeks.org/apriori-algorithm/)
 
+[【資料科學入門】購物車裡的秘密 — 關聯分析是什麼？Apriori演算法介紹 | by Rebecca | Taiwanese in Data Science | Medium](https://medium.com/women-in-data-science-taipei/%E8%B3%87%E6%96%99%E7%A7%91%E5%AD%B8%E5%85%A5%E9%96%80-%E9%97%9C%E8%81%AF%E5%88%86%E6%9E%90-cde4e9d64b43)
 
+- Frequent itemsets
 
+Coverage: count(A) / n
 
-
+Support: count(A U B) / n
 
 
 
@@ -88,6 +101,7 @@
 
 ## Lecture 11 - Data Warehouse Modeling: Data Cube and OLAP
 
+[什麼是 OLAP ？. 在後端程式設計領域當中，我們可能常常會聽到 OLTP… | by YC | 程式愛好者 | Medium](https://medium.com/%E7%A8%8B%E5%BC%8F%E6%84%9B%E5%A5%BD%E8%80%85/%E4%BB%80%E9%BA%BC%E6%98%AF-olap-2c7cccf55c42)
 
 
 
