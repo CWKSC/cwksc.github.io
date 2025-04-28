@@ -3,6 +3,12 @@
 [Course Syllabus](https://www.cityu.edu.hk/catalogue/pg/202324/course/CS5481.pdf)
 
 
+## Rules based classifier
+
+[Android 刷機症候群: [筆記] 03.NOV.11 Data Mining 上課筆記](https://123android.blogspot.com/2011/11/111103-data-mining.html)
+
+
+
 ## Ensemble model
 
 [集合：投票和堆疊。在創建 ML 模型時，我們經常發現…|作者：Minh Duc Nguyen |中等的](https://medium.com/@minhducnguyen20/ensembling-voting-and-stacking-fd0d37ef9791)
