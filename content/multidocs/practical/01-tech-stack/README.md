@@ -3,11 +3,9 @@
 
 ## Python
 
-(8/3/2025)
+(25/6/2025)
 
-- `pipenv`
-
-[Pipenv: Python Dev Workflow for Humans — pipenv 2024.4.1 documentation](https://pipenv.pypa.io/en/latest/)
+- `uv`
 
 
 ## Frontend
