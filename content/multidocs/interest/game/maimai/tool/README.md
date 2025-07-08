@@ -8,6 +8,8 @@ https://maimaidx-eng.com/maimai-mobile/home/
 
 https://maichart-en.nuko.cat/
 
+https://maichart-kr.nuko.cat/
+
 ## 睇分析
 
 https://myjian.github.io/mai-tools/#bookmarklets
