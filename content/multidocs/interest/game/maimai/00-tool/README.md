@@ -10,6 +10,10 @@ https://maichart-en.nuko.cat/
 
 https://maichart-kr.nuko.cat/
 
+maichart 好似壞咗 (17/7/2025)
+
+https://maimai.shiftpsh.com/ (韓文)
+
 ## 睇分析
 
 https://myjian.github.io/mai-tools/#bookmarklets
