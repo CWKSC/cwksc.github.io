@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/.docusaurus": true,
+        "**/build": true,
+        "**/pnpm-lock.yaml": true,
+        "docusaurus-plus/README.md": true
+    }
+}
