@@ -121,5 +121,7 @@ uses: actions/cache@v4
 
 最後從 push 到 build 到 deploy to GitHub Page 速度大約在 45 秒
 
-主要的 build 只用了 10 - 14 秒
+主要的 build 只用了大約 10 秒
+
+其餘時間都是很難再壓縮的 `actions/setup-node@v4` (10 秒), deploy (8 秒)
 
