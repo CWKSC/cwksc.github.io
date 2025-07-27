@@ -119,7 +119,7 @@ uses: actions/cache@v4
 
 ## 最後
 
-最後從 push 到 build 到 deploy to GitHub Page 速度在一分鐘內
+最後從 push 到 build 到 deploy to GitHub Page 速度大約在 45 秒
 
 主要的 build 只用了 10 - 14 秒
 
