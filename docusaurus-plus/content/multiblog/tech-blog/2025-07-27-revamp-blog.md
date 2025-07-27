@@ -15,7 +15,7 @@ tags: []
 
 從 Jekyll (2020) -> GitHub repository (2023) -> 最後選用 Docusaurus (2024)
 
-這次架構和速度都有不少改動，記錄一下
+這次架構和速度都有不少改動，從 2 分鐘變成 1 分鐘內，記錄一下
 
 ## 重構原因
 
@@ -60,7 +60,7 @@ tags: []
 
 即使在 [deploy.yml](https://github.com/cwksc-organization/docusaurus-plus-backup-3.7-fail/blob/main/.github/workflows/deploy.yml) 添加 `actions/cache@v4` 來緩存 image 亦無補於事（很神奇，竟然沒有變快也沒有變慢）
 
-所以不如改用常規的項目方式，本地 create project and push GitHub repository
+所以不如改用常規的項目方式，本地 create project, push GitHub repository
 
 ### 3. 改用 pnpm，各種增加建構速度的方法
 
@@ -86,9 +86,7 @@ const config = {
 };
 ```
 
-去啟用 [這裏](https://github.com/facebook/docusaurus/issues/10556) 的各種改進，主要是改用 SWC 和 Rspack 加速構建
-
-使用感覺的確快了很多
+去啟用[這些](https://github.com/facebook/docusaurus/issues/10556)改進，主要是改用 SWC 和 Rspack 加速構建，使用感覺的確快了很多
 
 #### GitHub Actions 緩存
 
@@ -104,24 +102,24 @@ with:
   cache-dependency-path: docusaurus-plus/pnpm-lock.yaml
 ```
 
-`.docusaurus` 和 `node_modules/.cache` 目錄也可以緩存
+緩存 `.docusaurus` 和 `node_modules/.cache` 目錄
 
 ```yaml
 uses: actions/cache@v4
-  with:
-    path: |
-      ./docusaurus-plus/.docusaurus
-      ./docusaurus-plus/node_modules/.cache
-    key: docusaurus-${{ runner.os }}-${{ hashFiles('docusaurus-plus/docusaurus.config.ts', 'docusaurus-plus/sidebars.ts') }}
-    restore-keys: |
-      docusaurus-${{ runner.os }}-
+with:
+  path: |
+    ./docusaurus-plus/.docusaurus
+    ./docusaurus-plus/node_modules/.cache
+  key: docusaurus-${{ runner.os }}-${{ hashFiles('docusaurus-plus/docusaurus.config.ts', 'docusaurus-plus/sidebars.ts') }}
+  restore-keys: |
+    docusaurus-${{ runner.os }}-
 ```
 
 ## 最後
 
-最後從 push 到 build 到 deploy to GitHub Page 速度大約在 45 秒
+從 push 到 build 到 deploy GitHub Page 速度在大約 50 秒
 
 主要的 build 只用了大約 10 秒
 
-其餘時間都是很難再壓縮的 `actions/setup-node@v4` (10 秒), deploy (8 秒)
+其餘都是很難再壓縮的 `actions/setup-node@v4` (10 秒), deploy (不穩定，10 秒)
 
