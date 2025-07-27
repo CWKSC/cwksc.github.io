@@ -9,7 +9,7 @@ import rehypeKatex from 'rehype-katex';
 
 // Constants
 const githubUsername = "CWKSC"
-const repoName = "docusaurus-plus"
+const repoName = "cwksc.github.io"
 
 // Support github.io and sub repo deployment
 let baseUrl = `/${repoName}/`
