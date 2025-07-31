@@ -11,6 +11,26 @@ import rehypeKatex from 'rehype-katex';
 const githubUsername = "CWKSC"
 const repoName = "cwksc.github.io"
 
+// Path to Label
+// For navgation bar and html title
+const pathToLabel: Record<string, string> = {
+    'blog': 'Blog 博客',
+    'tech-blog': 'Tech Blog 技術博客',
+    'note': 'Note 筆記',
+    'programming': 'Prog 編程',
+    'node-js': 'Node.js',
+    'artificial-intelligence': 'AI 人工智能',
+    'algorithm': 'Algo 算法',
+    'practical': 'Practical 實際',
+    // 'project': 'Project 項目',
+    'interest': 'Interest 興趣',
+};
+const navItems = Object.entries(pathToLabel).map(([path, label]) => ({
+    label,
+    to: `/${path}/`,
+    position: 'left' as const,
+}));
+
 // Support github.io and sub repo deployment
 let baseUrl = `/${repoName}/`
 if (repoName === `${githubUsername}.github.io`.toLowerCase()) {
@@ -31,12 +51,12 @@ const multiblogPlugin = multiblogNames.map((dirname, index) => {
             id: index === 0 ? 'default' : dirname,
             path: `./content/multiblog/${dirname}`,
             routeBasePath: `${dirname}`,
+            blogTitle: pathToLabel[dirname] || dirname,
             remarkPlugins: [remarkMath],
             rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
     ]
 });
-
 
 // Multi Docs
 const multidocsNames = fs.readdirSync("./content/multidocs", { withFileTypes: true })
@@ -57,7 +77,6 @@ const multidocsPlugin = multidocsNames.map((dirname, index) => {
         },
     ]
 });
-
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -116,18 +135,7 @@ const config: Config = {
                 alt: 'Logo',
                 src: 'img/logo.svg',
             },
-            items: [
-                { label: 'Blog 博客', to: '/blog/', position: 'left' },
-                { label: 'Tech Blog 技術博客', to: '/tech-blog/', position: 'left' },
-                { label: 'Note 筆記', to: "/note/", position: 'left' },
-                { label: 'Prog 編程', to: "/programming/", position: 'left' },
-                { label: 'Node.js', to: "/node-js/", position: 'left' },
-                { label: 'AI 人工智能', to: "/artificial-intelligence/", position: 'left' },
-                { label: 'Algo 算法', to: "/algorithm/", position: 'left' },
-                { label: 'Practical 實際', to: "/practical/", position: 'left' },
-                // { label: 'Project 項目', to: "/project/", position: 'left' },
-                { label: 'Interest 興趣', to: "/interest/", position: 'left' },
-            ],
+            items: navItems,
         },
         footer: {
             style: 'dark',
