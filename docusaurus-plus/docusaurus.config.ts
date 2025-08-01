@@ -44,7 +44,6 @@ const multiblogNames = fs.readdirSync("./content/multiblog", { withFileTypes: tr
 // console.log(multiblogNames);
 
 const multiblogPlugin = multiblogNames.map((dirname, index) => {
-    // console.log(`dirname = ${dirname}`);
     return [
         '@docusaurus/plugin-content-blog',
         {
@@ -54,6 +53,9 @@ const multiblogPlugin = multiblogNames.map((dirname, index) => {
             blogTitle: pathToLabel[dirname] || dirname,
             remarkPlugins: [remarkMath],
             rehypePlugins: [[rehypeKatex, { strict: false }]],
+            editUrl: ({ blogPath }) => {
+                return `https://github.com/${githubUsername}/${repoName}/edit/main/docusaurus-plus/content/multiblog/${dirname}/${blogPath}`;
+            }
         },
     ]
 });
@@ -74,6 +76,9 @@ const multidocsPlugin = multidocsNames.map((dirname, index) => {
             sidebarPath: './sidebars.ts',
             remarkPlugins: [remarkMath],
             rehypePlugins: [[rehypeKatex, { strict: false }]],
+            editUrl: ({ docPath }) => {
+                return `https://github.com/${githubUsername}/${repoName}/edit/main/docusaurus-plus/content/multidocs/${dirname}/${docPath}`;
+            },
         },
     ]
 });
