@@ -2,5 +2,5 @@
 
 推薦 [Typst](https://typst.app/docs/)
 
-Typst > LaTex > Google Doc / Microsoft Office
+Typst > LaTeX > Google Doc / Microsoft Office
 
