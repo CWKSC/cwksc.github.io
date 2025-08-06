@@ -86,7 +86,7 @@ const config = {
 };
 ```
 
-去啟用[這些](https://github.com/facebook/docusaurus/issues/10556)改進，主要是改用 SWC 和 Rspack 加速構建，使用感覺的確快了很多
+去啟用[這些](https://github.com/facebook/docusaurus/issues/10556)改進，主要改用 SWC 和 Rspack 加速構建，使用感覺的確快了很多
 
 #### GitHub Actions 緩存
 
@@ -121,5 +121,8 @@ with:
 
 主要的 build 只用了大約 10 秒
 
-其餘都是很難再壓縮的 `actions/setup-node@v4` (10 秒), deploy (不穩定，10 秒)
+之前用 Container 的做法大約要 90 秒，快了 9 倍
 
+其餘都是很難再壓縮的 `actions/setup-node@v4` (10 秒), deploy (不穩定，7 - 30秒)
+
+可以看 [Action Page](https://github.com/CWKSC/cwksc.github.io/actions) 所記錄的時間
