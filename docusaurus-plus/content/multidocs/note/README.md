@@ -14,11 +14,19 @@ sidebar_position: 0
 
 這裏是看到其他人的博客記錄 / 分類下來
 
-[Jackson 大佬的](https://ryantokmanmokmtm.github.io/) | [MyApollo](https://myapollo.com.tw/blog/)
+[Jackson 大佬的](https://ryantokmanmokmtm.github.io/)
 
-[This.Web](https://www.thisweb.dev/posts/page/0): Frontend | [YC Note](https://ycc.idv.tw/): AI / ML, CS | [Weil Jimmer](https://weils.net/blog/)
+[MyApollo](https://myapollo.com.tw/blog/)
+
+[This.Web](https://www.thisweb.dev/posts/page/0): Frontend
+
+[YC Note](https://ycc.idv.tw/): AI / ML, CS
+
+[Weil Jimmer](https://weils.net/blog/)
 
 [好豪筆記](https://haosquare.com/): Data Science, Python
+
+[意琦行的个人博客](https://www.lixueduan.com/posts/): Kubernetes, Docker
 
 ## Old blog 舊的博客
 
