@@ -10,6 +10,7 @@ import rehypeKatex from 'rehype-katex';
 // Constants
 const githubUsername = "CWKSC"
 const repoName = "cwksc.github.io"
+const gTagTrackingId = "G-6S086LWKZJ"
 
 // Path to Label
 // For navgation bar and html title
@@ -126,6 +127,10 @@ const config: Config = {
                 blog: false,
                 theme: {
                     customCss: './src/css/custom.css',
+                },
+                gtag: {
+                    trackingID: gTagTrackingId,
+                    anonymizeIP: false,
                 },
             } satisfies Preset.Options,
         ],
