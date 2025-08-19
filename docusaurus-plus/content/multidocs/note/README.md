@@ -16,6 +16,8 @@ sidebar_position: -1
 
 [Jackson 大佬的](https://ryantokmanmokmtm.github.io/)
 
+[Bosh 的技術筆記 | Bosh 的技術探索筆記](https://notes.boshkuo.com/docs/): Also note with Docusaurus
+
 [MyApollo](https://myapollo.com.tw/blog/)
 
 [This.Web](https://www.thisweb.dev/posts/page/0): Frontend
