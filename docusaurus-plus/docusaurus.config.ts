@@ -128,10 +128,6 @@ const config: Config = {
                 theme: {
                     customCss: './src/css/custom.css',
                 },
-                gtag: {
-                    trackingID: gTagTrackingId,
-                    anonymizeIP: false,
-                },
             } satisfies Preset.Options,
         ],
     ],
@@ -208,6 +204,13 @@ const config: Config = {
     plugins: [
         ...multiblogPlugin,
         ...multidocsPlugin,
+        [
+            '@docusaurus/plugin-google-gtag',
+            {
+                trackingID: gTagTrackingId,
+                anonymizeIP: false,
+            },
+        ],
     ]
 };
 
