@@ -10,7 +10,7 @@ import rehypeKatex from 'rehype-katex';
 // Constants
 const githubUsername = "CWKSC"
 const repoName = "cwksc.github.io"
-const gTagTrackingId = "G-6S086LWKZJ"
+const gTagTrackingId = "G-GBSQ65QYN5"
 
 // Path to Label
 // For navgation bar and html title
