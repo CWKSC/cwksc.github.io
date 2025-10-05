@@ -10,11 +10,15 @@
 
 [TFT Meta Team Comps Tier List · Teamfight Tactics](https://tftactics.gg/tierlist/team-comps/)
 
+[Little Buddy Bot for Teamfight Tactics TFT Set 15 info](https://www.littlebuddybot.com/)
+
 ## Channel 頻道
 
 [啵緹Boty - YouTube](https://www.youtube.com/@boty0411/videos)
 
 [Nye - YouTube](https://www.youtube.com/@Nye/videos)
+
+[Gear花輪 - YouTube](https://www.youtube.com/@Gearlolz/videos)
 
 [Player K1m - YouTube](https://www.youtube.com/@PlayerK1m/videos)
 
@@ -23,8 +27,6 @@
 [香菇滑雞 Mushroom Chicken TFT 【官方頻道】 - YouTube](https://www.youtube.com/@mushroomchickentft/videos)
 
 這個會有各種奇怪玩法
-
-[Gear花輪 - YouTube](https://www.youtube.com/@Gearlolz/videos)
 
 [红毛怪游戏解说 - YouTube](https://www.youtube.com/@user-xq7md5fv5w/videos)
 
