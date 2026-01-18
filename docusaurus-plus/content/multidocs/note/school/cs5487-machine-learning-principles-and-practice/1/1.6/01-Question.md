@@ -1,3 +1,7 @@
+---
+title: Question
+---
+
 # Problem 1.6 Multivariate Gaussian
 
 The multivariate Gaussian is a probability density over real vectors, $x = \begin{bmatrix} x_1 \\ \vdots \\ x_d \end{bmatrix} \in \mathbb{R}^d$, which is parameterized by a mean vector $\mu \in \mathbb{R}^d$ and a covariance matrix $\Sigma \in \mathbb{S}^d_+$ (i.e., a $d$-dimensional positive-definite symmetric matrix). The density function is

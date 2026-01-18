@@ -1,3 +1,7 @@
+---
+title: Question ZH
+---
+
 # 問題 1.6 多元高斯分布
 
 多元高斯分布是實向量 $x = \begin{bmatrix} x_1 \\ \vdots \\ x_d \end{bmatrix} \in \mathbb{R}^d$ 上的概率密度，由均值向量 $\mu \in \mathbb{R}^d$ 和協方差矩陣 $\Sigma \in \mathbb{S}^d_+$（即 $d$ 維正定對稱矩陣）參數化。密度函數為

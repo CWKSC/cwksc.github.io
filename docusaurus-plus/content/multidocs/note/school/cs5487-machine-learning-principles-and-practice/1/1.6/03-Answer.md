@@ -1,3 +1,7 @@
+---
+title: Answer
+---
+
 # Problem 1.6 Multivariate Gaussian - Answer
 
 ## (a) Diagonal Covariance Matrix

@@ -1,3 +1,7 @@
+---
+title: Question ZH
+---
+
 # 問題 1.10 配方法 (Completing the square)
 
 令 $x, b \in \mathbb{R}^n$, $A \in \mathbb{S}^n$, $c \in \mathbb{R}$, 且令 $f(x)$ 為 $x$ 的二次函數，

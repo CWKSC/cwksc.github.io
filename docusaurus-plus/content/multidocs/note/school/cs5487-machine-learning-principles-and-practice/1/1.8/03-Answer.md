@@ -1,3 +1,7 @@
+---
+title: Answer
+---
+
 # Problem 1.8 Product of Multivariate Gaussian Distributions - Answer
 
 ## Prerequisite Knowledge

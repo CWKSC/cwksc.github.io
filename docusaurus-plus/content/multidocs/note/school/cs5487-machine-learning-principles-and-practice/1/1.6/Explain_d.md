@@ -1,3 +1,7 @@
+---
+title: Explain (d)
+---
+
 # Explanation for 1.6 (d) - Covariance Matrix Eigendecomposition
 
 Based on the derivation in **Problem 1.6 (d)**, here is a detailed breakdown of how we get from eigenvalues to the full matrix decomposition $\Sigma = V \Lambda V^T$.

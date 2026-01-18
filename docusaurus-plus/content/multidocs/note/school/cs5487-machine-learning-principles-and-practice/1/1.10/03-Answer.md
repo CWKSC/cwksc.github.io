@@ -1,3 +1,7 @@
+---
+title: Answer
+---
+
 # Problem 1.10 Completing the square - Answer
 
 ## Prerequisite Knowledge

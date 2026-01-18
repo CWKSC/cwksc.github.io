@@ -1,3 +1,7 @@
+---
+title: Question
+---
+
 # Problem 1.8 Product of Multivariate Gaussian Distributions
 
 Show that the product of two $d$-dimensional multivariate Gaussians distributions, $\mathcal{N}(x|a, A)$ and $\mathcal{N}(x|b, B)$, is a scaled multivariate Gaussian,

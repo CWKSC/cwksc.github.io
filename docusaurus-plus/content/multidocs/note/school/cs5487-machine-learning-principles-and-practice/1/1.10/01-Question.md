@@ -1,3 +1,7 @@
+---
+title: Question
+---
+
 # Problem 1.10 Completing the square
 
 Let $x, b \in \mathbb{R}^n$, $A \in \mathbb{S}^n$, $c \in \mathbb{R}$, and let $f(x)$ be a quadratic function of $x$,
