@@ -37,13 +37,16 @@ title: Answer ZH
 
 3. **計算方差：**
     我們計算 $\hat{\lambda}$ 的方差：
+
     $$
-\begin{aligned}
-\text{var}(\hat{\lambda}) &= \text{var}\left( \frac{1}{N} \sum_{i=1}^{N} k_i \right) \\
-&= \frac{1}{N^2} \text{var}\left( \sum_{i=1}^{N} k_i \right) \quad \text{(性質: var(aX) = a^2 var(X))}
-\end{aligned}
+    \begin{aligned}
+    \text{var}(\hat{\lambda}) &= \text{var}\left( \frac{1}{N} \sum_{i=1}^{N} k_i \right) \\
+    &= \frac{1}{N^2} \text{var}\left( \sum_{i=1}^{N} k_i \right)
+    \end{aligned}
     $$
+
     由於 $k_i$ 樣本是獨立的，和的方差等於方差的和：
+
     $$
     \begin{aligned}
     \text{var}(\hat{\lambda}) &= \frac{1}{N^2} \sum_{i=1}^{N} \text{var}(k_i)
