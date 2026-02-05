@@ -4,32 +4,32 @@ title: Answer
 
 ## Pre-required Knowledge
 
-1.  **Bayes' Theorem for Continuous Variables**:
+1. **Bayes' Theorem for Continuous Variables**:
     $$
     p(\theta | \mathcal{D}) = \frac{p(\mathcal{D} | \theta) p(\theta)}{p(\mathcal{D})} \propto p(\mathcal{D} | \theta) p(\theta)
     $$
-2.  **Multivariate Gaussian Distribution**:
+2. **Multivariate Gaussian Distribution**:
     $$
     \mathcal{N}(x | \mu, \Sigma) \propto \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right)
     $$
-3.  **Completing the Square in Matrix Form**:
+3. **Completing the Square in Matrix Form**:
     If a quadratic form in $\theta$ looks like $-\frac{1}{2} (\theta^T A \theta - 2 \theta^T b)$, it corresponds to a Gaussian with covariance $A^{-1}$ and mean $A^{-1}b$ (ignoring constants).
 
 ## Step-by-Step Answer
 
-1.  **Identify the Likelihood function $p(\mathcal{D}|\theta)$**:
+1. **Identify the Likelihood function $p(\mathcal{D}|\theta)$**:
     From the model $y = \Phi^T \theta + \epsilon$, where $\epsilon \sim \mathcal{N}(0, \Sigma)$, we have that $y$ given $\theta$ follows a Gaussian distribution:
     $$
     p(y | \theta) = \mathcal{N}(y | \Phi^T \theta, \Sigma) \propto \exp \left( -\frac{1}{2} (y - \Phi^T \theta)^T \Sigma^{-1} (y - \Phi^T \theta) \right)
     $$
     Here $\mathcal{D} = (X, y)$, but since $X$ is fixed (discriminative setting), we look at $p(y|\theta)$.
 
-2.  **Identify the Prior distribution $p(\theta)$**:
+2. **Identify the Prior distribution $p(\theta)$**:
     $$
     p(\theta) = \mathcal{N}(\theta | 0, \Gamma) \propto \exp \left( -\frac{1}{2} \theta^T \Gamma^{-1} \theta \right)
     $$
 
-3.  **Formulate the Posterior $p(\theta|\mathcal{D})$**:
+3. **Formulate the Posterior $p(\theta|\mathcal{D})$**:
     Using Bayes' rule, the posterior is proportional to the product of the likelihood and the prior:
     $$
     p(\theta | \mathcal{D}) \propto p(y | \theta) p(\theta)
@@ -43,7 +43,7 @@ title: Answer
     E = -\frac{1}{2} \left[ (y - \Phi^T \theta)^T \Sigma^{-1} (y - \Phi^T \theta) + \theta^T \Gamma^{-1} \theta \right]
     $$
 
-4.  **Expand and Group Terms w.r.t $\theta$**:
+4. **Expand and Group Terms w.r.t $\theta$**:
     Expand the first term (note that $(y - \Phi^T \theta)^T = y^T - \theta^T \Phi$):
     $$
     (y - \Phi^T \theta)^T \Sigma^{-1} (y - \Phi^T \theta) = y^T \Sigma^{-1} y - y^T \Sigma^{-1} \Phi^T \theta - \theta^T \Phi \Sigma^{-1} y + \theta^T \Phi \Sigma^{-1} \Phi^T \theta
@@ -61,7 +61,7 @@ title: Answer
     $$
     where "const" involves terms independent of $\theta$ (like $y^T \Sigma^{-1} y$).
 
-5.  **Complete the Square**:
+5. **Complete the Square**:
     We compare this to the exponent of a Gaussian $\mathcal{N}(\theta | \hat{\mu}, \hat{\Sigma})$:
     $$
     -\frac{1}{2} (\theta - \hat{\mu})^T \hat{\Sigma}^{-1} (\theta - \hat{\mu}) = -\frac{1}{2} [\theta^T \hat{\Sigma}^{-1} \theta - 2 \theta^T \hat{\Sigma}^{-1} \hat{\mu} + \hat{\mu}^T \hat{\Sigma}^{-1} \hat{\mu}]
@@ -82,7 +82,7 @@ title: Answer
     \hat{\mu}_\theta = \hat{\Sigma}_\theta (\Phi \Sigma^{-1} y) = (\Gamma^{-1} + \Phi \Sigma^{-1} \Phi^T)^{-1} \Phi \Sigma^{-1} y
     $$
 
-6.  **Conclusion**:
+6. **Conclusion**:
     The posterior is indeed Gaussian with the derived mean and covariance:
     $$
     p(\theta|\mathcal{D}) = \mathcal{N}(\theta|\hat{\mu}_\theta, \hat{\Sigma}_\theta)

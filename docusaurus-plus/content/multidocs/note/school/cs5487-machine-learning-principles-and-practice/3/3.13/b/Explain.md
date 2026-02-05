@@ -10,8 +10,8 @@ By introducing two non-negative variables $u, v \ge 0$ and setting $x = u - v$, 
 Ideally, we want $x=5 \rightarrow u=5, v=0$ and $x=-3 \rightarrow u=0, v=3$.
 However, the representation is not unique. $x=5$ could also be $u=105, v=100$.
 In the optimization problem, we are minimizing the **sum** $u+v$.
-*   Case 1 ($u=5, v=0$): Sum = 5.
-*   Case 2 ($u=105, v=100$): Sum = 205.
+* Case 1 ($u=5, v=0$): Sum = 5.
+* Case 2 ($u=105, v=100$): Sum = 205.
 Since we are minimizing, the solver will always prefer Case 1 (the disjoint support).
 This ensures that at the optimum, $u+v = |u-v| = |x|$.
 
