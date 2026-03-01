@@ -70,4 +70,3 @@ $$
 請證明其解為 $\pi_j = \frac{\exp N_j}{\sum_{k=1}^K \exp N_k}$。
 
 關於拉格朗日乘子的更多細節可以在 Bishop 的著作 PRML 附錄 E 中找到。
-$$

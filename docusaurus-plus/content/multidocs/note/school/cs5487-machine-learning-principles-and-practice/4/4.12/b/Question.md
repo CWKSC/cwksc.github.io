@@ -70,4 +70,4 @@ $$
 Show that the solution is $\pi_j = \frac{\exp N_j}{\sum_{k=1}^K \exp N_k}$.
 
 More details about Lagrange multipliers can be found in Appendix E of Bishop's book, PRML.
-$$
+
