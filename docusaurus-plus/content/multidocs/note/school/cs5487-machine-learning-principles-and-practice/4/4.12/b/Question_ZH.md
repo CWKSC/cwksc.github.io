@@ -16,14 +16,10 @@ $$ (4.47)
 
 
 $$
-
-x^\* = \underset{x}{\text{argmax}} \, f(x),
-
+x^* = \underset{x}{\text{argmax}} \, f(x),
 $$
 $$
-
 \text{s.t.} \quad g(x) = 0,
-
 $$
 (4.48)
 
@@ -39,9 +35,7 @@ $$
 
 
 $$
-
 \nabla f(x) + \lambda \nabla g(x) = 0,
-
 $$
 (4.49)
 
@@ -49,9 +43,7 @@ $$
 
 
 $$
-
 L(x, \lambda) = f(x) + \lambda g(x).
-
 $$
 (4.50)
 
@@ -59,9 +51,7 @@ $$
 
 
 $$
-
 \frac{\partial}{\partial x} L(x, \lambda) = 0, \quad \frac{\partial}{\partial \lambda} L(x, \lambda) = 0.
-
 $$
 (4.51)
 
@@ -69,13 +59,10 @@ $$
 
 
 $$
-
-\{\hat{\pi}_j\} = \underset{\{\pi_j\}}{\text{argmax}} \sum_{j=1}^K \pi*j(N_j - \log \pi_j), \quad \text{s.t.} \quad \sum*{j=1}^K \pi_j = 1, \quad \pi_j \ge 0.
-
+\{\hat{\pi}_j\} = \underset{\{\pi_j\}}{\text{argmax}} \sum_{j=1}^K \pi_j(N_j - \log \pi_j), \quad \text{s.t.} \quad \sum_{j=1}^K \pi_j = 1, \quad \pi_j \ge 0.
 $$
 (4.53)
 
 請證明其解為 $\pi_j = \frac{\exp N_j}{\sum_{k=1}^K \exp N_k}$。
 
 關於拉格朗日乘子的更多細節可以在 Bishop 的著作 PRML 附錄 E 中找到。
-$$

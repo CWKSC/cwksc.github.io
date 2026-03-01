@@ -16,14 +16,10 @@ One method of solving an optimization problem with equality constraints is to us
 
 
 $$
-
-x^\* = \underset{x}{\text{argmax}} \, f(x),
-
+x^* = \underset{x}{\text{argmax}} \, f(x),
 $$
 $$
-
 \text{s.t.} \quad g(x) = 0,
-
 $$
 (4.48)
 
@@ -39,9 +35,7 @@ Hence, $\nabla f(x)$ and $\nabla g(x)$ must be parallel or anti-parallel, and by
 
 
 $$
-
 \nabla f(x) + \lambda \nabla g(x) = 0,
-
 $$
 (4.49)
 
@@ -49,9 +43,7 @@ for some $\lambda \neq 0$. Define the *Lagrangian function*,
 
 
 $$
-
 L(x, \lambda) = f(x) + \lambda g(x).
-
 $$
 (4.50)
 
@@ -59,9 +51,7 @@ The optimality condition in (4.49) is obtained by setting $\frac{\partial L}{\pa
 
 
 $$
-
 \frac{\partial}{\partial x} L(x, \lambda) = 0, \quad \frac{\partial}{\partial \lambda} L(x, \lambda) = 0.
-
 $$
 (4.51)
 
@@ -69,13 +59,10 @@ $$
 
 
 $$
-
-\{\hat{\pi}_j\} = \underset{\{\pi_j\}}{\text{argmax}} \sum_{j=1}^K \pi*j(N_j - \log \pi_j), \quad \text{s.t.} \quad \sum*{j=1}^K \pi_j = 1, \quad \pi_j \ge 0.
-
+\{\hat{\pi}_j\} = \underset{\{\pi_j\}}{\text{argmax}} \sum_{j=1}^K \pi_j(N_j - \log \pi_j), \quad \text{s.t.} \quad \sum_{j=1}^K \pi_j = 1, \quad \pi_j \ge 0.
 $$
 (4.53)
 
 Show that the solution is $\pi_j = \frac{\exp N_j}{\sum_{k=1}^K \exp N_k}$.
 
 More details about Lagrange multipliers can be found in Appendix E of Bishop's book, PRML.
-$$
