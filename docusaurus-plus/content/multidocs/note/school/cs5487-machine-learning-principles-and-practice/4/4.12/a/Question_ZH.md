@@ -15,6 +15,16 @@ $$ (4.47)
 解決帶有等式約束的最佳化問題的其中一種方法是使用 *拉格朗日乘子 (Lagrange multipliers)*。考慮以下問題，
 
 
+$$
+
+x^\* = \underset{x}{\text{argmax}} \, f(x),
+
+$$
+$$
+
+\text{s.t.} \quad g(x) = 0,
+
+$$
 (4.48)
 
 其中 $f(x)$ 是一目標函數 (objective function)，$g(x)$ 是一約束函數 (constraint function)。讓我們來看看這些函數的兩個性質，
@@ -29,7 +39,9 @@ $$ (4.47)
 
 
 $$
+
 \nabla f(x) + \lambda \nabla g(x) = 0,
+
 $$
 (4.49)
 
@@ -37,7 +49,9 @@ $$
 
 
 $$
+
 L(x, \lambda) = f(x) + \lambda g(x).
+
 $$
 (4.50)
 
@@ -45,7 +59,9 @@ $$
 
 
 $$
+
 \frac{\partial}{\partial x} L(x, \lambda) = 0, \quad \frac{\partial}{\partial \lambda} L(x, \lambda) = 0.
+
 $$
 (4.51)
 
@@ -53,7 +69,9 @@ $$
 
 
 $$
-\pi_j = \frac{N_j}{\sum_{k=1}^K N_k}.
-$$
 
+\pi*j = \frac{N_j}{\sum*{k=1}^K N_k}.
+
+$$
 (4.52)
+$$
