@@ -15,10 +15,6 @@ for some $N_j \ge 0$. Note that this optimization problem has an equality constr
 One method of solving an optimization problem with equality constraints is to use *Lagrange multipliers*. Consider the following problem,
 
 
-
-$$
-\text{s.t.} \quad g(x) = 0,
-$$
 (4.48)
 
 where $f(x)$ is the objective function and $g(x)$ is the constraint function. Let's look at two properties of these functions,

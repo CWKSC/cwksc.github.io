@@ -16,10 +16,6 @@ One method of solving an optimization problem with equality constraints is to us
 
 
 
-$$
-\text{s.t.} \quad g(x) = 0,
-$$
-
 (4.48)
 
 where $f(x)$ is the objective function and $g(x)$ is the constraint function. Let's look at two properties of these functions,

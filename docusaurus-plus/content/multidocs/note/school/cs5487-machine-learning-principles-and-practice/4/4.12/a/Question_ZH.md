@@ -15,10 +15,6 @@ $$ (4.47)
 解決帶有等式約束的最佳化問題的其中一種方法是使用 *拉格朗日乘子 (Lagrange multipliers)*。考慮以下問題，
 
 
-$$
-\text{s.t.} \quad g(x) = 0,
-$$
-
 (4.48)
 
 其中 $f(x)$ 是一目標函數 (objective function)，$g(x)$ 是一約束函數 (constraint function)。讓我們來看看這些函數的兩個性質，
