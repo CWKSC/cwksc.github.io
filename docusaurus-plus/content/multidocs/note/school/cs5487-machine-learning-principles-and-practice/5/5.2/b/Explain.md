@@ -1,14 +1,20 @@
 ---
 title: Explain
 ---
+### Intuition
 
-## Intuitive Explanation
+Now let's imagine calculating the overall "spread" or **Variance/Covariance** of all our combined sand piles (our final estimated distribution, $\hat{p}(x)$).
 
-The result shows that the variance of the KDE model ($\hat{\Sigma}$) is the sum of two components:
+The Law of Total Variance hints that when we have a mixture of different distributions (the sum of our kernels), the total spread comes from two entirely independent sources that add up:
 
-1. **Sample Covariance** ($\frac{1}{n} \sum (x_i - \hat{\mu})(x_i - \hat{\mu})^T$): This represents the inherent "width" or spread of the original data points $X$.
-2. **Kernel Covariance** ($H$): This represents the "added width" introduced by the smoothing kernel.
+1. **The spread within the kernels (`H`):** Every individual sand pile has its own internal width or spread. This local "blurriness" introduced at each point is quantified by the inherent covariance of your chosen kernel function, $H$.
+2. **The spread between the kernels (Sample Covariance):** The center points where we place the sand piles (the actual data points $x_i$) are themselves scattered all around their average $\hat{\mu}$. This macro-level scatter of the data collection is exactly the standard Sample Covariance: $\frac{1}{n} \sum (x_i - \hat{\mu})(x_i - \hat{\mu})^T$.
 
-When we create a kernel density estimate, we are taking the original data distribution (represented by point masses) and "blurring" it by convolving with a kernel of width $H$. This blurring process naturally spreads out the probability mass, increasing the total variance.
+Because each data observation serves as a separate anchor point upon which we paste our kernel's shape, these two distinct variations layer on top of each other. 
 
-The variance of the estimate is *inflated* by $H$ compared to the raw sample variance. This makes sense: by smoothing the data, we make the distribution wider.
+Therefore, the final variance of our modeled distribution is exactly equal to the variance originally present in the raw data **plus** the artificial variance (blurring) we added when smoothing it out with the kernel.
+
+### Common Pitfalls
+A very common beginner mistake is to assume that your KDE modeled distribution perfectly replicates the statistical properties of your sample data. 
+
+In reality, the very act of "smoothing" the data (which prevents the distribution from being just sharp spikes) strictly forces the total variance to increase. You inherently fatten the probability mass beyond the boundaries of your bare samples.

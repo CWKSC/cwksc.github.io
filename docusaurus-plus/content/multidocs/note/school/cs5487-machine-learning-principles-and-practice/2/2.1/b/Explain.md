@@ -2,33 +2,20 @@
 title: Explain
 ---
 
-# Explain: Unbiased Estimator and Variance
+### Intuition
 
-## Intuition of Unbiasedness
+**Unbiased Estimator:**
+When an estimator is **unbiased**, it means that if we could repeatedly sample data and compute the estimator, our guesses would "on average" be exactly right. We wouldn't consistently over-estimate or under-estimate the true parameter. 
 
-An estimator is **unbiased** if, on average, it hits the true target.
-Imagine you are throwing darts at a bullseye (the true parameter $\lambda$).
-- If your throws are scattered all over but the "center of gravity" of your throws is exactly the bullseye, your aim is **unbiased**.
-- If your throws are consistently to the right of the bullseye, your aim is **biased**.
+If we have one cell, the expected number of hits is $\lambda$. If we have 576 cells, the expected total hits is $576\lambda$. Dividing by 576, the average remains exactly $\lambda$. Because we just sum up the raw counts without distorting them and perfectly average them, our guess isn't artificially skewed higher or lower.
 
-In this problem, $\mathbb{E}[\hat{\lambda}] = \lambda$ means that if we repeated this experiment many times (collecting $N$ samples each time and computing the average), the average of our estimates would converge to the true $\lambda$. We are not systematically overestimating or underestimating.
+**Estimator Variance:**
+The term $\frac{\lambda}{N}$ tells us about the **precision** of our estimate. 
 
-## Intuition of Variance
+Imagine you are trying to guess how many cars pass an intersection per minute. 
+- If you only count for $1$ minute (low $N$), your guess might be drastically wrong because car traffic fluctuates wildly. 
+- But if you count for $1000$ minutes (high $N$) and average the rate, your confidence in the average rate becomes much tighter and less prone to random flukes.
 
-The **variance** of the estimator tells us how spread out our estimates are.
-- A low variance means valid estimates are close to each other (and close to the true value if unbiased).
-- A high variance means estimates can swing wildly.
+The variance $\frac{\lambda}{N}$ mathematically proves this: As your sample size $N$ (the number of grids or cells observed) grows larger, the variance of your estimate shrinks towards zero. With an infinitely large sample size, you would know the parameter $\lambda$ perfectly. 
 
-The result $\text{var}(\hat{\lambda}) = \frac{\lambda}{N}$ tells us two things:
-1. **More data reduces uncertainty**: As $N$ (sample size) increases, the variance decreases. This makes sense; with more data, we are more confident in our estimate.
-2. **Dependence on $\lambda$**: The variance depends on the true rate itself. Higher rates (larger $\lambda$) result in higher variance in the counts, and thus higher variance in our estimate.
-
-## Mathematical Steps Explained
-
-The proof relies on two key properties:
-1. **Linearity of Expectation**: The average of a sum is the sum of the averages.
-    $\mathbb{E}[\frac{1}{N} \sum k_i] = \frac{1}{N} \sum \mathbb{E}[k_i]$. Since everyone expects to roll a $\lambda$, the average is $\lambda$.
-2. **Variance of Independent Sum**: The spread of a sum of independent things is the sum of their spreads.
-    $\text{var}(\sum k_i) = \sum \text{var}(k_i)$.
-    However, when we scale the sum by $\frac{1}{N}$, the variance scales by $(\frac{1}{N})^2 = \frac{1}{N^2}$. This is because variance is a "squared" distance.
-    So, $\frac{1}{N^2} \times (N \times \lambda) = \frac{\lambda}{N}$.
+This relates to a fundamental concept in statistics known as the **Law of Large Numbers**.

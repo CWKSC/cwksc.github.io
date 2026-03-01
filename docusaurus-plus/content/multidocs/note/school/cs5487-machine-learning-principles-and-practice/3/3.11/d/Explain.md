@@ -1,35 +1,24 @@
 ---
 title: Explain
 ---
+### Intuition
 
-## Detailed Explanation
+This question is about "knob turning" in Bayesian inference. How does tweaking our assumptions change our final belief?
 
-We can analyze the behavior of the Bayesian update by looking at the "competition" between the Prior and the Likelihood.
+Remember the battle:
+**Data (Observation)** vs. **Prior Belief**.
 
-### 1. The Role of Precision
+*   $\sigma^2$ is the dial for "How noisy is the data?"
+*   $\alpha$ is the dial for "How uncertain am I about my prior?"
 
-In Bayesian inference for Gaussians, precisions (inverse variances) add up.
-$$
-\text{Posterior Precision} = \text{Prior Precision} + \text{Data Precision}
-$$
-$$
-\hat{\Sigma}_\theta^{-1} = \frac{1}{\alpha} I + \frac{1}{\sigma^2} \Phi \Phi^T
-$$
+#### 1. Turning $\alpha$ to infinity ($\alpha \to \infty$)
+*   **What it means:** You admit to knowing absolutely nothing before looking at the data. 
+*   **The outcome:** The prior vanishes. The data completely takes over. Your best guess for the parameters becomes the standard Least Squares estimation that completely trusts the data, oblivious to any regularization.
 
-### 2. $\alpha \to \infty$ (Uninformative Prior)
+#### 2. Turning $\alpha$ to zero ($\alpha \to 0$)
+*   **What it means:** You are stubbornly, absolutely convinced that all weights are completely zero, and no amount of evidence can sway you.
+*   **The outcome:** You ignore the data entirely. Your mean stays exactly at $0$, and your uncertainty (covariance) becomes zero. You are confidently wrong (unless the true weights really are zero).
 
-* The prior precision is $1/\alpha \approx 0$.
-* We add nothing to the data precision.
-* The result is entirely determined by the data. This connects Bayesian Regression back to Frequentist/Classical Regression (OLS). We have no bias, so we just fit the data.
-
-### 3. $\alpha \to 0$ (Dogmatic Prior)
-
-* The prior precision is infinite.
-* No amount of data can change our mind.
-* We remain convinced that $\theta = 0$. The model learns nothing.
-
-### 4. $\sigma^2 \to 0$ (Noise-Free Data)
-
-* The data precision is infinite.
-* The likelihood function becomes a delta function (or extremely sharp constraint) on the subspace satisfying $y = \Phi^T \theta$.
-* Unless the prior forbids it (which it doesn't here), the posterior collapses onto the single point that fits the data (and is closest to 0 if there are multiple solutions). The uncertainty goes to zero because the data leaves no room for doubt.
+#### 3. Turning $\sigma^2$ to zero ($\sigma^2 \to 0$)
+*   **What it means:** You believe your measuring instruments are perfect. There is absolutely zero noise in your labels $y$.
+*   **The outcome:** The model is forced to go exactly through every single data point (perfect interpolation). Because the data is viewed as "perfect facts", your uncertainty about the weights drops to zero ($\hat{\Sigma}_\theta \to 0$), and your best guess defaults to the Least Squares curve that connects all the dots perfectly.

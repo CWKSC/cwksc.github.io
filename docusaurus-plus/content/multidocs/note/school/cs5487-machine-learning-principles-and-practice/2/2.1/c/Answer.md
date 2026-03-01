@@ -2,33 +2,25 @@
 title: Answer
 ---
 
-# Problem 2.1 (c)
+### Prerequisites
+- **Maximum Likelihood Estimation (MLE)**
+- **Weighted Average Calculation**
 
-## Pre-required Knowledge
+### Step-by-Step Derivation
 
-- **Maximum Likelihood Estimate formula**: From part (a), we know $\hat{\lambda} = \frac{1}{N} \sum_{i=1}^{N} k_i$. This corresponds to the **total number of hits** divided by the **total number of cells**.
+1. Recall the formula for the ML estimator of the Poisson parameter $\lambda$ derived in part (a):
+   $$\hat{\lambda} = \frac{1}{N}\sum_{i=1}^N k_i$$
 
-## Step-by-Step Answer
+2. From the problem description, the total area was divided into $144 \text{ km}^2 / 0.25 \text{ km}^2 = 576$ grid cells. We can also verify this by summing up the observed number of cells in the table:
+   $$N = 229 + 211 + 93 + 35 + 7 + 1 = 576$$
 
-1. **Identify the Total Number of Cells ($N$):**
-    Sum the number of cells for each category:
-    $$ N = 229 + 211 + 93 + 35 + 7 + 1 = 576 $$
+3. Next, we calculate the total number of hits across all $N$ cells. This is given by the sum of $k$ multiplied by the number of cells that had exactly $k$ hits. For the category "5 and over", we will assume the value is $5$ for this calculation, as it's the minimum possible value and only $1$ cell observed it.
+   $$\text{Total Hits} = \sum_{k} (k \times \text{number of cells with } k \text{ hits})$$
+   $$\text{Total Hits} = (0 \times 229) + (1 \times 211) + (2 \times 93) + (3 \times 35) + (4 \times 7) + (5 \times 1)$$
+   $$\text{Total Hits} = 0 + 211 + 186 + 105 + 28 + 5 = 535$$
 
-2. **Calculate the Total Number of Hits ($\sum k_i$):**
-    Multiply the number of hits ($k$) by the count of cells with that many hits.
-    *Note: For the category "5 and over", we assume the number of hits is exactly 5 based on the standard interpretation of this dataset in literature, as higher counts are extremely unlikely.*
-    $$
-    \begin{aligned}
-    \text{Sum} &= (0 \times 229) + (1 \times 211) + (2 \times 93) + (3 \times 35) + (4 \times 7) + (5 \times 1) \\
-    &= 0 + 211 + 186 + 105 + 28 + 5 \\
-    &= 535
-    \end{aligned}
-    $$
+4. Substitute these values back into the ML estimator formula:
+   $$\hat{\lambda} = \frac{\text{Total Hits}}{N} = \frac{535}{576}$$
 
-3. **Calculate $\hat{\lambda}$:**
-    $$
-    \hat{\lambda} = \frac{\text{Total Hits}}{\text{Total Cells}} = \frac{535}{576} \approx 0.928819...
-    $$
-
-4. **Result:**
-    $$ \hat{\lambda} \approx 0.929 $$
+5. Compute the final numerical value:
+   $$\hat{\lambda} \approx 0.9288$$

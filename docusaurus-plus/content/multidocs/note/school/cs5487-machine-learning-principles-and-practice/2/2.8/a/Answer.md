@@ -1,62 +1,57 @@
 ---
 title: Answer
 ---
+### Prerequisites
+* **Matrix Calculus**: Rules for differentiating matrix expressions with respect to a vector.
+* **Least-Squares Regression**: Minimization of the sum-squared-error.
 
-# Answer: Least Squares Regression
+### Step-by-Step Derivation
 
-### Pre-required Knowledge
+1. **Define the Objective Function**
+   The problem asks us to find the parameter vector $\theta$ that minimizes the sum-squared-error, denoted as $J(\theta)$:
+   $$
+   J(\theta) = \| y - \Phi^T \theta \|^2
+   $$
 
-* **Matrix Calculus**: Specifically, derivatives of vector norms and quadratic forms.
-  * $\frac{\partial}{\partial x} (Ax - b)^T (Ax - b) = 2A^T(Ax - b)$ for symmetric inner products or standard derivations.
-  * $\frac{\partial}{\partial x} x^T A x = (A + A^T)x$.
-* **Linear Algebra**: Concept of rank, inverse, and transpose.
+2. **Expand the Objective Function**
+   We can express the squared $L_2$ norm as an inner product:
+   $$
+   \begin{aligned}
+   J(\theta) &= (y - \Phi^T \theta)^T (y - \Phi^T \theta) \\
+             &= (y^T - \theta^T \Phi)(y - \Phi^T \theta) \\
+             &= y^T y - y^T \Phi^T \theta - \theta^T \Phi y + \theta^T \Phi \Phi^T \theta
+   \end{aligned}
+   $$
 
-### 1. Matrix Formulation
+3. **Simplify the Expression**
+   Note that $y^T \Phi^T \theta$ is a scalar quantity (dimension $1 \times n \cdot n \times D \cdot D \times 1 = 1 \times 1$). The transpose of a scalar is itself, so:
+   $$
+   (y^T \Phi^T \theta)^T = \theta^T \Phi y
+   $$
+   Therefore, the two middle terms are equal, and the objective function simplifies to:
+   $$
+   J(\theta) = y^T y - 2 \theta^T \Phi y + \theta^T \Phi \Phi^T \theta
+   $$
 
-We are given:
-* $y = [y_1, \dots, y_n]^T \in \mathbb{R}^n$
-* $\Phi = [\phi(x_1), \dots, \phi(x_n)] \in \mathbb{R}^{D \times n}$
-* $\theta \in \mathbb{R}^D$
+4. **Compute the Derivative with Respect to $\theta$**
+   To find the minimum, we take the gradient of $J(\theta)$ with respect to $\theta$ and set it to the zero vector. Using standard matrix calculus identities:
+   * $\nabla_\theta (\theta^T A) = A$
+   * $\nabla_\theta (\theta^T A \theta) = (A + A^T)\theta$
 
-We can write the vector of predicted values as:
-$$
-\hat{y} = \left[ \begin{matrix} \phi(x_1)^T \theta \\ \vdots \\ \phi(x_n)^T \theta \end{matrix} \right] = \left[ \begin{matrix} \phi(x_1)^T \\ \vdots \\ \phi(x_n)^T \end{matrix} \right] \theta = \Phi^T \theta
-$$
-Note that $\Phi^T$ is an $n \times D$ matrix.
+   For symmetric matrix $A = \Phi \Phi^T$, $\nabla_\theta (\theta^T (\Phi \Phi^T) \theta) = 2 \Phi \Phi^T \theta$. Thus:
+   $$
+   \frac{\partial J(\theta)}{\partial \theta} = - 2 \Phi y + 2 \Phi \Phi^T \theta
+   $$
 
-The sum-squared-error is:
-$$
-E(\theta) = \sum_{i=1}^n (y_i - \phi(x_i)^T \theta)^2 = \| y - \Phi^T \theta \|^2
-$$
-
-### 2. Derivation
-
-We want to minimize $E(\theta)$ with respect to $\theta$. Let's expand the squared norm:
-$$
-\begin{aligned}
-E(\theta) &= (y - \Phi^T \theta)^T (y - \Phi^T \theta) \\
-&= (y^T - \theta^T \Phi) (y - \Phi^T \theta) \\
-&= y^T y - y^T \Phi^T \theta - \theta^T \Phi y + \theta^T \Phi \Phi^T \theta
-\end{aligned}
-$$
-Since $y^T \Phi^T \theta$ is a scalar, it equals its transpose $\theta^T \Phi y$. Thus:
-$$
-E(\theta) = y^T y - 2 \theta^T \Phi y + \theta^T \Phi \Phi^T \theta
-$$
-
-Now, we take the gradient with respect to $\theta$ and set it to zero:
-$$
-\nabla_\theta E(\theta) = -2 \Phi y + 2 \Phi \Phi^T \theta = 0
-$$
-*(Using the identity $\nabla_x (x^T A x) = 2Ax$ when $A$ is symmetric, here $A = \Phi \Phi^T$)*
-
-### 3. Solution (Normal Equation)
-
-Rearranging the equation:
-$$
-\Phi \Phi^T \theta = \Phi y
-$$
-Assuming $\Phi \Phi^T$ (a $D \times D$ matrix) is invertible (which effectively means the features are linearly independent and we have enough data), we get:
-$$
-\hat{\theta}_{LS} = (\Phi \Phi^T)^{-1} \Phi y
-$$
+5. **Solve for $\theta$**
+   Set the derivative to zero to find the optimal $\theta$:
+   $$
+   \begin{aligned}
+   - 2 \Phi y + 2 \Phi \Phi^T \theta &= 0 \\
+   \Phi \Phi^T \theta &= \Phi y
+   \end{aligned}
+   $$
+   Assuming $\Phi \Phi^T$ is invertible, we multiply both sides by $(\Phi \Phi^T)^{-1}$:
+   $$
+   \hat{\theta}_{LS} = (\Phi \Phi^T)^{-1} \Phi y
+   $$

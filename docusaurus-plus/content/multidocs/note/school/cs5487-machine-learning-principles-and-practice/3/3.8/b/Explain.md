@@ -1,26 +1,22 @@
 ---
 title: Explain
 ---
+## Intuition
 
-# Problem 3.8(b) Explanation
+We want to update our belief about the probability of a coin coming up heads ($\pi$) after observing some coin flips ($\mathcal{D}$). Bayes' rule is the mathematical formulation of this "belief updating".
 
-## Conjugate Priors
+**Prior**: Starting out with a "uniform prior" means we have no idea whether the coin is biased or not. We think any probability between 0 and 1 is equally likely.
 
-The resulting posterior distribution has the form of a **Beta distribution**, denoted as $\text{Beta}(\alpha, \beta)$, where the PDF is proportional to $\pi^{\alpha-1}(1-\pi)^{\beta-1}$.
-Matching our result $p(\pi|\mathcal{D}) \propto \pi^s (1-\pi)^{n-s}$:
-* $\alpha - 1 = s \implies \alpha = s + 1$
-* $\beta - 1 = n - s \implies \beta = n - s + 1$
+**Likelihood**: This is what the data tells us. If we flip the coin $n$ times and get $s$ heads, the likelihood is $\pi^s(1-\pi)^{n-s}$. The data "pulls" our belief towards the observed proportion of heads.
 
-The fact that the posterior distribution is in the same family (Beta distribution) as the prior (Uniform distribution is actually $\text{Beta}(1,1)$) means the Beta distribution is the **conjugate prior** for the Bernoulli/Binomial likelihood. This property makes Bayesian updates analytically tractable.
+**Normalization**: To make sure our new belief (posterior) represents valid probabilities and sums to 1, we divide by the integral of all possibilities. The identity provided is just a mathematical shortcut to calculate this area. We end up with a Beta distribution. 
 
-## Normalizing Constant
+When $n=1$, we just flipped the coin once.
+- If it landed Heads ($s=1$), our updated belief increases linearly towards $\pi=1$. It's more likely now that the coin favors heads. 
+- If it landed Tails ($s=0$), our updated belief leans towards $\pi=0$.
 
-The term $\frac{(n+1)!}{s!(n-s)!}$ acts purely as a normalizing constant to ensure the area under the curve equals 1.
-If we recognize this as a Beta distribution $\text{Beta}(s+1, n-s+1)$, the standard normalizing constant is $\frac{1}{B(s+1, n-s+1)} = \frac{\Gamma(n+2)}{\Gamma(s+1)\Gamma(n-s+1)}$, which simplifies using factorials ($\Gamma(n) = (n-1)!$) to exactly what we derived.
-
-## Interpretation of $n=1$ Plot
-
-* **Prior**: We started with a flat line ($p(\pi)=1$), meaning we had no reason to believe any value of $\pi$ was more likely than another.
-* **Data**: We observed one coin flip.
-* **Posterior ($s=1$)**: We saw a Head. Now, values of $\pi$ near 1 are more likely than values near 0. The probability density increases linearly. It doesn't rule out $\pi=0.1$ completely (it's just unlikely), but it strongly suggests $\pi$ is high.
-* **Posterior ($s=0$)**: We saw a Tail. The belief is flipped. Values near 0 are now more likely.
+```mermaid
+graph TD
+    A[Uniform Prior: No assumption] -->|Observe Data D| B(Likelihood matches data shape);
+    B -->|Normalize area to 1| C[Posterior: Updated belief about pi];
+```

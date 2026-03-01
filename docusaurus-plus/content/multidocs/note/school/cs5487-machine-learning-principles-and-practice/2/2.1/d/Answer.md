@@ -2,53 +2,52 @@
 title: Answer
 ---
 
-# Problem 2.1 (d)
+### Prerequisites
+- **Poisson Probability Calculation**
+- **Expected Value of Frequencies**
 
-## Pre-required Knowledge
+### Step-by-Step Derivation
 
-- **Poisson Probability**: $P(X=k) = \frac{e^{-\hat{\lambda}} \hat{\lambda}^k}{k!}$
-- **Expected Count**: $E_k = N \times P(X=k)$, where $N=576$.
+1. From part (c), we have the ML estimate $\hat{\lambda} \approx 0.9288$ and the total number of cells $N = 576$.
 
-## Step-by-Step Answer
+2. To find the expected number of cells with exactly $k$ hits, we use the formula:
+   $$\text{Expected Cells} = N \times p(x = k | \hat{\lambda}) = 576 \times \frac{1}{k!}e^{-\hat{\lambda}}\hat{\lambda}^k$$
 
-1. **Calculate Probabilities:**
-    Using $\hat{\lambda} \approx 0.9288$ and $e^{-\hat{\lambda}} \approx 0.3950$.
+3. Calculate the expected probability and expected count for each $k$:
 
-    - $k=0$: $P(0) = e^{-\lambda} \frac{\lambda^0}{0!} = e^{-0.9288} \approx 0.3950$
-    - $k=1$: $P(1) = e^{-\lambda} \frac{\lambda^1}{1!} = 0.3950 \times 0.9288 \approx 0.3669$
-    - $k=2$: $P(2) = e^{-\lambda} \frac{\lambda^2}{2!} = 0.3669 \times \frac{0.9288}{2} \approx 0.1704$
-    - $k=3$: $P(3) = e^{-\lambda} \frac{\lambda^3}{3!} = 0.1704 \times \frac{0.9288}{3} \approx 0.0527$
-    - $k=4$: $P(4) = e^{-\lambda} \frac{\lambda^4}{4!} = 0.0527 \times \frac{0.9288}{4} \approx 0.0122$
-    - $k \ge 5$: $P(\ge 5) = 1 - (P(0) + P(1) + P(2) + P(3) + P(4))$
-        $= 1 - (0.3950 + 0.3669 + 0.1704 + 0.0527 + 0.0122) = 1 - 0.9972 = 0.0028$
+   - **For $k = 0$:**
+     $p(x = 0 | 0.9288) = \frac{1}{0!}e^{-0.9288}(0.9288)^0 = e^{-0.9288} \approx 0.3950$
+     $\text{Expected Cells} = 576 \times 0.3950 \approx 227.5$
 
-2. **Calculate Expected Counts ($N \times P(k)$):**
-    Using $N=576$.
+   - **For $k = 1$:**
+     $p(x = 1 | 0.9288) = \frac{1}{1!}e^{-0.9288}(0.9288)^1 = 0.9288 \times e^{-0.9288} \approx 0.3669$
+     $\text{Expected Cells} = 576 \times 0.3669 \approx 211.3$
 
-    - $E_0 = 576 \times 0.3950 \approx 227.5$
-    - $E_1 = 576 \times 0.3669 \approx 211.3$
-    - $E_2 = 576 \times 0.1704 \approx 98.1$
-    - $E_3 = 576 \times 0.0527 \approx 30.4$
-    - $E_4 = 576 \times 0.0122 \approx 7.0$
-    - $E_{5+} = 576 \times 0.0028 \approx 1.6$
+   - **For $k = 2$:**
+     $p(x = 2 | 0.9288) = \frac{1}{2!}e^{-0.9288}(0.9288)^2 = \frac{0.8627}{2} \times e^{-0.9288} \approx 0.1704$
+     $\text{Expected Cells} = 576 \times 0.1704 \approx 98.1$
 
-    *(Note: The numbers might slightly vary due to rounding precision)*
+   - **For $k = 3$:**
+     $p(x = 3 | 0.9288) = \frac{1}{3!}e^{-0.9288}(0.9288)^3 = \frac{0.8013}{6} \times e^{-0.9288} \approx 0.0528$
+     $\text{Expected Cells} = 576 \times 0.0528 \approx 30.4$
 
-3. **Comparison Table:**
+   - **For $k = 4$:**
+     $p(x = 4 | 0.9288) = \frac{1}{4!}e^{-0.9288}(0.9288)^4 = \frac{0.7442}{24} \times e^{-0.9288} \approx 0.0123$
+     $\text{Expected Cells} = 576 \times 0.0123 \approx 7.1$
 
-| # hits ($k$) | Observed | Expected ($E_k$) |
-| :--- | :--- | :--- |
-| **0** | 229 | **227.5** |
-| **1** | 211 | **211.3** |
-| **2** | 93 | **98.1** |
-| **3** | 35 | **30.4** |
-| **4** | 7 | **7.0** |
-| **5+** | 1 | **1.6** |
+   - **For $k \ge 5$ (5 and over):**
+     Since the probabilities must sum to 1, we can compute this as $1 - \sum_{k=0}^4 p(x=k|\hat{\lambda})$:
+     $p(x \ge 5 | 0.9288) = 1 - (0.3950 + 0.3669 + 0.1704 + 0.0528 + 0.0123) = 1 - 0.9974 = 0.0026$
+     $\text{Expected Cells} = 576 \times 0.0026 \approx 1.5$
 
-1. **Conclusion:**
-    The expected counts calculated from the Poisson distribution are remarkably close to the actual observed counts.
-    - Observed 229 zeros vs Expected 227.5
-    - Observed 211 ones vs Expected 211.3
-    - Observed 7 fours vs Expected 7.0
+4. **Comparison Table:**
 
-    This strong agreement supports the hypothesis that the bombs fell **randomly** over London, following a Poisson distribution. There is no statistical evidence to suggest that the Germans were targeting specific 144 sq km areas (or rather, within this area, they were not effectively targeting specific cells more than others). The clustering of hits (multiple hits in some cells) is fully explained by chance.
+| number of hits ($k$) | 0 | 1 | 2 | 3 | 4 | 5 and over |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Observed Data | 229 | 211 | 93 | 35 | 7 | 1 |
+| Expected Counts | 227.5 | 211.3 | 98.1 | 30.4 | 7.1 | 1.5 |
+
+### Conclusion
+The theoretically derived expected counts under the Poisson model fit the actual observed hit data remarkably well. Because exactly this Poisson distribution explicitly models random, independent events happening over area/time, we can conclude that the bomb hits were essentially random and uniform.
+
+The Germans were highly unlikely to be systematically or precisely targeting specific London neighborhoods. The occurrences of "clustered" hits on particular cells are indistinguishable from what one would expect from pure chance.

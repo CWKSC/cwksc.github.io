@@ -1,38 +1,17 @@
 ---
 title: Explain
 ---
+## Intuition
 
-# Problem 3.8(d) Explanation
+We're trying to find the "best" guess for the coin's bias $\pi$. Different methods define "best" differently:
 
-## Mode vs Mean
+1.  **MLE (Maximum Likelihood)**: Asks "What value of $\pi$ makes the data we actually saw most probable?" The answer is exactly the fraction of heads we saw: $s/n$.
+2.  **MAP (Maximum A Posteriori)**: Asks "Given our data AND our starting assumption (prior), what is the single most probable value of $\pi$?"
 
-* **MAP** estimates the **Mode** of the posterior.
-* **Bayesian Prediction (from part c)** uses the **Mean** of the posterior.
+**The Uniform Prior Connection**
+A "uniform prior" is mathematically saying "I have absolutely no preference for any value of $\pi$; they are all equally likely before I flip the coin."
 
-For the Beta distribution $\text{Beta}(\alpha, \beta)$:
-* Mode = $\frac{\alpha-1}{\alpha+\beta-2}$
-* Mean = $\frac{\alpha}{\alpha+\beta}$
+Because we brought zero initial bias/knowledge to the table, our final peak belief (MAP) is dictated 100% by the data we saw. Therefore, MAP gives the exact same answer as MLE. 
 
-With Uniform Priors ($\alpha=1, \beta=1$) and data ($s, n-s$):
-The posterior is $\text{Beta}(s+1, n-s+1)$.
-* $\alpha_{post} = s+1$
-* $\beta_{post} = n-s+1$
-
-**MAP (Mode):**
-$$
-\frac{(s+1)-1}{(s+1)+(n-s+1)-2} = \frac{s}{n+2-2} = \frac{s}{n}
-$$
-(This is only defined when counts are > 1, strictly speaking, but the limit holds).
-
-**Bayes Estimator (Mean):**
-$$
-\frac{s+1}{(s+1)+(n-s+1)} = \frac{s+1}{n+2}
-$$
-
-## Why MAP equals ML here?
-
-MAP is ML times Prior. If Prior is flat (multiplication by 1), the "hill" in the landscape is defined entirely by the likelihood. So the peak (Mode) is at the same spot.
-
-## Practical Implication
-
-In Machine Learning, we often prefer the Bayesian Mean (or smoothed estimates) because predicting exactly 0 or 1 is dangerous. If you estimate probability 0 for an event, and it happens, your error (log loss) is infinite. The Bayesian estimate naturally safeguards against this by integrating over uncertainty.
+**Is one better?**
+MLE and MAP (with uniform prior) give the same number, but the Bayesian *expected value* (from part c, $\frac{s+1}{n+2}$) is often preferred in practice. Why? Because the peak (mode) of a skewed distribution isn't always the best representative value. The expected value (mean) takes the whole shape of the uncertainty into account, preventing extreme overly-confident predictions when we haven't seen much data yet.

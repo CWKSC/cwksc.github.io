@@ -1,30 +1,20 @@
 ---
 title: Explain
 ---
+### Intuition
 
-## Detailed Explanation
+In classical (Frequentist) machine learning, making a prediction is simple: you find one "best" set of weights $\hat{\theta}$, plug in your new data point $x_*$, and spit out a single number $y_* = \phi(x_*)^T \hat{\theta}$.
 
-This part determines how we make predictions for new data points using the trained Bayesian model.
+However, the Bayesian framework acknowledges that **we are never 100% sure what the true weights are**. We have a whole *distribution* of possible weights (the posterior $p(\theta|\mathcal{D})$).
 
-### 1. Latent Function $f_*$
+So, to make a mathematically rigorous prediction, we must ask *every single possible model* what it thinks the prediction should be, and then take a vote, weighted by how likely each model is. This is what the integral $\int p(y_*|x_*, \theta) p(\theta|\mathcal{D}) d\theta$ does.
 
-The term $f_*$ represents the "true" underlying value of the function at $x_*$, without any measurement noise.
-* Since we are uncertain about the true parameters $\theta$ (captured by $\hat{\Sigma}_\theta$), we are also uncertain about the value of the function.
-* The variance $\hat{\sigma}_*^2 = \phi(x_*)^T \hat{\Sigma}_\theta \phi(x_*)$ represents our **Epistemic Uncertainty** (uncertainty due to lack of knowledge/data).
-* Typically, this variance is small where we have lots of training data and large where we don't.
+### Two Types of Uncertainty
 
-### 2. Predictive Observable $y_*$
+The beauty of the final formula $p(y_*|x_*, \mathcal{D}) = \mathcal{N}(y_*|\hat{\mu}_*, \sigma^2 + \hat{\sigma}^2_*)$ is that it explicitly breaks down our uncertainty about the future into two separate chunks:
 
-The term $y_*$ is what we actually observe. It includes the function value $f_*$ plus the unavoidable measurement noise.
-* The predictive variance is the sum of two parts:
-    $$
-    \operatorname{Var}(y) = \underbrace{\hat{\sigma}_*^2}_{\text{Model Uncertainty}} + \underbrace{\sigma^2}_{\text{Noise}}
-    $$
-* **Aleatoric Uncertainty**: The term $\sigma^2$ is intrinsic to the system. Even wth infinite data, this uncertainty remains.
-
-### 3. Connection to Gaussian Processes
-
-The problem statement notes this is the linear version of Gaussian Process (GP) regression.
-* In GPs, we usually skip calculating $\theta$ explicitly and compute the kernel function $k(x_i, x_j)$.
-* The term $\phi(x_*)^T \hat{\Sigma}_\theta \phi(x_*)$ is effectively computing the posterior variance using the kernel defined by the linear features.
-* Equation (3.53) allows us to yield not just a point prediction, but a full probability distribution (confidence interval) for the new output, which is the main strength of Bayesian methods.
+1.  **Epistemic Uncertainty ($\hat{\sigma}^2_*$)**: This is the uncertainty we have because we lack knowledge or data. 
+    *   Notice that $\hat{\sigma}^2_* = \phi(x_*)^T \hat{\Sigma}_\theta \phi(x_*)$ depends on $\hat{\Sigma}_\theta$ (our posterior uncertainty about the weights) and $x_*$.
+    *   If you ask the model to predict a point $x_*$ that is very similar to the training data, this variance will be small.
+    *   If you ask the model to predict a point wildly far away from any training data, the models will disagree wildly, and $\hat{\sigma}^2_*$ will skyrocket. This is the model saying, *"I don't know, I haven't seen anything like this before!"* As we gather more data, this uncertainty shrinks.
+2.  **Aleatoric Uncertainty ($\sigma^2$)**: This is the inherent noise in the universe. Even if we had an infinite amount of training data and knew the "true" line perfectly ($f_*$), the actual observed value $y_*$ will still bounce around that line due to random noise $\epsilon$. We can never get rid of this $\sigma^2$ variance, no matter how much data we collect.

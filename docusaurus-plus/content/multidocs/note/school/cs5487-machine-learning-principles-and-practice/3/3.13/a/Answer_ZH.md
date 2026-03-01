@@ -2,36 +2,50 @@
 title: Answer ZH
 ---
 
-## 預備知識
+## 先決條件 (Prerequisites)
+- 最大後驗機率估計 (MAP Estimation)
+- 線性迴歸的概似函數 (Likelihood Function for Linear Regression)
+- 拉普拉斯分佈 (Laplace Distribution)
+- 高斯分佈 (Gaussian Distribution)
 
-* **MAP 估計 (MAP Estimation)**: 最大後驗概率估計 (Maximum A Posteriori) 尋找最大化後驗概率 $p(\theta|D) \propto p(D|\theta)p(\theta)$ 的參數。這等價於最小化 $-\log p(D|\theta) - \log p(\theta)$。
-* **線性迴歸似然 (Linear Regression Likelihood)**: 假設高斯雜訊 $y \sim \mathcal{N}(\Phi^T \theta, \sigma^2 I)$，負對數似然成正比於平方誤差 $\frac{1}{2}\|y - \Phi^T \theta\|^2$。
-* **拉普拉斯分佈 (Laplace Distribution)**: 機率分佈定義為 $Laplace(x|\mu, b) = \frac{1}{2b} \exp(-\frac{|x-\mu|}{b})$。
+## 逐步推導 (Step-by-Step Derivation)
 
-## 逐步解答
+1. **MAP 估計框架：**
+   在 MAP 估計中，我們尋求最大化後驗分佈 (Posteriori Distribution) $p(\theta | y, X)$ 的參數 $\theta$：
+   $$ \hat{\theta}_{MAP} = \operatorname*{argmax}_{\theta} p(\theta | y, X) = \operatorname*{argmax}_{\theta} \frac{p(y | X, \theta) p(\theta)}{p(y | X)} $$
+   因為 $p(y | X)$ 獨立於 $\theta$，這等價於最大化概似函數和先驗的乘積：
+   $$ \hat{\theta}_{MAP} = \operatorname*{argmax}_{\theta} [\ln p(y | X, \theta) + \ln p(\theta)] $$
+   這也等價於最小化負對數後驗 (Negative Log-Posterior)：
+   $$ \hat{\theta}_{MAP} = \operatorname*{argmin}_{\theta} [-\ln p(y | X, \theta) - \ln p(\theta)] $$
 
-1. **似然項 (Likelihood Term)**:
-    最小化式中的第一項是 $\frac{1}{2} \|y - \Phi^T \theta\|^2$。這對應於假設目標值是由高斯雜訊生成的情況下，數據的負對數似然：$y_i = \phi(x_i)^T \theta + \epsilon_i$，其中 $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$。
-    具體來說，$p(y|X, \theta) \propto \exp(-\frac{1}{2\sigma^2} \|y - \Phi^T \theta\|^2)$，取負對數後得到該項。
+2. **概似函數 (Likelihood Function)：**
+   假設獨立的高斯雜訊且變異數 $\sigma^2 = 1$（為了簡單起見，這對應於沒有縮放變異數因子的 $\frac{1}{2} \|y - \Phi^T\theta\|^2$ 項），概似函數為：
+   $$ p(y | X, \theta) = \prod_{i=1}^N \mathcal{N}(y_i | \phi(x_i)^T \theta, 1) \propto \exp \left( -\frac{1}{2} \| y - \Phi^T \theta \|^2 \right) $$
+   因此，負對數概似為：
+   $$ -\ln p(y | X, \theta) = \frac{1}{2} \|y - \Phi^T\theta\|^2 + \text{const} $$
 
-2. **先驗項 (Prior Term)**:
-    第二項是 $\lambda \|\theta\|_1 = \lambda \sum_i |\theta_i|$。我們希望這對應於負對數先驗：$-\log p(\theta)$。
-    因此，$\log p(\theta) \propto -\lambda \sum_i |\theta_i|$。
-    這可以分離為每個權重的獨立先驗：$p(\theta) = \prod_i p(\theta_i)$，其中 $\log p(\theta_i) \propto -\lambda |\theta_i|$。
-    這意味著 $p(\theta_i) \propto \exp(-\lambda |\theta_i|)$。
+3. **LASSO 的先驗 (Prior for LASSO)：**
+   為了重建方程式 (3.59)，負對數先驗必須對應 L1 懲罰項：
+   $$ -\ln p(\theta) = \lambda \|\theta\|_1 + \text{const} $$
+   $$ \ln p(\theta) = -\lambda \|\theta\|_1 + \text{const}' $$
+   $$ p(\theta) \propto \exp(-\lambda \|\theta\|_1) = \prod_{j=1}^D \exp(-\lambda |\theta_j|) $$
+   這表示每個權重 $\theta_j$ 都服從位置參數 $\mu = 0$ 且尺度參數 $b = \frac{1}{\lambda}$ 的獨立拉普拉斯分佈 (Laplace Distribution)：
+   $$ p(\theta_j) = \frac{\lambda}{2} \exp(-\lambda |\theta_j|) $$
+   因此，**LASSO 所假設的先驗分佈是以零為中心的拉普拉斯分佈**（或雙指數分佈）。
 
-3. **識別分佈**:
-    分佈 $p(\theta_i) \propto \exp(-\lambda |\theta_i|)$ 是中心在 0 的 **拉普拉斯分佈 (Laplace Distribution)**（或雙指數分佈）。
-    因此，LASSO 假設權重服從 **拉普拉斯先驗 (Laplacian Prior)**。
+4. **圖形與解釋：**
+   高斯先驗（用於脊迴歸 Ridge Regression，L2 正則化）是 $p(\theta_j) \propto \exp(-\frac{\lambda}{2} \theta_j^2)$。
+   拉普拉斯先驗（用於 LASSO，L1 正則化）是 $p(\theta_j) \propto \exp(-\lambda |\theta_j|)$。
 
-4. **繪圖比較**:
-    * **高斯先驗 (L2 正則化)**: $p(\theta_i) \propto \exp(-\alpha \theta_i^2)$。這是一個鐘形曲線，在峰值 0 處是平滑的。
-    * **拉普拉斯先驗 (L1 正則化)**: $p(\theta_i) \propto \exp(-\lambda |\theta_i|)$。這在 0 處有一個尖峰。
+   ```mermaid
+   graph TD
+     subgraph Prior Distributions
+       direction LR
+       G[高斯先驗 Gaussian Prior: 鐘形，0 處平滑圓潤]
+       L[拉普拉斯先驗 Laplace Prior: 0 處尖峰，長尾]
+     end
+   ```
+   *圖片說明：高斯分佈在 0 附近具有平滑、圓潤的鐘形。拉普拉斯分佈具有尖銳的特徵「帳篷」形狀，正好在 0 處達到峰值。*
 
-    高斯分佈在 0 附近是平坦的，這意味著它對 0 和很小的數值（如 0.001）之間的區別不大。
-    拉普拉斯分佈在 0 處很尖銳，意味著與小的非零值相比，概率密度更集中在 0 這一點。
-
-5. **稀疏性的解釋**:
-    因為拉普拉斯先驗在零點有一個尖峰（導數不連續），後驗概率的模式 (mode) 更有可能恰好落在零點。
-    在對數域中，懲罰項 $|\theta_i|$ 即使在 $\theta_i \to 0$ 時也具有恆定的梯度 $\pm \lambda$。這種恆定的「拉力」可以迫使最佳權重恰好為零。
-    相比之下，平方懲罰 $\theta_i^2$ 具有梯度 $2\theta_i$，當 $\theta_i \to 0$ 時梯度也消失。隨著權重變小，向零的拉力變得微不足道，因此它很少精確地穩定在零。
+   **稀疏性的解釋 (Explanation for Sparsity)：**
+   拉普拉斯先驗在 $\theta_j = 0$ 處有一個尖銳的點（不可微），這意味著與在原點平滑的高斯先驗相比，它為精確值 $0$ 分配了嚴格更多的機率質量。當我們計算 MAP 時，拉普拉斯先驗的尖峰會將參數精確拉向零，除非數據概似強烈地將其拉開。因此，LASSO 透過將許多權重精確設置為零，自然地執行特徵選擇 (Feature Selection)。

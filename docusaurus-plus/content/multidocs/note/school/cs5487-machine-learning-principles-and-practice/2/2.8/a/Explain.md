@@ -1,32 +1,22 @@
 ---
 title: Explain
 ---
+### Intuition
 
-### 1. Matrix Dimensions Formulation
+The core idea of **Least-Squares Regression** is to draw a line (or a polynomial curve, as in this problem) that gets as close as possible to all our data points. When we measure "closeness", we look at the vertical distance between each data point and the curve. The least-squares method seeks to minimize the **sum of the squares** of these vertical distances.
 
-In standard textbooks, the design matrix $\mathbf{X}$ is often defined as $N \times D$, where each **row** is a sample.
-However, in this problem, $\Phi$ is defined as $D \times N$, where each **column** is a sample $\phi(x_i)$.
+### Why Squares?
+1. **Always Positive**: By squaring the errors, negative errors (points below the curve) and positive errors (points above the curve) don't cancel each other out.
+2. **Penalizes Large Errors**: Squaring gives much more weight to large outliers, encouraging the curve to avoid being too far away from any single point.
+3. **Mathematical Convenience**: A quadratic function forms a smooth, bowl-like shape (a convex parabola). It has a single, unique bottom point (global minimum). This means we can find the exact lowest point using basic calculus (setting the derivative to zero).
 
-* $\Phi = [\phi(x_1), \dots, \phi(x_n)]$ has dimension $D \times N$.
-* $y$ has dimension $N \times 1$.
-* $\theta$ has dimension $D \times 1$.
+### Matrix Formulation
 
-So the linear model prediction for all samples is $\Phi^T \theta$ ($N \times D \times D \times 1 = N \times 1$), which matches the dimension of $y$.
-This is why the term is $\|y - \Phi^T \theta\|^2$.
+Instead of writing out long sums like $\sum_{i=1}^n (y_i - (\theta_0 + \theta_1 x_i + \cdots))^2$, we pack everything into matrices.
+* $y$ is a tall vector of all our actual observed values.
+* $\Phi^T \theta$ computes the predicted values for all points simultaneously. The matrix $\Phi$ (often called the *design matrix*) simply holds all our polynomial features like $x$, $x^2$, etc. 
 
-### 2. Geometric Interpretation of Projection
+The sum of squared errors naturally elegantly translates to the squared length ($L_2$ norm) of a vector: $\| y - \Phi^T \theta \|^2$.
 
-The equation $\Phi \Phi^T \theta = \Phi y$ can be rewritten as:
-$$
-\sum_{i=1}^n \phi(x_i) \phi(x_i)^T \theta = \sum_{i=1}^n \phi(x_i) y_i
-$$
-
-The error vector is $e = y - \hat{y} = y - \Phi^T \theta$.
-At the optimal solution, the error vector $e$ is **orthogonal** to the column space of the design matrix (or row space of $\Phi$ in this notation).
-Mathematically, $\Phi e = 0 \implies \Phi(y - \Phi^T \theta) = 0$, which leads directly to the normal equation.
-
-### 3. "Least Squares" Intuition
-
-We want to find a line (or polynomial curve) that passes closest to all points. "Closest" is defined by the vertical distance (residual) between the point and the line.
-We square these distances so that positive and negative errors don't cancel each other out, and to penalize large errors more heavily.
-Minimizing this sum of squared errors gives us the "Least Squares" solution.
+### The Solution: $\hat{\theta}_{LS} = (\Phi \Phi^T)^{-1} \Phi y$
+This derived formula is known as the **Normal Equation**. It provides a direct, exact, closed-form mathematical solution to find the best-fitting parameters $\theta$ without needing to guess or iteratively search.

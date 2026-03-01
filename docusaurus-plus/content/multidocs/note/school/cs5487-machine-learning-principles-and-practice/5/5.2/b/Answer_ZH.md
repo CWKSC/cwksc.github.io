@@ -1,73 +1,55 @@
 ---
 title: Answer ZH
 ---
+### 先備知識 (Prerequisites)
+- 共變異數的性質 (Properties of Covariance)
+- 積分的線性性質 (Linearity of Integrals)
+- 矩陣展開 (Matrix Expansion)
 
-## 必備知識
+### 推導步驟 (Step-by-Step Derivation)
 
-1. **共變異數的定義**：對於平均數為 $\mu$ 的隨機變數 $x$，其共變異數為 $\mathbb{E}[(x - \mu)(x - \mu)^T] = \mathbb{E}[xx^T] - \mu\mu^T$。
-2. **平移定理 (Steiner's Translation Theorem) 或等價性質**：$\text{cov}(x) = \mathbb{E}[x x^T] - \mathbb{E}[x]\mathbb{E}[x]^T$。
-3. **核函數的性質**：
-    * $\int \tilde{k}(u) du = 1$。
-    * $\int u \tilde{k}(u) du = 0$ (零平均數)。
-    * $\int u u^T \tilde{k}(u) du = H$ (來自公式 5.7，因為平均數為 0)。
+1. 從分佈 $\hat{p}(x)$ 的共變異數幾何定義出發：
+   $$ \hat{\Sigma} = \operatorname{cov}_{\hat{p}}(x) = \int \hat{p}(x) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
-## 逐步證明
+2. 將方程式 (5.5) 中 $\hat{p}(x)$ 的定義代入：
+   $$ \hat{\Sigma} = \int \left( \frac{1}{n} \sum_{i=1}^n \tilde{k}(x - x_i) \right) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
-設 $\hat{\mu}$ 為 $\hat{p}(x)$ 的平均數（已在 (a) 部分推導出）。共變異數定義為：
+3. 利用線性性質重新排列總和與積分符號：
+   $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n \int \tilde{k}(x - x_i) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
-$$
-\hat{\Sigma} = \mathbb{E}_{\hat{p}}[(x - \hat{\mu})(x - \hat{\mu})^T] = \int (x - \hat{\mu})(x - \hat{\mu})^T \hat{p}(x) dx
-$$
+4. 我們可以策略性地藉由加減 $x_i$ 來改寫 $(x - \hat{\mu})$ 這一項：
+   $$ x - \hat{\mu} = (x - x_i) + (x_i - \hat{\mu}) $$
 
-或者使用性質 $\text{cov}(x) = \mathbb{E}[xx^T] - \mathbb{E}[x]\mathbb{E}[x]^T$：
-$$
-\hat{\Sigma} = \int x x^T \hat{p}(x) dx - \hat{\mu}\hat{\mu}^T
-$$
+5. 應用變數代換，令 $u = x - x_i$，也就是 $du = dx$ 且 $x - \hat{\mu} = u + (x_i - \hat{\mu})$：
+   $$ \int \tilde{k}(x - x_i) (x - \hat{\mu})(x - \hat{\mu})^T dx = \int \tilde{k}(u) \Big(u + (x_i - \hat{\mu})\Big)\Big(u + (x_i - \hat{\mu})\Big)^T du $$
 
-我們先計算二階動差項 $\int x x^T \hat{p}(x) dx$：
+6. 將二次項展開：
+   $$ \Big(u + (x_i - \hat{\mu})\Big)\Big(u^T + (x_i - \hat{\mu})^T\Big) $$
+   $$ = u u^T + u(x_i - \hat{\mu})^T + (x_i - \hat{\mu})u^T + (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
-1. **代入 $\hat{p}(x)$：**
-    $$
-    \int x x^T \left( \frac{1}{n} \sum_{i=1}^n \tilde{k}(x - x_i) \right) dx = \frac{1}{n} \sum_{i=1}^n \int x x^T \tilde{k}(x - x_i) dx
-    $$
+7. 將此展開式代回積分式中，並分離為四個獨立的積分項：
+   $$ \int \tilde{k}(u) u u^T du + \int \tilde{k}(u) u(x_i - \hat{\mu})^T du + \int \tilde{k}(u) (x_i - \hat{\mu}) u^T du + \int \tilde{k}(u) (x_i - \hat{\mu})(x_i - \hat{\mu})^T du $$
 
-2. **變數變換：**
-    令 $u = x - x_i$，則 $x = u + x_i$。
-    $$
-    \int (u + x_i)(u + x_i)^T \tilde{k}(u) du
-    $$
-    展開 $(u + x_i)(u + x_i)^T = uu^T + ux_i^T + x_i u^T + x_i x_i^T$。
+8. 分別評估這四個積分項：
+   - **第一項**：根據方程式 (5.7) 以及給定 $\tilde{k}$ 的平均值為 0：
+     $$ \int \tilde{k}(u) u u^T du = H $$
+   - **第二項**：因為 $(x_i - \hat{\mu})^T$ 對於 $u$ 是常數，可以提至積分外。根據 (5.6)，$\int \tilde{k}(u) u du = 0$：
+     $$ \left(\int \tilde{k}(u) u du\right) (x_i - \hat{\mu})^T = 0 \cdot (x_i - \hat{\mu})^T = 0 $$
+   - **第三項**：同理：
+     $$ (x_i - \hat{\mu}) \left(\int \tilde{k}(u) u^T du\right) = (x_i - \hat{\mu}) \cdot 0^T = 0 $$
+   - **第四項**：由於 $\tilde{k}(u)$ 是一個機率密度函數，其積分必為 1：
+     $$ (x_i - \hat{\mu})(x_i - \hat{\mu})^T \int \tilde{k}(u) du = (x_i - \hat{\mu})(x_i - \hat{\mu})^T \cdot 1 = (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
-3. **逐項計算積分：**
-    $$
-    \int (uu^T + ux_i^T + x_i u^T + x_i x_i^T) \tilde{k}(u) du
-    $$
-    * $\int uu^T \tilde{k}(u) du = H$ (根據零平均數的核函數共變異數定義)。
-    * $\int u x_i^T \tilde{k}(u) du = (\int u \tilde{k}(u) du) x_i^T = 0 \cdot x_i^T = 0$。
-    * $\int x_i u^T \tilde{k}(u) du = x_i (\int u^T \tilde{k}(u) du) = x_i \cdot 0 = 0$。
-    * $\int x_i x_i^T \tilde{k}(u) du = x_i x_i^T \int \tilde{k}(u) du = x_i x_i^T \cdot 1 = x_i x_i^T$。
+9. 將這些項加總起來，總和內部的積分變成：
+   $$ H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
-    因此，$\int x x^T \tilde{k}(x - x_i) dx = H + x_i x_i^T$。
+10. 將評估過後的積分代回步驟 3 的總和式中：
+    $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n \Big( H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T \Big) $$
 
-4. **加總結果：**
-    $$
-    \mathbb{E}_{\hat{p}}[x x^T] = \frac{1}{n} \sum_{i=1}^n (H + x_i x_i^T) = H + \frac{1}{n} \sum_{i=1}^n x_i x_i^T
-    $$
+11. 將總和分配進兩個項目：
+    $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n H + \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
-5. **計算共變異數：**
-    $$
-    \hat{\Sigma} = \mathbb{E}_{\hat{p}}[x x^T] - \hat{\mu}\hat{\mu}^T
-    $$
-    $$
-    \hat{\Sigma} = H + \frac{1}{n} \sum_{i=1}^n x_i x_i^T - \hat{\mu}\hat{\mu}^T
-    $$
+12. 因為 $H$ 不依賴於指標 $i$，將其加總 $n$ 次後又除了 $n$，結果剛好還是 $H$：
+    $$ \hat{\Sigma} = H + \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
-6. **整理為樣本共變異數形式：**
-    回想樣本共變異數為 $S = \frac{1}{n}\sum (x_i - \hat{\mu})(x_i - \hat{\mu})^T = (\frac{1}{n}\sum x_i x_i^T) - \hat{\mu}\hat{\mu}^T$。
-    因此：
-    $$
-    \hat{\Sigma} = H + \left( \frac{1}{n} \sum_{i=1}^n x_i x_i^T - \hat{\mu}\hat{\mu}^T \right)
-    $$
-    $$
-    \hat{\Sigma} = H + \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T \quad \blacksquare
-    $$
+這完成了方程式 (5.9) 的證明。

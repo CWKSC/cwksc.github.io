@@ -2,87 +2,64 @@
 title: Answer
 ---
 
-## Pre-required Knowledge
+# Prerequisites
 
-* **Poisson Distribution**: A discrete probability distribution expressing the probability of a given number of events occurring in a fixed interval. PDF: $P(k|\lambda) = \frac{\lambda^k e^{-\lambda}}{k!}$.
-* **Mixture Model**: A probabilistic model for representing the presence of subpopulations within an overall population.
-* **Expectation-Maximization (EM) Algorithm**: An iterative method to find maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models, where the model depends on unobserved latent variables.
-  * **E-step**: Calculate the expected value of the latent variables given current parameters.
-  * **M-step**: Update parameters to maximize the likelihood given the expected latent variables.
+*   **Expectation-Maximization (EM) Algorithm:** An iterative method to find maximum likelihood estimates of parameters in statistical models, particularly when the model depends on unobserved latent variables.
+*   **Poisson Distribution:** A discrete probability distribution expressing the probability of a given number of events occurring in a fixed interval.
+*   **Complete-Data Log-Likelihood:** The log-likelihood function constructed by aggregating both observed variables and unobserved latent variables.
 
-## Step-by-Step Answer
+# Step-by-Step Derivation
 
-### 1. Log-Likelihood Function
+Let $X = \{x_1, \dots, x_n\}$ be our set of observations, where each $x_i \in \{0, 1, 2, \dots\}$. 
+Let $Z = \{z_1, \dots, z_n\}$ be the unobserved latent variables (cluster assignments), where $z_i \in \{1, \dots, K\}$ indicates which Poisson component generated $x_i$.
+The probabilities of the latent variables are defined by the mixing weights: $p(z_i = j) = \pi_j$, with $\sum_{j=1}^K \pi_j = 1$.
 
-Let latent variables $Z = \{z_1, \dots, z_n\}$, where $z_i \in \{1, \dots, K\}$ indicates which component generated $x_i$, or represented as a one-hot vector $z_i = [z_{i1}, \dots, z_{iK}]^T$.
+The probability of an observation $x_i$ given it comes from component $j$ is:
+$$p(x_i | z_i = j, \theta) = \frac{e^{-\lambda_j} \lambda_j^{x_i}}{x_i!}$$
 
-The complete-data log-likelihood is:
-$$
-\ln p(X, Z|\theta) = \sum_{i=1}^n \sum_{j=1}^K z_{ij} \ln (\pi_j P(x_i|\lambda_j))
-$$
-$$
-= \sum_{i=1}^n \sum_{j=1}^K z_{ij} [\ln \pi_j + \ln (\frac{1}{x_i!} e^{-\lambda_j} \lambda_j^{x_i})]
-$$
-$$
-= \sum_{i=1}^n \sum_{j=1}^K z_{ij} [\ln \pi_j - \lambda_j + x_i \ln \lambda_j - \ln(x_i!)]
-$$
+The complete data log-likelihood for one observation $(x_i, z_i)$ is:
+$$\log p(x_i, z_i = j | \theta) = \log(p(z_i = j) p(x_i | z_i=j, \theta)) = \log \pi_j - \lambda_j + x_i \log \lambda_j - \log(x_i!)$$
 
-### 2. E-step (Expectation)
+Hence, the total complete-data log-likelihood for all $n$ samples, typically written using indicator functions $\mathbb{I}(z_i = j)$, is:
+$$\mathcal{L}_c(\theta) = \sum_{i=1}^n \sum_{j=1}^K \mathbb{I}(z_i = j) \left( \log \pi_j - \lambda_j + x_i \log \lambda_j - \log(x_i!) \right)$$
 
-We calculate the expected value of the latent variables $z_{ij}$ given the observed data $X$ and current parameters $\theta^{(t)}$. This quantity is commonly denoted as $\gamma_{ij}$ (responsibility):
+### 1. The E-step (Expectation)
 
-$$
-\gamma_{ij}^{(t)} = E[z_{ij}|x_i, \theta^{(t)}] = P(z_{ij}=1|x_i, \theta^{(t)})
-$$
+In the E-step, we compute the expected value of the complete data log-likelihood under the posterior distribution of latent variables $Z$, given the current parameter estimates $\theta^{(t)}$.
 
-Using Bayes' theorem:
-$$
-\gamma_{ij}^{(t)} = \frac{\pi_j^{(t)} P(x_i|\lambda_j^{(t)})}{\sum_{l=1}^K \pi_l^{(t)} P(x_i|\lambda_l^{(t)})}
-$$
+This reduces to taking the expectation of the indicator variables $\mathbb{I}(z_i = j)$, which yields the posterior responsibilities $\gamma_{ij}$:
+$$\gamma_{ij} = p(z_i = j | x_i, \theta^{(t)}) = \frac{p(z_i = j | \theta^{(t)}) p(x_i | z_i = j, \theta^{(t)})}{\sum_{m=1}^K p(z_i = m | \theta^{(t)}) p(x_i | z_i = m, \theta^{(t)})}$$
 
-Where $P(x_i|\lambda) = \frac{e^{-\lambda}\lambda^{x_i}}{x_i!}$.
+Substituting the Poisson density:
+$$\gamma_{ij}^{(t)} = \frac{\pi_j^{(t)} \frac{e^{-\lambda_j^{(t)}} (\lambda_j^{(t)})^{x_i}}{x_i!}}{\sum_{m=1}^K \pi_m^{(t)} \frac{e^{-\lambda_m^{(t)}} (\lambda_m^{(t)})^{x_i}}{x_i!}} = \frac{\pi_j^{(t)} e^{-\lambda_j^{(t)}} (\lambda_j^{(t)})^{x_i}}{\sum_{m=1}^K \pi_m^{(t)} e^{-\lambda_m^{(t)}} (\lambda_m^{(t)})^{x_i}}$$
 
-### 3. M-step (Maximization)
+We arrive at the auxiliary function $Q(\theta, \theta^{(t)})$ to be maximized in the next step:
+$$Q(\theta, \theta^{(t)}) = \sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} \left( \log \pi_j - \lambda_j + x_i \log \lambda_j - \log(x_i!) \right)$$
 
-We maximize the expectation of the complete-data log-likelihood with respect to $\theta$. The Q-function is:
-$$
-Q(\theta, \theta^{(t)}) = \sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} [\ln \pi_j - \lambda_j + x_i \ln \lambda_j + \text{const}]
-$$
+### 2. The M-step (Maximization)
 
-**Update $\pi_j$**:
-We need to maximize $\sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} \ln \pi_j$ subject to $\sum \pi_j = 1$. Using Lagrange multipliers, we obtain:
-$$
-\pi_j^{(t+1)} = \frac{1}{n} \sum_{i=1}^n \gamma_{ij}^{(t)} = \frac{N_j}{n}
-$$
-where $N_j = \sum_{i=1}^n \gamma_{ij}^{(t)}$ is the effective number of data points assigned to component $j$.
+In the M-step, we maximize $Q(\theta, \theta^{(t)})$ with respect to the parameters $\theta = (\pi, \lambda)$.
 
-**Update $\lambda_j$**:
-We take the derivative of the Q-function with respect to $\lambda_j$ and set it to 0:
-$$
-\frac{\partial Q}{\partial \lambda_j} = \sum_{i=1}^n \gamma_{ij}^{(t)} [-1 + \frac{x_i}{\lambda_j}] = 0
-$$
-$$
--\sum_{i=1}^n \gamma_{ij}^{(t)} + \frac{1}{\lambda_j} \sum_{i=1}^n \gamma_{ij}^{(t)} x_i = 0
-$$
+**Maximizing for $\pi_j$ (Mixing proportions):**
+We maximize using a Lagrange multiplier to enforce the constraint $\sum_{j=1}^K \pi_j = 1$:
+$$L(\pi, \alpha) = \sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} \log \pi_j + \alpha \left(1 - \sum_{j=1}^K \pi_j \right)$$
 
-Since $\sum_{i=1}^n \gamma_{ij}^{(t)} = N_j$:
-$$
--N_j + \frac{1}{\lambda_j} \sum_{i=1}^n \gamma_{ij}^{(t)} x_i = 0
-$$
+Taking the derivative w.r.t $\pi_j$ and equating to zero:
+$$\frac{\partial}{\partial \pi_j} L(\pi, \alpha) = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)}}{\pi_j} - \alpha = 0 \implies \pi_j = \frac{1}{\alpha} \sum_{i=1}^n \gamma_{ij}^{(t)}$$
 
-$$
-\lambda_j^{(t+1)} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{N_j} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{\sum_{i=1}^n \gamma_{ij}^{(t)}}
-$$
+Summing over all $j$, we find $\alpha = n$. Let $N_j = \sum_{i=1}^n \gamma_{ij}^{(t)}$ be the expected number of samples assigned to component $j$. The update rule is:
+$$\pi_j^{(t+1)} = \frac{N_j}{n}$$
 
-### Relation to ML Estimate (Problem 2.1)
+**Maximizing for $\lambda_j$ (Poisson rates):**
+We separate the terms containing $\lambda_j$ in the $Q$ function and take the derivative w.r.t $\lambda_j$:
+$$\frac{\partial Q}{\partial \lambda_j} = \sum_{i=1}^n \gamma_{ij}^{(t)} \left( -1 + \frac{x_i}{\lambda_j} \right) = 0$$
 
-In Problem 2.1 (standard Poisson ML estimate), the Maximum Likelihood Estimate for $\lambda$ is simply the sample mean:
-$$
-\lambda_{ML} = \frac{\sum_{i=1}^n x_i}{n}
-$$
+Rearranging the expression to solve for $\lambda_j$:
+$$\sum_{i=1}^n \gamma_{ij}^{(t)} = \sum_{i=1}^n \gamma_{ij}^{(t)} \frac{x_i}{\lambda_j}$$
+$$N_j = \frac{1}{\lambda_j} \sum_{i=1}^n \gamma_{ij}^{(t)} x_i \implies \lambda_j^{(t+1)} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{N_j}$$
 
-The M-step estimate for component $j$, $\lambda_j^{(t+1)}$, is a **weighted mean** of the samples.
-* Instead of each sample contributing equally (weight $1/n$), each sample $x_i$ is weighted by its **responsibility** $\gamma_{ij}^{(t)}$ (the probability that sample $i$ belongs to component $j$).
-* The denominator $N_j$ is the sum of these weights, normalizing the estimate.
+### Relation to MLE for a single Poisson
 
-Thus, the M-step performs a weighted Maximum Likelihood Estimation for each component separately, based on the current soft assignment of points to that component.
+For a standard ML estimate of a single Poisson distribution (Problem 2.1), the update rule is $\lambda = \frac{1}{n} \sum_{i=1}^n x_i$ (the arithmetic mean of the data).
+
+In the M-step here, the update rule $\lambda_j^{(t+1)} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{\sum_{i=1}^n \gamma_{ij}^{(t)}}$ is essentially a **weighted** ML estimate. Instead of treating every point equally (weight 1), each sample observation $x_i$ contributes to component $j$ only fractionally based on its responsibility $\gamma_{ij}$. The sum of weights $N_j$ substitutes the general total component $n$.

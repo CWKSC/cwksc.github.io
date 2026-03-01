@@ -2,60 +2,67 @@
 title: Answer
 ---
 
-## Prerequisites
+### Prerequisites
+- **Calculus**: Product rule and differentiation of logarithms.
+- **Optimization**: The Method of Lagrange Multipliers for constrained optimization problems.
+- **Probability Theory**: The constraint that categorical probabilities must sum to 1.
+- **Softmax Function**: The mathematical operation that turns arbitrary sets of scalars into probabilities summing to one.
 
-* **Lagrange Multipliers**
-* **Derivatives**: Specifically, product rule and derivative of $x \log x$.
-  * $\frac{d}{dx} (x \log x) = 1 \cdot \log x + x \cdot \frac{1}{x} = \log x + 1$.
+---
 
-## Solution
+### Step-by-Step Derivation
 
-We maximize the objective function:
-$$ f(\{\pi_j\}) = \sum_{j=1}^K \pi_j (N_j - \log \pi_j) = \sum_{j=1}^K ( \pi_j N_j - \pi_j \log \pi_j ) $$
+**Step 1: Define the objective and constraint functions**
+We want to maximize the new objective function:
+$$ f(\pi) = \sum_{j=1}^K \pi_j (N_j - \log \pi_j) $$
 
-Subject to:
-$$ \sum_{j=1}^K \pi_j = 1 $$
+subject to the equality constraint:
+$$ \sum_{j=1}^K \pi_j = 1 \implies g(\pi) = \sum_{j=1}^K \pi_j - 1 = 0 $$
 
-### Step 1: Form the Lagrangian
+*(Note: As with part (a), we temporarily ignore the inequality constraint $\pi_j \ge 0$. We will find a stationary point and verify that the resulting solution mathematically produces non-negative values.)*
 
-$$ L(\{\pi_j\}, \lambda) = \sum_{j=1}^K ( \pi_j N_j - \pi_j \log \pi_j ) + \lambda \left( \sum_{j=1}^K \pi_j - 1 \right) $$
+**Step 2: Form the Lagrangian**
+Using the standard formulation $L(\pi, \lambda) = f(\pi) - \lambda g(\pi)$, we construct the Lagrangian function:
 
-### Step 2: Take derivatives and set to zero
+$$ L(\pi, \lambda) = \sum_{j=1}^K \pi_j(N_j - \log \pi_j) - \lambda \left(\sum_{j=1}^K \pi_j - 1\right) $$
 
-Take the partial derivative with respect to a specific $\pi_j$:
-$$ \frac{\partial L}{\partial \pi_j} = \frac{\partial}{\partial \pi_j} (\pi_j N_j) - \frac{\partial}{\partial \pi_j} (\pi_j \log \pi_j) + \frac{\partial}{\partial \pi_j} (\lambda \pi_j) $$
+**Step 3: Find the stationary point with respect to $\pi_j$**
+We compute the partial derivative of $L$ with respect to a specific $\pi_j$. Note that we must use the product rule for the $-\pi_j \log \pi_j$ term:
 
-Using the product rule for $\pi_j \log \pi_j$:
-$$ \frac{\partial}{\partial \pi_j} (\pi_j \log \pi_j) = 1 \cdot \log \pi_j + \pi_j \cdot \frac{1}{\pi_j} = \log \pi_j + 1 $$
+$$ \frac{\partial L}{\partial \pi_j} = \frac{\partial}{\partial \pi_j} \left( \pi_j N_j - \pi_j \log \pi_j - \lambda \pi_j \right) $$
+$$ \frac{\partial L}{\partial \pi_j} = N_j - \left( 1 \cdot \log \pi_j + \pi_j \cdot \frac{1}{\pi_j} \right) - \lambda $$
+$$ \frac{\partial L}{\partial \pi_j} = N_j - \log \pi_j - 1 - \lambda $$
 
-Substituting back:
-$$ \frac{\partial L}{\partial \pi_j} = N_j - (\log \pi_j + 1) + \lambda $$
+Setting this derivative to zero:
+$$ N_j - \log \pi_j - 1 - \lambda = 0 $$
 
-Set to zero:
-$$ N_j - \log \pi_j - 1 + \lambda = 0 $$
+**Step 4: Express $\pi_j$ in terms of $\lambda$**
+Rearranging the equation to solve for $\pi_j$:
 
-### Step 3: Solve for $\pi_j$ in terms of $\lambda$
+$$ \log \pi_j = N_j - 1 - \lambda $$
 
-Rearrange the equation to isolate $\log \pi_j$:
-$$ \log \pi_j = N_j - 1 + \lambda $$
+Taking the exponent of both sides:
+$$ \pi_j = \exp(N_j - 1 - \lambda) = \exp(N_j) \cdot \exp(-1-\lambda) $$
 
-Exponentiate both sides:
-$$ \pi_j = \exp(N_j - 1 + \lambda) $$
-$$ \pi_j = \exp(N_j) \cdot \exp(\lambda - 1) $$
+**Step 5: Enforce the equality constraint to solve for $\lambda$**
+We substitute our expression for $\pi_j$ into the sum-to-one constraint:
 
-### Step 4: Solve for the Lagrange multiplier term
+$$ \sum_{j=1}^K \pi_j = \sum_{j=1}^K \left[ \exp(N_j) \exp(-1-\lambda) \right] = 1 $$
 
-Use the constraint $\sum \pi_j = 1$:
-$$ \sum_{j=1}^K \left[ \exp(N_j) \cdot \exp(\lambda - 1) \right] = 1 $$
+Since the term $\exp(-1-\lambda)$ does not depend on the index $j$, we factor it out:
 
-Since $\exp(\lambda - 1)$ does not depend on $j$, we can factor it out:
-$$ \exp(\lambda - 1) \sum_{j=1}^K \exp(N_j) = 1 $$
+$$ \exp(-1-\lambda) \sum_{j=1}^K \exp(N_j) = 1 $$
 
-Thus:
-$$ \exp(\lambda - 1) = \frac{1}{\sum_{k=1}^K \exp(N_k)} $$
+Solving for $\exp(-1-\lambda)$:
 
-### Step 5: Substitute back to find $\pi_j$
+$$ \exp(-1-\lambda) = \frac{1}{\sum_{k=1}^K \exp(N_k)} $$
+*(We use $k$ for the index in the denominator to avoid confusion during substitution.)*
 
-Multiply $\exp(N_j)$ by the factor we just found:
+**Step 6: Substitute back to find the final solution**
+Substitute the result from Step 5 back into the expression for $\pi_j$ derived in Step 4:
+
+$$ \pi_j = \exp(N_j) \cdot \exp(-1-\lambda) $$
 $$ \pi_j = \exp(N_j) \cdot \frac{1}{\sum_{k=1}^K \exp(N_k)} $$
-$$ \pi_j = \frac{\exp N_j}{\sum_{k=1}^K \exp N_k} $$
+$$ \pi_j = \frac{\exp(N_j)}{\sum_{k=1}^K \exp(N_k)} $$
+
+**Verification**: Given that the exponential function always produces strictly positive values ($\exp(x) > 0$ for all real $x$), we have $\pi_j > 0$. This inherently satisfies the non-negative strict bounds constraint. This final functional form is famously known as the **Softmax function**.

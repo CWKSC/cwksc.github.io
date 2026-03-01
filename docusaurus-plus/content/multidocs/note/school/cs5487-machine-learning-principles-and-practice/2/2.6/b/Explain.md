@@ -1,21 +1,36 @@
 ---
-title: Explain.md
+title: Explain
 ---
 
-# Explanation of MLE for Covariance
+# Explanation: MLE for Covariance Matrix
 
-## The Goal
+## Intuition
 
-We want to find the covariance matrix $\Sigma$ that describes the "spread" and "shape" of the data cloud which maximizes the likelihood of observing the data samples $\{x_1, \dots, x_N\}$.
+In part (a), we figured out where the "center" of our data is (the mean). Now, in part (b), we seek to understand the **shape and spread** of our data around that center, which is encoded in the covariance matrix $\Sigma$.
 
-## The Process
+The **Maximum Likelihood Estimate** is essentially asking: "What covariance shape makes the tightest optimal fit around our observed points?" The answer turns out to be the **sample covariance**—averaging the combined variance across all dimensions.
 
-1. **Trace Trick**: The expression involved in the Gaussian PDF, $(x-\mu)^T \Sigma^{-1} (x-\mu)$, is a scalar. The trace of a scalar is the scalar itself. A convenient property of trace is cyclic permutation: $\text{tr}(ABC) = \text{tr}(BCA)$. Using this, we can move the vectors $x-\mu$ around to form the "outer product" $(x-\mu)(x-\mu)^T$, which looks like a covariance matrix structure. This allows us to group all the data summation into a single matrix $S$, the scatter matrix.
+## The Trace Trick: Why do we use it?
 
-2. **Derivative of Determinant**: The likelihood term contains $\log|\Sigma|$. The derivative of $\log(\text{det}(X))$ is related to the inverse of the matrix, $X^{-1}$. Intuitively, maximizing the likelihood prevents the determinant (volume of the probability density) from collapsing to zero or going to infinity without bound in relation to the exponential decay term.
+During derivation, you might have wondered why we transformed $(x_i - \mu)^T \Sigma^{-1} (x_i - \mu)$ into $\text{tr}\left((x_i - \mu)(x_i - \mu)^T \Sigma^{-1}\right)$.
 
-3. **Derivative of Inverse Trace**: The exponential term involves $\Sigma^{-1}$. Differentiating the inverse of a matrix function is slightly more complex, but the provided identity simplifies it. It essentially comes from the rule $d(X^{-1}) = -X^{-1} (dX) X^{-1}$.
+1. **Scalar Challenge**: The original formula is an intertwined vector-matrix-vector multiplication. Deriving a matrix $\Sigma$ out of the middle of this sandwich is algebraically difficult.
+2. **Reordering with Trace**: Because the output is a single number (a scalar 1x1 matrix), we can safely wrap it in a Trace function. The cyclical property of Trace allows us to peel the vectors apart, grouping all data geometry into an outer product $(x_i - \mu)(x_i - \mu)^T$ independently of $\Sigma^{-1}$. 
+3. **Scatter Matrix $S$**: By moving the summation inside the trace, we bundle all data information into a single matrix $S$. This gracefully reduces the complexity from "sum of $N$ quadratic expressions" to "one clean matrix trace operation."
 
-4. **Balancing Act**: The derivative equation $-\frac{N}{2} \Sigma^{-1} + \frac{1}{2} \Sigma^{-1} S \Sigma^{-1} = 0$ represents a balance. The first term comes from the normalization constant (trying to make $\Sigma$ small to increase density), and the second term comes from the exponential "error" (trying to make $\Sigma$ large to accommodate the data spread).
+```mermaid
+graph TD
+    A[Sandwich Form] -->|x^T A x| B(Wrap in Trace)
+    B -->|Cyclic Property| C(Move terms: tr A x x^T)
+    C -->|Summation| D[Scatter Matrix S isolated from Covariance]
+```
 
-5. **Result**: The solution $\hat{\Sigma} = \frac{1}{N} S$ basically says the most likely covariance shape is exactly the average empirical covariance of the data points. (Note: In standard statistics, we often divide by $N-1$ for an unbiased estimator, but the pure MLE divides by $N$).
+## Making Sense of the Mathematics
+If we look closer at the solution:
+$$ \hat{\Sigma} = \frac{1}{N} \sum_{i=1}^N (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
+
+We interpret $[(x_i - \hat{\mu})(x_i - \hat{\mu})^T]$ as the measured variance matrix extending from the single point $x_i$ towards the dataset mean. Summing these up and dividing by $N$ takes the "average shape" produced by these individual variances, forming our ultimate covariance estimate.
+
+## Biased vs. Unbiased
+* It is important to know that the Maximum Likelihood Estimate divides by $N$. This gives a **biased** estimator.
+* For an **unbiased estimator**, we generally divide by $N-1$ (Bessel's correction). The MLE process purely optimizes probability based *only* on the observed sample context, causing the slight bias in variance.

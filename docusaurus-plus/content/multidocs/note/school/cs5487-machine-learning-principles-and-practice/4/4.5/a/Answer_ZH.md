@@ -2,87 +2,64 @@
 title: Answer ZH
 ---
 
-## 預備知識
+# 先備知識 (Prerequisites)
 
-* **泊松分佈 (Poisson Distribution)**：一種離散概率分佈，表示在固定時間間隔內發生給定數量事件的概率。概率質量函數 (PMF)：$P(k|\lambda) = \frac{\lambda^k e^{-\lambda}}{k!}$。
-* **混合模型 (Mixture Model)**：一種概率模型，用於表示整體群體中存在的子群體。
-* **期望最大化 (EM) 算法**：一種迭代方法，用於在統計模型依賴於未觀察到的潛在變量時，尋找參數的最大似然或最大後驗 (MAP) 估計。
-  * **E 步**：計算給定當前參數下潛在變量的期望值。
-  * **M 步**：更新參數以最大化給定預期潛在變量下的似然函數。
+*   **期望最大化演算法 (Expectation-Maximization Algorithm, EM):** 一種迭代方法，用於在統計模型（尤其是模型依賴於未觀察到的隱藏變量時）找出參數的最大概似估計 (Maximum Likelihood Estimates)。
+*   **卜瓦松分佈 (Poisson Distribution):** 一種離散機率分佈，表示在固定時間間隔或空間內發生特定事件次數的機率。
+*   **完整資料對數概似函數 (Complete-Data Log-Likelihood):** 將觀察到的變量和未觀察到的隱藏變量結合構造出的對數概似函數。
 
-## 分步解答
+# 逐步推導 (Step-by-Step Derivation)
 
-### 1. 對數似然函數
+令 $X = \{x_1, \dots, x_n\}$ 為我們的觀測集合，其中每一個 $x_i \in \{0, 1, 2, \dots\}$。
+令 $Z = \{z_1, \dots, z_n\}$ 為未觀察到的隱藏變量 (Latent variables / cluster assignments)，其中 $z_i \in \{1, \dots, K\}$ 指示 $x_i$ 是由哪一個卜瓦松分量生成的。
+隱藏變量的機率由混合權重定義：$p(z_i = j) = \pi_j$，且 $\sum_{j=1}^K \pi_j = 1$。
 
-設潛在變量 $Z = \{z_1, \dots, z_n\}$，其中 $z_i \in \{1, \dots, K\}$ 指示產生 $x_i$ 的分量，或者表示為獨熱向量 $z_i = [z_{i1}, \dots, z_{iK}]^T$。
+給定樣本來自於分量 $j$ 之下，觀測值 $x_i$ 的機率為：
+$$p(x_i | z_i = j, \theta) = \frac{e^{-\lambda_j} \lambda_j^{x_i}}{x_i!}$$
 
-完整數據的對數似然為：
-$$
-\ln p(X, Z|\theta) = \sum_{i=1}^n \sum_{j=1}^K z_{ij} \ln (\pi_j P(x_i|\lambda_j))
-$$
-$$
-= \sum_{i=1}^n \sum_{j=1}^K z_{ij} [\ln \pi_j + \ln (\frac{1}{x_i!} e^{-\lambda_j} \lambda_j^{x_i})]
-$$
-$$
-= \sum_{i=1}^n \sum_{j=1}^K z_{ij} [\ln \pi_j - \lambda_j + x_i \ln \lambda_j - \ln(x_i!)]
-$$
+一個觀測值 $(x_i, z_i)$ 的完整資料對數概似函數為：
+$$\log p(x_i, z_i = j | \theta) = \log(p(z_i = j) p(x_i | z_i=j, \theta)) = \log \pi_j - \lambda_j + x_i \log \lambda_j - \log(x_i!)$$
 
-### 2. E 步 (期望)
+因此，所有 $n$ 個樣本的總完整資料對數概似函數，通常使用指標函數 (Indicator function) $\mathbb{I}(z_i = j)$ 來表示：
+$$\mathcal{L}_c(\theta) = \sum_{i=1}^n \sum_{j=1}^K \mathbb{I}(z_i = j) \left( \log \pi_j - \lambda_j + x_i \log \lambda_j - \log(x_i!) \right)$$
 
-我們計算在給定觀測數據 $X$ 和當前參數 $\theta^{(t)}$ 的情況下，潛在變量 $z_{ij}$ 的期望值。這個量通常稱為 $\gamma_{ij}$ (責任度, responsibility)：
+### 1. E 步 (E-step, Expectation)
 
-$$
-\gamma_{ij}^{(t)} = E[z_{ij}|x_i, \theta^{(t)}] = P(z_{ij}=1|x_i, \theta^{(t)})
-$$
+在 E 步中，我們計算給定目前參數估計值 $\theta^{(t)}$ 和觀測值之下，隱藏變量 $Z$ 的後驗分佈對完整資料對數概似函數的期望值。
 
-使用貝葉斯定理：
-$$
-\gamma_{ij}^{(t)} = \frac{\pi_j^{(t)} P(x_i|\lambda_j^{(t)})}{\sum_{l=1}^K \pi_l^{(t)} P(x_i|\lambda_l^{(t)})}
-$$
+這相當於對指標變量 $\mathbb{I}(z_i = j)$ 取期望值，這將得到後驗責任值 (Posterior responsibilities) $\gamma_{ij}$：
+$$\gamma_{ij} = p(z_i = j | x_i, \theta^{(t)}) = \frac{p(z_i = j | \theta^{(t)}) p(x_i | z_i = j, \theta^{(t)})}{\sum_{m=1}^K p(z_i = m | \theta^{(t)}) p(x_i | z_i = m, \theta^{(t)})}$$
 
-其中 $P(x_i|\lambda) = \frac{e^{-\lambda}\lambda^{x_i}}{x_i!}$。
+代入卜瓦松密度函數：
+$$\gamma_{ij}^{(t)} = \frac{\pi_j^{(t)} \frac{e^{-\lambda_j^{(t)}} (\lambda_j^{(t)})^{x_i}}{x_i!}}{\sum_{m=1}^K \pi_m^{(t)} \frac{e^{-\lambda_m^{(t)}} (\lambda_m^{(t)})^{x_i}}{x_i!}} = \frac{\pi_j^{(t)} e^{-\lambda_j^{(t)}} (\lambda_j^{(t)})^{x_i}}{\sum_{m=1}^K \pi_m^{(t)} e^{-\lambda_m^{(t)}} (\lambda_m^{(t)})^{x_i}}$$
 
-### 3. M 步 (最大化)
+我們獲得在下一步要最大化的輔助函數 (Auxiliary function) $Q(\theta, \theta^{(t)})$：
+$$Q(\theta, \theta^{(t)}) = \sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} \left( \log \pi_j - \lambda_j + x_i \log \lambda_j - \log(x_i!) \right)$$
 
-我們針對 $\theta$ 最大化完整數據對數似然的期望。Q 函數為：
-$$
-Q(\theta, \theta^{(t)}) = \sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} [\ln \pi_j - \lambda_j + x_i \ln \lambda_j + \text{常數}]
-$$
+### 2. M 步 (M-step, Maximization)
 
-**更新 $\pi_j$**:
-這是在約束 $\sum \pi_j = 1$ 下最大化 $\sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} \ln \pi_j$。使用拉格朗日乘數法，我們得到：
-$$
-\pi_j^{(t+1)} = \frac{1}{n} \sum_{i=1}^n \gamma_{ij}^{(t)} = \frac{N_j}{n}
-$$
-其中 $N_j = \sum_{i=1}^n \gamma_{ij}^{(t)}$ 是分配給分量 $j$ 的有效數據點數量。
+在 M 步中，我們相對於參數 $\theta = (\pi, \lambda)$ 最大化 $Q(\theta, \theta^{(t)})$。
 
-**更新 $\lambda_j$**:
-我們對 $Q$ 函數關於 $\lambda_j$ 求導數並設為 0：
-$$
-\frac{\partial Q}{\partial \lambda_j} = \sum_{i=1}^n \gamma_{ij}^{(t)} [-1 + \frac{x_i}{\lambda_j}] = 0
-$$
-$$
--\sum_{i=1}^n \gamma_{ij}^{(t)} + \frac{1}{\lambda_j} \sum_{i=1}^n \gamma_{ij}^{(t)} x_i = 0
-$$
+**最大化 $\pi_j$ (混合比例 Mixing proportions)：**
+我們使用拉格朗日乘數 (Lagrange multiplier) 來強制滿足 $\sum_{j=1}^K \pi_j = 1$ 的約束條件：
+$$L(\pi, \alpha) = \sum_{i=1}^n \sum_{j=1}^K \gamma_{ij}^{(t)} \log \pi_j + \alpha \left(1 - \sum_{j=1}^K \pi_j \right)$$
 
-由於 $\sum_{i=1}^n \gamma_{ij}^{(t)} = N_j$:
-$$
--N_j + \frac{1}{\lambda_j} \sum_{i=1}^n \gamma_{ij}^{(t)} x_i = 0
-$$
+對 $\pi_j$ 取導數並設為零：
+$$\frac{\partial}{\partial \pi_j} L(\pi, \alpha) = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)}}{\pi_j} - \alpha = 0 \implies \pi_j = \frac{1}{\alpha} \sum_{i=1}^n \gamma_{ij}^{(t)}$$
 
-$$
-\lambda_j^{(t+1)} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{N_j} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{\sum_{i=1}^n \gamma_{ij}^{(t)}}
-$$
+對所有的 $j$ 加總，可得 $\alpha = n$。令 $N_j = \sum_{i=1}^n \gamma_{ij}^{(t)}$ 為預期被分配到分量 $j$ 的樣本數。更新規則為：
+$$\pi_j^{(t+1)} = \frac{N_j}{n}$$
 
-### 與 ML 估計的關係 (問題 2.1)
+**最大化 $\lambda_j$ (卜瓦松率 Poisson rates)：**
+我們分離 $Q$ 函數中包含 $\lambda_j$ 的項，並對 $\lambda_j$ 取導數：
+$$\frac{\partial Q}{\partial \lambda_j} = \sum_{i=1}^n \gamma_{ij}^{(t)} \left( -1 + \frac{x_i}{\lambda_j} \right) = 0$$
 
-在問題 2.1 (標準泊松 ML 估計) 中，$\lambda$ 的最大似然估計僅僅是樣本均值：
-$$
-\lambda_{ML} = \frac{\sum_{i=1}^n x_i}{n}
-$$
+重排表達式以求解 $\lambda_j$：
+$$\sum_{i=1}^n \gamma_{ij}^{(t)} = \sum_{i=1}^n \gamma_{ij}^{(t)} \frac{x_i}{\lambda_j}$$
+$$N_j = \frac{1}{\lambda_j} \sum_{i=1}^n \gamma_{ij}^{(t)} x_i \implies \lambda_j^{(t+1)} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{N_j}$$
 
-分量 $j$ 的 M 步估計 $\lambda_j^{(t+1)}$ 是樣本的**加權平均值**。
-* 每個樣本 $x_i$ 不是均等地貢獻（權重 $1/n$），而是根據其**責任度** $\gamma_{ij}^{(t)}$（即樣本 $i$ 屬於分量 $j$ 的概率）進行加權。
-* 分母 $N_j$ 是這些權重的總和，用於歸一化估計值。
+### 與單一卜瓦松的 MLE 的關聯
 
-因此，M 步執行的是針對每個分量的加權最大似然估計，基於當前數據點對該分量的軟分配。
+對於單一卜瓦松分佈的標準最大概似估計 (ML estimate)（第 2.1 題），更新規則為 $\lambda = \frac{1}{n} \sum_{i=1}^n x_i$（資料的算術平均數）。
+
+在這裡的 M 步中，更新規則 $\lambda_j^{(t+1)} = \frac{\sum_{i=1}^n \gamma_{ij}^{(t)} x_i}{\sum_{i=1}^n \gamma_{ij}^{(t)}}$ 實質上是一個**加權**的最大概似估計 (Weighted ML estimate)。相對於將每個資料點平等對待（權重為 1），這裡每個樣本觀測值 $x_i$ 僅以其責任值 $\gamma_{ij}$ 的比例對分量 $j$ 做出貢獻。總權重之和 $N_j$ 替代了全體的樣本總量 $n$。

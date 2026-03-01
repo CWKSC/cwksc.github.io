@@ -2,33 +2,37 @@
 title: Answer ZH
 ---
 
-## 逐步解答
+## 先決條件 (Prerequisites)
+- 限制最佳化 (Constrained Optimization)
+- 目標函數 (Objective Functions)
 
-1. **分解 (Decomposition)**:
-    我們將每個權重 $\theta_i$ 分解為兩個非負部分：$\theta_i = \theta_i^+ - \theta_i^-$，其中 $\theta_i^+, \theta_i^- \ge 0$。
-    通常，我們希望 $\theta_i^+ = \max(0, \theta_i)$ 和 $\theta_i^- = \max(0, -\theta_i)$。在這種情況下，它們之中至少有一個為零。
+## 逐步推導 (Step-by-Step Derivation)
 
-2. **目標函數的差異**:
-    式 (3.62) 使用 $|\theta_i^+ - \theta_i^-|$。
-    式 (3.63) 使用 $(\theta_i^+ + \theta_i^-)$。
-    由於 $\theta_i^+, \theta_i^- \ge 0$，我們知道 $|\theta_i^+ - \theta_i^-| \le \theta_i^+ + \theta_i^-$，等號成立 *若且唯若 (if and only if)* $\theta_i^+$ 或 $\theta_i^-$ 中至少有一個為零（即 $\theta_i^+ \cdot \theta_i^- = 0$）。
+1. **分析限制條件:**
+   令 $\theta_i = \theta^+_i - \theta^-_i$ 且受限於 $\theta^+_i \geq 0$ 與 $\theta^-_i \geq 0$。我們想要證明在最佳化目標下，最小化 $\lambda |\theta^+_i - \theta^-_i|$ 等價於最小化 $\lambda (\theta^+_i + \theta^-_i)$。
 
-3. **優化邏輯**:
-    假設我們有一個候選解，對於某個索引 $i$，$\theta_i^+ > 0$ 和 $\theta_i^- > 0$ 同時成立。
-    令 $m = \min(\theta_i^+, \theta_i^-) > 0$。
-    我們可以創建一個新解：
-    $\tilde{\theta}_i^+ = \theta_i^+ - m$
-    $\tilde{\theta}_i^- = \theta_i^- - m$
-    實際權重 $\theta_i$ 保持不變：$\tilde{\theta}_i^+ - \tilde{\theta}_i^- = (\theta_i^+ - m) - (\theta_i^- - m) = \theta_i^+ - \theta_i^- = \theta_i$。
-    第一項（損失項）僅取決於差值，因此不變。
+2. **絕對值表示:**
+   注意根據定義：
+   $$ |\theta_i| = |\theta^+_i - \theta^-_i| $$
+   我們知道對於任何正數，$|\theta^+_i - \theta^-_i| \leq \theta^+_i + \theta^-_i$，因為等號右邊是兩個正數之和，左邊是它們的絕對差。若且唯若 $\theta^+_i = 0$ 或 $\theta^-_i = 0$（或兩者皆為 0）時，等號才成立。
 
-    然而，考慮 (3.63) 中的懲罰項：
-    原和為 $(\theta_i^+ + \theta_i^-)$。
-    新和為 $(\tilde{\theta}_i^+ + \tilde{\theta}_i^-) = (\theta_i^+ - m + \theta_i^- - m) = (\theta_i^+ + \theta_i^-) - 2m$。
-    因為 $m > 0$，新的目標函數值嚴格變小！
-    因此，任何兩者均為正的解都**不是最優的**。優化器會將其中至少一個驅動為零以最小化目標函數。
+3. **最佳解時的行為 (Behavior at the Optimum):**
+   假設在最佳解時，存在一個索引 $i$ 使得 $\theta^+_i > 0$ 且 $\theta^-_i > 0$ 同時成立。令 $c = \min(\theta^+_i, \theta^-_i) > 0$。
+   我們可以定義一組新的變數：
+   $$ (\theta^+_i)_{new} = \theta^+_i - c $$
+   $$ (\theta^-_i)_{new} = \theta^-_i - c $$
+   
+   請注意兩件事：
+   - $\theta_i$ 的值保持不變：
+     $$ (\theta^+_i)_{new} - (\theta^-_i)_{new} = (\theta^+_i - c) - (\theta^-_i - c) = \theta^+_i - \theta^-_i = \theta_i $$
+     因此，平方損失項 $ \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 $ 完全沒有改變。
+   - 然而，(3.63) 中的正則化總和嚴格下降了：
+     $$ (\theta^+_i)_{new} + (\theta^-_i)_{new} = \theta^+_i - c + \theta^-_i - c = (\theta^+_i + \theta^-_i) - 2c < (\theta^+_i + \theta^-_i) $$
 
-4. **結論**:
-    在最優點，對於每個 $i$，要麼 $\theta_i^+=0$，要麼 $\theta_i^-=0$（或兩者皆為 0）。
-    在這種情況下，$|\theta_i^+ - \theta_i^-| = \theta_i^+ + \theta_i^-$。
-    因此，最小化 (3.63) 會自動導致滿足此屬性的解，使其等價於最小化 (3.62)。
+   因為我們的目標是 *最小化* 成本函數，任何使得 $\theta^+_i > 0$ 和 $\theta^-_i > 0$ 同時成立的解都不可能是真正的最小值。最佳化器總是會傾向於從兩者中都減去 $c$，直到其中至少一個達到零，從而嚴格降低目標值。
+
+4. **結論:**
+   因此，在最佳解處，對於每一個 $i$，要麼 $\theta^+_i = 0$，要麼 $\theta^-_i = 0$。
+   當其中至少有一個為零時，絕對值變成：
+   $$ |\theta^+_i - \theta^-_i| = \theta^+_i + \theta^-_i $$
+   由於最佳解處具有這個屬性，我們可以在 (3.62) 中安全地將不可微的 $|\theta^+_i - \theta^-_i|$ 取代為 (3.63) 中簡單的線性加總 $(\theta^+_i + \theta^-_i)$。 這就在不改變最佳解的情況下，將問題轉換成一個簡單得多的形式。

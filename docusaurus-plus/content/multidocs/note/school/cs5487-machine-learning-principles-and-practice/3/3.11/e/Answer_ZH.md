@@ -1,65 +1,55 @@
 ---
 title: Answer ZH
 ---
+### 具備知識 (Prerequisites)
+- 高斯變數的線性轉換 (Linear Transformation of Gaussian Variables, 見問題 1.1)
+- 邊際化 / 預測分佈 (Marginalization / Predictive Distribution)
 
-## 預備知識
+### 逐步推導 (Step-by-Step Derivation)
 
-1. **高斯分佈的線性變換**: 如果 $x \sim \mathcal{N}(\mu, \Sigma)$，則 $y = Ax + b$ 服從 $\mathcal{N}(A\mu + b, A \Sigma A^T)$。
-2. **獨立高斯變數之和**: 如果 $X \sim \mathcal{N}(\mu_X, \sigma_X^2)$ 和 $Y \sim \mathcal{N}(\mu_Y, \sigma_Y^2)$ 是獨立的，則 $Z = X + Y \sim \mathcal{N}(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)$。
-3. **邊緣化 (Marginalization)**: $\int p(y|f) p(f) df$.
-
-## 逐步解答
-
-### 第 1 部分：$f_*$ 的分佈
-
-1. **定義 $f_*$**:
-    潛在函數值定義為參數的線性變換：
+1.  **潛在函數 $f_*$ 的預測分佈**：
+    題目要求我們在給定資料 $\mathcal{D}$ 的情況下，找出無雜訊預測值 $f_* = f(x_*, \theta) = \phi(x_*)^T \theta$ 的分佈。
+    由 (a) 部分可知，$\theta$ 的後驗分佈為高斯分佈：
     $$
-    f_* = \phi(x_*)^T \theta
+    p(\theta | \mathcal{D}) = \mathcal{N}(\theta | \hat{\mu}_\theta, \hat{\Sigma}_\theta)
     $$
-
-2. **應用線性變換性質**:
-    我們知道 $\theta$ 的後驗為 $p(\theta|\mathcal{D}) = \mathcal{N}(\theta | \hat{\mu}_\theta, \hat{\Sigma}_\theta)$。
-    使用線性變換性質（其中 $A = \phi(x_*)^T$ 是一個列向量）：
-    * **平均值**:
+    由於 $f_*$ 是高斯隨機向量 $\theta$ 的線性組合，因此 $f_*$ 也服從高斯分佈。這是根據以下規則：如果 $x \sim \mathcal{N}(\mu, \Sigma)$，則 $Ax \sim \mathcal{N}(A\mu, A\Sigma A^T)$。
+    在此處，「矩陣 $A$」是列向量 $\phi(x_*)^T$，而隨機變數是 $\theta$。
+    
+    *   **平均數 (Mean)**：
         $$
-        \mathbb{E}[f_*] = \phi(x_*)^T \mathbb{E}[\theta] = \phi(x_*)^T \hat{\mu}_\theta
+        \hat{\mu}_* = \mathbb{E}[f_* | x_*, \mathcal{D}] = \mathbb{E}[\phi(x_*)^T \theta | x_*, \mathcal{D}] = \phi(x_*)^T \mathbb{E}[\theta | \mathcal{D}] = \phi(x_*)^T \hat{\mu}_\theta
         $$
-    * **變異數**:
+    *   **變異數 (Variance)**：
         $$
-        \operatorname{Var}[f_*] = \phi(x_*)^T \operatorname{Cov}[\theta] \phi(x_*) = \phi(x_*)^T \hat{\Sigma}_\theta \phi(x_*)
+        \hat{\sigma}^2_* = \text{Var}(f_* | x_*, \mathcal{D}) = \text{Var}(\phi(x_*)^T \theta | x_*, \mathcal{D}) = \phi(x_*)^T \text{Var}(\theta | \mathcal{D}) \phi(x_*) = \phi(x_*)^T \hat{\Sigma}_\theta \phi(x_*)
         $$
-
-3. **結果**:
+    因此，潛在函數的預測分佈為：
     $$
-    p(f_* | x_*, \mathcal{D}) = \mathcal{N}(f_* | \hat{\mu}_*, \hat{\sigma}_*^2)
-    $$
-    其中 $\hat{\mu}_*$ 和 $\hat{\sigma}_*^2$ 與方程式 (3.51) 和 (3.52) 相符。
-
-### 第 2 部分：$y_*$ 的分佈
-
-1. **模型關係**:
-    觀測到的輸出是函數值加上雜訊：
-    $$
-    y_* = f_* + \epsilon_*, \quad \epsilon_* \sim \mathcal{N}(0, \sigma^2)
+    p(f_*|x_*, \mathcal{D}) = \mathcal{N}(f_* | \phi(x_*)^T \hat{\mu}_\theta, \phi(x_*)^T \hat{\Sigma}_\theta \phi(x_*)) = \mathcal{N}(f_*|\hat{\mu}_*, \hat{\sigma}^2_*)
     $$
 
-2. **獨立隨機變數之和**:
-    我們有 $f_*$ 的分佈（來自第 1 部分）和 $\epsilon_*$ 的分佈（雜訊假設）。
-    由於新的雜訊 $\epsilon_*$ 獨立於過去的數據 $\mathcal{D}$（因此也獨立於 $f_*$），變數 $y_*$ 是兩個獨立高斯變數的總和。
-
-3. **計算動差 (Moments)**:
-    * **平均值**:
-        $$
-        \mathbb{E}[y_*] = \mathbb{E}[f_*] + \mathbb{E}[\epsilon_*] = \hat{\mu}_* + 0 = \hat{\mu}_*
-        $$
-    * **變異數**:
-        $$
-        \operatorname{Var}[y_*] = \operatorname{Var}[f_*] + \operatorname{Var}[\epsilon_*] = \hat{\sigma}_*^2 + \sigma^2
-        $$
-
-4. **結果**:
+2.  **輸出 $y_*$ 的預測分佈**：
+    觀察到的目標值 $y_*$ 包含了觀察雜訊：$y_* = f_* + \epsilon_*$，其中 $\epsilon_* \sim \mathcal{N}(0, \sigma^2)$。
+    題目要求我們計算積分：
     $$
-    p(y_*|x_*, \mathcal{D}) = \mathcal{N}(y_* | \hat{\mu}_*, \hat{\sigma}_*^2 + \sigma^2)
+    p(y_*|x_*, \mathcal{D}) = \int p(y_*|x_*, \theta) p(\theta|\mathcal{D}) d\theta
     $$
-    這與方程式 (3.53) 相符。
+    利用提示，因為 $y_*$ 僅透過確定性的映射 $f_* = \phi(x_*)^T \theta$ 依賴於 $\theta$，我們可以對 $f_*$ 進行邊際化 (marginalize)，而不是對高維度的 $\theta$ 進行邊際化：
+    $$
+    p(y_*|x_*, \mathcal{D}) = \int p(y_* | f_*) p(f_* | \mathcal{D}) df_*
+    $$
+    我們已知：
+    *   $p(y_* | f_*) = \mathcal{N}(y_* | f_*, \sigma^2)$ （由 $y_* = f_* + \epsilon_*$ 得來）
+    *   $p(f_* | \mathcal{D}) = \mathcal{N}(f_* | \hat{\mu}_*, \hat{\sigma}^2_*)$
+    
+    這個積分表示將兩個獨立的高斯變數相加：$f_* \sim \mathcal{N}(\hat{\mu}_*, \hat{\sigma}^2_*)$ 和 $\epsilon_* \sim \mathcal{N}(0, \sigma^2)$。
+    兩個獨立高斯變數的總和 $y_* = f_* + \epsilon_*$ 同樣會是高斯分佈。
+    *   **$y_*$ 的平均數**：$\mathbb{E}[y_*] = \mathbb{E}[f_*] + \mathbb{E}[\epsilon_*] = \hat{\mu}_* + 0 = \hat{\mu}_*$
+    *   **$y_*$ 的變異數**：$\text{Var}(y_*) = \text{Var}(f_*) + \text{Var}(\epsilon_*) = \hat{\sigma}^2_* + \sigma^2$
+
+    因此，$y_*$ 的預測分佈為：
+    $$
+    p(y_*|x_*, \mathcal{D}) = \mathcal{N}(y_*|\hat{\mu}_*, \sigma^2 + \hat{\sigma}^2_*)
+    $$
+    得證。

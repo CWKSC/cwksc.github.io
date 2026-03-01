@@ -1,73 +1,54 @@
 ---
 title: Answer ZH
 ---
+### 先備知識 (Prerequisites)
+* **最大概似估計 (Maximum Likelihood Estimation, MLE)**：尋找能夠在給定參數的情況下，最大化觀察到當前數據機率的參數值。
+* **高斯分佈 (Gaussian Distribution)**：常態分佈 (Normal Distribution) 的機率密度函數 (Probability Density Function)。
+* **對數概似 (Log-Likelihood)**：對概似函數取對數，將乘積簡化為總和的運算技巧。
 
-## 必備知識
+### 逐步推導 (Step-by-Step Derivation)
 
-1. **機率密度函數 (Probability Density Function, PDF)**：
-    * 高斯分佈 (Gaussian distribution)：$p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x-\mu)^2}{2\sigma^2} \right)$。
-2. **對數概似 (Log-Likelihood)**：
-    * 對數性質：$\ln(ab) = \ln a + \ln b$，$\ln(e^x) = x$。
-3. **最佳化 (Optimization)**：
-    * 最大化一個函數等同於最大化其對數（因為對數是單調遞增函數）。
+1. **定義機率模型 (Probability Model)**
+   已知 $y_i = \phi(x_i)^T \theta + \epsilon_i$，其中 $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$。
+   因為對於給定的 $x_i$ 和 $\theta$，$\phi(x_i)^T \theta$ 是一個決定性 (Deterministic) 的數值，所以 $y_i$ 的分佈是一個以 $\phi(x_i)^T \theta$ 為中心的高斯分佈：
+   $$
+   p(y_i \mid x_i, \theta) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( - \frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right)
+   $$
 
-## 逐步解答
+2. **寫下概似函數 (Likelihood Function)**
+   因為樣本 $\mathcal{D} = \{(x_i, y_i)\}_{i=1}^n$ 是獨立同分布的 (i.i.d.)，所有 $n$ 個觀察值的聯合概似 (Joint Likelihood) 即為個別機率的乘積：
+   $$
+   \begin{aligned}
+   L(\theta) &= p(y_1, \dots, y_n \mid x_1, \dots, x_n, \theta) \\
+             &= \prod_{i=1}^n p(y_i \mid x_i, \theta) \\
+             &= \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( - \frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right)
+   \end{aligned}
+   $$
 
-### 1. 概似函數 (The Likelihood Function)
+3. **計算對數概似函數 (Log-Likelihood Function)**
+   為了找到最大值，在數學上最大化概似函數的自然對數 $\ln L(\theta)$（通常記為 $\ell(\theta)$）會簡單得多。對數是一個單調遞增函數 (Monotonically Increasing Function)，所以最大化 $\ell(\theta)$ 就等同於最大化 $L(\theta)$。
+   $$
+   \begin{aligned}
+   \ell(\theta) &= \ln \left( \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( - \frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right) \right) \\
+                &= \sum_{i=1}^n \left( \ln\left[\frac{1}{\sqrt{2\pi\sigma^2}}\right] - \frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right) \\
+                &= - \frac{n}{2} \ln(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^n (y_i - \phi(x_i)^T \theta)^2
+   \end{aligned}
+   $$
 
-我們觀察到的每一個 $y_i = \phi(x_i)^T \theta + \epsilon_i$，其中 $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$。
-這意味著給定 $x_i$ 和 $\theta$，$y_i$ 服從平均值 $\mu_i = \phi(x_i)^T \theta$ 且變異數 $\sigma^2$ 的高斯分佈：
-
-$$
-p(y_i | x_i, \theta) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right)
-$$
-
-由於樣本是獨立同分佈 (i.i.d) 的，整個資料集的概似性是個別機率的乘積：
-
-$$
-L(\theta) = p(\mathcal{D} | \theta) = \prod_{i=1}^n p(y_i | x_i, \theta)
-$$
-
-$$
-L(\theta) = \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right)
-$$
-
-### 2. 對數概似函數 (The Log-Likelihood Function)
-
-最大化對數概似 $\ell(\theta) = \ln L(\theta)$ 比較容易，因為它將乘積轉化為求和。
-
-$$
-\begin{aligned}
-\ell(\theta) &= \ln \left( \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right) \right) \\
-&= \sum_{i=1}^n \left( \ln \frac{1}{\sqrt{2\pi\sigma^2}} + \ln \exp\left( -\frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right) \right) \\
-&= \sum_{i=1}^n \left( -\frac{1}{2} \ln(2\pi\sigma^2) - \frac{(y_i - \phi(x_i)^T \theta)^2}{2\sigma^2} \right)
-\end{aligned}
-$$
-
-簡化後：
-$$
-\ell(\theta) = -\frac{n}{2} \ln(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^n (y_i - \phi(x_i)^T \theta)^2
-$$
-
-### 3. 最大化 (Maximization)
-
-為了找出 ML 估計值 $\hat{\theta}_{ML}$，我們對 $\theta$ 最大化 $\ell(\theta)$。
-注意第一項 $-\frac{n}{2} \ln(2\pi\sigma^2)$ 對 $\theta$ 而言是常數，可以忽略。
-最大化剩餘項等同於最大化：
-
-$$
--\frac{1}{2\sigma^2} \sum_{i=1}^n (y_i - \phi(x_i)^T \theta)^2
-$$
-
-由於 $\frac{1}{2\sigma^2} > 0$，最大化這個負數等同於**最小化**求和符號內的正數：
-
-$$
-\hat{\theta}_{ML} = \arg\min_\theta \sum_{i=1}^n (y_i - \phi(x_i)^T \theta)^2
-$$
-
-這個目標函數正是 (a) 部分中的平方誤差和 (Sum-Squared-Error)。
-因此，在高斯雜訊的假設下，最小化平方誤差和等同於最大化概似性。其解是相同的：
-
-$$
-\hat{\theta}_{ML} = (\Phi \Phi^T)^{-1} \Phi y
-$$
+4. **證明與最小平方法的等價性 (Show Equivalence to Least Squares)**
+   我們的目標是找到能最大化 $\ell(\theta)$ 的 $\theta$。
+   請注意，第一項 $- \frac{n}{2} \ln(2\pi\sigma^2)$ 對於 $\theta$ 而言是常數，且係數 $\frac{1}{2\sigma^2}$ 是正的常數。
+   因此，最大化這個負數的項就完全等同於最小化後面正數的總和 (Summation)：
+   $$
+   \arg\max_\theta \ell(\theta) = \arg\min_\theta \sum_{i=1}^n (y_i - \phi(x_i)^T \theta)^2
+   $$
+   這個總和正是 (a) 小題中的誤差平方和 (Sum-Squared-Error) 目標函數 $J(\theta)$：
+   $$
+   \sum_{i=1}^n (y_i - \phi(x_i)^T \theta)^2 = \| y - \Phi^T \theta \|^2
+   $$
+   
+5. **結論 (Conclusion)**
+   既然這兩個最佳化問題 (Optimization Problem) 是一模一樣的，那麼最大概似估計值 (ML estimate) $\hat{\theta}_{ML}$ 必然等價於最小平方法估計值 (Least Squares estimate) $\hat{\theta}_{LS}$：
+   $$
+   \hat{\theta}_{ML} = (\Phi \Phi^T)^{-1} \Phi y
+   $$

@@ -1,56 +1,78 @@
 ---
-title: Answer.md
+title: Answer
 ---
 
-## Pre-required Knowledge
+# Answer: MLE of the covariance $\Sigma$
 
-1. **Log-Likelihood Function**:
-    From part (a), the log-likelihood is:
-    $$ \ell(\mu, \Sigma) = -\frac{Nd}{2}\log(2\pi) - \frac{N}{2}\log|\Sigma| - \frac{1}{2} \sum_{i=1}^N (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) $$
-2. **Trace Method**:
-    The scalar value $a^T B a$ is equivalent to $\text{tr}(a^T B a) = \text{tr}(B a a^T)$. This is useful for moving vectors inside the summation into a matrix form.
-3. **Matrix Derivatives** (Given):
-    * $\frac{\partial}{\partial X} \log |X| = X^{-T}$. Since $\Sigma$ is symmetric, $\frac{\partial}{\partial \Sigma} \log |\Sigma| = \Sigma^{-1}$.
-    * $\frac{\partial}{\partial X} \text{tr}(X^{-1}A) = -(X^{-T} A^T X^{-T})$. Since $\Sigma$ and $A$ (which will be the scatter matrix) are symmetric, this simplifies to $-\Sigma^{-1} A \Sigma^{-1}$.
+## Prerequisites
+* **Multivariate Gaussian Distribution (PDF)**
+* **Maximum Likelihood Estimation (MLE)**
+* **Trace Trick in Matrix Algebra**: $x^T A x = \text{tr}(x^T A x) = \text{tr}(A x x^T)$
+* **Matrix Calculus**
 
-## Step-by-Step Answer
+## Step-by-Step Derivation
 
-1. **Substitute the ML estimate of $\mu$**:
-    We substitute $\mu$ with $\hat{\mu}_{ML} = \frac{1}{N} \sum_{i=1}^N x_i$. Let $S = \sum_{i=1}^N (x_i - \hat{\mu})(x_i - \hat{\mu})^T$ be the scatter matrix.
+**1. Recall the Log-Likelihood Function**
+From the derivation in part (a), the log-likelihood function for $N$ i.i.d. samples from a multivariate Gaussian is:
+$$
+\ell(\mu, \Sigma) = \sum_{i=1}^N \left( -\frac{d}{2} \log(2\pi) - \frac{1}{2} \log |\Sigma| - \frac{1}{2} (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) \right)
+$$
+We want to maximize this with respect to $\Sigma$. Extracting only the terms containing $\Sigma$:
+$$
+J(\Sigma) = -\frac{N}{2} \log |\Sigma| - \frac{1}{2} \sum_{i=1}^N (x_i - \mu)^T \Sigma^{-1} (x_i - \mu)
+$$
 
-2. **Rewrite the Log-Likelihood using Trace**:
-    The term in the summation is a scalar:
-    $$ (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) = \text{tr}\left( (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) \right) = \text{tr}\left( \Sigma^{-1} (x_i - \mu)(x_i - \mu)^T \right) $$
-    Summing over $i$:
-    $$ \sum_{i=1}^N (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) = \text{tr}\left( \Sigma^{-1} \sum_{i=1}^N (x_i - \mu)(x_i - \mu)^T \right) = \text{tr}(\Sigma^{-1} S) $$
+**2. Apply the Trace Trick**
+The term $(x_i - \mu)^T \Sigma^{-1} (x_i - \mu)$ is a scalar. The trace of a scalar is just the scalar itself. By the cyclic property of the trace operation, $\text{tr}(ABC) = \text{tr}(CAB) = \text{tr}(BCA)$, we can reorder the factors:
+$$
+(x_i - \mu)^T \Sigma^{-1} (x_i - \mu) = \text{tr} \left( (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) \right) = \text{tr} \left( (x_i - \mu)(x_i - \mu)^T \Sigma^{-1} \right)
+$$
+Now, substitute this back into $J(\Sigma)$ and swap the sum and the trace (since trace is a linear operator):
+$$
+J(\Sigma) = -\frac{N}{2} \log |\Sigma| - \frac{1}{2} \text{tr} \left( \sum_{i=1}^N (x_i - \mu)(x_i - \mu)^T \Sigma^{-1} \right)
+$$
+Let's define the scatter matrix $S = \sum_{i=1}^N (x_i - \mu)(x_i - \mu)^T$. Note that $S$ is a $d \times d$ symmetric matrix. The objective simplifies to:
+$$
+J(\Sigma) = -\frac{N}{2} \log |\Sigma| - \frac{1}{2} \text{tr} (S \Sigma^{-1})
+$$
 
-    So the relevant part of the log-likelihood (ignoring constants) is:
-    $$ \ell(\Sigma) \propto - \frac{N}{2}\log|\Sigma| - \frac{1}{2}\text{tr}(\Sigma^{-1} S) $$
+**3. Compute the Matrix Derivative**
+Now we take the partial derivative of $J(\Sigma)$ with respect to the matrix $\Sigma$. 
+Using the provided hints:
+* $\frac{\partial}{\partial \Sigma} \log |\Sigma| = \Sigma^{-T}$
+* $\frac{\partial}{\partial \Sigma} \text{tr}(S \Sigma^{-1}) = - (\Sigma^{-T} S^T \Sigma^{-T})$
 
-3. **Differentiate with respect to $\Sigma$**:
-    Using the provided identities:
-    * $\frac{\partial}{\partial \Sigma} \log|\Sigma| = \Sigma^{-T} = \Sigma^{-1}$ (since symmetric).
-    * $\frac{\partial}{\partial \Sigma} \text{tr}(\Sigma^{-1} S) = -(\Sigma^{-T} S^T \Sigma^{-T})$. Since $S$ and $\Sigma$ are symmetric, this is $-\Sigma^{-1} S \Sigma^{-1}$.
+Applying these rules:
+$$
+\frac{\partial}{\partial \Sigma} J(\Sigma) = -\frac{N}{2} \Sigma^{-T} - \frac{1}{2} \left( - (\Sigma^{-T} S^T \Sigma^{-T}) \right)
+$$
+Since $\Sigma$ is symmetric, $\Sigma^T = \Sigma$, so $\Sigma^{-T} = (\Sigma^{-1})^T = \Sigma^{-1}$.
+Since $S$ is a sum of exterior products $(x_i-\mu)(x_i-\mu)^T$, $S$ is also symmetric ($S^T = S$).
+Thus, the equation simplifies to:
+$$
+\frac{\partial \ell}{\partial \Sigma} = -\frac{N}{2} \Sigma^{-1} + \frac{1}{2} \Sigma^{-1} S \Sigma^{-1}
+$$
 
-    $$
-    \frac{\partial \ell}{\partial \Sigma} = -\frac{N}{2} \Sigma^{-1} - \frac{1}{2} (-\Sigma^{-1} S \Sigma^{-1}) = -\frac{N}{2} \Sigma^{-1} + \frac{1}{2} \Sigma^{-1} S \Sigma^{-1}
-    $$
-
-4. **Set derivative to zero and solve**:
-    $$
-    \begin{aligned}
-    -\frac{N}{2} \Sigma^{-1} + \frac{1}{2} \Sigma^{-1} S \Sigma^{-1} &= 0 \\
-    \Sigma^{-1} S \Sigma^{-1} &= N \Sigma^{-1}
-    \end{aligned}
-    $$
-    Multiply by $\Sigma$ on the left and right:
-    $$
-    \begin{aligned}
-    \Sigma (\Sigma^{-1} S \Sigma^{-1}) \Sigma &= \Sigma (N \Sigma^{-1}) \Sigma \\
-    S &= N \Sigma \\
-    \Sigma &= \frac{1}{N} S
-    \end{aligned}
-    $$
-
-    So,
-    $$ \hat{\Sigma}_{ML} = \frac{1}{N} \sum_{i=1}^N (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
+**4. Set to Zero and Solve for $\hat{\Sigma}$**
+Set the derivative equal to the zero matrix:
+$$
+-\frac{N}{2} \Sigma^{-1} + \frac{1}{2} \Sigma^{-1} S \Sigma^{-1} = 0
+$$
+$$
+\frac{N}{2} \Sigma^{-1} = \frac{1}{2} \Sigma^{-1} S \Sigma^{-1}
+$$
+Multiply both sides from the left by $\Sigma$ and then multiply from the right by $\Sigma$:
+$$
+N \Sigma \Sigma^{-1} \Sigma = \Sigma \Sigma^{-1} S \Sigma^{-1} \Sigma
+$$
+$$
+N \Sigma = S
+$$
+Solving for the estimate $\hat{\Sigma}$:
+$$
+\hat{\Sigma}_{ML} = \frac{1}{N} S = \frac{1}{N} \sum_{i=1}^N (x_i - \mu)(x_i - \mu)^T
+$$
+Assuming we replace the true mean $\mu$ with its ML estimate $\hat{\mu}$ derived in part (a), the final ML estimate for the covariance matrix is:
+$$
+\hat{\Sigma}_{ML} = \frac{1}{N} \sum_{i=1}^N (x_i - \hat{\mu})(x_i - \hat{\mu})^T
+$$

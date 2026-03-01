@@ -2,19 +2,30 @@
 title: Explain
 ---
 
-## Explanation
+### Intuition
 
-Ideally, we would just maximize $\sum N_j \log \pi_j$ independently for each $\pi_j$. However, we have a **constraint**. We are modeling probabilities, so the sum of all $\pi_j$ must be exactly 1. If we simply increased one $\pi_j$ to maximize the log-likelihood without penalty, we might break this rule (e.g., they might sum to more than 1).
+The objective we are trying to maximize, $\sum N_j \log \pi_j$, behaves like an unnormalized log-likelihood. Imagine you just observed an event happening $N_j$ times for the $j$-th outcome. To maximize the likelihood of those independent events under a categorical distribution, you want to assign higher probabilities ($\pi_j$) to components that have larger observed counts ($N_j$). 
 
-The **Lagrange Multiplier** method introduces a new variable $\lambda$ (lambda) to enforce this "sum-to-1" rule.
+Without any restrictions, this function would shoot off to infinity because we would just make every $\pi_j$ as large as possible.
 
-1. **Recall the formula**: The Log Probability of a multinomial distribution involves terms like $\sum N_j \log \pi_j$.
-2. **The Gradient**: We want to follow the slope (gradient) of this function to find the top (maximum).
-3. **The Penalty**: The term $\lambda (\sum \pi_j - 1)$ acts as a balancing force.
-    * When we take the derivative w.r.t $\pi_j$, we get $N_j/\pi_j + \lambda = 0$.
-    * This implies $\pi_j$ is proportional to $N_j$ (specifically $\pi_j = -N_j / \lambda$).
-4. **Normalization**: Since all $\pi_j$ must sum to 1, and each $\pi_j$ is proportional to $N_j$, the constant of proportionality must ensure the sum is 1.
-    * Sum of parts = Sum of $N_j$.
-    * Therefore, each part $\pi_j$ is simply its observed count $N_j$ divided by the total count $\sum N_k$.
+However, we are restrained by a **budget constraint**: all the probabilities must sum exactly to 1 ($\sum \pi_j = 1$). You can think of this as having exactly $1.0$ (or $100\%$) worth of probability mass to distribute among $K$ different buckets.
 
-This result is intuitive: the Maximum Likelihood Estimate (MLE) for the probability of a category is just the fraction of times that category was observed ($N_j$) out of the total observations ($\sum N_k$).
+### How Lagrange Multipliers Help
+Lagrange multipliers provide an elegant way to deal with this budget. 
+
+By setting up the Lagrangian $L = \text{Objective} - \lambda \times \text{Constraint}$, the parameter $\lambda$ acts as an internal "price" or "exchange rate" that enforces our budget.
+* The derivative tells us that the optimal allocation is $\pi_j = \frac{N_j}{\lambda}$.
+* This means the probability we assign to bucket $j$ should be directly proportional to its count $N_j$. 
+* The multiplier $\lambda$ physically represents the total normalizing constant (the sum of all $N_k$ counts) needed to ensure the sum of $\pi_j$ equals 1.
+
+```mermaid
+graph TD
+    A["Objective<br>(Maximize weighted  log-probabilities)"] --> B{Budget Constraint}
+    B -->|Sum of probabilities = 1| C["Lagrange Multiplier Method<br>(Finds 'exchange rate' $\lambda$)"]
+    C --> D[Result: Proportional Allocation]
+    D --> E["$$\pi_j = \frac{N_j}{\text{Total } N}$$"]
+```
+
+### Common Pitfalls
+* **Ignoring the multiplier**: Sometimes students will differentiate $\sum N_j \log \pi_j$ directly, getting $N_j/\pi_j = 0$, which is unsolved or undefined. You cannot optimize constrained probabilities without accounting for the sum-to-1 bound.
+* **Forgetting that $\lambda$ is a shared constant**: In the step where we sum $\sum \frac{N_j}{\lambda} = 1$, remember that $\lambda$ has no $j$ subscript. It is the identical scaling factor applied to correct *every* probability simultaneously.

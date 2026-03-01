@@ -2,37 +2,50 @@
 title: Answer ZH
 ---
 
-## 逐步解答
+## 先決條件 (Prerequisites)
+- 線性代數：區塊矩陣 (Block Matrices)
+- 矩陣微積分 (Matrix Calculus)
+- 二次規劃 (Quadratic Programming, QP)
 
-1. **展開平方項**:
-    令 $\tilde{\theta} = \theta^+ - \theta^-$。目標函數為：
-    $$ J = \frac{1}{2} (y - \Phi^T \tilde{\theta})^T (y - \Phi^T \tilde{\theta}) + \lambda \sum (\theta_i^+ + \theta_i^-) $$
-    $$ J = \frac{1}{2} (y^T y - 2 y^T \Phi^T \tilde{\theta} + \tilde{\theta}^T \Phi \Phi^T \tilde{\theta}) + \lambda \sum (\theta_i^+ + \theta_i^-) $$
-    為了最小化，我們可以忽略常數項 $\frac{1}{2} y^T y$。
+## 逐步推導 (Step-by-Step Derivation)
 
-2. **替換 $\mathbf{x}$**:
-    令 $\mathbf{x} = \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix}$。
-    那麼 $\tilde{\theta} = \theta^+ - \theta^- = \begin{bmatrix} I & -I \end{bmatrix} \mathbf{x}$。
+1. **展開目標函數：**
+   我們有從 (3.63) 得出的最佳化問題：
+   $$ J(\theta^+, \theta^-) = \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 + \lambda \sum_i (\theta^+_i + \theta^-_i) $$
 
-3. **二次部分 ($\mathbf{x}^T \mathbf{H} \mathbf{x}$)**:
-    二次項是 $\frac{1}{2} \tilde{\theta}^T (\Phi \Phi^T) \tilde{\theta}$。
-    代入 $\tilde{\theta}$：
-    $$ \frac{1}{2} \mathbf{x}^T \begin{bmatrix} I \\ -I \end{bmatrix} (\Phi \Phi^T) \begin{bmatrix} I & -I \end{bmatrix} \mathbf{x} $$
-    $$ = \frac{1}{2} \mathbf{x}^T \begin{bmatrix} \Phi \Phi^T & -\Phi \Phi^T \\ -\Phi \Phi^T & \Phi \Phi^T \end{bmatrix} \mathbf{x} $$
-    因此，$\mathbf{H} = \begin{bmatrix} \Phi \Phi^T & -\Phi \Phi^T \\ -\Phi \Phi^T & \Phi \Phi^T \end{bmatrix}$。
+   首先，我們展開平方 L2 範數項 $ \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 $：
+   $$ \frac{1}{2} (y - \Phi^T(\theta^+ - \theta^-))^T (y - \Phi^T(\theta^+ - \theta^-)) $$
+   $$ = \frac{1}{2} y^Ty - y^T\Phi^T(\theta^+ - \theta^-) + \frac{1}{2} (\theta^+ - \theta^-)^T \Phi \Phi^T (\theta^+ - \theta^-) $$
 
-4. **線性部分 ($\mathbf{f}^T \mathbf{x}$)**:
-    我們有兩個貢獻：來自迴歸交叉項和正則化項。
-    * 迴歸：$-\frac{1}{2} (2 y^T \Phi^T \tilde{\theta}) = -(\Phi y)^T \tilde{\theta}$。
-        代入 $\tilde{\theta} = \theta^+ - \theta^-$：
-        $-(\Phi y)^T \theta^+ + (\Phi y)^T \theta^-$。
-        用 $\mathbf{x}$ 表示：$\begin{bmatrix} -(\Phi y)^T & (\Phi y)^T \end{bmatrix} \mathbf{x}$。
-        所以這對 $\mathbf{f}$ 的貢獻是 $\begin{bmatrix} -\Phi y \\ \Phi y \end{bmatrix}$。
-    * 正則化：$\lambda \sum (\theta_i^+ + \theta_i^-) = \lambda \mathbf{1}^T \mathbf{x}$。
-        這對 $\mathbf{f}$ 的貢獻是 $\lambda \mathbf{1}$。
+   現在，我們用串接向量 $\mathbf{x} = \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix}$ 來表達這個式子。請注意：
+   $$ \theta^+ - \theta^- = \begin{bmatrix} \mathbf{I} & -\mathbf{I} \end{bmatrix} \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix} = \begin{bmatrix} \mathbf{I} & -\mathbf{I} \end{bmatrix} \mathbf{x} $$
 
-    加總起來：
-    $$ \mathbf{f} = \lambda \mathbf{1} + \begin{bmatrix} -\Phi y \\ \Phi y \end{bmatrix} = \lambda \mathbf{1} - \begin{bmatrix} \Phi y \\ -\Phi y \end{bmatrix} $$
+2. **建構二次項 $\mathbf{H}$：**
+   觀察展開式中的二次項部分：
+   $$ \frac{1}{2} (\mathbf{x}^T \begin{bmatrix} \mathbf{I} \\ -\mathbf{I} \end{bmatrix}) \Phi \Phi^T (\begin{bmatrix} \mathbf{I} & -\mathbf{I} \end{bmatrix} \mathbf{x}) $$
+   $$ = \frac{1}{2} \mathbf{x}^T \left( \begin{bmatrix} \mathbf{I} \\ -\mathbf{I} \end{bmatrix} \Phi \Phi^T \begin{bmatrix} \mathbf{I} & -\mathbf{I} \end{bmatrix} \right) \mathbf{x} $$
+   $$ = \frac{1}{2} \mathbf{x}^T \begin{bmatrix} \Phi \Phi^T & -\Phi \Phi^T \\ -\Phi \Phi^T & \Phi \Phi^T \end{bmatrix} \mathbf{x} $$
+   因此，我們得出了 Hessian 矩陣 $\mathbf{H}$：
+   $$ \mathbf{H} = \begin{bmatrix} \Phi\Phi^T & -\Phi\Phi^T \\ -\Phi\Phi^T & \Phi\Phi^T \end{bmatrix} $$
 
-5. **約束**:
-    $\theta^+ \ge 0$ 和 $\theta^- \ge 0$ 意味著 $\mathbf{x} \ge 0$。
+3. **建構線性項 $\mathbf{f}$：**
+   線性部分來自平方範數的交叉項和 L1 懲罰項。
+   交叉項：
+   $$ - y^T\Phi^T(\theta^+ - \theta^-) = - ( \Phi y )^T (\theta^+ - \theta^-) = \begin{bmatrix} -\Phi y \\ \Phi y \end{bmatrix}^T \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix} $$
+   請注意，這與 $ - \begin{bmatrix} \Phi y \\ -\Phi y \end{bmatrix}^T \mathbf{x} $ 完全吻合。
+   
+   正則化項：
+   $$ \lambda \sum_i (\theta^+_i + \theta^-_i) = \lambda \mathbf{1}^T \theta^+ + \lambda \mathbf{1}^T \theta^- = (\lambda \begin{bmatrix} \mathbf{1} \\ \mathbf{1} \end{bmatrix})^T \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix} = (\lambda \mathbf{1}_{2D})^T \mathbf{x} $$
+   
+   合併這些線性部分得到 $\mathbf{f}^T \mathbf{x}$：
+   $$ \mathbf{f}^T \mathbf{x} = \left( \lambda \mathbf{1} - \begin{bmatrix} \Phi y \\ -\Phi y \end{bmatrix} \right)^T \mathbf{x} $$
+   這讓我們可以明確地定義出：
+   $$ \mathbf{f} = \lambda \mathbf{1} - \begin{bmatrix} \Phi y \\ -\Phi y \end{bmatrix} $$
+
+4. **最終檢查：**
+   目標函數變為：
+   $$ J(\mathbf{x}) = \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} + \frac{1}{2}y^Ty $$
+   由於 $\frac{1}{2}y^Ty$ 相對於變數 $\mathbf{x}$ 是一個常數，在最小化目標時可以將其忽略。限制條件 $\theta^+ \geq 0$ 且 $\theta^- \geq 0$ 可以精簡地寫為 $\mathbf{x} \geq 0$。
+   因此，該問題完全等價於：
+   $$ \min_{\mathbf{x}} \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} \quad \text{s.t. } \mathbf{x} \geq 0 $$
+   這剛好符合題目所要求的形式。

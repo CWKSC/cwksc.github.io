@@ -1,82 +1,71 @@
 ---
 title: Answer
 ---
+### Prerequisites
+- MAP Estimation for Linear Regression
+- Regularization (Ridge Regression / L2 Penalty)
+- Matrix Calculus
 
-## Pre-required Knowledge
+### Step-by-Step Derivation
 
-1. **Matrix Inversion Properties**: $(kA)^{-1} = \frac{1}{k} A^{-1}$.
-2. **Vector Calculus**:
-    $\nabla_\theta (\|y - \Phi^T \theta\|^2) = -2 \Phi (y - \Phi^T \theta)$.
-    $\nabla_\theta (\theta^T \theta) = 2 \theta$.
-
-## Step-by-Step Answer
-
-### Part 1: Deriving MAP under i.i.d. assumptions
-
-1. **Substitute $\Gamma$ and $\Sigma$**:
-    Start with the general MAP formula from (a)/(b):
+1.  **Substituting the i.i.d. assumptions into the MAP estimate**:
+    From part (b), the MAP estimate is:
     $$
     \hat{\theta}_{MAP} = (\Gamma^{-1} + \Phi \Sigma^{-1} \Phi^T)^{-1} \Phi \Sigma^{-1} y
     $$
-    Substitute $\Gamma = \alpha I$ and $\Sigma = \sigma^2 I$:
+    We are given that $\Gamma = \alpha I$ and $\Sigma = \sigma^2 I$. Let's substitute these into the MAP equation.
+    The inverses are $\Gamma^{-1} = \frac{1}{\alpha} I$ and $\Sigma^{-1} = \frac{1}{\sigma^2} I$.
     $$
-    \hat{\theta}_{MAP} = ((\alpha I)^{-1} + \Phi (\sigma^2 I)^{-1} \Phi^T)^{-1} \Phi (\sigma^2 I)^{-1} y
-    $$
-    Scalars come out of the inverse ($\alpha^{-1} = 1/\alpha$):
-    $$
-    \hat{\theta}_{MAP} = (\frac{1}{\alpha} I + \frac{1}{\sigma^2} \Phi \Phi^T)^{-1} \frac{1}{\sigma^2} \Phi y
+    \hat{\theta}_{MAP} = \left(\frac{1}{\alpha} I + \Phi \left(\frac{1}{\sigma^2} I\right) \Phi^T\right)^{-1} \Phi \left(\frac{1}{\sigma^2} I\right) y
     $$
 
-2. **Simplify**:
-    Factor out $\frac{1}{\sigma^2}$ from the inverse term. Recall $(kA)^{-1} = \frac{1}{k} A^{-1}$, so $A^{-1} = \frac{1}{k} (k A)^{-1}$? No, let's just multiply the equation by identity.
-    Let $A = \frac{1}{\alpha} I + \frac{1}{\sigma^2} \Phi \Phi^T$. We want $A^{-1}$.
-    $A = \frac{1}{\sigma^2} (\frac{\sigma^2}{\alpha} I + \Phi \Phi^T)$.
-    $A^{-1} = \sigma^2 (\frac{\sigma^2}{\alpha} I + \Phi \Phi^T)^{-1}$.
-
-    Substitute back:
+2.  **Simplifying the algebraic expression**:
+    Pull out the scalar $\frac{1}{\sigma^2}$ from the inverse term:
     $$
-    \hat{\theta}_{MAP} = \left[ \sigma^2 (\frac{\sigma^2}{\alpha} I + \Phi \Phi^T)^{-1} \right] \frac{1}{\sigma^2} \Phi y
+    \hat{\theta}_{MAP} = \left[ \frac{1}{\sigma^2} \left( \frac{\sigma^2}{\alpha} I + \Phi \Phi^T \right) \right]^{-1} \Phi \left(\frac{1}{\sigma^2} I\right) y
     $$
-    The $\sigma^2$ and $\frac{1}{\sigma^2}$ cancel out:
+    Apply the property $(cA)^{-1} = \frac{1}{c} A^{-1}$ where $c$ is a scalar:
     $$
-    \hat{\theta}_{MAP} = (\Phi \Phi^T + \frac{\sigma^2}{\alpha} I)^{-1} \Phi y
+    \hat{\theta}_{MAP} = \sigma^2 \left( \frac{\sigma^2}{\alpha} I + \Phi \Phi^T \right)^{-1} \frac{1}{\sigma^2} \Phi y
     $$
-
-3. **Identify $\lambda$**:
-    Setting $\lambda = \frac{\sigma^2}{\alpha}$, we get:
+    The $\sigma^2$ terms cancel out:
+    $$
+    \hat{\theta}_{MAP} = \left( \Phi \Phi^T + \frac{\sigma^2}{\alpha} I \right)^{-1} \Phi y
+    $$
+    By defining $\lambda = \frac{\sigma^2}{\alpha}$, we get the desired form:
     $$
     \hat{\theta}_{MAP} = (\Phi \Phi^T + \lambda I)^{-1} \Phi y
     $$
-    Since variances $\sigma^2$ and $\alpha$ are positive, $\lambda \ge 0$.
+    Since $\alpha$ (prior variance) and $\sigma^2$ (noise variance) must be non-negative, $\lambda \ge 0$. This proves the first part.
 
-### Part 2: Solving Regularized Least Squares
-
-1. **Define Objective Function**:
+3.  **Solving the Regularized Least-Squares Problem**:
+    We want to show that the objective function in equation (3.49) leads to the same solution.
+    Let $J(\theta)$ be the objective function to minimize:
     $$
-    J(\theta) = \|y - \Phi^T \theta\|^2 + \lambda \|\theta\|^2
+    J(\theta) = \lVert y - \Phi^T \theta \rVert^2 + \lambda \lVert \theta \rVert^2
     $$
+    Expand the norms into vector dot products ($||x||^2 = x^Tx$):
     $$
     J(\theta) = (y - \Phi^T \theta)^T (y - \Phi^T \theta) + \lambda \theta^T \theta
     $$
+    $$
+    J(\theta) = y^T y - y^T \Phi^T \theta - \theta^T \Phi y + \theta^T \Phi \Phi^T \theta + \lambda \theta^T \theta
+    $$
+    Note that $y^T \Phi^T \theta = (\theta^T \Phi y)^T$. Since the result is a scalar, it equals its transpose.
+    $$
+    J(\theta) = y^T y - 2 \theta^T \Phi y + \theta^T (\Phi \Phi^T + \lambda I) \theta
+    $$
 
-2. **Calculate Gradient**:
+4.  **Taking the derivative and setting to zero**:
+    To minimize $J(\theta)$, we take the gradient with respect to the vector $\theta$ and set it to zero:
     $$
-    \nabla_\theta J(\theta) = \nabla_\theta (y^T y - 2y^T \Phi^T \theta + \theta^T \Phi \Phi^T \theta + \lambda \theta^T \theta)
-    $$
-    $$
-    = -2 \Phi y + 2 \Phi \Phi^T \theta + 2 \lambda \theta
-    $$
-
-3. **Set Gradient to Zero**:
-    $$
-    -2 \Phi y + 2 (\Phi \Phi^T + \lambda I) \theta = 0
+    \nabla_\theta J(\theta) = -2 \Phi y + 2 (\Phi \Phi^T + \lambda I) \theta = 0
     $$
     $$
     (\Phi \Phi^T + \lambda I) \theta = \Phi y
     $$
-
-4. **Solve for $\theta$**:
+    Solving for $\theta$:
     $$
     \hat{\theta} = (\Phi \Phi^T + \lambda I)^{-1} \Phi y
     $$
-    This matches the specific MAP estimate derived above.
+    This is identical to equation (3.48), proving that the Bayesian MAP estimate with isotropic Gaussian priors is mathematically equivalent to solving the frequentist $L_2$ regularized least-squares problem (Ridge regression).

@@ -2,25 +2,30 @@
 title: Explain
 ---
 
-## Detailed Explanation
+# Intuition Behind LASSO
 
-The core concept in this question is connecting the optimization formulation of regularization with Bayesian statistics.
+Why does L1 regularization (LASSO) tend to make weights exactly zero, whereas L2 regularization (Ridge) only makes them small?
 
-### MAP Estimation
+The secret lies in the underlying assumptions each method makes about how the weights *should* be distributed before it even sees the data. This "prior belief" acts as a gravitational pull on the learning process.
 
-In Bayesian estimation, we have detailed that:
-$$ \text{Posterior} \propto \text{Likelihood} \times \text{Prior} $$
-Taking the negative logarithm turns the product into a sum:
-$$ -\log(\text{Posterior}) = -\log(\text{Likelihood}) - \log(\text{Prior}) + C $$
-Minimizing the objective function $\frac{1}{2}E + \lambda R$ is essentially performing MAP estimation where $E$ comes from the likelihood and $R$ comes from the prior.
+### The Shape of the Priors
 
-* **L2 Regularization (Ridge)** uses $R(\theta) = \|\theta\|^2$, which corresponds to a **Gaussian** prior.
-* **L1 Regularization (LASSO)** uses $R(\theta) = \|\theta\|_1$, which corresponds to a **Laplacian** prior.
+Imagine a landscape representing the prior probabilities.
+- **Ridge Regression (L2):** Assumes a **Gaussian (Normal) distribution**. This distribution looks like a smooth hill. Near the peak (zero), it is relatively flat. It tells the model: *"It's good to be close to zero, but being exactly zero isn't much better than being 0.001."*
+- **LASSO (L1):** Assumes a **Laplace distribution**. This distribution looks like a steep mountain with a very sharp peak at zero. The probability drops off linearly on a log-scale, forming a sharp spike. It tells the model: *"You should be exactly zero unless the data gives you a very compelling reason not to be."*
 
-### Why Sparsity?
+### The Optimization Perspective (Geometric View)
 
-Visually, if we plot the contours of the likelihood (ellipses) and the contours of the prior (constraint region), the solution is where they touch.
-* For **L2**, the constraint region ($\sum \theta_i^2 \le C$) is a **circle/sphere**. The likelihood ellipses usually touch the circle at a predictable point on the curve, rarely exactly on an axis (where a weight is 0).
-* For **L1**, the constraint region ($\sum |\theta_i| \le C$) is a **diamond/cross-polytope**. This shape has "corners" on the axes. Geometric probability dictates that the expanding likelihood ellipses are very likely to hit the "corners" first. Since corners lie on the axes, other coordinates are zero, leading to a sparse solution.
+Visually, we can think of optimizing these models as trying to expand a contour map of our data error until it touches a "constraint region" representing our prior.
+- L2 regularization restricts the weights to lie within a **circle** (or sphere in higher dimensions). The error contours will usually touch the edge of the circle somewhere away from the axes. This means both weights will be small, but non-zero.
+- L1 regularization restricts the weights to lie within a **diamond** shape (a square rotated by 45 degrees). The error contours are highly likely to hit the sharp corners of the diamond. Since these corners lie exactly on the axes, one or more weights will become exactly zero!
 
-Mathematically, the derivative of $|\theta|$ is $\text{sign}(\theta)$, which is $+1$ or $-1$. It does not go to 0 as $\theta$ gets small. This constant force pushes coefficients all the way to 0. The derivative of $\theta^2$ is $2\theta$, which goes to 0 as $\theta$ gets small, providing diminishing force.
+```mermaid
+graph LR
+  subgraph Regularization Geometry
+    A[L2 Ridge: Circular Constraint] --> B[Hits curve: Weights small]
+    C[L1 LASSO: Diamond Constraint] --> D[Hits corners: Weights exactly 0]
+  end
+```
+
+By heavily penalizing small non-zero weights and rewarding strict zeros through the Laplace prior, LASSO serves as a natural tool for **feature selection**—effectively ignoring the inputs that don't matter by switching their dials completely off.

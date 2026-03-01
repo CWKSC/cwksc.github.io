@@ -1,35 +1,23 @@
 ---
 title: Explain
 ---
+### Intuition
 
-## Detailed Explanation
+In Bayesian regression, we update our prior beliefs about the model parameters $\theta$ after observing some data. This is described by **Bayes' Theorem**, which states that the **posterior** (what we believe after seeing the data) is proportional to the **prior** (what we believed beforehand) multiplied by the **likelihood** (how well the parameters explain the observed data).
 
-The goal of this problem is to perform **Bayesian Linear Regression**. Unlike the standard maximum likelihood estimation (which leads to Least Squares), in the Bayesian approach, we treat the parameters $\theta$ as random variables with a **prior distribution**.
+When both the prior and the likelihood are Gaussian distributions, life is wonderful because the product of two Gaussians is yet another Gaussian! This is a magical property known as **conjugacy**. Because the prior and likelihood families "match" nicely, the posterior lands in the same family.
 
-### 1. The Model and Prior
+### Breaking Down the Math
 
-* **Likelihood**: The relationship between inputs and outputs is linear (in feature space) with added Gaussian noise. This means that if we know $\theta$, the probability of observing $y$ follows a Gaussian distribution centered at the prediction $\Phi^T \theta$.
-* **Prior**: Before seeing any data, we assume $\theta$ follows a Gaussian distribution centered at 0 with covariance $\Gamma$. This encodes our belief that the weights shouldn't be too large (regularization).
+Instead of multiplying massive and scary Gaussian density functions directly, it's easier to add their **logarithms**. We do this because working with sums of exponents is far simpler than multiplying exponentials.
 
-### 2. Deriving the Posterior
+1.  **Log-likelihood**: Represents how the data fits our model. It's simply the Mahalanobis distance between our predictions ($\Phi^T \theta$) and actual labels ($y$), scaled by the noise covariance matrix $\Sigma$.
+2.  **Log-prior**: Represents our prior belief that the weights shouldn't be too large, scaled by the prior covariance $\Gamma$.
+3.  **Log-posterior**: You simply sum together the log-likelihood and log-prior. This gives a sum of quadratic terms dependent on $\theta$.
+4.  **Completing the Square**: This is an algebraic trick. We force our resulting polynomial to look like the exponent expression found inside a standard Gaussian PDF formula. By matching up the coefficients for the $\theta^T (\dots) \theta$ part (the precision matrix) and the $\theta^T (\dots)$ part, we can magically read off our new normal distribution's covariance ($\hat{\Sigma}_\theta$) and mean ($\hat{\mu}_\theta$).
 
-We want to find $p(\theta | \mathcal{D})$, which represents our updated belief about the parameters after seeing the data. We use Bayes' rule:
+### Visualizing the Terms
 
-$$
-\text{Posterior} \propto \text{Likelihood} \times \text{Prior}
-$$
-
-Since both the likelihood and the prior are Gaussian, the posterior will also be Gaussian. This is a property of conjugated distributions (Gaussian is conjugate to itself for the mean).
-
-The derivation primarily involves linear algebra manipulation inside the exponential function:
-
-1. **Exponentials**: We multiply the exponential functions of the prior and likelihood. Due to logarithmic rules ($\exp(A)\exp(B) = \exp(A+B)$), this corresponds to adding the arguments inside the exponentials.
-2. **Quadratic Form**: The argument of a multivariate Gaussian exponential is a quadratic form: $-\frac{1}{2}(\theta - \mu)^T \Sigma^{-1} (\theta - \mu)$.
-3. **Completing the Square**: We expand the sum of the prior and likelihood arguments and group all terms that contain $\theta$.
-    * The terms scaling with $\theta^T \dots \theta$ (quadratic) determine the **Precision Matrix** (inverse variance). We find that the posterior precision is the sum of the prior precision ($\Gamma^{-1}$) and the data precision ($\Phi \Sigma^{-1} \Phi^T$).
-    * The terms linear in $\theta$ help us find the **Posterior Mean**.
-4. **Result**:
-    * **Posterior Covariance ($\hat{\Sigma}_\theta$)**: It shrinks as we get more data (the $\Phi \Sigma^{-1} \Phi^T$ term grows).
-    * **Posterior Mean ($\hat{\mu}_\theta$)**: It is a weighted combination of the prior mean (0) and the data estimate.
-
-This result is fundamental to Bayesian learning. It shows how data updates our uncertainty ($\Sigma$) and our best guess ($\mu$) about the model parameters.
+*   **Precision ($\hat{\Sigma}_\theta^{-1}$)**: The matrix inverse of covariance is also known as "precision." Notice that $\hat{\Sigma}_\theta^{-1} = \Gamma^{-1} + \Phi \Sigma^{-1} \Phi^T$. This says:
+    > Total Information = Prior Information + Information from Data 
+*   **Mean ($\hat{\mu}_\theta$)**: The posterior mean acts somewhat like a weighted average between the prior mean (which was 0) and the data. The terms $\Phi \Sigma^{-1} y$ "pull" the mean toward the Maximum Likelihood (MLE) solution, but it's regularized or restrained by our belief encoded in $\Gamma^{-1}$.
