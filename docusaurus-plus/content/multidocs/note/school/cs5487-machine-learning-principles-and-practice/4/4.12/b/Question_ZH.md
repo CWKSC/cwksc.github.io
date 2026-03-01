@@ -16,7 +16,7 @@ $$ (4.47)
 
 
 $$
-x^* = \underset{x}{\text{argmax}} \, f(x),
+x^* = \operatorname*{argmax}_x f(x)
 $$
 $$
 \text{s.t.} \quad g(x) = 0,

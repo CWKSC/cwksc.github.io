@@ -16,7 +16,7 @@ One method of solving an optimization problem with equality constraints is to us
 
 
 $$
-x^* = \underset{x}{\text{argmax}} \, f(x),
+x^* = \operatorname*{argmax}_x f(x)
 $$
 
 
