@@ -1,6 +1,7 @@
 ---
 title: Question
 ---
+
 **(e)** Given a novel input $x_*$, show that the predictive distribution of $f_* = f(x_*, \theta)$ is
 
 $$

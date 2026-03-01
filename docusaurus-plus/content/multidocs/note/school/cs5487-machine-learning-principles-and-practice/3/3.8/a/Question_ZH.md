@@ -1,6 +1,7 @@
 ---
 title: Question ZH
 ---
+
 **問題 3.8 伯努利分佈 (Bernoulli distribution) 的貝葉斯估計 (Bayesian estimation)**
 
 在這個問題中，我們將考慮伯努利隨機變數 (Bernoulli r.v.) 的貝葉斯估計與預測。令 $x$ 為具有伯努利分佈的隨機變數，

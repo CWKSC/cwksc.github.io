@@ -3,6 +3,7 @@ title: Answer
 ---
 
 ### Prerequisites
+
 - **Maximum Likelihood Estimation (MLE)**
 - **Log-likelihood**
 - **Calculus (Derivation)**

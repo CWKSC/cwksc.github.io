@@ -1,6 +1,7 @@
 ---
 title: Question ZH
 ---
+
 **問題 2.8 最小平方法回歸與最大概似估計 (Least-squares regression and MLE)**
 
 在這個問題中，我們將探討線性回歸 (Linear Regression) 的議題，以及最大概似估計 (Maximum Likelihood Estimation) 與最小平方解 (Least Squares Solutions) 之間的關聯。考慮 $x \in \mathbb{R}$ 的多項式函數，

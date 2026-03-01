@@ -3,6 +3,7 @@ title: Answer
 ---
 
 ### Prerequisites
+
 - **Expectation and Variance Properties**
 - **Unbiased Estimator**
 - **Properties of independent and identically distributed (i.i.d.) random variables**
@@ -29,5 +30,5 @@ title: Answer
 
 7. For a Poisson distribution, we are given that $\text{var}(k_i) = \lambda$. Substituting this into the equation yields:
    $$\text{var}(\hat{\lambda}) = \frac{1}{N^2} \sum_{i=1}^N \lambda = \frac{1}{N^2} (N\lambda) = \frac{\lambda}{N}$$
-   
+
 Thus, the estimator variance is indeed $\frac{\lambda}{N}$.

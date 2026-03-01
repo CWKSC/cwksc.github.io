@@ -1,10 +1,12 @@
 ---
 title: Answer ZH
 ---
+
 ## 必備知識 (Prerequisites)
-* 最大概似估計 (Maximum Likelihood Estimation, MLE)
-* 最大後驗估計 (Maximum A Posteriori Estimation, MAP)
-* 貝塔分佈的眾數 (Beta Distribution Mode)
+
+- 最大概似估計 (Maximum Likelihood Estimation, MLE)
+- 最大後驗估計 (Maximum A Posteriori Estimation, MAP)
+- 貝塔分佈的眾數 (Beta Distribution Mode)
 
 ## 逐步推導 (Step-by-Step Derivation)
 
@@ -27,5 +29,5 @@ title: Answer ZH
     $$\hat{\pi}_{MAP} = \hat{\pi}_{MLE} = \frac{s}{n}$$
 
 3.  **比較不同的估計量**：
-    *   **MLE 對比 MAP（均勻先驗）**：它們是完全相同的（即 $\frac{s}{n}$）。在這個特定情況下，兩者在數學上沒有優劣之分，因為均勻先驗沒有提供任何額外的資訊（它是無資訊先驗，uninformative prior）。均勻先驗代表完全的不確定性或沒有偏見，讓資料完全決定信念的最高點（眾數，mode）。
-    *   **貝葉斯預測估計量**：從 (c) 部分得知 $\hat{\pi}_{Bayes} = \frac{s+1}{n+2}$。貝葉斯預測估計（它是後驗的*平均值* (mean)，而不是像 MAP 那樣的*眾數* (mode)）相較於 MLE/MAP 的優勢在於對極端值具有穩健性 (robustness)，特別是在樣本數 $n$ 很小的時候。如果 $n=1, s=1$，MLE/MAP 會給出 $1.0$（非常肯定這輩子都會是正面），而貝葉斯方法會給出 $2/3$（較為謹慎）。
+    - **MLE 對比 MAP（均勻先驗）**：它們是完全相同的（即 $\frac{s}{n}$）。在這個特定情況下，兩者在數學上沒有優劣之分，因為均勻先驗沒有提供任何額外的資訊（它是無資訊先驗，uninformative prior）。均勻先驗代表完全的不確定性或沒有偏見，讓資料完全決定信念的最高點（眾數，mode）。
+    - **貝葉斯預測估計量**：從 (c) 部分得知 $\hat{\pi}_{Bayes} = \frac{s+1}{n+2}$。貝葉斯預測估計（它是後驗的*平均值* (mean)，而不是像 MAP 那樣的*眾數* (mode)）相較於 MLE/MAP 的優勢在於對極端值具有穩健性 (robustness)，特別是在樣本數 $n$ 很小的時候。如果 $n=1, s=1$，MLE/MAP 會給出 $1.0$（非常肯定這輩子都會是正面），而貝葉斯方法會給出 $2/3$（較為謹慎）。

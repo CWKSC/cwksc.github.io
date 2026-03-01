@@ -14,6 +14,7 @@ The "Quadratic Program" is a famous standard mold that takes the following shape
 "Minimize a bowl-shaped (quadratic) surface, subject to strict boundaries."
 
 In math, this template expects:
+
 1. A single unified vector of variables: $\mathbf{x}$.
 2. A matrix describing the "bowl" curvature: $\mathbf{H}$.
 3. A vector steering the "linear slope": $\mathbf{f}$.
@@ -22,19 +23,20 @@ In math, this template expects:
 ### Packing the Variables (The Trick)
 
 To force our LASSO regression into this mold, we act like a factory worker packing boxes:
-*   We take our two separate vectors ($\theta^+$ and $\theta^-$) and stack them tightly on top of each other holding them in a single tall box called $\mathbf{x}$. 
-*   Because we doubled the length of our variable vector, everything else must stretch to fit. The original matrices and vectors (like $\Phi\Phi^T$ and $\Phi y$) are cloned and arranged into a $2 \times 2$ block grid to correctly interact with the top half ($\theta^+$) and the bottom half ($\theta^-$) of our new tall vector $\mathbf{x}$.
+
+- We take our two separate vectors ($\theta^+$ and $\theta^-$) and stack them tightly on top of each other holding them in a single tall box called $\mathbf{x}$.
+- Because we doubled the length of our variable vector, everything else must stretch to fit. The original matrices and vectors (like $\Phi\Phi^T$ and $\Phi y$) are cloned and arranged into a $2 \times 2$ block grid to correctly interact with the top half ($\theta^+$) and the bottom half ($\theta^-$) of our new tall vector $\mathbf{x}$.
 
 ```mermaid
 graph TD
     subgraph Custom Problem
         O1[Objective with theta+ and theta-]
     end
-    
+
     subgraph Standard QP Solver Format
         S[min 0.5 * x^T H x + f^T x]
     end
-    
+
     O1 -- Stack variables into vector x --> S
     O1 -- Arrange matrices into blocks H --> S
 ```

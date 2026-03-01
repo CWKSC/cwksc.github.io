@@ -6,7 +6,7 @@ title: Question ZH
 
 (c) 最後，定義 $\mathbf{x} = \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix}$。證明 (3.63) 可以重寫為二次規劃 (Quadratic Program) 的標準形式，
 
-$$ \min_{\mathbf{x}} \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} \qquad (3.64) $$
+$$ \min\_{\mathbf{x}} \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} \qquad (3.64) $$
 $$ \text{s.t. } \mathbf{x} \geq 0. $$
 
 其中

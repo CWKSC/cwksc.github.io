@@ -10,17 +10,17 @@ This is exactly what the **Expectation-Maximization (EM) algorithm** tries to so
 
 ### 1. The E-Step: Soft Guessing
 
-Instead of forcing a hard decision ("Area 1 was definitely targeted"), the EM algorithm makes a **soft guess** ("I am 80% sure Area 1 was targeted, and 20% sure it was just collateral damage"). 
+Instead of forcing a hard decision ("Area 1 was definitely targeted"), the EM algorithm makes a **soft guess** ("I am 80% sure Area 1 was targeted, and 20% sure it was just collateral damage").
 
-We calculate these probabilities using Bayes' Theorem. The term $\gamma_{ij}$ (called the *responsibility*) simply answers: *"Given the number of bombs that fell here, and my current guess for the target/non-target rates, how likely is it that this area belonged to group $j$?"*
+We calculate these probabilities using Bayes' Theorem. The term $\gamma_{ij}$ (called the _responsibility_) simply answers: _"Given the number of bombs that fell here, and my current guess for the target/non-target rates, how likely is it that this area belonged to group $j$?"_
 
 ### 2. The M-Step: Weighted Averages
 
-Once we have our "soft guesses" for every area, we need to update our estimate of the actual hit rates ($\lambda$). 
+Once we have our "soft guesses" for every area, we need to update our estimate of the actual hit rates ($\lambda$).
 
-If we knew *exactly* which areas were targets, we would just calculate the average bombs per target area (which is the Maximum Likelihood Estimate from Problem 2.1). But because we only have soft guesses, we calculate a **weighted average**. 
+If we knew _exactly_ which areas were targets, we would just calculate the average bombs per target area (which is the Maximum Likelihood Estimate from Problem 2.1). But because we only have soft guesses, we calculate a **weighted average**.
 
-If Area 1 has 5 bombs, and we are 80% sure it's a target area, we give $5 \times 0.8 = 4$ bombs to the targeted group's "bucket" and $5 \times 0.2 = 1$ bomb to the non-targeted group's "bucket". We sum these up across all areas and divide by the total "weight" (sum of percentages) assigned to that group. 
+If Area 1 has 5 bombs, and we are 80% sure it's a target area, we give $5 \times 0.8 = 4$ bombs to the targeted group's "bucket" and $5 \times 0.2 = 1$ bomb to the non-targeted group's "bucket". We sum these up across all areas and divide by the total "weight" (sum of percentages) assigned to that group.
 
 ### Analogy: The "Soft Clustering" Concept
 
@@ -30,7 +30,7 @@ graph TD;
     Data -->|E-Step: How much do you belong to A vs B?| SoftB("Group B (20%)")
     SoftA -->|M-Step: Update Group A's Mean| MeanA["New Rate for A"]
     SoftB -->|M-Step: Update Group B's Mean| MeanB["New Rate for B"]
-    
+
     MeanA -.->|Iteration| Data
     MeanB -.->|Iteration| Data
 ```

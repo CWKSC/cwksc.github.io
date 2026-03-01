@@ -1,6 +1,7 @@
 ---
 title: Explain ZH
 ---
+
 ### 直覺與概念 (Intuition)
 
 在貝葉斯迴歸 (Bayesian regression) 中，我們在觀察到一些資料後，更新我們對模型參數 $\theta$ 的先驗信念 (prior beliefs)。這是由**貝氏定理 (Bayes' Theorem)** 來描述，它指出**後驗 (posterior)** (看到資料後我們的信念) 正比於**先驗 (prior)** (我們事先的信念) 乘以**概似函數 (likelihood)** (參數解釋觀察資料的程度)。
@@ -18,6 +19,6 @@ title: Explain ZH
 
 ### 項目的視覺化意義 (Visualizing the Terms)
 
-*   **精度 (Precision, $\hat{\Sigma}_\theta^{-1}$)**：共變異數矩陣的反矩陣也被稱為「精度」。注意到 $\hat{\Sigma}_\theta^{-1} = \Gamma^{-1} + \Phi \Sigma^{-1} \Phi^T$。這表示：
-    > 總資訊量 = 先驗資訊 + 來自資料的資訊
-*   **平均數 (Mean, $\hat{\mu}_\theta$)**：後驗平均數的作用有點像先驗平均數 (這裡原本是 0) 和資料之間的「加權平均」。$\Phi \Sigma^{-1} y$ 這個項將平均數「拉」向最大概似估計 (MLE) 的解，但這又受到了我們編碼在 $\Gamma^{-1}$ 中的信念的懲罰或正則化 (regularization)。
+- **精度 (Precision, $\hat{\Sigma}_\theta^{-1}$)**：共變異數矩陣的反矩陣也被稱為「精度」。注意到 $\hat{\Sigma}_\theta^{-1} = \Gamma^{-1} + \Phi \Sigma^{-1} \Phi^T$。這表示：
+  > 總資訊量 = 先驗資訊 + 來自資料的資訊
+- **平均數 (Mean, $\hat{\mu}_\theta$)**：後驗平均數的作用有點像先驗平均數 (這裡原本是 0) 和資料之間的「加權平均」。$\Phi \Sigma^{-1} y$ 這個項將平均數「拉」向最大概似估計 (MLE) 的解，但這又受到了我們編碼在 $\Gamma^{-1}$ 中的信念的懲罰或正則化 (regularization)。

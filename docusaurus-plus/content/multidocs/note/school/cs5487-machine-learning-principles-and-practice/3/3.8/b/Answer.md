@@ -1,10 +1,12 @@
 ---
 title: Answer
 ---
+
 ## Prerequisites
-* Bayes' Theorem
-* Uniform Prior Distribution
-* Beta Distribution Integral
+
+- Bayes' Theorem
+- Uniform Prior Distribution
+- Beta Distribution Integral
 
 ## Step-by-Step Derivation
 
@@ -26,5 +28,5 @@ title: Answer
 
 6.  **Plotting for $n=1$**:
     For $n=1$, the possible values of $s$ (sum of $x_1$) are $s=0$ or $s=1$.
-    *   If $s=0$: $p(\pi|x_1=0) = \frac{2!}{0!1!} \pi^0 (1-\pi)^1 = 2(1-\pi)$. This is a straight line from $(0, 2)$ to $(1, 0)$.
-    *   If $s=1$: $p(\pi|x_1=1) = \frac{2!}{1!0!} \pi^1 (1-\pi)^0 = 2\pi$. This is a straight line from $(0, 0)$ to $(1, 2)$.
+    - If $s=0$: $p(\pi|x_1=0) = \frac{2!}{0!1!} \pi^0 (1-\pi)^1 = 2(1-\pi)$. This is a straight line from $(0, 2)$ to $(1, 0)$.
+    - If $s=1$: $p(\pi|x_1=1) = \frac{2!}{1!0!} \pi^1 (1-\pi)^0 = 2\pi$. This is a straight line from $(0, 0)$ to $(1, 2)$.

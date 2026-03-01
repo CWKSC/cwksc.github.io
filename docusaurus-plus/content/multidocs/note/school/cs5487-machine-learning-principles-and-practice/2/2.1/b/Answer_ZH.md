@@ -3,6 +3,7 @@ title: Answer ZH
 ---
 
 ### 先備知識 (Prerequisites)
+
 - **期望值與變異數的性質 (Expectation and Variance Properties)**
 - **無偏估計量 (Unbiased Estimator)**
 - **獨立同分布 (i.i.d.) 隨機變數的性質**
@@ -29,5 +30,5 @@ title: Answer ZH
 
 7. 題目已知柏松分布的變異數為 $\text{var}(k_i) = \lambda$。將其代入方程：
    $$\text{var}(\hat{\lambda}) = \frac{1}{N^2} \sum_{i=1}^N \lambda = \frac{1}{N^2} (N\lambda) = \frac{\lambda}{N}$$
-   
+
 由此得證，估計量變異數確實為 $\frac{\lambda}{N}$。

@@ -4,9 +4,9 @@ title: Answer ZH
 
 # 先備知識 (Prerequisites)
 
-*   **期望最大化演算法 (Expectation-Maximization Algorithm, EM):** 一種迭代方法，用於在統計模型（尤其是模型依賴於未觀察到的隱藏變量時）找出參數的最大概似估計 (Maximum Likelihood Estimates)。
-*   **卜瓦松分佈 (Poisson Distribution):** 一種離散機率分佈，表示在固定時間間隔或空間內發生特定事件次數的機率。
-*   **完整資料對數概似函數 (Complete-Data Log-Likelihood):** 將觀察到的變量和未觀察到的隱藏變量結合構造出的對數概似函數。
+- **期望最大化演算法 (Expectation-Maximization Algorithm, EM):** 一種迭代方法，用於在統計模型（尤其是模型依賴於未觀察到的隱藏變量時）找出參數的最大概似估計 (Maximum Likelihood Estimates)。
+- **卜瓦松分佈 (Poisson Distribution):** 一種離散機率分佈，表示在固定時間間隔或空間內發生特定事件次數的機率。
+- **完整資料對數概似函數 (Complete-Data Log-Likelihood):** 將觀察到的變量和未觀察到的隱藏變量結合構造出的對數概似函數。
 
 # 逐步推導 (Step-by-Step Derivation)
 

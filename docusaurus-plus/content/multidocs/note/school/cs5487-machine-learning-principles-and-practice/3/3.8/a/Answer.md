@@ -1,10 +1,12 @@
 ---
 title: Answer
 ---
+
 ## Prerequisites
-* Independent and Identically Distributed (i.i.d.) Assumption
-* Bernoulli Distribution
-* Joint Probability
+
+- Independent and Identically Distributed (i.i.d.) Assumption
+- Bernoulli Distribution
+- Joint Probability
 
 ## Step-by-Step Derivation
 

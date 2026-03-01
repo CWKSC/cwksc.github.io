@@ -1,6 +1,7 @@
 ---
 title: Question ZH
 ---
+
 **(e)** 給定一個新的輸入 $x_*$，證明預測分佈 (predictive distribution) $f_* = f(x_*, \theta)$ 為
 
 $$

@@ -1,6 +1,7 @@
 ---
 title: Explain
 ---
+
 ### Intuition
 
 In Bayesian regression, we update our prior beliefs about the model parameters $\theta$ after observing some data. This is described by **Bayes' Theorem**, which states that the **posterior** (what we believe after seeing the data) is proportional to the **prior** (what we believed beforehand) multiplied by the **likelihood** (how well the parameters explain the observed data).
@@ -18,6 +19,6 @@ Instead of multiplying massive and scary Gaussian density functions directly, it
 
 ### Visualizing the Terms
 
-*   **Precision ($\hat{\Sigma}_\theta^{-1}$)**: The matrix inverse of covariance is also known as "precision." Notice that $\hat{\Sigma}_\theta^{-1} = \Gamma^{-1} + \Phi \Sigma^{-1} \Phi^T$. This says:
-    > Total Information = Prior Information + Information from Data 
-*   **Mean ($\hat{\mu}_\theta$)**: The posterior mean acts somewhat like a weighted average between the prior mean (which was 0) and the data. The terms $\Phi \Sigma^{-1} y$ "pull" the mean toward the Maximum Likelihood (MLE) solution, but it's regularized or restrained by our belief encoded in $\Gamma^{-1}$.
+- **Precision ($\hat{\Sigma}_\theta^{-1}$)**: The matrix inverse of covariance is also known as "precision." Notice that $\hat{\Sigma}_\theta^{-1} = \Gamma^{-1} + \Phi \Sigma^{-1} \Phi^T$. This says:
+  > Total Information = Prior Information + Information from Data
+- **Mean ($\hat{\mu}_\theta$)**: The posterior mean acts somewhat like a weighted average between the prior mean (which was 0) and the data. The terms $\Phi \Sigma^{-1} y$ "pull" the mean toward the Maximum Likelihood (MLE) solution, but it's regularized or restrained by our belief encoded in $\Gamma^{-1}$.

@@ -1,10 +1,12 @@
 ---
 title: Answer
 ---
+
 ## Prerequisites
-* Maximum Likelihood Estimation (MLE)
-* Maximum A Posteriori Estimation (MAP)
-* Beta Distribution Mode
+
+- Maximum Likelihood Estimation (MLE)
+- Maximum A Posteriori Estimation (MAP)
+- Beta Distribution Mode
 
 ## Step-by-Step Derivation
 
@@ -27,5 +29,5 @@ title: Answer
     $$\hat{\pi}_{MAP} = \hat{\pi}_{MLE} = \frac{s}{n}$$
 
 3.  **Comparing the Estimates**:
-    *   **MLE vs. MAP (Uniform)**: They are identical ($\frac{s}{n}$). There is no mathematical advantage of one over the other in this specific case because the uniform prior adds no extra information (it's uninformative). The uniform prior represents complete uncertainty or lack of bias, letting the data completely dictate the peak (mode) of the belief.
-    *   **Bayesian Predictive Estimate**: From part (c), $\hat{\pi}_{Bayes} = \frac{s+1}{n+2}$. The advantage of the Bayesian predictive estimate (which is the *mean* of the posterior, not the *mode* like MAP) over MLE/MAP is robustness against extreme values, especially for small sample sizes $n$. If $n=1, s=1$, MLE/MAP gives $1.0$ (absolute certainty of heads forever), while Bayesian yields $2/3$ (more cautious).
+    - **MLE vs. MAP (Uniform)**: They are identical ($\frac{s}{n}$). There is no mathematical advantage of one over the other in this specific case because the uniform prior adds no extra information (it's uninformative). The uniform prior represents complete uncertainty or lack of bias, letting the data completely dictate the peak (mode) of the belief.
+    - **Bayesian Predictive Estimate**: From part (c), $\hat{\pi}_{Bayes} = \frac{s+1}{n+2}$. The advantage of the Bayesian predictive estimate (which is the _mean_ of the posterior, not the _mode_ like MAP) over MLE/MAP is robustness against extreme values, especially for small sample sizes $n$. If $n=1, s=1$, MLE/MAP gives $1.0$ (absolute certainty of heads forever), while Bayesian yields $2/3$ (more cautious).

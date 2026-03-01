@@ -14,12 +14,18 @@ for some $N_j \ge 0$. Note that this optimization problem has an equality constr
 
 One method of solving an optimization problem with equality constraints is to use *Lagrange multipliers*. Consider the following problem,
 
+
 $$
-x^* = \underset{x}{\text{argmax}} \, f(x),
+
+x^\* = \underset{x}{\text{argmax}} \, f(x),
+
 $$
 $$
+
 \text{s.t.} \quad g(x) = 0,
-$$ (4.48)
+
+$$
+(4.48)
 
 where $f(x)$ is the objective function and $g(x)$ is the constraint function. Let's look at two properties of these functions,
 * First, the gradient $\nabla g(x)$ is orthogonal to the constraint surface, since $g(x)$ should be constant along the direction of the constraint surface (otherwise it would not be 0).
@@ -31,24 +37,41 @@ This is illustrated in the following figure:
 
 Hence, $\nabla f(x)$ and $\nabla g(x)$ must be parallel or anti-parallel, and by extension,
 
+
 $$
+
 \nabla f(x) + \lambda \nabla g(x) = 0,
-$$ (4.49)
+
+$$
+(4.49)
 
 for some $\lambda \neq 0$. Define the *Lagrangian function*,
 
+
 $$
+
 L(x, \lambda) = f(x) + \lambda g(x).
-$$ (4.50)
+
+$$
+(4.50)
 
 The optimality condition in (4.49) is obtained by setting $\frac{\partial L}{\partial x} = 0$. Furthermore, setting $\frac{\partial L}{\partial \lambda} = 0$ yields the equality constraint, $g(x) = 0$. Hence, to solve the constrained optimization problem (4.48), we form the Lagrangian function, and find the stationary point w.r.t. both $x$ and $\lambda$, by simultaneously solving
 
+
 $$
+
 \frac{\partial}{\partial x} L(x, \lambda) = 0, \quad \frac{\partial}{\partial \lambda} L(x, \lambda) = 0.
-$$ (4.51)
+
+$$
+(4.51)
 
 **(a)** Use Lagrange multipliers to optimize (4.47), and show that the solution is
 
+
 $$
-\pi_j = \frac{N_j}{\sum_{k=1}^K N_k}.
-$$ (4.52)
+
+\pi*j = \frac{N_j}{\sum*{k=1}^K N_k}.
+
+$$
+(4.52)
+$$

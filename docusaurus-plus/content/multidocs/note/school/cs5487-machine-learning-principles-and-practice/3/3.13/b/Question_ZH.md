@@ -13,12 +13,12 @@ $$ \theta^+ \geq 0, \quad \theta^- \geq 0. \qquad (3.61) $$
 
 原始的最佳化問題 (3.59) 現在可以重寫為
 
-$$ \hat{\theta} = \operatorname*{argmin}_{\theta^+, \theta^-} \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 + \lambda \sum_i |\theta^+_i - \theta^-_i|, \qquad (3.62) $$
+$$ \hat{\theta} = \operatorname\*{argmin}\_{\theta^+, \theta^-} \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 + \lambda \sum_i |\theta^+\_i - \theta^-\_i|, \qquad (3.62) $$
 $$ \text{s.t. } \theta^+ \geq 0, \; \theta^- \geq 0. $$
 
 使用一些最佳化理論的「魔法」，我們可以將 (3.62) 重寫為
 
-$$ \hat{\theta} = \operatorname*{argmin}_{\theta^+, \theta^-} \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 + \lambda \sum_i (\theta^+_i + \theta^-_i), \qquad (3.63) $$
+$$ \hat{\theta} = \operatorname\*{argmin}\_{\theta^+, \theta^-} \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 + \lambda \sum_i (\theta^+\_i + \theta^-\_i), \qquad (3.63) $$
 $$ \text{s.t. } \theta^+ \geq 0, \; \theta^- \geq 0. $$
 
 為什麼 (3.63) 中的最佳化問題等價於 (3.62)？提示：在最佳情況下，關於對 $\{\theta^+_i, \theta^-_i\}$ 的值我們可以說些什麼？

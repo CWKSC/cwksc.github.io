@@ -26,11 +26,13 @@ graph TD
 ```
 
 ## 理解數學背後的含義
+
 如果我們仔細觀察最終解：
-$$ \hat{\Sigma} = \frac{1}{N} \sum_{i=1}^N (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
+$$ \hat{\Sigma} = \frac{1}{N} \sum\_{i=1}^N (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
 我們可以將 $[(x_i - \hat{\mu})(x_i - \hat{\mu})^T]$ 直觀理解為：從單一點 $x_i$ 測量到數據集均值所延伸出來的測量方差矩陣。將這些加總起來並除以 $N$，就拿到了由這些個別方差所形成的「平均形狀」，從而構築了我們最終的協方差估計值。
 
 ## 有偏與無偏 (Biased vs. Unbiased)
-* 值得注意的是，最大似然估計除以的是 $N$。這會產生一個**有偏估計 (biased estimator)**。
-* 若要求得**無偏估計 (unbiased estimator)**，我們通常會除以 $N-1$（貝塞爾校正, Bessel's correction）。MLE 過程只是純粹根據觀察到的樣本上下文來優化概率，從而導致在此方差估計上帶有輕微的偏差。
+
+- 值得注意的是，最大似然估計除以的是 $N$。這會產生一個**有偏估計 (biased estimator)**。
+- 若要求得**無偏估計 (unbiased estimator)**，我們通常會除以 $N-1$（貝塞爾校正, Bessel's correction）。MLE 過程只是純粹根據觀察到的樣本上下文來優化概率，從而導致在此方差估計上帶有輕微的偏差。

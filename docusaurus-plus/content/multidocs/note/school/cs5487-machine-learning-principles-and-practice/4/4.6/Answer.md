@@ -3,10 +3,11 @@ title: Answer
 ---
 
 ## Prerequisites
-* **Expectation-Maximization (EM) Algorithm**: An iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables.
-* **Maximum Likelihood Estimation (MLE)**: A method of estimating the parameters of a statistical model given observations.
-* **Exponential Distribution**: A continuous probability distribution parameterized by a rate parameter $\lambda$. Its Probability Density Function (PDF) is $f(x; \lambda) = \lambda e^{-\lambda x}$.
-* **Lagrange Multipliers**: A strategy for finding the local maxima and minima of a function subject to equation constraints.
+
+- **Expectation-Maximization (EM) Algorithm**: An iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables.
+- **Maximum Likelihood Estimation (MLE)**: A method of estimating the parameters of a statistical model given observations.
+- **Exponential Distribution**: A continuous probability distribution parameterized by a rate parameter $\lambda$. Its Probability Density Function (PDF) is $f(x; \lambda) = \lambda e^{-\lambda x}$.
+- **Lagrange Multipliers**: A strategy for finding the local maxima and minima of a function subject to equation constraints.
 
 ## Step-by-Step Derivation
 

@@ -1,6 +1,7 @@
 ---
 title: Question ZH
 ---
+
 **問題 3.11 高斯先驗的貝葉斯迴歸 (Bayesian regression with Gaussian prior)**
 
 在之前的作業中，我們證明了使用最小平方法 (method of least squares) 的各種線性迴歸 (linear regression) 形式實際上都只是以下模型下最大概似估計 (ML estimation) 的特例：

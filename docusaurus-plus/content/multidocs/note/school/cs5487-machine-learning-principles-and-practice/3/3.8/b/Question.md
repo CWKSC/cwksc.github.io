@@ -1,6 +1,7 @@
 ---
 title: Question
 ---
+
 (b) Assume a uniform prior over $\pi$. Use the identity
 $$\int_0^1 \pi^m (1 - \pi)^n d\pi = \frac{m!n!}{(m+n+1)!},$$
 to show that

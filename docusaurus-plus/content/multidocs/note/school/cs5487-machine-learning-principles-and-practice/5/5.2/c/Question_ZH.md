@@ -1,12 +1,13 @@
 ---
 title: Question ZH
 ---
+
 **問題 5.2 核心密度估計的平均值與變異數 (Mean and variance of a kernel density estimate)**
 
 在這個問題中，我們將研究核心密度估計量 (Kernel Density Estimate)，即分佈 $\hat{p}(x)$，的平均值與變異數。令 $X = \{x_1, \cdots, x_n\}$ 為樣本集合，且 $\tilde{k}(x)$ 為包含頻寬 (Bandwidth) 的核心函數。估計出的機率分佈為
-$$ \hat{p}(x) = \frac{1}{n} \sum_{i=1}^n \tilde{k}(x - x_i). \quad (5.5) $$
+$$ \hat{p}(x) = \frac{1}{n} \sum*{i=1}^n \tilde{k}(x - x_i). \quad (5.5) $$
 假設核心函數 $\tilde{k}(x)$ 具有零平均值以及共變異數 (Covariance) $H$，亦即：
-$$ \mathbb{E}_{\tilde{k}}[x] = \int \tilde{k}(x) x dx = 0, \quad (5.6) $$
-$$ \operatorname{cov}_{\tilde{k}}(x) = \int \tilde{k}(x) (x - \mathbb{E}_{\tilde{k}}[x])(x - \mathbb{E}_{\tilde{k}}[x])^T dx = H. \quad (5.7) $$
+$$ \mathbb{E}*{\tilde{k}}[x] = \int \tilde{k}(x) x dx = 0, \quad (5.6) $$
+$$ \operatorname{cov}_{\tilde{k}}(x) = \int \tilde{k}(x) (x - \mathbb{E}_{\tilde{k}}[x])(x - \mathbb{E}\_{\tilde{k}}[x])^T dx = H. \quad (5.7) $$
 
 (c) 從這件事你可以看出核心密度估計量 $\hat{p}(x)$ 的哪些性質？這與核心密度估計量的偏差 (Bias) 有何關聯？

@@ -3,6 +3,7 @@ title: Answer
 ---
 
 ### Prerequisites
+
 - **Poisson Probability Calculation**
 - **Expected Value of Frequencies**
 
@@ -14,7 +15,6 @@ title: Answer
    $$\text{Expected Cells} = N \times p(x = k | \hat{\lambda}) = 576 \times \frac{1}{k!}e^{-\hat{\lambda}}\hat{\lambda}^k$$
 
 3. Calculate the expected probability and expected count for each $k$:
-
    - **For $k = 0$:**
      $p(x = 0 | 0.9288) = \frac{1}{0!}e^{-0.9288}(0.9288)^0 = e^{-0.9288} \approx 0.3950$
      $\text{Expected Cells} = 576 \times 0.3950 \approx 227.5$
@@ -42,12 +42,13 @@ title: Answer
 
 4. **Comparison Table:**
 
-| number of hits ($k$) | 0 | 1 | 2 | 3 | 4 | 5 and over |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| Observed Data | 229 | 211 | 93 | 35 | 7 | 1 |
-| Expected Counts | 227.5 | 211.3 | 98.1 | 30.4 | 7.1 | 1.5 |
+| number of hits ($k$) |   0   |   1   |  2   |  3   |  4  | 5 and over |
+| :------------------- | :---: | :---: | :--: | :--: | :-: | :--------: |
+| Observed Data        |  229  |  211  |  93  |  35  |  7  |     1      |
+| Expected Counts      | 227.5 | 211.3 | 98.1 | 30.4 | 7.1 |    1.5     |
 
 ### Conclusion
+
 The theoretically derived expected counts under the Poisson model fit the actual observed hit data remarkably well. Because exactly this Poisson distribution explicitly models random, independent events happening over area/time, we can conclude that the bomb hits were essentially random and uniform.
 
 The Germans were highly unlikely to be systematically or precisely targeting specific London neighborhoods. The occurrences of "clustered" hits on particular cells are indistinguishable from what one would expect from pure chance.

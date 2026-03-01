@@ -1,6 +1,7 @@
 ---
 title: Question
 ---
+
 (e) Consider two other priors on $\pi$,
 $$p_1(\pi) = 2\pi,$$
 $$p_0(\pi) = 2 - 2\pi,$$

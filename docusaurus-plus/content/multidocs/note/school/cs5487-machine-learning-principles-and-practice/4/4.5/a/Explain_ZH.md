@@ -12,7 +12,7 @@ title: Explain ZH
 
 EM 演算法沒有強制做出「硬性決定」(Hard decision)（例如：「區域 1 肯定是目標」），而是做出 **軟猜測 (Soft guess)**（例如：「我 80% 確定區域 1 是目標，而有 20% 確定它只是遭受波及」）。
 
-我們使用貝氏定理 (Bayes' Theorem) 來計算這些機率。$\gamma_{ij}$ 這一項（被稱為*責任值 Responsibility*）只是在回答：「*給定這裡落下的炸彈數量，以及我目前對目標/非目標轟炸率的猜測，這個區域屬於群組 $j$ 的可能性有多大？*」
+我們使用貝氏定理 (Bayes' Theorem) 來計算這些機率。$\gamma_{ij}$ 這一項（被稱為*責任值 Responsibility*）只是在回答：「_給定這裡落下的炸彈數量，以及我目前對目標/非目標轟炸率的猜測，這個區域屬於群組 $j$ 的可能性有多大？_」
 
 ### 2. M 步 (M-Step)：加權平均 (Weighted Averages)
 
@@ -30,7 +30,7 @@ graph TD;
     Data -->|E 步：你屬於 A 或 B 的比例為何？| SoftB("群組 B (20%)")
     SoftA -->|M 步：更新群組 A 平均值| MeanA["A 的新機率 (Rate)"]
     SoftB -->|M 步：更新群組 B 平均值| MeanB["B 的新機率 (Rate)"]
-    
+
     MeanA -.->|反覆跌代 (Iteration)| Data
     MeanB -.->|反覆跌代 (Iteration)| Data
 ```

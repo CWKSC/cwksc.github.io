@@ -1,10 +1,12 @@
 ---
 title: Answer ZH
 ---
+
 ## 必備知識 (Prerequisites)
-* 貝氏定理 (Bayes' Theorem)
-* 均勻先驗分佈 (Uniform Prior Distribution)
-* 貝塔分佈積分 (Beta Distribution Integral)
+
+- 貝氏定理 (Bayes' Theorem)
+- 均勻先驗分佈 (Uniform Prior Distribution)
+- 貝塔分佈積分 (Beta Distribution Integral)
 
 ## 逐步推導 (Step-by-Step Derivation)
 
@@ -26,5 +28,5 @@ title: Answer ZH
 
 6.  **為 $n=1$ 繪圖**：
     對於 $n=1$，$s$ 的可能值（$x_1$ 的和）為 $s=0$ 或 $s=1$。
-    *   如果 $s=0$：$p(\pi|x_1=0) = \frac{2!}{0!1!} \pi^0 (1-\pi)^1 = 2(1-\pi)$。這是一條從 $(0, 2)$ 到 $(1, 0)$ 的直線。
-    *   如果 $s=1$：$p(\pi|x_1=1) = \frac{2!}{1!0!} \pi^1 (1-\pi)^0 = 2\pi$。這是一條從 $(0, 0)$ 到 $(1, 2)$ 的直線。
+    - 如果 $s=0$：$p(\pi|x_1=0) = \frac{2!}{0!1!} \pi^0 (1-\pi)^1 = 2(1-\pi)$。這是一條從 $(0, 2)$ 到 $(1, 0)$ 的直線。
+    - 如果 $s=1$：$p(\pi|x_1=1) = \frac{2!}{1!0!} \pi^1 (1-\pi)^0 = 2\pi$。這是一條從 $(0, 0)$ 到 $(1, 2)$ 的直線。

@@ -4,13 +4,13 @@ title: Answer
 
 # Prerequisites
 
-*   **Expectation-Maximization (EM) Algorithm:** An iterative method to find maximum likelihood estimates of parameters in statistical models, particularly when the model depends on unobserved latent variables.
-*   **Poisson Distribution:** A discrete probability distribution expressing the probability of a given number of events occurring in a fixed interval.
-*   **Complete-Data Log-Likelihood:** The log-likelihood function constructed by aggregating both observed variables and unobserved latent variables.
+- **Expectation-Maximization (EM) Algorithm:** An iterative method to find maximum likelihood estimates of parameters in statistical models, particularly when the model depends on unobserved latent variables.
+- **Poisson Distribution:** A discrete probability distribution expressing the probability of a given number of events occurring in a fixed interval.
+- **Complete-Data Log-Likelihood:** The log-likelihood function constructed by aggregating both observed variables and unobserved latent variables.
 
 # Step-by-Step Derivation
 
-Let $X = \{x_1, \dots, x_n\}$ be our set of observations, where each $x_i \in \{0, 1, 2, \dots\}$. 
+Let $X = \{x_1, \dots, x_n\}$ be our set of observations, where each $x_i \in \{0, 1, 2, \dots\}$.
 Let $Z = \{z_1, \dots, z_n\}$ be the unobserved latent variables (cluster assignments), where $z_i \in \{1, \dots, K\}$ indicates which Poisson component generated $x_i$.
 The probabilities of the latent variables are defined by the mixing weights: $p(z_i = j) = \pi_j$, with $\sum_{j=1}^K \pi_j = 1$.
 

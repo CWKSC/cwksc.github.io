@@ -1,6 +1,7 @@
 ---
 title: Question
 ---
+
 **Problem 3.11 Bayesian regression with Gaussian prior**
 
 In the last problem set, we showed that various forms of linear regression by the method of least squares are really just particular cases of ML estimation under the model

@@ -1,7 +1,9 @@
 ---
 title: Answer ZH
 ---
+
 ### 先備知識 (Prerequisites)
+
 - 共變異數的性質 (Properties of Covariance)
 - 積分的線性性質 (Linearity of Integrals)
 - 矩陣展開 (Matrix Expansion)
@@ -9,13 +11,13 @@ title: Answer ZH
 ### 推導步驟 (Step-by-Step Derivation)
 
 1. 從分佈 $\hat{p}(x)$ 的共變異數幾何定義出發：
-   $$ \hat{\Sigma} = \operatorname{cov}_{\hat{p}}(x) = \int \hat{p}(x) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
+   $$ \hat{\Sigma} = \operatorname{cov}\_{\hat{p}}(x) = \int \hat{p}(x) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
 2. 將方程式 (5.5) 中 $\hat{p}(x)$ 的定義代入：
-   $$ \hat{\Sigma} = \int \left( \frac{1}{n} \sum_{i=1}^n \tilde{k}(x - x_i) \right) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
+   $$ \hat{\Sigma} = \int \left( \frac{1}{n} \sum\_{i=1}^n \tilde{k}(x - x_i) \right) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
 3. 利用線性性質重新排列總和與積分符號：
-   $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n \int \tilde{k}(x - x_i) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
+   $$ \hat{\Sigma} = \frac{1}{n} \sum\_{i=1}^n \int \tilde{k}(x - x_i) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
 4. 我們可以策略性地藉由加減 $x_i$ 來改寫 $(x - \hat{\mu})$ 這一項：
    $$ x - \hat{\mu} = (x - x_i) + (x_i - \hat{\mu}) $$
@@ -44,12 +46,12 @@ title: Answer ZH
    $$ H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
 10. 將評估過後的積分代回步驟 3 的總和式中：
-    $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n \Big( H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T \Big) $$
+    $$ \hat{\Sigma} = \frac{1}{n} \sum\_{i=1}^n \Big( H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T \Big) $$
 
 11. 將總和分配進兩個項目：
-    $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n H + \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
+    $$ \hat{\Sigma} = \frac{1}{n} \sum*{i=1}^n H + \frac{1}{n} \sum*{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
 12. 因為 $H$ 不依賴於指標 $i$，將其加總 $n$ 次後又除了 $n$，結果剛好還是 $H$：
-    $$ \hat{\Sigma} = H + \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
+    $$ \hat{\Sigma} = H + \frac{1}{n} \sum\_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
 這完成了方程式 (5.9) 的證明。

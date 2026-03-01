@@ -1,10 +1,12 @@
 ---
 title: Answer
 ---
+
 ## Prerequisites
-* Predictive Distribution
-* Expectation of Posterior (Posterior Mean)
-* Laplace Smoothing (Additive Smoothing)
+
+- Predictive Distribution
+- Expectation of Posterior (Posterior Mean)
+- Laplace Smoothing (Additive Smoothing)
 
 ## Step-by-Step Derivation
 
@@ -12,9 +14,9 @@ title: Answer
     $$p(x|\mathcal{D}) = \int_0^1 p(x|\pi) p(\pi|\mathcal{D}) d\pi$$
 
 2.  **Substitute known equations**:
-    *   $p(x|\pi) = \pi^x (1 - \pi)^{1-x}$  (Equation 3.30)
-    *   $p(\pi|\mathcal{D}) = \frac{(n+1)!}{s!(n-s)!} \pi^s (1 - \pi)^{n-s}$  (Equation 3.33)
-    
+    - $p(x|\pi) = \pi^x (1 - \pi)^{1-x}$ (Equation 3.30)
+    - $p(\pi|\mathcal{D}) = \frac{(n+1)!}{s!(n-s)!} \pi^s (1 - \pi)^{n-s}$ (Equation 3.33)
+
     $$p(x|\mathcal{D}) = \int_0^1 \left( \pi^x (1 - \pi)^{1-x} \right) \left( \frac{(n+1)!}{s!(n-s)!} \pi^s (1 - \pi)^{n-s} \right) d\pi$$
     $$p(x|\mathcal{D}) = \frac{(n+1)!}{s!(n-s)!} \int_0^1 \pi^{s+x} (1 - \pi)^{n-s+1-x} d\pi$$
 
@@ -37,5 +39,5 @@ title: Answer
 6.  **Effective Bayesian Estimate and Virtual Samples**:
     The effective Bayesian estimate for $\pi$ ($p(x=1|\mathcal{D})$) is $\hat{\pi}_{Bayes} = \frac{s+1}{n+2}$.
     The Maximum Likelihood Estimate (MLE) is $\hat{\pi}_{MLE} = \frac{s}{n}$.
-    
+
     The intuitive explanation is that a uniform prior acts as if we have observed **two virtual samples (or pseudo-counts)** prior to our actual experiment: one "head" ($+1$ to the numerator $s$) and one "tail" (a total of $+2$ to the denominator $n$). This prevents the estimate of $\pi$ from being 0 or 1 when we have very little data. This concept is known as **Laplace smoothing**.

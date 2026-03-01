@@ -1,6 +1,7 @@
 ---
 title: Question
 ---
+
 **Problem 2.8 Least-squares regression and MLE**
 
 In this problem we will consider the issue of linear regression and the connections between maximum likelihood and least squares solutions. Consider the polynomial function of $x \in \mathbb{R}$,

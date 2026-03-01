@@ -3,10 +3,11 @@ title: Answer ZH
 ---
 
 ## 預備知識 (Prerequisites)
-* **期望最大化演算法 (Expectation-Maximization Algorithm, EM)**：一種迭代方法，用於尋找統計模型中依賴未觀察到的潛在變數 (latent variables) 的參數的最大概似估計 (Maximum Likelihood Estimates)。
-* **最大概似估計 (Maximum Likelihood Estimation, MLE)**：一種給定觀察數據來估計統計模型參數的方法。
-* **指數分佈 (Exponential Distribution)**：一種由速率參數 (rate parameter) $\lambda$ 參數化的連續機率分佈。其機率密度函數 (Probability Density Function, PDF) 為 $f(x; \lambda) = \lambda e^{-\lambda x}$。
-* **拉格朗日乘數法 (Lagrange Multipliers)**：一種尋找在方程式約束下函數局部最大值與最小值的策略。
+
+- **期望最大化演算法 (Expectation-Maximization Algorithm, EM)**：一種迭代方法，用於尋找統計模型中依賴未觀察到的潛在變數 (latent variables) 的參數的最大概似估計 (Maximum Likelihood Estimates)。
+- **最大概似估計 (Maximum Likelihood Estimation, MLE)**：一種給定觀察數據來估計統計模型參數的方法。
+- **指數分佈 (Exponential Distribution)**：一種由速率參數 (rate parameter) $\lambda$ 參數化的連續機率分佈。其機率密度函數 (Probability Density Function, PDF) 為 $f(x; \lambda) = \lambda e^{-\lambda x}$。
+- **拉格朗日乘數法 (Lagrange Multipliers)**：一種尋找在方程式約束下函數局部最大值與最小值的策略。
 
 ## 推導步驟 (Step-by-Step Derivation)
 

@@ -1,10 +1,12 @@
 ---
 title: Answer ZH
 ---
+
 ## 必備知識 (Prerequisites)
-* 獨立同分佈假設 (Independent and Identically Distributed, i.i.d.)
-* 伯努利分佈 (Bernoulli Distribution)
-* 聯合機率 (Joint Probability)
+
+- 獨立同分佈假設 (Independent and Identically Distributed, i.i.d.)
+- 伯努利分佈 (Bernoulli Distribution)
+- 聯合機率 (Joint Probability)
 
 ## 逐步推導 (Step-by-Step Derivation)
 

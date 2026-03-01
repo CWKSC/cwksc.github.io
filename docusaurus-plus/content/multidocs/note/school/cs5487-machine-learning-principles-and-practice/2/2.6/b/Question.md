@@ -9,9 +9,10 @@ In this problem you will derive the ML estimate for a multivariate Gaussian. Giv
 (b) Derive the ML estimate of the covariance $\Sigma$.
 
 You may find the following vector and matrix derivatives helpful:
-* $\frac{\partial}{\partial x} a^T x = a$, for vectors $x, a \in \mathbb{R}^d$.
-* $\frac{\partial}{\partial x} x^T A x = A x + A^T x$, for vector $x \in \mathbb{R}^d$ and matrix $A \in \mathbb{R}^{d \times d}$.
-* $\frac{\partial}{\partial X} \log |X| = X^{-T}$, for a square matrix $X$.
-* $\frac{\partial}{\partial X} \text{tr}(A X^{-1}) = \frac{\partial}{\partial X} \text{tr}(X^{-1} A) = -(X^{-T} A^T X^{-T})$, for matrices $A, X$.
+
+- $\frac{\partial}{\partial x} a^T x = a$, for vectors $x, a \in \mathbb{R}^d$.
+- $\frac{\partial}{\partial x} x^T A x = A x + A^T x$, for vector $x \in \mathbb{R}^d$ and matrix $A \in \mathbb{R}^{d \times d}$.
+- $\frac{\partial}{\partial X} \log |X| = X^{-T}$, for a square matrix $X$.
+- $\frac{\partial}{\partial X} \text{tr}(A X^{-1}) = \frac{\partial}{\partial X} \text{tr}(X^{-1} A) = -(X^{-T} A^T X^{-T})$, for matrices $A, X$.
 
 Hint: remember $\Sigma$ is symmetric!

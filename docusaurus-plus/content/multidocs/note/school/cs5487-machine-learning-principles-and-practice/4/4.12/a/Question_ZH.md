@@ -14,12 +14,18 @@ $$ (4.47)
 
 解決帶有等式約束的最佳化問題的其中一種方法是使用 *拉格朗日乘子 (Lagrange multipliers)*。考慮以下問題，
 
+
 $$
-x^* = \underset{x}{\text{argmax}} \, f(x),
+
+x^\* = \underset{x}{\text{argmax}} \, f(x),
+
 $$
 $$
+
 \text{s.t.} \quad g(x) = 0,
-$$ (4.48)
+
+$$
+(4.48)
 
 其中 $f(x)$ 是一目標函數 (objective function)，$g(x)$ 是一約束函數 (constraint function)。讓我們來看看這些函數的兩個性質，
 * 首先，梯度 (gradient) $\nabla g(x)$ 正交於 (orthogonal) 約束曲面 (constraint surface)，由於 $g(x)$ 沿著約束曲面的方向應當保持為常數 (否則它就不會是 0)。
@@ -31,24 +37,41 @@ $$ (4.48)
 
 因此，$\nabla f(x)$ 和 $\nabla g(x)$ 必須是平行或反平行 (parallel or anti-parallel) 的，推廣一下，
 
+
 $$
+
 \nabla f(x) + \lambda \nabla g(x) = 0,
-$$ (4.49)
+
+$$
+(4.49)
 
 其中 $\lambda \neq 0$。定義 *拉格朗日函數 (Lagrangian function)*，
 
+
 $$
+
 L(x, \lambda) = f(x) + \lambda g(x).
-$$ (4.50)
+
+$$
+(4.50)
 
 (4.49) 的最佳性條件 (optimality condition) 是透過設定 $\frac{\partial L}{\partial x} = 0$ 得到的。此外，設定 $\frac{\partial L}{\partial \lambda} = 0$ 可以推導出等式約束，$g(x) = 0$。因此，為了解決帶有約束的最佳化問題 (4.48)，我們建構拉格朗日函數，並透過聯立求解找出關於 $x$ 與 $\lambda$ 的駐點 (stationary point)，
 
+
 $$
+
 \frac{\partial}{\partial x} L(x, \lambda) = 0, \quad \frac{\partial}{\partial \lambda} L(x, \lambda) = 0.
-$$ (4.51)
+
+$$
+(4.51)
 
 **(a)** 使用拉格朗日乘子 (Lagrange multipliers) 對 (4.47) 進行最佳化，並證明其解為
 
+
 $$
-\pi_j = \frac{N_j}{\sum_{k=1}^K N_k}.
-$$ (4.52)
+
+\pi*j = \frac{N_j}{\sum*{k=1}^K N_k}.
+
+$$
+(4.52)
+$$

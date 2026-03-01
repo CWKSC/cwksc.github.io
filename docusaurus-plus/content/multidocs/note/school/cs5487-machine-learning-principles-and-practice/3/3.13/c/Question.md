@@ -6,7 +6,7 @@ title: Question
 
 (c) Finally, define $\mathbf{x} = \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix}$. Show that (3.63) can be rewritten in the standard form of a quadratic program,
 
-$$ \min_{\mathbf{x}} \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} \qquad (3.64) $$
+$$ \min\_{\mathbf{x}} \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} \qquad (3.64) $$
 $$ \text{s.t. } \mathbf{x} \geq 0. $$
 
 where

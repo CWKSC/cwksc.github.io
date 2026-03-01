@@ -3,6 +3,7 @@ title: Answer ZH
 ---
 
 ## 先決條件 (Prerequisites)
+
 - 線性代數：區塊矩陣 (Block Matrices)
 - 矩陣微積分 (Matrix Calculus)
 - 二次規劃 (Quadratic Programming, QP)
@@ -11,7 +12,7 @@ title: Answer ZH
 
 1. **展開目標函數：**
    我們有從 (3.63) 得出的最佳化問題：
-   $$ J(\theta^+, \theta^-) = \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 + \lambda \sum_i (\theta^+_i + \theta^-_i) $$
+   $$ J(\theta^+, \theta^-) = \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 + \lambda \sum_i (\theta^+\_i + \theta^-\_i) $$
 
    首先，我們展開平方 L2 範數項 $ \frac{1}{2} \|y - \Phi^T(\theta^+ - \theta^-)\|^2 $：
    $$ \frac{1}{2} (y - \Phi^T(\theta^+ - \theta^-))^T (y - \Phi^T(\theta^+ - \theta^-)) $$
@@ -33,10 +34,10 @@ title: Answer ZH
    交叉項：
    $$ - y^T\Phi^T(\theta^+ - \theta^-) = - ( \Phi y )^T (\theta^+ - \theta^-) = \begin{bmatrix} -\Phi y \\ \Phi y \end{bmatrix}^T \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix} $$
    請注意，這與 $ - \begin{bmatrix} \Phi y \\ -\Phi y \end{bmatrix}^T \mathbf{x} $ 完全吻合。
-   
+
    正則化項：
-   $$ \lambda \sum_i (\theta^+_i + \theta^-_i) = \lambda \mathbf{1}^T \theta^+ + \lambda \mathbf{1}^T \theta^- = (\lambda \begin{bmatrix} \mathbf{1} \\ \mathbf{1} \end{bmatrix})^T \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix} = (\lambda \mathbf{1}_{2D})^T \mathbf{x} $$
-   
+   $$ \lambda \sum*i (\theta^+\_i + \theta^-\_i) = \lambda \mathbf{1}^T \theta^+ + \lambda \mathbf{1}^T \theta^- = (\lambda \begin{bmatrix} \mathbf{1} \\ \mathbf{1} \end{bmatrix})^T \begin{bmatrix} \theta^+ \\ \theta^- \end{bmatrix} = (\lambda \mathbf{1}*{2D})^T \mathbf{x} $$
+
    合併這些線性部分得到 $\mathbf{f}^T \mathbf{x}$：
    $$ \mathbf{f}^T \mathbf{x} = \left( \lambda \mathbf{1} - \begin{bmatrix} \Phi y \\ -\Phi y \end{bmatrix} \right)^T \mathbf{x} $$
    這讓我們可以明確地定義出：
@@ -47,5 +48,5 @@ title: Answer ZH
    $$ J(\mathbf{x}) = \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} + \frac{1}{2}y^Ty $$
    由於 $\frac{1}{2}y^Ty$ 相對於變數 $\mathbf{x}$ 是一個常數，在最小化目標時可以將其忽略。限制條件 $\theta^+ \geq 0$ 且 $\theta^- \geq 0$ 可以精簡地寫為 $\mathbf{x} \geq 0$。
    因此，該問題完全等價於：
-   $$ \min_{\mathbf{x}} \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} \quad \text{s.t. } \mathbf{x} \geq 0 $$
+   $$ \min\_{\mathbf{x}} \frac{1}{2} \mathbf{x}^T \mathbf{H} \mathbf{x} + \mathbf{f}^T \mathbf{x} \quad \text{s.t. } \mathbf{x} \geq 0 $$
    這剛好符合題目所要求的形式。

@@ -1,6 +1,7 @@
 ---
 title: Question
 ---
+
 **Problem 3.8 Bayesian estimation for a Bernoulli distribution**
 
 In this problem we will consider Bayesian estimation and prediction for a Bernoulli r.v. Let $x$ be a r.v. with a Bernoulli distribution,

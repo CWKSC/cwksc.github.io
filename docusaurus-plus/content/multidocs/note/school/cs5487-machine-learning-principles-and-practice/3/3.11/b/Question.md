@@ -1,6 +1,7 @@
 ---
 title: Question
 ---
+
 **(b)** Consider the MAP estimate,
 
 $$

@@ -1,13 +1,14 @@
 ---
 title: Question
 ---
+
 **Problem 5.2 Mean and variance of a kernel density estimate**
 
-In this problem, we will study the mean and variance of the kernel density *estimate*, i.e., the distribution $\hat{p}(x)$. Let $X = \{x_1, \cdots, x_n\}$ be the set of samples, and $\tilde{k}(x)$ be the kernel with bandwidth included. The estimated probability distribution is
-$$ \hat{p}(x) = \frac{1}{n} \sum_{i=1}^n \tilde{k}(x - x_i). \quad (5.5) $$
+In this problem, we will study the mean and variance of the kernel density _estimate_, i.e., the distribution $\hat{p}(x)$. Let $X = \{x_1, \cdots, x_n\}$ be the set of samples, and $\tilde{k}(x)$ be the kernel with bandwidth included. The estimated probability distribution is
+$$ \hat{p}(x) = \frac{1}{n} \sum*{i=1}^n \tilde{k}(x - x_i). \quad (5.5) $$
 Suppose that the kernel function $\tilde{k}(x)$ has zero mean and covariance $H$, i.e.,
-$$ \mathbb{E}_{\tilde{k}}[x] = \int \tilde{k}(x) x dx = 0, \quad (5.6) $$
-$$ \operatorname{cov}_{\tilde{k}}(x) = \int \tilde{k}(x) (x - \mathbb{E}_{\tilde{k}}[x])(x - \mathbb{E}_{\tilde{k}}[x])^T dx = H. \quad (5.7) $$
+$$ \mathbb{E}*{\tilde{k}}[x] = \int \tilde{k}(x) x dx = 0, \quad (5.6) $$
+$$ \operatorname{cov}_{\tilde{k}}(x) = \int \tilde{k}(x) (x - \mathbb{E}_{\tilde{k}}[x])(x - \mathbb{E}\_{\tilde{k}}[x])^T dx = H. \quad (5.7) $$
 
 (a) Show that the mean of the distribution $\hat{p}(x)$ is the sample mean of $X$,
 $$ \hat{\mu} = \mathbb{E}_{\hat{p}}[x] = \int \hat{p}(x) x dx = \frac{1}{n} \sum_{i=1}^n x_i. \quad (5.8) $$

@@ -1,6 +1,7 @@
 ---
 title: Question ZH
 ---
+
 (b) 假設 $\pi$ 上存在均勻先驗分佈 (uniform prior)。使用以下恆等式 (identity)
 $$\int_0^1 \pi^m (1 - \pi)^n d\pi = \frac{m!n!}{(m+n+1)!},$$
 來證明

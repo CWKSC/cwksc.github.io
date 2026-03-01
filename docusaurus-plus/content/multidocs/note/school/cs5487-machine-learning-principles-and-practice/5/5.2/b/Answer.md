@@ -1,7 +1,9 @@
 ---
 title: Answer
 ---
+
 ### Prerequisites
+
 - Properties of Covariance
 - Linearity of Integrals
 - Matrix Expansion
@@ -9,13 +11,13 @@ title: Answer
 ### Step-by-Step Derivation
 
 1. Start with the geometric definition of covariance for the distribution $\hat{p}(x)$:
-   $$ \hat{\Sigma} = \operatorname{cov}_{\hat{p}}(x) = \int \hat{p}(x) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
+   $$ \hat{\Sigma} = \operatorname{cov}\_{\hat{p}}(x) = \int \hat{p}(x) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
 2. Substitute the definition of $\hat{p}(x)$ from Equation (5.5):
-   $$ \hat{\Sigma} = \int \left( \frac{1}{n} \sum_{i=1}^n \tilde{k}(x - x_i) \right) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
+   $$ \hat{\Sigma} = \int \left( \frac{1}{n} \sum\_{i=1}^n \tilde{k}(x - x_i) \right) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
 3. Rearrange the sum and integral via linearity:
-   $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n \int \tilde{k}(x - x_i) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
+   $$ \hat{\Sigma} = \frac{1}{n} \sum\_{i=1}^n \int \tilde{k}(x - x_i) (x - \hat{\mu})(x - \hat{\mu})^T dx $$
 
 4. We can strategically rewrite the term $(x - \hat{\mu})$ by adding and subtracting $x_i$:
    $$ x - \hat{\mu} = (x - x_i) + (x_i - \hat{\mu}) $$
@@ -44,12 +46,12 @@ title: Answer
    $$ H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
 10. Substitute this evaluated integral back into the overall sum from step 3:
-    $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n \Big( H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T \Big) $$
+    $$ \hat{\Sigma} = \frac{1}{n} \sum\_{i=1}^n \Big( H + (x_i - \hat{\mu})(x_i - \hat{\mu})^T \Big) $$
 
 11. Distribute the sum over the two terms:
-    $$ \hat{\Sigma} = \frac{1}{n} \sum_{i=1}^n H + \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
+    $$ \hat{\Sigma} = \frac{1}{n} \sum*{i=1}^n H + \frac{1}{n} \sum*{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
 12. Since $H$ does not depend on the index $i$, summing it $n$ times and dividing by $n$ leaves exactly $H$:
-    $$ \hat{\Sigma} = H + \frac{1}{n} \sum_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
+    $$ \hat{\Sigma} = H + \frac{1}{n} \sum\_{i=1}^n (x_i - \hat{\mu})(x_i - \hat{\mu})^T $$
 
 This proves Equation (5.9).

@@ -14,6 +14,7 @@ title: Explain ZH
 「在嚴格的邊界條件限制下，尋找一個碗狀（二次）表面的最低點。」
 
 在數學上，這個模板期望接收：
+
 1. 一個單一、統一的變數向量：$\mathbf{x}$。
 2. 一個描述「碗的曲率」的矩陣：$\mathbf{H}$。
 3. 一個引導「線性坡度」的向量：$\mathbf{f}$。
@@ -22,19 +23,20 @@ title: Explain ZH
 ### 打包變數 (Packing the Variables)
 
 為了將我們的 LASSO 迴歸硬塞進這個模型中，我們就像一個工廠裡裝貨的工人：
-*   我們將兩個獨立的向量（$\theta^+$ 和 $\theta^-$）拿起來，緊緊地上下堆疊，將它們裝進一個更高大的箱子，並命名為 $\mathbf{x}$。
-*   因為我們將變數向量的長度增加了一倍，其他所有的東西都必須跟著拉展適應。原本的矩陣和向量（如 $\Phi\Phi^T$ 和 $\Phi y$）被複製並排列成一個 $2 \times 2$ 的區塊網格 (block grid)，以確保能正確地與我們新高大向量 $\mathbf{x}$ 的上半部（$\theta^+$）和下半部（$\theta^-$）進行互動。
+
+- 我們將兩個獨立的向量（$\theta^+$ 和 $\theta^-$）拿起來，緊緊地上下堆疊，將它們裝進一個更高大的箱子，並命名為 $\mathbf{x}$。
+- 因為我們將變數向量的長度增加了一倍，其他所有的東西都必須跟著拉展適應。原本的矩陣和向量（如 $\Phi\Phi^T$ 和 $\Phi y$）被複製並排列成一個 $2 \times 2$ 的區塊網格 (block grid)，以確保能正確地與我們新高大向量 $\mathbf{x}$ 的上半部（$\theta^+$）和下半部（$\theta^-$）進行互動。
 
 ```mermaid
 graph TD
     subgraph 客製化問題 (Custom Problem)
         O1[帶有 theta+ 和 theta- 的目標函數]
     end
-    
+
     subgraph 標準 QP 求解器格式 (Standard QP Solver Format)
         S[min 0.5 * x^T H x + f^T x]
     end
-    
+
     O1 -- 將變數堆疊成向量 x --> S
     O1 -- 將矩陣排列成區塊 H --> S
 ```
