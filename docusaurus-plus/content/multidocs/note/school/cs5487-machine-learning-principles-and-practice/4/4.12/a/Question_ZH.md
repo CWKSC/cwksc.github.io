@@ -16,10 +16,6 @@ $$ (4.47)
 
 
 $$
-x^* = \operatorname*\{argmax\}_x f(x)
-$$
-
-$$
 \text{s.t.} \quad g(x) = 0,
 $$
 
