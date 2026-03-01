@@ -17,14 +17,17 @@ $$ (4.47)
 
 $$
 
-x^\* = \underset{x}{\text{argmax}} \, f(x),
+x^* = \underset{x}{\text{argmax}} \, f(x),
 
 $$
+
+
 $$
 
 \text{s.t.} \quad g(x) = 0,
 
 $$
+
 (4.48)
 
 其中 $f(x)$ 是一目標函數 (objective function)，$g(x)$ 是一約束函數 (constraint function)。讓我們來看看這些函數的兩個性質，
@@ -73,5 +76,6 @@ $$
 \pi*j = \frac{N_j}{\sum*{k=1}^K N_k}.
 
 $$
+
 (4.52)
 $$

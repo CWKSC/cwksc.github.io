@@ -17,14 +17,17 @@ One method of solving an optimization problem with equality constraints is to us
 
 $$
 
-x^\* = \underset{x}{\text{argmax}} \, f(x),
+x^* = \underset{x}{\text{argmax}} \, f(x),
 
 $$
+
+
 $$
 
 \text{s.t.} \quad g(x) = 0,
 
 $$
+
 (4.48)
 
 where $f(x)$ is the objective function and $g(x)$ is the constraint function. Let's look at two properties of these functions,
@@ -70,7 +73,7 @@ $$
 
 $$
 
-\pi*j = \frac{N_j}{\sum*{k=1}^K N_k}.
+\pi_j = \frac{N_j}{\sum_{k=1}^K N_k}.
 
 $$
 (4.52)
